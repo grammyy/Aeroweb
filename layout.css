@@ -1,0 +1,28 @@
+html{background: linear-gradient(225deg,#333333,#141414); background-size: 400% 400%;
+    color: white; overflow-y: hidden; overflow-x: hidden;
+    -webkit-animation: background 12s infinite;
+    -moz-animation: background 12s infinite;
+    -o-animation: background 12s infinite;
+    animation: background 12s infinite;}
+    @-webkit-keyframes background {
+        0%{background-position:90% 50%}
+        50%{background-position:10% 50%}
+        100%{background-position:90% 50%}
+    }
+    @-moz-keyframes background {
+        0%{background-position:90% 50%}
+        50%{background-position:10% 50%}
+        100%{background-position:90% 50%}
+    }
+    @-o-keyframes background {
+        0%{background-position:90% 50%}
+        50%{background-position:10% 50%}
+        100%{background-position:90% 50%}
+    }
+    @keyframes background {
+        0%{background-position:90% 50%}
+        50%{background-position:10% 50%}
+        100%{background-position:90% 50%}; }
+html,body,.web,.framework{ height: 100%; width: 100%; position: absolute}
+.web{ display: flex; flex-wrap: wrap; justify-content: space-evenly;}
+.square{ height: 100px; width: 100px; background-color: #212121; margin: 1%; transition: transform 100ms ease-in-out;} .square:hover { transform: scale(1.5) }
