@@ -34,7 +34,6 @@ html,body,.web,.framework{ height: 100%; width: 100%; position: absolute; font-f
   100% { opacity:0; } }
 #guide{ height: 10px; width: 140px; display: flex;
     animation-name: CloseGuide;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-duration: 10s;
-    animation-direction: alternate;}
+    animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+    animation-iteration-count: 1;
+    animation-duration: 10s;}
