@@ -1,0 +1,7 @@
+#universal{ height: 80%; width: 90%;}
+#clock{ position: absolute; bottom: 0; right: 0; margin: 5px; letter-spacing: 3px;}
+.circuit{ display: flex; flex-direction: column; height: 96%; width: 16%; position: absolute; background-image: url("https://images.wallpapersden.com/image/download/blue-galaxy-space-digital_bGhtbGeUmZqaraWkpJRobWllrWdma2U.jpg"); background-size: 2000px; opacity: 50%; margin-right: 1%; right: 0;}
+.seed{ display: flex; align-items: center; justify-content: center; flex-wrap: wrap; height: 55px; width: 100%;}
+.window{ display: flex; align-items: center; border: dotted 1px red; position: absolute; backdrop-filter: blur(10px);}
+
+.r{ color: red;}
