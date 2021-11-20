@@ -1,5 +1,5 @@
 .h1{ font-size: xx-large; letter-spacing: 5px; font-family: "Arial", sans-serif; text-transform: uppercase;}
 body{ overflow: hidden; height: 100%; width: 100%; position: absolute; display: flex; align-items: center; justify-content: center;
-    background-image: url("https://images.wallpapersden.com/image/download/blue-galaxy-space-digital_bGhtbGeUmZqaraWkpJRobWllrWdma2U.jpg");
+    background-image: url("packages/images/init.png");
     background-size: 2000px; font-family: sans-serif;}
 svg{ margin: 5px; right: 0; position: absolute;}
