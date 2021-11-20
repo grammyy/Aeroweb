@@ -1,6 +1,7 @@
 #universal{ height: 80%; width: 90%;}
 #clock{ position: absolute; bottom: 0; right: 0; margin: 5px; letter-spacing: 3px;}
-#frame{ position: absolute; background-image: url("packages/images/init.png"); background-size: 2000px; opacity: 50%;}
+#playlist{ position: absolute; bottom: 0; margin: 5px; letter-spacing: 3px;}
+#frame{ display: flex; justify-content: center; align-items: center; right: 50%; height: 5%; width: 200px; position: absolute; background-image: url("packages/images/init.png"); background-size: 2000px; opacity: 50%;}
 .circuit{ display: flex; flex-direction: column; height: 770px; width: 270px; position: absolute; background-image: url("packages/images/init.png"); background-size: 2000px; opacity: 50%; margin-right: 1%; right: 0;}
 .seed{ display: flex; align-items: center; justify-content: center; flex-wrap: wrap; height: 55px; width: 100%;}
 .window{ display: flex; align-items: center; border: dotted 1px red; position: absolute; backdrop-filter: blur(10px);}
