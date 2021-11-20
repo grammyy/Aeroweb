@@ -1,9 +1,13 @@
 #universal{ height: 80%; width: 90%;}
 #clock{ position: absolute; bottom: 0; right: 0; margin: 5px; letter-spacing: 3px;}
 #playlist{ position: absolute; bottom: 0; margin: 5px; letter-spacing: 3px;}
-#frame{ display: flex; justify-content: center; align-items: center; right: 50%; height: 5%; width: 200px; position: absolute; background-image: url("packages/images/init.png"); background-size: 2000px; opacity: 50%;}
-.circuit{ display: flex; flex-direction: column; height: 770px; width: 270px; position: absolute; background-image: url("packages/images/init.png"); background-size: 2000px; opacity: 50%; margin-right: 1%; right: 0;}
-.seed{ display: flex; align-items: center; justify-content: center; flex-wrap: wrap; height: 55px; width: 100%;}
+#nav{ right: 0; height: 770px; width: 270px;} #net{ height: 750px; width: 150px; top: 0;}
+.circuit{ display: flex; flex-direction: column; position: absolute; background-image: url("packages/images/init.png"); background-size: 2000px; opacity: 50%; margin: 0.5%;}
+.seed{ display: flex; align-content: center; align-items: center; justify-content: center; flex-wrap: wrap; width: 100%;}
 .window{ display: flex; align-items: center; border: dotted 1px red; position: absolute; backdrop-filter: blur(10px);}
 
-.r{ color: red;}
+.r{ color: red;} .y{ color: goldenrod}
+
+#nav > ul,li{ list-style-type: square; padding-left: 10px} #nav > .seed{ height: 55px;}
+#net > ul,li{ list-style-type: none; padding-left: 15px;} #net > .seed{ height: 30px; margin: 5px;}
+
