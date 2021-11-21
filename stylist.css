@@ -4,3 +4,10 @@ body{ overflow: hidden; height: 100%; width: 100%; position: absolute; display: 
     background-image: url("packages/images/init.png");
     background-size: 2000px; font-family: sans-serif;}
 svg{ margin: 5px; right: 0; position: absolute;}
+li{ display: flex;}
+a{ text-decoration: none;}
+
+ul.np{ padding: unset;} li.np{ margin-left: 20px; padding: unset;} .n{ padding: unset;} .n1{ padding-left: 10px;}
+ul.n{padding-left: 20px; height: 12px;} li.n{ width: 200px;}
+ul > ul,p{margin: unset;} .p{padding-left: 10px;}
+li.y{ padding-left: 20px;}

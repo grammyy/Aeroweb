@@ -1,5 +1,6 @@
 window.onload = function () { 
     console.log("Aeroweb initized; https://github.com/BartenderWinery");
+    console.log("Css classes are unoptimized, error: 320.");
     console.error("AeroRender is a sourced and edited project from Google's modelviewer. Use of this engine will be discontinued upon the creation of my own engine.")};
 // output (628640b)
 ! function(e, t) {
