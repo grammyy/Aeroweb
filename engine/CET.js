@@ -1,6 +1,6 @@
 fetch('./package.json')
   .then(response => response.json())
-  .then(jsonResponse => console.log(jsonResponse))     
+  .then(jsonResponse => console.log(jsonResponse[0].version))     
 var printText = "░█████╗░███████╗██████╗░░█████╗░░██╗░░░░░░░██╗███████╗██████╗░/n"+""+
 "██╔══██╗██╔════╝██╔══██╗██╔══██╗░██║░░██╗░░██║██╔════╝██╔══██╗/n"+
 "███████║█████╗░░██████╔╝██║░░██║░╚██╗████╗██╔╝█████╗░░██████╦╝/n"+
