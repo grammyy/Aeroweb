@@ -1,6 +1,7 @@
 fetch('./package.json')
   .then(package => package.json())
   .then(response => version = response[0].currentversion)   
+if(version===null){version=null}
 var printText = "░█████╗░███████╗██████╗░░█████╗░░██╗░░░░░░░██╗███████╗██████╗░/n"+""+
 "██╔══██╗██╔════╝██╔══██╗██╔══██╗░██║░░██╗░░██║██╔════╝██╔══██╗/n"+
 "███████║█████╗░░██████╔╝██║░░██║░╚██╗████╗██╔╝█████╗░░██████╦╝/n"+
