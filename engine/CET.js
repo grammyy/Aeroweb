@@ -1,7 +1,7 @@
 fetch('./package.json')
   .then(package => package.json())
-  .then(response => version = response[0].currentversion)   
-if(version===null){version=null}
+  .then(response => gotversion = response.version)   
+if(gotversion===null){gotversion=null}
 var printText = "░█████╗░███████╗██████╗░░█████╗░░██╗░░░░░░░██╗███████╗██████╗░/n"+""+
 "██╔══██╗██╔════╝██╔══██╗██╔══██╗░██║░░██╗░░██║██╔════╝██╔══██╗/n"+
 "███████║█████╗░░██████╔╝██║░░██║░╚██╗████╗██╔╝█████╗░░██████╦╝/n"+
@@ -9,7 +9,7 @@ var printText = "░█████╗░███████╗█████
 "██║░░██║███████╗██║░░██║╚█████╔╝░░╚██╔╝░╚██╔╝░███████╗██████╦╝/n"+
 "╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚══════╝╚═════╝░/n"+
 "══════════════════════════════════════════════════════════════/n"+
-"Aeroweb version:"+version+"/n"
+"Aeroweb version:"+gotversion+"/n"
 
 var contentArray = printText.split("/n");
 $.each(contentArray, function(index, newLine) {
