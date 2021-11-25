@@ -1,7 +1,7 @@
 #universal{ height: 80%; width: 90%;}
 #clock{ position: absolute; bottom: 0; right: 0; margin: 5px; letter-spacing: 3px;}
-#playlist{ position: absolute; bottom: 0; margin: 5px; letter-spacing: 3px;}
-#nav{ right: 0; height: 98%; width: 270px; overflow :hidden; white-space: nowrap; text-overflow: ellipsis;} #net{ height: 96%; width: 150px; top: 0; overflow :hidden; white-space: nowrap; text-overflow: ellipsis;}
+#playlist{ position: absolute; bottom: 0; margin: 5px; letter-spacing: 3px; z-index: 2;}
+#nav{ right: 0; height: 98%; width: 270px; overflow :hidden; white-space: nowrap; text-overflow: ellipsis;} #net{ height: 98%; width: 150px; top: 0; overflow :hidden; white-space: nowrap; text-overflow: ellipsis;}
 .circuit{ display: flex; flex-direction: column; position: absolute; background-image: url("packages/images/init.png"); background-size: 2000px; opacity: 50%; margin: 0.5%;}
 .seed{ display: flex; align-content: center; align-items: center; justify-content: center; flex-wrap: wrap; width: 100%;}
 .window{ display: flex; border: dotted 1px red; position: absolute; backdrop-filter: blur(10px);}
@@ -15,3 +15,6 @@
 #nav > .seed{ height: 55px;}
 #net > .seed{ height: 30px; margin: 5px;}
 
+#console{ width: 73%; height: 66%;; overflow :hidden; white-space: nowrap; text-overflow: ellipsis; top: 0; left: 9.5%}
+.text { white-space: pre-wrap; overflow: hidden; font-family: 'Roboto', sans-serif;}
+#multiverse{ width: 73%; height: 30%; overflow :hidden; white-space: nowrap; text-overflow: ellipsis; bottom: 0; left: 9.5%}

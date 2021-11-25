@@ -6,12 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="stylist.css">
         <link rel="stylesheet" href="resources.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="engine/engine.js"></script>
         </head>
     <body>
         <div id="universal" class="window">
-            <pre class="morph-section">
-            </pre>
             <model-viewer alt="Avocado!" src="none" style="width: 100%; height: 800px;" background-color="transparent" preload reveal-when-loaded auto-rotate controls></model-viewer>
             <p id="playlist" class="r" style="opacity: 50%;">Placeholder</p>
             <div id="net" class="circuit y">
@@ -25,19 +27,20 @@
                             <li><p class="g">Null</p><p class="y p">Aeroweb</p></li>
                             <li><p class="g">Null</p><p class="y p">AeroRender</p></li>
                             <li><p class="g">Null</p><p class="y p">Youtubmp4</p></li>
+                            <li><p class="g">Null</p><p class="y p">Sequence</p></li>
                         </ul>
                     </ul>
             </div>
-            <div id="nav" class="circuit r">
-                <svg width="10" height="10">
-                    <rect width="100%" height="100%" style="fill:rgb(255, 0, 0, 0.5);" />
-                </svg>
-                <svg width="10" height="10" style="right: 5%">
-                    <rect width="100%" height="100%" style="fill:rgb(255, 0, 0, 0.5);" />
-                </svg>
-                <div class="seed r">
-                    <p class="h">Aeroweb</p>
-                </div>
+        <div id="nav" class="circuit r">
+            <svg width="10" height="10">
+                <rect width="100%" height="100%" style="fill:rgb(255, 0, 0, 0.5);" />
+            </svg>
+            <svg width="10" height="10" style="right: 5%">
+                <rect width="100%" height="100%" style="fill:rgb(255, 0, 0, 0.5);" />
+            </svg>
+            <div class="seed r">
+                <p class="h">Aeroweb</p>
+            </div>
             <div class="divide">
                 <ul class="np">
                     <li class="r np">Blueprints</li>
@@ -102,10 +105,16 @@
                         </ul>
                     </ul>
                 </div>
+            
             </div>
                 <p style="right: 0; position: absolute; bottom: 20px; margin: 5px;">Mobile not supported yet!</p>
                 <p id="clock" class="r"></p>
             </div>
+        <div id="console" class="circuit r">
+            <p class="text"></p>
         </div>
+        <div id="multiverse" class="circuit"></div>
+        </div>
+        <script src="engine/CET.js"></script>
     </body>
     </html>
