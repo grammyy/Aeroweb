@@ -15,6 +15,6 @@
 #nav > .seed{ height: 55px;}
 #net > .seed{ height: 30px; margin: 5px;}
 
-#console{ width: 73%; height: 66%;; overflow :hidden; white-space: nowrap; text-overflow: ellipsis; top: 0; left: 9.5%}
-.text { white-space: pre-wrap; overflow: hidden; font-family: 'Roboto', sans-serif;}
+#console{ width: 73%; height: 66%;; overflow :scroll; overflow-x: hidden; white-space: nowrap; text-overflow: ellipsis; top: 0; left: 9.5%}
+.text { white-space: pre-wrap; font-family: 'Roboto', sans-serif;}
 #multiverse{ width: 73%; height: 30%; overflow :hidden; white-space: nowrap; text-overflow: ellipsis; bottom: 0; left: 9.5%}
