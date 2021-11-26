@@ -1,4 +1,4 @@
-#universal{ height: 80%; width: 90%}
+#universal{ height: 80%; width: 90%;}
 #clock{ position: absolute; bottom: 0; right: 0; margin: 5px; letter-spacing: 3px;}
 #playlist{ position: absolute; bottom: 0; margin: 5px; letter-spacing: 3px; z-index: 2;}
 #nav{ right: 0; height: 98%; width: 15.5%; overflow :hidden; white-space: nowrap; text-overflow: ellipsis;} #net{ height: 98%; width: 8.5%; top: 0; overflow :hidden; white-space: nowrap; text-overflow: ellipsis;}
