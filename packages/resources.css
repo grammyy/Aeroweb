@@ -5,7 +5,7 @@
 #folder{ height: 98%; width: 15.5%; right: 0;}
 
 .window{ border: 1px dotted red; display: flex; color: red; position: absolute;}
-.subwindow{ background-image: url("init.png"); background-size: 2000px; opacity: 50%; overflow-x: hidden; margin: 0.5%; position: absolute;}
-.verse{ height: 105px; width: 100px; margin: 5px; border: 1px dotted red;}
+.subwindow{ background-image: url("init.png"); background-size: 2000px; opacity: 50%; margin: 0.5%; position: absolute; overflow: hidden;}
+.verse{ height: 105px; width: 100px; margin: 5px; border: 1px dotted red; display: flex; justify-content: center;}
 
 #clock{ position: absolute; letter-spacing: 3px; margin: 10px; bottom: 0; right: 0; opacity: 50%;}

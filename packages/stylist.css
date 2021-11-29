@@ -1,5 +1,5 @@
 body{ height: 100vh; width: 100vw; overflow: hidden; background-image: url("init.png"); background-size: 2000px; display: flex; align-items: center; justify-content: center; margin: 0;}
-iframe{ height: 98%; width: 98%; border: unset; margin: 5px;}
+iframe{ height: 100%; width: 100%; border: unset;}
 p{ font-family: sans-serif;}
 
 @media only screen and (max-width: 780px) {
