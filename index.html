@@ -2,119 +2,28 @@
 <html>
     <head>
         <title>Aeroweb | Main</title>
-        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="stylist.css">
-        <link rel="stylesheet" href="resources.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="engine/engine.js"></script>
+        <link href="packages/resources.css" rel="stylesheet">
+        <link href="packages/stylist.css" rel="stylesheet">
+        <meta charset="UTF-8">
         </head>
-    <body>
+    <body id="web">
         <div id="universal" class="window">
-            <model-viewer alt="Avocado!" src="none" style="width: 100%; height: 800px;" background-color="transparent" preload reveal-when-loaded auto-rotate controls></model-viewer>
-            <p id="playlist" class="r" style="opacity: 50%;">Placeholder</p>
-            <div id="net" class="circuit y">
-                <div class="seed y">
-                    <p class="h2">Links</p>
-                </div>
-                    <ul class="n1">
-                        <ul class="np">
-                        <li class="y">Codes</li>
-                        <ul class="n">
-                            <li><p class="g">Null</p><p class="y p">Aeroweb</p></li>
-                            <li><p class="g">Null</p><p class="y p">AeroRender</p></li>
-                            <li><p class="g">Null</p><p class="y p">Youtubmp4</p></li>
-                            <li><p class="g">Null</p><p class="y p">Sequence</p></li>
-                        </ul>
-                    </ul>
+            <div id="list" class="subwindow desktop">
+
             </div>
-        <div id="nav" class="circuit r">
-            <svg width="10" height="10">
-                <rect width="100%" height="100%" style="fill:rgb(255, 0, 0, 0.5);" />
-            </svg>
-            <svg width="10" height="10" style="right: 5%">
-                <rect width="100%" height="100%" style="fill:rgb(255, 0, 0, 0.5);" />
-            </svg>
-            <div class="seed r">
-                <p class="h">Aeroweb</p>
+            <div id="console" class="subwindow maximize">
+                <p class="text"></p>
             </div>
-            <div class="divide">
-                <ul class="np">
-                    <li class="r np">Blueprints</li>
-                    <ul>
-                        <li>Rocket engines</li>
-                            <ul class="">
-                            </ul>
-                        <li>EHD thrusters</li>
-                            <ul class="">
-                            </ul>
-                        <li>Electrostatic ion thrusters</li>
-                            <ul class="">
-                            </ul>
-                        <li>Ion engines</li>
-                            <ul class="n">
-                                <li onclick="" class="n"><p class="g">Null</p><p class="y p">Duel Stage 4-Grid</p></li>
-                            </ul>
-                        <li>Pulsed inductive thrusters</li>
-                            <ul class="">
-                            </ul>
-                    </ul>
-                </ul>
-                <ul class="np">
-                    <li class="r np">Programming</li>
-                    <ul>
-                        <li>Html</li>
-                            <ul class="n">
-                                <li onclick="" class="n"><p class="g">Null</p><p class="y p">Aeroweb</p></li>
-                            </ul>
-                        <li>Python</li>
-                            <ul class="n">
-                                <li onclick="" class="n"><p class="g">Null</p><p class="y p">Youtubmp4</p></li>
-                            </ul>
-                    </ul>
-                </ul>
+            <div id="multiverse" class="subwindow desktop grid">
+                
             </div>
-            <div id="servers" class="divide">
-                <div id="stats">
-                    <ul class="np f">
-                        <li class="y">Debug</li>
-                        <ul>
-                            <li>Console</li>
-                            <li>Plans</li>
-                            <li>AeroRender</li>
-                        </ul>
-                        <li class="y">Main</li>
-                        <ul>
-                            <li>External</li>
-                            <li>Settings</li>
-                            <li>Controls</li>
-                            <li>Music</li>
-                            <li>Links</li>
-                        </ul>
-                        <li class="y">Source</li>
-                        <ul>
-                            <li>Internal</li>
-                            <li>Database</li>
-                            <li>APIs</li>
-                        </ul>
-                        <li class="y">Games</li>
-                        <ul>
-                        </ul>
-                    </ul>
-                </div>
-            
+            <div id="folder" class="subwindow desktop">
+
             </div>
-                <p style="right: 0; position: absolute; bottom: 20px; margin: 5px;">Dyanmic scaling support is being worked on!</p>
-                <p id="clock" class="r"></p>
-            </div>
-        <div id="console" class="circuit r">
-            <p class="text"></p>
+            <p id="clock" class="desktop"></p>
         </div>
-        <div id="multiverse" class="circuit"></div>
-        </div>
-        <script src="engine/CET.js"></script>
+        <script src="engine/engine.js"></script>
     </body>
     </html>
