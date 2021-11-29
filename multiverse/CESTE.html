@@ -1,0 +1,32 @@
+<html>
+    <head>  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link href="verse.css" rel="stylesheet"></link>
+        <style>.text { white-space: pre-wrap; overflow: hidden;}</style>
+    </head>  
+    <body>   
+        <p class="text" data-text="Multiverse initized; Universe: Console emulator styled text example;/nhttps://github.com/BartenderWinery/Console-emulator-styled-text-example/n /n        global  go/n        extern  _ExitProcess@4/n        extern  _GetStdHandle@4/n        extern  _WriteConsoleA@20/n /n        section .data/nmsg:    db      'Hello, World', 10/nhandle: db      0/nwritten:/n        db      0/n /n        section .text/ngo:/n        ; handle = GetStdHandle(-11)/n        push    dword -11/n        call    _GetStdHandle@4/n        mov     [handle], eax/n /n        ; WriteConsole(handle, &msg[0], 13, &written, 0)/n        push    dword 0/n        push    written/n        push    dword 13/n        push    msg/n        push    dword [handle]/n        call    _WriteConsoleA@20/n /n        ; ExitProcess(0)/n        push    dword 0/n        call    _ExitProcess@4/n"></p>
+        <!--Start script-->
+        <script>
+        var printText = $('.text').data('text');
+
+        var contentArray = printText.split('/n');
+        $.each(contentArray, function(index, newLine) {
+          $('.text').append('<span style="display:block;" id="'+index+'"></span>');
+
+          var lineID = index;
+          var self = $(this);
+            setTimeout(function () {
+              $.each(self, function(index, chunk){
+                  setTimeout(function () {
+                    $('#'+lineID).append("<span>"+chunk+"</span>");
+                    $('body, html').scrollTop($(document).height());
+                  }, index*5);
+              });
+
+            }, index*100);
+        });
+        </script> 
+        <!--End script-->
+    </body>  
+</html>
