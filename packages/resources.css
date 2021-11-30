@@ -6,6 +6,9 @@
 
 .window{ border: 1px dotted red; display: flex; color: red; position: absolute;}
 .subwindow{ background-image: url("init.png"); background-size: 2000px; opacity: 50%; margin: 0.5%; position: absolute; overflow: hidden;}
-.verse{ height: 105px; width: 100px; margin: 5px; border: 1px dotted red; display: flex; justify-content: center;}
+.verse{ height: 15px; width: 125px; margin: 5px; border: 1px dotted red; display: flex; justify-content: center; cursor: pointer;}
+.button{ height: 10px; width: 10px; margin: 5px; background-color: red; position: absolute; opacity: 50%; z-index: 2;}
+
+#initialize{ top: 0; right: 0; cursor: alias;}
 
 #clock{ position: absolute; letter-spacing: 3px; margin: 10px; bottom: 0; right: 0; opacity: 50%;}

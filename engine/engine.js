@@ -8,7 +8,9 @@ var printText = ""+
 "██╔══██║██╔══╝░░██╔══██╗██║░░██║░░████╔═████║░██╔══╝░░██╔══██╗/n"+
 "██║░░██║███████╗██║░░██║╚█████╔╝░░╚██╔╝░╚██╔╝░███████╗██████╦╝/n"+
 "╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚══════╝╚═════╝░/n"+
-"══════════════════════════════════════════════════════════════/n"
+"══════════════════════════════════════════════════════════════/n"+
+"Console version: 1.0; complete recode coming soon./n"+
+"Python support coming soon!/n"
 var contentArray = printText.split("/n");
 $.each(contentArray, function(index) {
   $('.text').append('<span style="display:block;" id="'+index+'"></span>');
