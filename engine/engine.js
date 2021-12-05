@@ -1,7 +1,16 @@
-//initialize(); 
+ 
 setInterval(function() { clock();}, 500);
 function clock() { var cl = new Date(); document.getElementById("clock").innerHTML = cl.toLocaleTimeString();}
-var printText = ""+
+function rcon(type, array) { 
+    switch(type){
+        case "console":
+            const package = {log: "Logged message from console; formatted as const;"}
+            console.info(package.log); console.log(array);
+            break
+        
+    }
+}
+const helloworld = ""+
 "░█████╗░███████╗██████╗░░█████╗░░██╗░░░░░░░██╗███████╗██████╗░/n"+
 "██╔══██╗██╔════╝██╔══██╗██╔══██╗░██║░░██╗░░██║██╔════╝██╔══██╗/n"+
 "███████║█████╗░░██████╔╝██║░░██║░╚██╗████╗██╔╝█████╗░░██████╦╝/n"+
@@ -9,18 +18,19 @@ var printText = ""+
 "██║░░██║███████╗██║░░██║╚█████╔╝░░╚██╔╝░╚██╔╝░███████╗██████╦╝/n"+
 "╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚══════╝╚═════╝░/n"+
 "══════════════════════════════════════════════════════════════/n"+
-"Console version: 1.0; complete recode coming soon./n"+
-"Python support coming soon!/n"
-var contentArray = printText.split("/n");
-$.each(contentArray, function(index) {
-  $('.text').append('<span style="display:block;" id="'+index+'"></span>');
-
-  var lineID = index; var self = $(this);
-    setTimeout(function () {
-      $.each(self, function(index, chunk){ setTimeout(function () {
-            $('#'+lineID).append("<span>"+chunk+"</span>");
-            $('body, html').scrollTop($(document).height());
-        }, index*5);}); }, index*100); });
-var grid = $(".grid")
-//function initialize() { }
+"Console version: 2.0; Github independant version coming soon."
+function con(request){
+    var array = request.split("/n");
+    rcon("console", array);
+    $.each(array, function(index) {
+        $('.text').append('<span style="display:block;" id="'+index+'"></span>');
+      
+        var lineID = index; var self = $(this);
+          setTimeout(function () {
+            $.each(self, function(index, chunk){ setTimeout(function () {
+                  $('#'+lineID).append("<span>"+chunk+"</span>");
+                  $('body, html').scrollTop($(document).height());
+              }, index*5);}); }, index*100);});
+}
+initialize(); function initialize() { con(helloworld)}
 
