@@ -32,5 +32,4 @@ function con(request){
                   $('body, html').scrollTop($(document).height());
               }, index*5);}); }, index*100);});
 }
-initialize(); function initialize() { con(helloworld)}
-
+con(helloworld)
