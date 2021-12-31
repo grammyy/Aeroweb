@@ -12,3 +12,7 @@
 #initialize{ top: 0; right: 0; cursor: alias;}
 
 #clock{ position: absolute; letter-spacing: 3px; margin: 10px; bottom: 0; right: 0; opacity: 50%;}
+
+#playlist{ height: 10%; width: 90%; position: absolute; bottom: 0; display: flex; align-items: center}
+#playname{ position: absolute; top: 0; letter-spacing: 3px; opacity: 50%; color: red; margin-top: 3px !important;}
+#ico{ position: absolute; top: 0; margin-top: 18px; opacity: 50%;}

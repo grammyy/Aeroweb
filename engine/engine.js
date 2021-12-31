@@ -1,5 +1,16 @@
  
 setInterval(function() { clock();}, 500);
+
+const WelMSG = ""+
+"░█████╗░███████╗██████╗░░█████╗░░██╗░░░░░░░██╗███████╗██████╗░/n"+
+"██╔══██╗██╔════╝██╔══██╗██╔══██╗░██║░░██╗░░██║██╔════╝██╔══██╗/n"+
+"███████║█████╗░░██████╔╝██║░░██║░╚██╗████╗██╔╝█████╗░░██████╦╝/n"+
+"██╔══██║██╔══╝░░██╔══██╗██║░░██║░░████╔═████║░██╔══╝░░██╔══██╗/n"+
+"██║░░██║███████╗██║░░██║╚█████╔╝░░╚██╔╝░╚██╔╝░███████╗██████╦╝/n"+
+"╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚══════╝╚═════╝░/n"+
+"══════════════════════════════════════════════════════════════/n"+
+"Console version: 2.0; Github independant version coming soon."
+//const songs = require('../packages/songs.json');
 function clock() { var cl = new Date(); document.getElementById("clock").innerHTML = cl.toLocaleTimeString();}
 function rcon(type, array) { 
     switch(type){
@@ -10,21 +21,12 @@ function rcon(type, array) {
         
     }
 }
-const helloworld = ""+
-"░█████╗░███████╗██████╗░░█████╗░░██╗░░░░░░░██╗███████╗██████╗░/n"+
-"██╔══██╗██╔════╝██╔══██╗██╔══██╗░██║░░██╗░░██║██╔════╝██╔══██╗/n"+
-"███████║█████╗░░██████╔╝██║░░██║░╚██╗████╗██╔╝█████╗░░██████╦╝/n"+
-"██╔══██║██╔══╝░░██╔══██╗██║░░██║░░████╔═████║░██╔══╝░░██╔══██╗/n"+
-"██║░░██║███████╗██║░░██║╚█████╔╝░░╚██╔╝░╚██╔╝░███████╗██████╦╝/n"+
-"╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚══════╝╚═════╝░/n"+
-"══════════════════════════════════════════════════════════════/n"+
-"Console version: 2.0; Github independant version coming soon."
+
 function con(request){
     var array = request.split("/n");
     rcon("console", array);
     $.each(array, function(index) {
         $('.text').append('<span style="display:block;" id="'+index+'"></span>');
-      
         var lineID = index; var self = $(this);
           setTimeout(function () {
             $.each(self, function(index, chunk){ setTimeout(function () {
@@ -32,4 +34,16 @@ function con(request){
                   $('body, html').scrollTop($(document).height());
               }, index*5);}); }, index*100);});
 }
-con(helloworld)
+function playlist(Num){
+    if(Num!=0){
+        document.getElementById("playname").innerHTML = "Playlist: Night running by this guy"
+        //document.getElementById("ico").innerHTML = "<audio controls><source src="+"./packages/songs/nightrunning.mp3"+" type="+"audio/mpeg"+"> </audio>"
+        }
+}
+function init(){
+    con(WelMSG);
+    playlist(Math.floor(Math.random() * 10))
+
+    $("video").each(function(){ this.play(); });
+}
+init();
