@@ -9,7 +9,8 @@ const WelMSG = ""+
 "██║░░██║███████╗██║░░██║╚█████╔╝░░╚██╔╝░╚██╔╝░███████╗██████╦╝/n"+
 "╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚══════╝╚═════╝░/n"+
 "══════════════════════════════════════════════════════════════/n"+
-"Console version: 2.0; Github independant version coming soon."
+"IMPORTANT! THIS WEBSITE IS NOT FINISHED AND PROBABLY WON'T BE FOR A LONG TIME./n"+
+"IF YOU'RE SEEKING COMMUNICATION, DM THE DISCORD ACCOUNT: Bartender#0531"
 //const songs = require('../packages/songs.json');
 function clock() { var cl = new Date(); document.getElementById("clock").innerHTML = cl.toLocaleTimeString();}
 function rcon(type, array) { 
