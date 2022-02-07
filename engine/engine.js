@@ -34,16 +34,7 @@ function con(request){
                   $('body, html').scrollTop($(document).height());
               }, index*5);}); }, index*100);});
 }
-function playlist(Num){
-    if(Num!=0){
-        document.getElementById("playname").innerHTML = "Playlist: Night running by this guy"
-        //document.getElementById("ico").innerHTML = "<audio controls><source src="+"./packages/songs/nightrunning.mp3"+" type="+"audio/mpeg"+"> </audio>"
-        }
-}
 function init(){
     con(WelMSG);
-    playlist(Math.floor(Math.random() * 10))
-
-    $("video").each(function(){ this.play(); });
 }
 init();
