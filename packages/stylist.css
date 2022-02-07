@@ -1,4 +1,4 @@
-body{ height: 100vh; width: 100vw; overflow: hidden; background-image: url("init.png"); background-size: 2000px; display: flex; align-items: center; justify-content: center; margin: 0; font-family: sans-serif;}
+body{ height: 100vh; width: 100vw; overflow: hidden; background-image: url("init.png"); background-size: cover; display: flex; align-items: center; justify-content: center; margin: 0; font-family: sans-serif;}
 iframe{ height: 100%; width: 100%; border: unset;}
 span{ font-family: 'Roboto', sans-serif;}
 audio{ height: 15px; width: 282px;}

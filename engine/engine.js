@@ -22,7 +22,6 @@ function rcon(type, array) {
         
     }
 }
-
 function con(request){
     var array = request.split("/n");
     rcon("console", array);
