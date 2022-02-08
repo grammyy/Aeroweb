@@ -1,6 +1,6 @@
 #universal{ height: 80%; width: 90%; backdrop-filter: blur(10px);}
 #list{ height: 98%; width: 8.5%;}
-#console{ width: 73%; height: 66%; left: 9.5%; top: 0; white-space: nowrap;}
+#console{ width: 73%; height: 66%; left: 9.5%; top: 0; overflow-y: scroll;}
 #multiverse{ width: 73%; height: 30%; left: 9.5%; bottom: 0; display: flex; flex-wrap: wrap;}
 #folder{ height: 98%; width: 15.5%; right: 0;}
 
@@ -12,3 +12,7 @@
 #initialize{ top: 0; right: 0; cursor: alias;}
 
 #clock{ position: absolute; letter-spacing: 3px; margin: 10px; bottom: 0; right: 0; opacity: 50%;}
+::-webkit-scrollbar { width: 6PX;}
+::-webkit-scrollbar-track { background: transparent;}
+::-webkit-scrollbar-thumb { background: #30003d;}
+::-webkit-scrollbar-thumb:hover { background: transparent;}

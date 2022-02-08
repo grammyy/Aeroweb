@@ -14,10 +14,14 @@
             <div id="list" class="subwindow desktop">
             </div>
             <div id="console" class="subwindow maximize">
-                <p class="text"></p>
             </div>
             <div id="multiverse" class="subwindow desktop grid">
-                <div id="initialize" onclick="window.location.reload()" class="button"></div>
+                <script>
+                    function cc(){
+                        document.getElementById("console").innerHTML="";
+                    }
+                </script>
+                <div id="initialize" onclick="cc()" class="button"></div>
             </div>
             <div id="folder" class="subwindow desktop">
 
