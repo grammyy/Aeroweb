@@ -9,7 +9,9 @@
 .verse{ height: 15px; width: 125px; margin: 5px; border: 1px dotted red; display: flex; justify-content: center; align-items: center; cursor: pointer; overflow: hidden}
 .button{ height: 10px; width: 10px; margin: 5px; background-color: red; position: absolute; opacity: 60%; z-index: 2;}
 
-#initialize{ top: 0; right: 0; cursor: alias;}
+#initialize{ top: 12%; right: 0; cursor: alias;}
+#control{ top:6%; right: 0; cursor: ne-resize;}
+#controller{ top:0; right: 0; cursor: ne-resize;}
 
 #clock{ position: absolute; letter-spacing: 3px; margin: 10px; bottom: 0; right: 0; opacity: 50%;}
 ::-webkit-scrollbar { width: 6PX;}
