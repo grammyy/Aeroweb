@@ -13,7 +13,7 @@ const WelMSG = [
     "IF YOU'RE SEEKING COMMUNICATION, DM THE DISCORD ACCOUNT: Bartender#0531"]
 const Changelog = [
     "==---------------------------------------------------------------------------------------------==",
-    "+Added Cookie Clicker 2.031 (Latest version) [IMPORTANT: SAVING NOT WORKING]"
+    "+Added Cookie Clicker 2.031 (Latest version)"
 ]
 //const songs = require('../packages/songs.json');
 function clock() { var cl = new Date(); document.getElementById("clock").innerHTML = cl.toLocaleTimeString();}
