@@ -13,8 +13,8 @@ const WelMSG = [
     "██║░░██║███████╗██║░░██║╚█████╔╝░░╚██╔╝░╚██╔╝░███████╗██████╦╝",
     "╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚══════╝╚═════╝░",
     "══════════════════════════════════════════════════════════════",
-    "IMPORTANT! THIS WEBSITE IS NOT FINISHED AND PROBABLY WON'T BE FOR A LONG TIME.",
-    "IF YOU'RE SEEKING COMMUNICATION, DM THE DISCORD ACCOUNT: Bartender#0531"]
+    "If the layout of this website seems wrong, your HTML scale may be too low",
+    "The problem is fixable, it just would take a while. Expect a proper layout update soon."]
 const Changelog = [
     "==---------------------------------------------------------------------------------------------==",
     "+Added Cookie Clicker 2.031 (Latest version)"
