@@ -4,7 +4,7 @@ for (let step = 0; step < universes; step++) {
     $('.grid').prepend('<div onclick="link('+step+')" id="'+'universe'+step+'" class="verse desktop"></div>');}
     if (steps = universes){
         document.getElementById("universe0").innerHTML = 'Cookie Clicker 2.031';
-        document.getElementById("universe1").innerHTML = 'Console text emulator';
+        document.getElementById("universe1").innerHTML = 'Console Animation';
         document.getElementById("universe2").innerHTML = 'Linear Auto Pattern';
     }
     function link(step){
