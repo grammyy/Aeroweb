@@ -14,7 +14,6 @@
             <div id="list" class="subwindow desktop">
             </div>
             <div id="console" class="subwindow maximize">
-                <!--<p style="position: absolute; bottom: 0; font-family: monospace; font-size: 17.5px; margin: 5px">>: <input style="background-color: transparent; color: red; border: unset !important; font-size: 12px; letter-spacing: 1px; width: 64vw; " type="text" name="conc" value=""></p>-->
             </div>
             <div id="multiverse" class="subwindow desktop grid">
                 <div id="initialize" onclick="con('clear')" class="button"></div>
@@ -25,6 +24,8 @@
 
             </div>
             <p id="clock" class="desktop"></p>
+            <input id="rcon" type="text" name="conc" value="" onkeydown="exec(document.getElementById('rcon').value)">
+
         </div>
         <p id="playlist"></p>
         <script src="engine/engine.js"></script>

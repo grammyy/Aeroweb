@@ -564,10 +564,10 @@ div:hover>.hoverable
 {
 	position:absolute;
 	left:0px;
-	top:32px;
 	right:0px;
 	bottom:0px;
 	overflow:hidden;
+	height: 100%;
 }
 #sectionLeft
 {
