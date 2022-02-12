@@ -17,6 +17,7 @@ const WelMSG = [
     "The problem is fixable, it just would take a while. Expect a proper layout update soon."]
     const Changelog = [
         "==---------------------------------------------------------------------------------------------==",
+        "+Website proxey is being worked on",
         "+Added Cookie Clicker 2.031 (Latest version)"
     ]
     //const songs = require('../packages/songs.json');
