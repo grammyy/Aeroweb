@@ -1077,4 +1077,4 @@ M.launch=function()
 	}
 	M.init(l('rowSpecial'+M.parent.id));
 }
-var M=0;
+var M=0;    

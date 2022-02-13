@@ -1,10 +1,3 @@
-var universal = document.getElementById("universal");
-var console = document.getElementById("console");
-var control = document.getElementById("control");
-var controller = document.getElementById("controller");
-var fullscreen=0
-var fullscreener=0
-setInterval(function() { clock();}, 500);
 const WelMSG = [
     "░█████╗░███████╗██████╗░░█████╗░░██╗░░░░░░░██╗███████╗██████╗░",
     "██╔══██╗██╔════╝██╔══██╗██╔══██╗░██║░░██╗░░██║██╔════╝██╔══██╗",
@@ -14,85 +7,82 @@ const WelMSG = [
     "╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚══════╝╚═════╝░",
     "══════════════════════════════════════════════════════════════",
     "If the layout of this website seems wrong, your HTML scale may be too low",
-    "The problem is fixable, it just would take a while. Expect a proper layout update soon."]
-    const Changelog = [
-        "==---------------------------------------------------------------------------------------------==",
-        "+Website proxey is being worked on",
-        "+Added Cookie Clicker 2.031 (Latest version)"
-    ]
-    //const songs = require('../packages/songs.json');
-    function clock() { var cl = new Date(); document.getElementById("clock").innerHTML = cl.toLocaleTimeString();}
-    var con = function(func,request){
-        switch(func){
-            case "log":
-                request.forEach(element => console.insertAdjacentHTML("beforeend","<p>"+element+"</p>"))
-                break;
-                case "screen":
-                    if (fullscreen==0){ //needs improving lol
-                        console.style.height = "100%";
-                        console.style.width = "100%";
-                        console.style.position = "initial";
-                        console.style.margin = "0";
-                        document.getElementById("folder").style.visibility = "hidden";
-                        document.getElementById("multiverse").style.visibility = "hidden";
-                        controller.style.visibility = "hidden";
-                        control.style.visibility = "visible";
-                        control.style.position = "fixed";
-                        control.style.top = "0";
-                        fullscreen=1
-                    } else {
-                        console.style.height = "66%";
-                        console.style.width = "73%";
-                        console.style.position = "absolute";
-                        console.style.margin = "0.5%";
-                        document.getElementById("folder").style.visibility = "visible";
-                        document.getElementById("multiverse").style.visibility = "visible";
-                        control.style.visibility = "visible";
-                        control.style.position = "absolute";
-                        controller.style.visibility = "visible";
-                        control.style.top = "6%";
-                        fullscreen = 0 
-                    }
+    "The problem is fixable, it just would take a while. Expect a proper layout update soon.",
+    "==---------------------------------------------------------------------------------------------==",
+    "+Website proxey is being worked on",
+    "+Added Cookie Clicker 2.031 (Latest version)"]
+const universes = [["Encrypted Web Proxy","proxy.html"],["Cookie CLicker 2.031","CC2031.html"]]
+
+var clock=document.getElementById("clock")
+var win = document.getElementById("universal");
+var con = document.getElementById("con");
+var c = document.getElementById("c");
+var cc = document.getElementById("cc");
+
+var mv=document.getElementById("multiverse")
+var fr=document.getElementById("folder")
+var ls=document.getElementById("list")
+var rcon = function(ex,array){
+    switch(ex){
+        case "log":
+            array.forEach(element => con.insertAdjacentHTML("beforeend","<p>"+element+"</p>"))
+            break;
+        case "resize":
+            switch(array){
+                case 0:
+                    con.style = "height: 66%; width: 73%; position: absolute; margin: 0.5%";
+                    c.style = "visibility: visible; top: 6%"; c.setAttribute("onclick","rcon('resize', 1)");
+                    cc.style = "visibility: visible; position: absolute"; cc.setAttribute("onclick","rcon('resize', 2)");
+                    mv.style = "visibility: visible";
+                    fr.style = "visibility: visible";
+                    ls.style = "visibility: visible";
+                    win.style = "height: 80%; width: 90%; border: 1px dotted red";
                     break;
-                    case "fullscreen":
-                        if (fullscreener==0){ //needs improving lol
-                            console.style.height = "100%";
-                            console.style.width = "100%";
-                            console.style.position = "initial";
-                            console.style.margin = "0";
-                            document.getElementById("folder").style.visibility = "hidden";
-                            document.getElementById("multiverse").style.visibility = "hidden";
-                            controller.style.visibility = "visible";
-                            controller.style.position = "fixed";
-                            control.style.visibility = "hidden";
-                            universal.style.height = "100%";
-                            universal.style.width = "100%";
-                            universal.style.border = "unset";
-                            fullscreener = 1
-                        } else {
-                            console.style.height = "66%";
-                            console.style.width = "73%";
-                            console.style.position = "absolute";
-                            console.style.margin = "0.5%";
-                            document.getElementById("folder").style.visibility = "visible";
-                            document.getElementById("multiverse").style.visibility = "visible";
-                            controller.style.visibility = "visible";
-                            controller.style.position = "absolute";
-                            control.style.visibility = "visible";
-                            universal.style.height = "80%";
-                            universal.style.width = "90%";
-                            universal.style.border = "1px dotted red";
-                            fullscreener = 0 
-                        }
-                        break;
-                        case "clear":
-                            console.innerHTML="";
-                            console.style.opacity = "60%";
-                            break;
+                case 1:
+                    con.style = "height: 100%; width: 100%; position: initial; margin: 0";
+                    c.style = "visibility: visible; position: fixed; top: 0";  c.setAttribute("onclick","rcon('resize', 0)");
+                    cc.style = "visibility: hidden";
+                    mv.style = "visibility: hidden";
+                    fr.style = "visibility: hidden";
+                    ls.style = "visibility: hidden";
+                    win.style = "height: 80%; width: 90%; border: 1px dotted red";
+                    break;
+                case 2: 
+                    con.style = "height: 100%; width: 100%; position: initial; margin: 0";
+                    c.style = "visibility: hidden";
+                    cc.style = "visibility: visible; position: fixed";  cc.setAttribute("onclick","rcon('resize', 0)");
+                    mv.style = "visibility: hidden";
+                    fr.style = "visibility: hidden";
+                    ls.style = "visibility: hidden";
+                    win.style = "height: 100%; width: 100%; border: unset";
+                    break;
+            }
+            if(op!=0){con.style.opacity = "100%";}
+            break;
+        case "clear":
+            con.innerHTML = "";
+            con.style.opacity = "60%";
+            break;
     }
 }
-function init(){
-    con("log",WelMSG);
-    con("log",Changelog)
+var link = function(link){
+    con.innerHTML = "<iframe src=./multiverse/"+universes[link][1]+"></iframe>";
+    con.style.opacity = "100%"; op=1
 }
+var loop = function(){
+    clock.innerHTML= Date.now(); //Add localtime and other events such as the time that a golden cookie is going to occure.
+}
+var init = function(){
+    if(tps==null){var tps=500}
+    setInterval(function() { loop();},tps);
+    for (let step = 0; step < universes.length; step++) {
+        mv.insertAdjacentHTML("beforeend",'<div onclick="link('+step+')" class="verse desktop">'+universes[step][0]+'</div>')
+        console.log("[== Init: "+universes[step][0]+" ==]");
+    }
+        //universes.forEach(element => mv.insertAdjacentHTML("beforeend",'<div onclick="link('+element[1]+')" id="'+element[1]+'" class="verse desktop">'+element[0]+'</div>'))
+    
+    rcon("log",WelMSG);
+}
+var op=0
 init();
+//$.ajax({ url: 'your-url', success: function(data) { alert(data); } });
