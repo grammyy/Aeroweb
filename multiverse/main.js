@@ -10659,7 +10659,7 @@ Game.Launch=function()
 		new Game.Achievement('A stroke of luck','Click <b>27 golden cookies</b>.',[23,6]);
 		
 		order=30200;
-		new Game.Achievement('Cheated cookies taste awful','Hack in some cookies.',[10,6]);Game.last.pool='shadow';
+		new Game.Achievement('Cheated cookies taste awful','Hack in some cookies.',[10,6]);//Game.last.pool='shadow';
 		order=11010;
 		new Game.Achievement('Uncanny clicker','Click really, really fast.<q>Well I\'ll be!</q>',[12,0]);
 		
@@ -14020,7 +14020,7 @@ Game.Launch=function()
 				if (Game.handmadeCookies>=10000000000000000000000000) {Game.Win('One...more...click...');Game.Unlock('Plasmarble mouse');}
 				if (Game.handmadeCookies>=1000000000000000000000000000) {Game.Win('Clickety split');Game.Unlock('Miraculite mouse');}
 				
-				if (Game.cookiesEarned<Game.cookies) Game.Win('Cheated cookies taste awful');
+				//if (Game.cookiesEarned<Game.cookies) Game.Win('Cheated cookies taste awful');
 				
 				if (Game.Has('Skull cookies') && Game.Has('Ghost cookies') && Game.Has('Bat cookies') && Game.Has('Slime cookies') && Game.Has('Pumpkin cookies') && Game.Has('Eyeball cookies') && Game.Has('Spider cookies')) Game.Win('Spooky cookies');
 				if (Game.wrinklersPopped>=1) Game.Win('Itchscratcher');
