@@ -12,7 +12,7 @@ const WelMSG = [
     "==---------------------------------------------------------------------------------------------==",
     "+Website proxey is being worked on",
     "+Added Cookie Clicker 2.031 (Latest version)"]
-const universes = [["Encrypted Web Proxy","proxy/pubilc/index.html"],["Cookie CLicker 2.031","CC2031.html"],["Console Emulator","CESTE.html"],["Flex Background","FLPBE.html"]]
+const universes = [["Encrypted Web Proxy","proxy/pubilc/index.html"],["Cookie Clicker 2.031","CC2031.html"],["Console Emulator","CESTE.html"],["Flex Background","FLPBE.html"]]
 
 var clock=document.getElementById("clock")
 var win = document.getElementById("universal");
