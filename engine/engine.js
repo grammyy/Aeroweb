@@ -1,3 +1,4 @@
+var tps=100
 const WelMSG = [
     "░█████╗░███████╗██████╗░░█████╗░░██╗░░░░░░░██╗███████╗██████╗░",
     "██╔══██╗██╔════╝██╔══██╗██╔══██╗░██║░░██╗░░██║██╔════╝██╔══██╗",
@@ -11,18 +12,19 @@ const WelMSG = [
     "==---------------------------------------------------------------------------------------------==",
     "+Website proxey is being worked on",
     "+Added Cookie Clicker 2.031 (Latest version)"]
-const universes = [["Encrypted Web Proxy","proxy.html"],["Cookie CLicker 2.031","CC2031.html"],["Console Emulator","CESTE.html"],["Flex Background","FLPBE.html"]]
+const universes = [["Encrypted Web Proxy","proxy/pubilc/index.html"],["Cookie CLicker 2.031","CC2031.html"],["Console Emulator","CESTE.html"],["Flex Background","FLPBE.html"]]
 
 var clock=document.getElementById("clock")
 var win = document.getElementById("universal");
 var con = document.getElementById("con");
 var c = document.getElementById("c");
 var cc = document.getElementById("cc");
+var rcon = document.getElementById("rcon")
 
 var mv=document.getElementById("multiverse")
 var fr=document.getElementById("folder")
 var ls=document.getElementById("list")
-var rcon = function(ex,array){
+var exec = function(ex,array){
     switch(ex){
         case "log":
             array.forEach(element => con.insertAdjacentHTML("beforeend","<p>"+element+"</p>"))
@@ -31,8 +33,8 @@ var rcon = function(ex,array){
             switch(array){
                 case 0:
                     con.style = "height: 66%; width: 73%; position: absolute; margin: 0.5%";
-                    c.style = "visibility: visible; top: 6%"; c.setAttribute("onclick","rcon('resize', 1)");
-                    cc.style = "visibility: visible; position: absolute"; cc.setAttribute("onclick","rcon('resize', 2)");
+                    c.style = "visibility: visible; top: 6%"; c.setAttribute("onclick","exec('resize', 1)");
+                    cc.style = "visibility: visible; position: absolute"; cc.setAttribute("onclick","exec('resize', 2)");
                     mv.style = "visibility: visible";
                     fr.style = "visibility: visible";
                     ls.style = "visibility: visible";
@@ -40,7 +42,7 @@ var rcon = function(ex,array){
                     break;
                 case 1:
                     con.style = "height: 100%; width: 100%; position: initial; margin: 0";
-                    c.style = "visibility: visible; position: fixed; top: 0";  c.setAttribute("onclick","rcon('resize', 0)");
+                    c.style = "visibility: visible; position: fixed; top: 0";  c.setAttribute("onclick","exec('resize', 0)");
                     cc.style = "visibility: hidden";
                     mv.style = "visibility: hidden";
                     fr.style = "visibility: hidden";
@@ -50,7 +52,7 @@ var rcon = function(ex,array){
                 case 2: 
                     con.style = "height: 100%; width: 100%; position: initial; margin: 0";
                     c.style = "visibility: hidden";
-                    cc.style = "visibility: visible; position: fixed";  cc.setAttribute("onclick","rcon('resize', 0)");
+                    cc.style = "visibility: visible; position: fixed";  cc.setAttribute("onclick","exec('resize', 0)");
                     mv.style = "visibility: hidden";
                     fr.style = "visibility: hidden";
                     ls.style = "visibility: hidden";
@@ -71,9 +73,9 @@ var link = function(link){
 }
 var loop = function(){
     clock.innerHTML= Date.now(); //Add localtime and other events such as the time that a golden cookie is going to occure.
+    rcon.setAttribute("onchange",rcon.value)
 }
 var init = function(){
-    if(tps==null){var tps=500}
     setInterval(function() { loop();},tps);
     for (let step = 0; step < universes.length; step++) {
         mv.insertAdjacentHTML("beforeend",'<div onclick="link('+step+')" class="verse desktop">'+universes[step][0]+'</div>')
@@ -81,7 +83,7 @@ var init = function(){
     }
         //universes.forEach(element => mv.insertAdjacentHTML("beforeend",'<div onclick="link('+element[1]+')" id="'+element[1]+'" class="verse desktop">'+element[0]+'</div>'))
     
-    rcon("log",WelMSG);
+    exec("log",WelMSG);
 }
 var op=0
 init();
