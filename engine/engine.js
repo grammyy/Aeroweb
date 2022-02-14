@@ -68,7 +68,7 @@ var exec = function(ex,array){
     }
 }
 var link = function(link){
-    con.innerHTML = "<iframe src=./multiverse/"+universes[link][1]+"></iframe>";
+    con.innerHTML = "<iframe id='worker' src=./multiverse/"+universes[link][1]+"></iframe>";
     con.style.opacity = "100%"; op=1
 }
 var loop = function(){
