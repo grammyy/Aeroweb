@@ -12,7 +12,7 @@
 #clear{ top: 12%; right: 0; cursor: alias;}
 #c{ top:6%; right: 0; cursor: ne-resize;}
 #cc{ top:0; right: 0; cursor: ne-resize;}
-#rcon{ background-color: transparent; color: red; border: unset !important; font-size: 12px; letter-spacing: 1px; width: 64vw}
+#rcon{ background-color: transparent; color: red; border: unset !important; font-size: 12px; letter-spacing: 1px; width: -webkit-fill-available; margin-left: 1px}
 #rcon:focus{ outline: none;}
 
 #clock{ position: absolute; letter-spacing: 3px; margin: 10px; bottom: 0; right: 0; opacity: 50%;}
