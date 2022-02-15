@@ -78,6 +78,7 @@ var link = function(link){
 var loop = function(){
     clock.innerHTML= Date.now(); //Add localtime and other events such as the time that a golden cookie is going to occure.
     execute.setAttribute("onclick",rcon.value); rcon.setAttribute("onchange",rcon.value)
+    con.scrollTop = con.scrollHeight
 }
 var init = function(){
     setInterval(function() { loop();},tps);
