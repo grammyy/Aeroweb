@@ -11,8 +11,10 @@ const WelMSG = [
     "The problem is fixable, it just would take a while. Expect a proper layout update soon.",
     "==---------------------------------------------------------------------------------------------==",
     "+Website proxey is being worked on",
+    "+Added Cloth Sim (@abro_oks)",
     "+Added Cookie Clicker 2.031 (Latest version)"]
-const universes = [["Encrypted Web Proxy","proxy/pubilc/index.html"],["Cookie Clicker 2.031","CC2031.html"],["Console Emulator","CESTE.html"],["Flex Background","FLPBE.html"]]
+const universes = [["Cloth Sim","cloth.html"],["Encrypted Web Proxy","proxy/pubilc/index.html"],["Cookie Clicker 2.031","CC2031.html"],["Console Emulator","CESTE.html"],["Flex Background","FLPBE.html"]]
+const items = [[]]
 
 var clock=document.getElementById("clock")
 var win = document.getElementById("universal");
