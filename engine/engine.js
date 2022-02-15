@@ -1,4 +1,4 @@
-var tps=100
+var tps=100; let color = "red"
 const WelMSG = [
     "░█████╗░███████╗██████╗░░█████╗░░██╗░░░░░░░██╗███████╗██████╗░",
     "██╔══██╗██╔════╝██╔══██╗██╔══██╗░██║░░██╗░░██║██╔════╝██╔══██╗",
@@ -19,15 +19,19 @@ var win = document.getElementById("universal");
 var con = document.getElementById("con");
 var c = document.getElementById("c");
 var cc = document.getElementById("cc");
-var rcon = document.getElementById("rcon")
+var rcon = document.getElementById("rcon");
+var execute = document.getElementById("execute");
 
-var mv=document.getElementById("multiverse")
-var fr=document.getElementById("folder")
-var ls=document.getElementById("list")
+var mv=document.getElementById("multiverse");
+var fr=document.getElementById("folder");
+var ls=document.getElementById("list");
 var exec = function(ex,array){
     switch(ex){
+        case "color":
+            color=array; console.log("[== New color: "+color+" ==]")
+            break;
         case "log":
-            array.forEach(element => con.insertAdjacentHTML("beforeend","<p>"+element+"</p>"))
+            array.forEach(element => con.insertAdjacentHTML("beforeend","<p style='position: sticky; z-index: 2; color: "+color+"'>"+element+"</p>"))
             break;
         case "resize":
             switch(array){
@@ -73,7 +77,7 @@ var link = function(link){
 }
 var loop = function(){
     clock.innerHTML= Date.now(); //Add localtime and other events such as the time that a golden cookie is going to occure.
-    rcon.setAttribute("onchange",rcon.value)
+    execute.setAttribute("onclick",rcon.value); rcon.setAttribute("onchange",rcon.value)
 }
 var init = function(){
     setInterval(function() { loop();},tps);

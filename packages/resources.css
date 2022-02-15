@@ -14,6 +14,7 @@
 #cc{ top:0; right: 0; cursor: ne-resize;}
 #rcon{ background-color: transparent; color: red; border: unset !important; font-size: 12px; letter-spacing: 1px; width: -webkit-fill-available; margin-left: 1px}
 #rcon:focus{ outline: none;}
+#execute{ margin: 0.5%; z-index: 3}
 
 #clock{ position: absolute; letter-spacing: 3px; margin: 10px; bottom: 0; right: 0; opacity: 50%;}
 ::-webkit-scrollbar { width: 6PX;}
