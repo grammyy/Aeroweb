@@ -23,8 +23,8 @@
             var clothX = 110
             var friction = 0.99
             var tearDist = 60
-            if(rcon.value!="" && rcon.value.split().length==4){ //extremely hacky, please improve later
-                sp=rcon.value.split()
+            if(rcon.value!="" && rcon.value.split(" ").length==4){ //extremely hacky, please improve later
+                sp=rcon.value.split(" ")
                 var accuracy = sp[0]
                 var gravity = sp[1]
                 var spacing = sp[2]
