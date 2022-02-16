@@ -10,10 +10,10 @@ const WelMSG = [
     "If the layout of this website seems wrong, your HTML scale may be too low",
     "The problem is fixable, it just would take a while. Expect a proper layout update soon.",
     "==---------------------------------------------------------------------------------------------==",
-    "+Website proxey is being worked on",
+    "+Added Proxy (miniProxy)",
     "+Added Cloth Sim (@abro_oks)",
     "+Added Cookie Clicker 2.031 (Latest version)"]
-const universes = [["Cloth Sim","cloth.html"],["Encrypted Web Proxy","proxy/pubilc/index.html"],["Cookie Clicker 2.031","CC2031.html"],["Console Emulator","CESTE.html"],["Flex Background","FLPBE.html"]]
+const universes = [["Cloth Sim","cloth.html"],["Encrypted Web Proxy","https://aerophp.000webhostapp.com"],["Cookie Clicker 2.031","CC2031.html"],["Console Emulator","CESTE.html"],["Flex Background","FLPBE.html"]]
 const items = [[]]
 
 var clock=document.getElementById("clock")
@@ -89,7 +89,12 @@ var loop = function(){
 var init = function(){
     setInterval(function() { loop();},tps);
     for (let step = 0; step < universes.length; step++) {
-        mv.insertAdjacentHTML("beforeend",'<div onclick="link('+step+')" class="verse desktop">'+universes[step][0]+'</div>')
+        console.log(universes[step][1].split(":")[0])
+        if(universes[step][1].split(":")[0]=="https"){
+            mv.insertAdjacentHTML("beforeend",'<div onclick=link('+"'"+universes[step][1]+"'"+') class=verse desktop>'+universes[step][0]+'</div>')
+        }else{
+            mv.insertAdjacentHTML("beforeend",'<div onclick=link('+step+') class=verse desktop>'+universes[step][0]+'</div>')
+        }
         console.log("[== Init: "+universes[step][0]+" ==]");
     }
         //universes.forEach(element => mv.insertAdjacentHTML("beforeend",'<div onclick="link('+element[1]+')" id="'+element[1]+'" class="verse desktop">'+element[0]+'</div>'))
