@@ -4,6 +4,8 @@
     </head>
     <body>
         <p style="color: red; opacity: 60%">More content coming soon.</p>
+        <p style="color: red; opacity: 60%">accuracy / gravity / spacing / bounce / clothY / ClothX / Fricion / Teardist</p>
+        
         <style>
             body{ overflow: hidden}
         </style>
@@ -19,23 +21,28 @@
                 window.setTimeout(callback, 1e3 / 60)
               }
             var rcon = window.parent.document.getElementById("rcon")
-            var clothY = 30
-            var clothX = 110
-            var friction = 0.99
-            var tearDist = 60
-            if(rcon.value!="" && rcon.value.split(" ").length==4){ //extremely hacky, please improve later
+            if(rcon.value!="" && rcon.value.split(" ").length==8){ //extremely hacky, please improve later
                 sp=rcon.value.split(" ")
                 var accuracy = sp[0]
                 var gravity = sp[1]
                 var spacing = sp[2]
                 var bounce = sp[3]
 
+                var clothY = sp[4]
+                var clothX = sp[5]
+                var friction = sp[6]
+                var tearDist = sp[7]
             }
             else{
                 var accuracy = 5
                 var gravity = 400
                 var spacing = 10
                 var bounce = 0.5
+                
+                var clothY = 30
+                var clothX = 110
+                var friction = 0.99
+                var tearDist = 60
             }
             var canvas = document.getElementById('canvas')
             var ctx = canvas.getContext('2d')
