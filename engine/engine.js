@@ -74,7 +74,11 @@ var exec = function(ex,array){
     }
 }
 var link = function(link){
-    con.innerHTML = "<iframe id='worker' src=./multiverse/"+universes[link][1]+"></iframe>";
+    try{
+        con.innerHTML = "<iframe id='worker' src=./multiverse/"+universes[link][1]+"></iframe>";
+    }catch{
+        con.innerHTML = "<iframe id='worker' src="+link+"></iframe>";
+    }
     con.style.opacity = "100%"; op=1
 }
 var loop = function(){
