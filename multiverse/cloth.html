@@ -18,18 +18,27 @@
               function (callback) {
                 window.setTimeout(callback, 1e3 / 60)
               }
-          
-            let accuracy = 5
-            let gravity = 400
-            let clothY = 30
-            let clothX = 110
-            let spacing = 10
-            let tearDist = 60
-            let friction = 0.99
-            let bounce = 0.5
-          
-            let canvas = document.getElementById('canvas')
-            let ctx = canvas.getContext('2d')
+            var rcon = window.parent.document.getElementByID("rcon")
+            var clothY = 30
+            var clothX = 110
+            var friction = 0.99
+            var tearDist = 60
+            if(rcon.value!="" && rcon.value.split().length==4){ //extremely hacky, please improve later
+                sp=rcon.value.split()
+                var accuracy = sp[0]
+                var gravity = sp[1]
+                var spacing = sp[2]
+                var bounce = sp[3]
+
+            }
+            else{
+                var accuracy = 5
+                var gravity = 400
+                var spacing = 10
+                var bounce = 0.5
+            }
+            var canvas = document.getElementById('canvas')
+            var ctx = canvas.getContext('2d')
           
             canvas.width = Math.min(1200, window.innerWidth)
             canvas.height = 450
