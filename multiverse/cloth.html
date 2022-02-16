@@ -4,8 +4,6 @@
     </head>
     <body>
         <p style="color: red; opacity: 60%">More content coming soon.</p>
-        <p style="color: red; opacity: 60%">accuracy / gravity / spacing / bounce / clothY / ClothX / Fricion / Teardist</p>
-        
         <style>
             body{ overflow: hidden}
         </style>
@@ -20,40 +18,16 @@
               function (callback) {
                 window.setTimeout(callback, 1e3 / 60)
               }
-            try{
-                let rcon = window.parent.document.getElementById("rcon")
-                if(rcon.value.split(" ").length==8){ //extremely hacky, please improve later
-                    sp=rcon.value.split(" ")
-                    var accuracy = sp[0]
-                    var gravity = sp[1]
-                    var spacing = sp[2]
-                    let bounce = sp[3]
-
-                    var clothY = sp[4]
-                    var clothX = sp[5]
-                    var friction = sp[6]
-                    var tearDist = sp[7]
-                }else{
-                    var accuracy = 5
-                    var gravity = 400
-                    var spacing = 10
-                    let bounce = 0.5
-
-                    var clothY = 30
-                    var clothX = 110
-                    var friction = 0.99
-                    var tearDist = 60
-                }
-            } catch {
-                var accuracy = 5
-                var gravity = 400
-                var spacing = 10
-                let bounce = 0.5
-                var clothY = 30
-                var clothX = 110
-                var friction = 0.99
-                var tearDist = 60
-            }
+          
+            let accuracy = 5
+            let gravity = 400
+            let clothY = 30
+            let clothX = 110
+            let spacing = 10
+            let tearDist = 60
+            let friction = 0.99
+            let bounce = 0.5
+          
             let canvas = document.getElementById('canvas')
             let ctx = canvas.getContext('2d')
           
