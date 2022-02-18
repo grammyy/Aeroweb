@@ -89,7 +89,6 @@ var loop = function(){
 var init = function(){
     setInterval(function() { loop();},tps);
     for (let step = 0; step < universes.length; step++) {
-        console.log(universes[step][1].split(":")[0])
         if(universes[step][1].split(":")[0]=="https"){
             mv.insertAdjacentHTML("beforeend",'<div onclick=link('+"'"+universes[step][1]+"'"+') class=verse desktop>'+universes[step][0]+'</div>')
         }else{
