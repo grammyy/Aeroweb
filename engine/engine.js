@@ -93,7 +93,7 @@ function loop(){
     con.scrollTop = con.scrollHeight; inspect.scrollTop = inspect.scrollHeight
 }
 var init = function(){
-    setInterval(loop(),100);
+    setInterval(loop,100);
     for (let step = 0; step < universes.length; step++) {
         if(universes[step][1].split(":")[0]=="https"){
             mv.insertAdjacentHTML("beforeend",'<div onclick=link('+"'"+universes[step][1]+"'"+') class=verse desktop>'+universes[step][0]+'</div>')
