@@ -1,6 +1,7 @@
 #universal{ height: 80%; width: 90%; backdrop-filter: blur(10px);}
 #list{ height: 98%; width: 8.5%;}
 #con{ width: 73%; height: 66%; left: 9.5%; top: 0; overflow-y: scroll;}
+#inspect{ width: 20%; height: 100%; right: 0; overflow-y: scroll; position: absolute; display: flex; flex-wrap: wrap; align-content: flex-start; justify-content: flex-end;}
 #multiverse{ width: 73%; height: 30%; left: 9.5%; bottom: 0; display: flex; flex-wrap: wrap; opacity: 60% !important}
 #folder{ height: 98%; width: 15.5%; right: 0;}
 

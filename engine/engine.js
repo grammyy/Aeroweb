@@ -1,4 +1,4 @@
-var tps=100; let color = "red"
+let color = "red"
 const WelMSG = [
     "░█████╗░███████╗██████╗░░█████╗░░██╗░░░░░░░██╗███████╗██████╗░",
     "██╔══██╗██╔════╝██╔══██╗██╔══██╗░██║░░██╗░░██║██╔════╝██╔══██╗",
@@ -19,6 +19,7 @@ const items = [[]]
 var clock=document.getElementById("clock")
 var win = document.getElementById("universal");
 var con = document.getElementById("con");
+var inspect = document.getElementById("inspect");
 var c = document.getElementById("c");
 var cc = document.getElementById("cc");
 var rcon = document.getElementById("rcon");
@@ -34,6 +35,9 @@ var exec = function(ex,array){
             break;
         case "log":
             array.forEach(element => con.insertAdjacentHTML("beforeend","<p style='position: sticky; z-index: 2; color: "+color+"'>"+element+"</p>"))
+            break;
+        case "inspect":
+            array.forEach(element => inspect.insertAdjacentHTML("beforeend","<p style='position: sticky; right: 0; z-index: 3; color: "+color+"'>"+element+"</p>"), element => console.log(element))
             break;
         case "resize":
             switch(array){
@@ -68,33 +72,35 @@ var exec = function(ex,array){
             if(op!=0){con.style.opacity = "100%";}
             break;
         case "clear":
-            con.innerHTML = "";
+            var p = document.getElementsByTagName('p');
+            var frame = document.getElementsByTagName('iframe');
+            while(p[0]) { p[0].parentNode.removeChild(p[0]); }
+            while(frame[0]) { frame[0].parentNode.removeChild(frame[0]); }
             con.style.opacity = "60%";
             break;
     }
 }
 var link = function(link){
     try{
-        con.innerHTML = "<iframe id='worker' src=./multiverse/"+universes[link][1]+"></iframe>";
+        con.insertAdjacentHTML("beforeend","<iframe id='worker' src=./multiverse/"+universes[link][1]+"></iframe>");
     }catch{
-        con.innerHTML = "<iframe id='worker' src="+link+"></iframe>";
+        con.insertAdjacentHTML("beforeend","<iframe id='worker' src="+link+"></iframe>");
     }
     con.style.opacity = "100%"; op=1
 }
 var loop = function(){
     clock.innerHTML= Date.now(); //Add localtime and other events such as the time that a golden cookie is going to occure.
-    execute.setAttribute("onclick",rcon.value); rcon.setAttribute("onchange",rcon.value)
-    con.scrollTop = con.scrollHeight
+    con.scrollTop = con.scrollHeight; inspect.scrollTop = inspect.scrollHeight
 }
 var init = function(){
-    setInterval(function() { loop();},tps);
+    setInterval("loop()",100);
     for (let step = 0; step < universes.length; step++) {
         if(universes[step][1].split(":")[0]=="https"){
             mv.insertAdjacentHTML("beforeend",'<div onclick=link('+"'"+universes[step][1]+"'"+') class=verse desktop>'+universes[step][0]+'</div>')
         }else{
             mv.insertAdjacentHTML("beforeend",'<div onclick=link('+step+') class=verse desktop>'+universes[step][0]+'</div>')
         }
-        console.log("[== Init: "+universes[step][0]+" ==]");
+        exec("inspect",[universes[step][0]+" : Init <<"]);
     }
         //universes.forEach(element => mv.insertAdjacentHTML("beforeend",'<div onclick="link('+element[1]+')" id="'+element[1]+'" class="verse desktop">'+element[0]+'</div>'))
     
