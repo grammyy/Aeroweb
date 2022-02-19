@@ -82,9 +82,11 @@ var exec = function(ex,array){
 }
 var link = function(link){
     try{
-        con.insertAdjacentHTML("afterend","<iframe id='worker' src=./multiverse/"+universes[link][1]+"></iframe>");
+        exec("clear")
+        con.insertAdjacentHTML("afterBegin","<iframe id='worker' src=./multiverse/"+universes[link][1]+"></iframe>");
     }catch{
-        con.insertAdjacentHTML("afterend","<iframe id='worker' src="+link+"></iframe>");
+        exec("clear")
+        con.insertAdjacentHTML("afterBegin","<iframe id='worker' src="+link+"></iframe>");
     }
     con.style.opacity = "100%"; op=1
 }
