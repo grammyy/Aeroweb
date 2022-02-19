@@ -96,9 +96,9 @@ var init = function(){
     setInterval(loop,100);
     for (let step = 0; step < universes.length; step++) {
         if(universes[step][1].split(":")[0]=="https"){
-            mv.insertAdjacentHTML("afterend",'<div onclick=link('+"'"+universes[step][1]+"'"+') class=verse desktop>'+universes[step][0]+'</div>')
+            mv.insertAdjacentHTML("beforeend",'<div onclick=link('+"'"+universes[step][1]+"'"+') class=verse desktop>'+universes[step][0]+'</div>')
         }else{
-            mv.insertAdjacentHTML("afterend",'<div onclick=link('+step+') class=verse desktop>'+universes[step][0]+'</div>')
+            mv.insertAdjacentHTML("beforeend",'<div onclick=link('+step+') class=verse desktop>'+universes[step][0]+'</div>')
         }
         exec("inspect",[universes[step][0]+" : Init <<"]);
     }
