@@ -82,9 +82,9 @@ var exec = function(ex,array){
 }
 var link = function(link){
     try{
-        con.insertAdjacentHTML("beforeend","<iframe id='worker' src=./multiverse/"+universes[link][1]+"></iframe>");
+        con.insertAdjacentHTML("afterend","<iframe id='worker' src=./multiverse/"+universes[link][1]+"></iframe>");
     }catch{
-        con.insertAdjacentHTML("beforeend","<iframe id='worker' src="+link+"></iframe>");
+        con.insertAdjacentHTML("afterend","<iframe id='worker' src="+link+"></iframe>");
     }
     con.style.opacity = "100%"; op=1
 }
@@ -96,9 +96,9 @@ var init = function(){
     setInterval(loop,100);
     for (let step = 0; step < universes.length; step++) {
         if(universes[step][1].split(":")[0]=="https"){
-            mv.insertAdjacentHTML("beforeend",'<div onclick=link('+"'"+universes[step][1]+"'"+') class=verse desktop>'+universes[step][0]+'</div>')
+            mv.insertAdjacentHTML("afterend",'<div onclick=link('+"'"+universes[step][1]+"'"+') class=verse desktop>'+universes[step][0]+'</div>')
         }else{
-            mv.insertAdjacentHTML("beforeend",'<div onclick=link('+step+') class=verse desktop>'+universes[step][0]+'</div>')
+            mv.insertAdjacentHTML("afterend",'<div onclick=link('+step+') class=verse desktop>'+universes[step][0]+'</div>')
         }
         exec("inspect",[universes[step][0]+" : Init <<"]);
     }
