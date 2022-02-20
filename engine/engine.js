@@ -1,4 +1,4 @@
-let color = "red"
+let color = "red"; let size = 0
 const WelMSG = [
     "░█████╗░███████╗██████╗░░█████╗░░██╗░░░░░░░██╗███████╗██████╗░",
     "██╔══██╗██╔════╝██╔══██╗██╔══██╗░██║░░██╗░░██║██╔════╝██╔══██╗",
@@ -59,6 +59,8 @@ var exec = function(ex,array){
                     win.style.height = "80%"
                     win.style.width = "90%"
                     win.style.borderStyle = "groove";
+
+                    size=0
                     break;
                 case 1:
                     con.style = "height: 100%; width: 100%; position: initial; margin: 0";
@@ -71,6 +73,8 @@ var exec = function(ex,array){
                     win.style.height = "80%"
                     win.style.width = "90%"
                     win.style.borderStyle = "groove";
+
+                    size=1
                     break;
                 case 2: 
                     con.style = "height: 100%; width: 100%; position: initial; margin: 0";
@@ -84,6 +88,8 @@ var exec = function(ex,array){
                     win.style.height = "100%"
                     win.style.width = "100%"
                     win.style.borderStyle = "none";
+
+                    size=2
                     break;
             }
             if(op!=0){con.style.opacity = "100%";}
@@ -114,7 +120,7 @@ var link = function(link){
 function loop(){
     execute.setAttribute("onclick","exec('inspect',['"+rcon.value+" :<<']); try{"+rcon.value+"}catch(err){exec('inspect',[err]); book(err)}"); rcon.setAttribute("onchange","exec('inspect',['"+rcon.value+" :<<']); try{"+rcon.value+"}catch(err){exec('inspect',[err]); book(err)}")
     clock.innerHTML= Date.now(); //Add localtime and other events such as the time that a golden cookie is going to occure.
-    con.scrollTop = con.scrollHeight; inspect.scrollTop = inspect.scrollHeight
+    if(size!=0){con.scrollTop = con.scrollHeight; inspect.scrollTop = inspect.scrollHeight}
 }
 var init = function(){
     setInterval(loop,100);
