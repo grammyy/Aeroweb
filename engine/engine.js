@@ -117,7 +117,7 @@ var link = function(link){
     try{
         exec("clear")
         con.insertAdjacentHTML("afterBegin","<iframe id='worker' src=./multiverse/"+universes[link][1]+"></iframe>");
-        worker.contentWindow.document.body.insertAdjacentHTML("beforeEnd","<script src='system.js'></script>")
+        document.getElementById("worker").contentWindow.document.body.insertAdjacentHTML("beforeEnd","<script src='system.js'></script>")
         //insertAdjacentHTML("afterEnd","<script src='system.js'></script>");
     }catch{
         exec("clear")
