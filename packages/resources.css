@@ -1,21 +1,22 @@
 #universal{ height: 80%; width: 90%; backdrop-filter: blur(10px);}
 #list{ height: 98%; width: 8.5%;}
 #con{ width: 73%; height: 66%; left: 9.5%; top: 0; overflow-y: scroll;}
-#inspect{ width: 20%; height: fit-content; right: 0; overflow-y: scroll; position: absolute; display: flex; flex-wrap: wrap; align-content: flex-start; justify-content: flex-end;}
+#inspect{ width: 20%; height: fit-content; right: 0; overflow-y: scroll; position: absolute; display: flex; flex-wrap: wrap; align-content: flex-end; justify-content: flex-end; align-items: flex-end; flex-direction: column;}
 #multiverse{ width: 73%; height: 30%; left: 9.5%; bottom: 0; display: flex; flex-wrap: wrap; opacity: 60% !important}
 #folder{ height: 98%; width: 15.5%; right: 0;}
 
-.window{ border: 1px dotted red; display: flex; color: red; font-size: small; position: absolute;}
+.window{ border: 1px dotted red; display: flex; color: red; font-size: small; position: absolute; border-style: groove}
 .subwindow{ background-image: url("init.png"); background-size: 2000px; opacity: 60%; margin: 0.5%; position: absolute; overflow: hidden;}
-.verse{ height: 15px; width: 125px; margin: 5px; border: 1px dotted red; display: flex; justify-content: center; align-items: center; cursor: pointer; overflow: hidden}
-.button{ height: 10px; width: 10px; margin: 5px; background-color: red; position: absolute; opacity: 60%; z-index: 2;}
+.verse{ height: 15px; width: 125px; margin: 5px; border: 1px dotted red; display: flex; cursor: pointer; overflow: hidden; border-style: groove; flex-direction: column; flex-wrap: wrap; align-content: stretch; justify-content: center; align-items: center; white-space: nowrap}
+.button{ height: 10px; width: 10px; margin: 5px; background-color: red; opacity: 60%; z-index: 2;}
 
-#clear{ top: 12%; right: 0; cursor: alias;}
-#c{ top:6%; right: 0; cursor: ne-resize;}
-#cc{ top:0; right: 0; cursor: ne-resize;}
+#toolkit{ height: 100%; width: 20px; position: absolute; right: 0;}
+#clear{ cursor: alias;}
+#c{ cursor: ne-resize;}
+#cc{ cursor: ne-resize;}
 #rcon{ background-color: transparent; color: red; border: unset !important; font-size: 12px; letter-spacing: 1px; width: -webkit-fill-available; margin-left: 1px}
 #rcon:focus{ outline: none;}
-#execute{ margin: 0.5%; z-index: 3}
+#execute{ margin: 0.5%; z-index: 3; left: 0; position: absolute; opacity: 40%;}
 
 #clock{ position: absolute; letter-spacing: 3px; margin: 10px; bottom: 0; right: 0; opacity: 50%;}
 ::-webkit-scrollbar { width: 6PX;}

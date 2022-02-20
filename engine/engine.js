@@ -7,9 +7,8 @@ const WelMSG = [
     "██║░░██║███████╗██║░░██║╚█████╔╝░░╚██╔╝░╚██╔╝░███████╗██████╦╝",
     "╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚══════╝╚═════╝░",
     "══════════════════════════════════════════════════════════════",
-    "If the layout of this website seems wrong, your HTML scale may be too low",
-    "The problem is fixable, it just would take a while. Expect a proper layout update soon.",
-    "==---------------------------------------------------------------------------------------------==",
+    "Main website is currently unable to save settings, this doesn't apply to the multiverse.",
+    "==-----------------------------------------------------------------------------------------------------------------------------==",
     "+Added Proxy (miniProxy)",
     "+Added Cloth Sim (@abro_oks)",
     "+Added Cookie Clicker 2.031 (Latest version)"]
@@ -24,6 +23,7 @@ var c = document.getElementById("c");
 var cc = document.getElementById("cc");
 var rcon = document.getElementById("rcon");
 var execute = document.getElementById("execute");
+var toolkit = document.getElementById("toolkit");
 
 var mv=document.getElementById("multiverse");
 var fr=document.getElementById("folder");
@@ -31,42 +31,59 @@ var ls=document.getElementById("list");
 var exec = function(ex,array){
     switch(ex){
         case "color":
-            color=array; console.log("[== New color: "+color+" ==]")
+            document.querySelectorAll('*').forEach(function(node) {
+                color=array
+                node.style.color = color; node.style.borderColor = color;
+                console.log(node.className);
+                if(node.className=="button"){
+                    node.style.backgroundColor = color
+                }
+            });
             break;
         case "log":
             array.forEach(element => con.insertAdjacentHTML("beforeend","<p style='position: sticky; z-index: 2; color: "+color+"'>"+element+"</p>"))
             break;
         case "inspect":
-            array.forEach(element => inspect.insertAdjacentHTML("beforeend","<p style='position: sticky; right: 0; z-index: 3; color: "+color+"'>"+element+"</p>"), element => console.log(element))
+            array.forEach(element => inspect.insertAdjacentHTML("beforeend","<p style='position: sticky; right: 0; z-index: 3; color: "+color+"'>"+element+"</p>"))
             break;
         case "resize":
             switch(array){
                 case 0:
                     con.style = "height: 66%; width: 73%; position: absolute; margin: 0.5%";
-                    c.style = "visibility: visible; top: 6%"; c.setAttribute("onclick","exec('resize', 1)");
-                    cc.style = "visibility: visible; position: absolute"; cc.setAttribute("onclick","exec('resize', 2)");
+                    c.style = "visibility: visible"; c.setAttribute("onclick","exec('resize', 1)");
+                    cc.style = "visibility: visible"; cc.setAttribute("onclick","exec('resize', 2)");
+                    toolkit.style = "position: absolute"
                     mv.style = "visibility: visible";
                     fr.style = "visibility: visible";
                     ls.style = "visibility: visible";
-                    win.style = "height: 80%; width: 90%; border: 1px dotted red";
+                    win.style.height = "80%"
+                    win.style.width = "90%"
+                    win.style.borderStyle = "groove";
                     break;
                 case 1:
                     con.style = "height: 100%; width: 100%; position: initial; margin: 0";
                     c.style = "visibility: visible; position: fixed; top: 0";  c.setAttribute("onclick","exec('resize', 0)");
                     cc.style = "visibility: hidden";
+                    toolkit.style = "position: fixed; top:0; right: 0"
                     mv.style = "visibility: hidden";
                     fr.style = "visibility: hidden";
                     ls.style = "visibility: hidden";
-                    win.style = "height: 80%; width: 90%; border: 1px dotted red";
+                    win.style.height = "80%"
+                    win.style.width = "90%"
+                    win.style.borderStyle = "groove";
                     break;
                 case 2: 
                     con.style = "height: 100%; width: 100%; position: initial; margin: 0";
                     c.style = "visibility: hidden";
-                    cc.style = "visibility: visible; position: fixed";  cc.setAttribute("onclick","exec('resize', 0)");
+                    cc.style = "visibility: visible";  cc.setAttribute("onclick","exec('resize', 0)");
+                    toolkit.style = "position: fixed; top:0; right: 0"
                     mv.style = "visibility: hidden";
                     fr.style = "visibility: hidden";
                     ls.style = "visibility: hidden";
-                    win.style = "height: 100%; width: 100%; border: unset";
+
+                    win.style.height = "100%"
+                    win.style.width = "100%"
+                    win.style.borderStyle = "none";
                     break;
             }
             if(op!=0){con.style.opacity = "100%";}
@@ -91,6 +108,7 @@ var link = function(link){
     con.style.opacity = "100%"; op=1
 }
 function loop(){
+    execute.setAttribute("onclick",rcon.value+"; exec('inspect',['"+rcon.value+" :<<'])"); rcon.setAttribute("onchange",rcon.value+"; exec('inspect',['"+rcon.value+" :<<'])")
     clock.innerHTML= Date.now(); //Add localtime and other events such as the time that a golden cookie is going to occure.
     con.scrollTop = con.scrollHeight; inspect.scrollTop = inspect.scrollHeight
 }
