@@ -1,5 +1,5 @@
 #universal{ height: 80%; width: 90%; backdrop-filter: blur(10px);}
-#list{ height: 98%; width: 8.5%; display: flex; flex-wrap: wrap; flex-direction: column; align-content: space-around}
+#list{ height: -webkit-fill-available; width: 8.5%; display: flex; flex-wrap: wrap; flex-direction: column; align-content: flex-start; padding-top: 10px}
 #con{ width: 73%; height: 66%; left: 9.5%; top: 0; overflow-y: scroll;}
 #inspect{ width: 20%; height: fit-content; right: 0; overflow-y: scroll; position: absolute; display: flex; flex-wrap: wrap; align-content: flex-end; justify-content: flex-end; align-items: flex-end; flex-direction: column;}
 #multiverse{ width: 73%; height: 30%; left: 9.5%; bottom: 0; display: flex; flex-wrap: wrap; opacity: 60% !important}
@@ -9,7 +9,7 @@
 .subwindow{ background-image: url("init.png"); background-size: 2000px; opacity: 60%; margin: 0.5%; position: absolute; overflow: hidden;}
 .verse{ height: 15px; width: 125px; margin: 5px; border: 1px dotted red; display: flex; cursor: pointer; overflow: hidden; border-style: groove; flex-direction: column; flex-wrap: wrap; align-content: stretch; justify-content: center; align-items: center; white-space: nowrap}
 .button{ height: 10px; width: 10px; margin: 5px; background-color: red; opacity: 60%; z-index: 2;}
-.database{ margin: 5px; white-space: nowrap; cursor: pointer;}
+.database{ margin: 2px; white-space: nowrap; cursor: pointer; display: flex}
 
 #toolkit{ height: 100%; width: 20px; position: absolute; right: 0;}
 #clear{ cursor: alias;}
