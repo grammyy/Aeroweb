@@ -127,7 +127,12 @@ var init = function(){
         exec("inspect",[universes[step][0]+" : Verse <<"]);
     }
     for (let step = 0; step < database.length; step++) {
-        ls.insertAdjacentHTML("beforeend",'<div href='+"'"+database[step][1]+"'"+' class=database desktop>'+database[step][0]+'</div>')
+        if(database[step][1].split(":")[0]=="https"){
+            ls.insertAdjacentHTML("beforeend",'<div onclick=link('+"'"+database[step][1]+"'"+') class=database desktop>'+database[step][0]+'</div>')
+        }else{
+            ls.insertAdjacentHTML("beforeend",'<div onclick=link('+step+') class=database desktop>'+database[step][0]+'</div>')
+        }
+        //ls.insertAdjacentHTML("beforeend",'<div href='+"'"+database[step][1]+"'"+' class=database desktop>'+database[step][0]+'</div>')
         exec("inspect",[database[step][0]+" : List <<"]);
     }
     exec("log",WelMSG);
