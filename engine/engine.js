@@ -122,7 +122,7 @@ var link = function(link){
         exec("clear")
         con.insertAdjacentHTML("afterBegin","<iframe id='worker' src="+link+"></iframe>");
     }
-    window.worker.contentWindow.document.body.insertAdjacentHTML("beforeEnd","<script src='system.js'></script>")
+    top.worker.contentWindow.document.body.insertAdjacentHTML("beforeEnd","<script src='system.js'></script>")
     con.style.opacity = "100%"; op=1
 }
 function loop(){
