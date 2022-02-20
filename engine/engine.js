@@ -1,4 +1,4 @@
-let color = "red"; let size = 0
+let color = "red"; let size = 0; let now = []
 const WelMSG = [
     "░█████╗░███████╗██████╗░░█████╗░░██╗░░░░░░░██╗███████╗██████╗░",
     "██╔══██╗██╔════╝██╔══██╗██╔══██╗░██║░░██╗░░██║██╔════╝██╔══██╗",
@@ -7,8 +7,10 @@ const WelMSG = [
     "██║░░██║███████╗██║░░██║╚█████╔╝░░╚██╔╝░╚██╔╝░███████╗██████╦╝",
     "╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚══════╝╚═════╝░",
     "══════════════════════════════════════════════════════════════",
-    "Adding a bunch of HTTP requests functions for dyanmic data soon.",
-    "Main website is currently unable to save settings, this doesn't apply to the multiverse.",
+    "You can find the credits to all code/media artists in the HTML page source.",
+    "-Adding a bunch of HTTP requests functions for dyanmic data soon.",
+    "-Main website is currently unable to save settings, this doesn't apply to the multiverse.",
+    "-Working on neco-arc fighter HTML5 game.",
     "==-----------------------------------------------------------------------------------------------------------------------------==",
     "+Added multiple public google docs, API controls coming soon",
     "+Added Proxy (miniProxy)",
@@ -17,7 +19,10 @@ const WelMSG = [
 const universes = [["Cloth Sim","cloth.html"],["Encrypted Web Proxy","https://aerophp.000webhostapp.com"],["Cookie Clicker 2.031","CC2031.html"],["Console Emulator","CESTE.html"],["Flex Background","FLPBE.html"]]
 const database = [["Public DOC.1","https://docs.google.com/document/d/1_qpvRk_4rMYjyb9gz8h2HkStVHwUBYWUdFRi_FO-vC8/edit?usp=sharing","WEB"],["Public DOC.2","https://docs.google.com/document/d/1gO_NaXDcCk9OZRklirPDxB5kVp1NdOV7quAHqXSVnaE/edit?usp=sharing","WEB"],["Public DOC.3","https://docs.google.com/document/d/1WHgwzGz4EVP2nYBiky0ikJohPukdAVOUQYvLOe6A5-E/edit?usp=sharing","WEB"],["PAC Module","Python","https://github.com/BartenderWinery/PAC/releases/download/module/pac.py"],["Youtubmp4","Python","https://github.com/BartenderWinery/Youtubmp4/releases/download/release/Youtubmp4.exe"]]
 
+var analog=document.getElementById("analog")
+var local=document.getElementById("local")
 var clock=document.getElementById("clock")
+
 var win = document.getElementById("universal");
 var con = document.getElementById("con");
 var inspect = document.getElementById("inspect");
@@ -120,11 +125,15 @@ var link = function(link){
 }
 function loop(){
     execute.setAttribute("onclick","exec('inspect',['"+rcon.value+" :<<']); try{"+rcon.value+"}catch(err){exec('inspect',[err]); book(err)}"); rcon.setAttribute("onchange","exec('inspect',['"+rcon.value+" :<<']); try{"+rcon.value+"}catch(err){exec('inspect',[err]); book(err)}")
-    clock.innerHTML= Date.now(); //Add localtime and other events such as the time that a golden cookie is going to occure.
+    analog.innerHTML=Date.now()
     if(size!=0){con.scrollTop = con.scrollHeight; inspect.scrollTop = inspect.scrollHeight}
+}
+function tick(){
+    now=new Date(); clock.innerHTML=now.getHours()+':'+now.getMinutes()+':'+now.getSeconds()
 }
 var init = function(){
     setInterval(loop,100);
+    setInterval(tick,500);
     for (let step = 0; step < universes.length; step++) {
         if(universes[step][1].split(":")[0]=="https"){
             mv.insertAdjacentHTML("beforeend",'<div onclick=link('+"'"+universes[step][1]+"'"+') class=verse desktop>'+universes[step][0]+'</div>')
