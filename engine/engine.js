@@ -9,11 +9,12 @@ const WelMSG = [
     "══════════════════════════════════════════════════════════════",
     "Main website is currently unable to save settings, this doesn't apply to the multiverse.",
     "==-----------------------------------------------------------------------------------------------------------------------------==",
+    "+Added multiple public google docs, API controls coming soon",
     "+Added Proxy (miniProxy)",
     "+Added Cloth Sim (@abro_oks)",
     "+Added Cookie Clicker 2.031 (Latest version)"]
 const universes = [["Cloth Sim","cloth.html"],["Encrypted Web Proxy","https://aerophp.000webhostapp.com"],["Cookie Clicker 2.031","CC2031.html"],["Console Emulator","CESTE.html"],["Flex Background","FLPBE.html"]]
-const items = [[]]
+const database = [["Public DOC.1","https://docs.google.com/document/d/1_qpvRk_4rMYjyb9gz8h2HkStVHwUBYWUdFRi_FO-vC8/edit?usp=sharing"],["Public DOC.2","https://docs.google.com/document/d/1gO_NaXDcCk9OZRklirPDxB5kVp1NdOV7quAHqXSVnaE/edit?usp=sharing"],["Public DOC.3","https://docs.google.com/document/d/1WHgwzGz4EVP2nYBiky0ikJohPukdAVOUQYvLOe6A5-E/edit?usp=sharing"]]
 
 var clock=document.getElementById("clock")
 var win = document.getElementById("universal");
@@ -123,10 +124,12 @@ var init = function(){
         }else{
             mv.insertAdjacentHTML("beforeend",'<div onclick=link('+step+') class=verse desktop>'+universes[step][0]+'</div>')
         }
-        exec("inspect",[universes[step][0]+" : Init <<"]);
+        exec("inspect",[universes[step][0]+" : Verse <<"]);
     }
-        //universes.forEach(element => mv.insertAdjacentHTML("beforeend",'<div onclick="link('+element[1]+')" id="'+element[1]+'" class="verse desktop">'+element[0]+'</div>'))
-    
+    for (let step = 0; step < database.length; step++) {
+        ls.insertAdjacentHTML("beforeend",'<div href='+"'"+database[step][1]+"'"+' class=database desktop>'+database[step][0]+'</div>')
+        exec("inspect",[database[step][0]+" : List <<"]);
+    }
     exec("log",WelMSG);
 }
 var op=0
