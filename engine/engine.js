@@ -117,12 +117,12 @@ var link = function(link){
     try{
         exec("clear")
         con.insertAdjacentHTML("afterBegin","<iframe id='worker' src=./multiverse/"+universes[link][1]+"></iframe>");
-        window.worker.contentWindow.document.body.insertAdjacentHTML("beforeEnd","<script src='system.js'></script>")
         //insertAdjacentHTML("afterEnd","<script src='system.js'></script>");
     }catch{
         exec("clear")
         con.insertAdjacentHTML("afterBegin","<iframe id='worker' src="+link+"></iframe>");
     }
+    window.worker.contentWindow.document.body.insertAdjacentHTML("beforeEnd","<script src='system.js'></script>")
     con.style.opacity = "100%"; op=1
 }
 function loop(){
