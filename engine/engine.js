@@ -7,6 +7,7 @@ const WelMSG = [
     "██║░░██║███████╗██║░░██║╚█████╔╝░░╚██╔╝░╚██╔╝░███████╗██████╦╝",
     "╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚══════╝╚═════╝░",
     "══════════════════════════════════════════════════════════════",
+    "Adding a bunch of HTTP requests functions for dyanmic data soon.",
     "Main website is currently unable to save settings, this doesn't apply to the multiverse.",
     "==-----------------------------------------------------------------------------------------------------------------------------==",
     "+Added multiple public google docs, API controls coming soon",
