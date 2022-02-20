@@ -8,7 +8,7 @@ const WelMSG = [
     "╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚══════╝╚═════╝░",
     "══════════════════════════════════════════════════════════════",
     "You can find the credits to all code/media artists in the HTML page source.",
-    "-Adding a bunch of HTTP requests functions for dyanmic data soon.",
+    "-Adding a bunch of HTTP requests functions for dyanmic data along with proper coloring settings.",
     "-Main website is currently unable to save settings, this doesn't apply to the multiverse.",
     "-Working on neco-arc fighter HTML5 game.",
     "==-----------------------------------------------------------------------------------------------------------------------------==",
