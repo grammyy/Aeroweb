@@ -113,6 +113,9 @@ var clear = function(){
     var p = document.getElementsByTagName('p');
     while(p[0]) { p[0].parentNode.removeChild(p[0]); }
 }
+var topped = function(){
+    top.worker.contentWindow.document.body.insertAdjacentHTML("beforeEnd","<script src='system.js'></script>")
+}
 var link = function(link){
     try{
         exec("clear")
@@ -122,7 +125,6 @@ var link = function(link){
         exec("clear")
         con.insertAdjacentHTML("afterBegin","<iframe id='worker' src="+link+"></iframe>");
     }
-    top.worker.contentWindow.document.body.insertAdjacentHTML("beforeEnd","<script src='system.js'></script>")
     con.style.opacity = "100%"; op=1
 }
 function loop(){
