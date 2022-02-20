@@ -1,3 +1,8 @@
+function AddEvent(html_element, event_name, event_function)
+{
+	if(html_element.attachEvent) html_element.attachEvent("on" + event_name, function() {event_function.call(html_element);});
+	else if(html_element.addEventListener) html_element.addEventListener(event_name, event_function, false);
+}
 var book = function(err){
     switch(err.toString().split(" ")[0]){
         case "SecurityError:":
@@ -5,3 +10,20 @@ var book = function(err){
             break;
     }
 }
+AddEvent(window,'keydown',function(e){
+    exec("inspect",[[e.ctrlKey,e.keyCode]])
+    switch(e.keyCode){
+        case e.ctrlKey && 70:
+            e.preventDefault();
+            exec("resize",size+=1); if(size==2){size=-1}
+            break; 
+        case e.ctrlKey && 88:
+            e.preventDefault();
+            execute.click()
+            break; 
+    }
+    //if (e.ctrlKey && e.keyCode==83) {
+    //    exec("inspect",[""])
+    //    e.preventDefault();
+    //}
+});
