@@ -34,7 +34,6 @@ var exec = function(ex,array){
             document.querySelectorAll('*').forEach(function(node) {
                 color=array
                 node.style.color = color; node.style.borderColor = color;
-                console.log(node.className);
                 if(node.className=="button"){
                     node.style.backgroundColor = color
                 }
@@ -97,6 +96,10 @@ var exec = function(ex,array){
             break;
     }
 }
+var clear = function(){
+    var p = document.getElementsByTagName('p');
+    while(p[0]) { p[0].parentNode.removeChild(p[0]); }
+}
 var link = function(link){
     try{
         exec("clear")
@@ -108,7 +111,7 @@ var link = function(link){
     con.style.opacity = "100%"; op=1
 }
 function loop(){
-    execute.setAttribute("onclick",rcon.value+"; exec('inspect',['"+rcon.value+" :<<'])"); rcon.setAttribute("onchange",rcon.value+"; exec('inspect',['"+rcon.value+" :<<'])")
+    execute.setAttribute("onclick","exec('inspect',['"+rcon.value+" :<<']); try{"+rcon.value+"}catch(err){exec('inspect',[err])}"); rcon.setAttribute("onchange","exec('inspect',['"+rcon.value+" :<<']); try{"+rcon.value+"}catch(err){exec('inspect',[err])}")
     clock.innerHTML= Date.now(); //Add localtime and other events such as the time that a golden cookie is going to occure.
     con.scrollTop = con.scrollHeight; inspect.scrollTop = inspect.scrollHeight
 }
@@ -128,4 +131,3 @@ var init = function(){
 }
 var op=0
 init();
-//$.ajax({ url: 'your-url', success: function(data) { alert(data); } });
