@@ -20,10 +20,22 @@ AddEvent(window,'keydown',function(e){
         case e.ctrlKey && 88:
             e.preventDefault();
             execute.click()
+            break;
+        case e.ctrlKey && 81:
+            e.preventDefault();
+            exec("inspect",["Launch window keybind not finished : ERR <<"])
+            break; 
+        case e.shiftKey && 49:
+            e.preventDefault();
+            exec("resize",0)
+            break; 
+        case e.shiftKey && 50:
+            e.preventDefault();
+            exec("resize",1)
+            break; 
+        case e.shiftKey && 51:
+            e.preventDefault();
+            exec("resize",2)
             break; 
     }
-    //if (e.ctrlKey && e.keyCode==83) {
-    //    exec("inspect",[""])
-    //    e.preventDefault();
-    //}
 });

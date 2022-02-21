@@ -14,7 +14,7 @@
     <body>
         <div id="universal" class="window">
             <div id="list" class="subwindow desktop">
-                <label style="position: absolute; top: 0; margin-left: 15px; letter-spacing: 2px">Database</label>
+                <label style="position: absolute; top: 0; margin-left: 15px; letter-spacing: 2px; display: flex">Database<p class="mark" style="margin-left: 5px;" onclick="alert('Database of all downloads and links to projects/examples.')">?</p></label>
             </div>
             <div id="con" class="subwindow maximize">
                 <div id="inspect" class="maximize">
@@ -30,8 +30,9 @@
             <div id="folder" class="subwindow desktop">
 
             </div>
-            <label id="clock" style="padding-bottom: 10px;" class="clock desktop"></label>
-            <label id="analog" class="clock desktop"></label>
+            <label id="clock" style="padding-bottom: 10px;" class="analog desktop"></label>
+            <label id="analog" class="analog desktop"></label>
+            <label id="score" style="color: lightgreen; position: absolute; top: 0" class="analog desktop"><p class="mark" style="margin-right: 5px;" onclick="alert('The Website\'s official reported score by Lighthouse; a tool provided by the Chromium developer toolkit.\n\nPerformance: 75, Accessibility: 69, Best practices: 100, SEO: 91')">?</p>75 69 100 91</label>
             <input id="rcon" spellcheck="false" autocomplete="off" type="text" name="conc">
             <div id="execute" class="button"></div>
         </div>

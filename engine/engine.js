@@ -12,6 +12,7 @@ const WelMSG = [
     "-Main website is currently unable to save settings, this doesn't apply to the multiverse.",
     "-Working on neco-arc fighter HTML5 game.",
     "==-----------------------------------------------------------------------------------------------------------------------------==",
+    "+Added Keybinds",
     "+Added multiple public google docs, API controls coming soon",
     "+Added Proxy (miniProxy)",
     "+Added Cloth Sim (@abro_oks)",
@@ -38,12 +39,18 @@ var ls=document.getElementById("list");
 var exec = function(ex,array){
     switch(ex){
         case "color":
-            document.querySelectorAll('*').forEach(function(node) {
+            document.querySelectorAll('div').forEach(function(node) {
                 color=array
                 node.style.color = color; node.style.borderColor = color;
                 if(node.className=="button"){
                     node.style.backgroundColor = color
                 }
+            });
+            document.querySelectorAll('p').forEach(function(node) {
+                color=array; node.style.color = color; node.style.borderColor = color;
+            });
+            document.querySelectorAll('input').forEach(function(node) {
+                color=array; node.style.color = color; node.style.borderColor = color;
             });
             break;
         case "log":
