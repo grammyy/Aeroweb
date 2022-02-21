@@ -110,8 +110,10 @@ var exec = function(ex,array){
         case "clear":
             var p = document.getElementsByTagName('p');
             var frame = document.getElementsByTagName('iframe');
+            var code = document.getElementsByTagName('code');
             while(p[0]) { p[0].parentNode.removeChild(p[0]); }
             while(frame[0]) { frame[0].parentNode.removeChild(frame[0]); }
+            while(code[0]) { code[0].parentNode.removeChild(code[0]); }
             con.style.opacity = "60%";
             break;
     }
