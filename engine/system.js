@@ -11,7 +11,7 @@ var book = function(err){
     }
 }
 AddEvent(window,'keydown',function(e){
-    exec("inspect",[[e.ctrlKey,e.keyCode]])
+    exec("inspect",[e.ctrlKey+" "+e.keyCode])
     switch(e.keyCode){
         case e.ctrlKey && 70:
             e.preventDefault();

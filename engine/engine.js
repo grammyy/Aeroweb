@@ -1,4 +1,4 @@
-let color = "red"; let size = 0; let now = []
+let color = "red"; let size = 0; var index=0
 const WelMSG = [
     "░█████╗░███████╗██████╗░░█████╗░░██╗░░░░░░░██╗███████╗██████╗░",
     "██╔══██╗██╔════╝██╔══██╗██╔══██╗░██║░░██╗░░██║██╔════╝██╔══██╗",
@@ -18,7 +18,7 @@ const WelMSG = [
     "+Added Cloth Sim (@abro_oks)",
     "+Added Cookie Clicker 2.031 (Latest version)"]
 const universes = [["Cloth Sim","cloth.html"],["Encrypted Web Proxy","https://aerophp.000webhostapp.com"],["Cookie Clicker 2.031","CC2031.html"],["Console Emulator","CESTE.html"],["Flex Background","FLPBE.html"]]
-const database = [["Public DOC.1","https://docs.google.com/document/d/1_qpvRk_4rMYjyb9gz8h2HkStVHwUBYWUdFRi_FO-vC8/edit?usp=sharing","Document"],["Public DOC.2","https://docs.google.com/document/d/1gO_NaXDcCk9OZRklirPDxB5kVp1NdOV7quAHqXSVnaE/edit?usp=sharing","Document"],["Public DOC.3","https://docs.google.com/document/d/1WHgwzGz4EVP2nYBiky0ikJohPukdAVOUQYvLOe6A5-E/edit?usp=sharing","Document"],["PAC Module","Python","https://github.com/BartenderWinery/PAC/releases/download/module/pac.py"],["Youtubmp4","Python","https://github.com/BartenderWinery/Youtubmp4/releases/download/release/Youtubmp4.exe"]]
+const database = [["Public DOC.1","https://docs.google.com/document/d/1_qpvRk_4rMYjyb9gz8h2HkStVHwUBYWUdFRi_FO-vC8/edit?usp=sharing","Document"],["Public DOC.2","https://docs.google.com/document/d/1gO_NaXDcCk9OZRklirPDxB5kVp1NdOV7quAHqXSVnaE/edit?usp=sharing","Document"],["Public DOC.3","https://docs.google.com/document/d/1WHgwzGz4EVP2nYBiky0ikJohPukdAVOUQYvLOe6A5-E/edit?usp=sharing","Document"],["PAC Module","Python","https://github.com/BartenderWinery/PAC/releases/download/module/pac.py"],["Youtubmp4","Python","https://github.com/BartenderWinery/Youtubmp4/releases/download/release/Youtubmp4.exe"],["Algorithms","Example Package",""]]
 
 var analog=document.getElementById("analog")
 var local=document.getElementById("local")
@@ -57,14 +57,17 @@ var exec = function(ex,array){
             array.forEach(element => con.insertAdjacentHTML("beforeend","<p style='position: sticky; z-index: 2; color: "+color+"'>"+element+"</p>"))
             break;
         case "inspect":
-            array.forEach(element => inspect.insertAdjacentHTML("beforeend","<p style='position: sticky; right: 0; z-index: 3; color: "+color+"'>"+element+"</p>"))
+            array.forEach((element) => { index++
+                inspect.insertAdjacentHTML("beforeend","<p id="+element.toString().replace(/ /g,"-")+index+" style='position: sticky; right: 0; z-index: 3; color: "+color+"'>"+element+"</p>")
+                console.log(element); fade(document.getElementById(element.toString().replace(/ /g,"-")+index), 2000, 2000);
+            }); 
             break;
         case "resize":
             switch(array){
                 case 0:
                     con.style = "height: 66%; width: 73%; position: absolute; margin: 0.5%";
-                    c.style = "visibility: visible"; c.setAttribute("onclick","exec('resize', 1)");
-                    cc.style = "visibility: visible"; cc.setAttribute("onclick","exec('resize', 2)");
+                    c.style = "visibility: visible"; c.style.backgroundColor = color; c.setAttribute("onclick","exec('resize', 1)");
+                    cc.style = "visibility: visible"; cc.style.backgroundColor = color; cc.setAttribute("onclick","exec('resize', 2)");
                     toolkit.style = "position: absolute"
                     mv.style = "visibility: visible";
                     fr.style = "visibility: visible";
@@ -77,8 +80,8 @@ var exec = function(ex,array){
                     break;
                 case 1:
                     con.style = "height: 100%; width: 100%; position: initial; margin: 0";
-                    c.style = "visibility: visible; position: fixed; top: 0";  c.setAttribute("onclick","exec('resize', 0)");
-                    cc.style = "visibility: hidden";
+                    c.style = "visibility: visible; position: fixed; top: 0"; c.style.backgroundColor = color;  c.setAttribute("onclick","exec('resize', 0)");
+                    cc.style = "visibility: hidden"; cc.style.backgroundColor = color;
                     toolkit.style = "position: fixed; top:0; right: 0"
                     mv.style = "visibility: hidden";
                     fr.style = "visibility: hidden";
@@ -91,8 +94,8 @@ var exec = function(ex,array){
                     break;
                 case 2: 
                     con.style = "height: 100%; width: 100%; position: initial; margin: 0";
-                    c.style = "visibility: hidden";
-                    cc.style = "visibility: visible";  cc.setAttribute("onclick","exec('resize', 0)");
+                    c.style = "visibility: hidden"; c.style.backgroundColor = color;
+                    cc.style = "visibility: visible"; cc.style.backgroundColor = color; cc.setAttribute("onclick","exec('resize', 0)");
                     toolkit.style = "position: fixed; top:0; right: 0"
                     mv.style = "visibility: hidden";
                     fr.style = "visibility: hidden";
@@ -121,6 +124,15 @@ var exec = function(ex,array){
 var clear = function(){
     var p = document.getElementsByTagName('p');
     while(p[0]) { p[0].parentNode.removeChild(p[0]); }
+}
+function fade( obj, delay, speed ) {
+    setTimeout(function(){
+        obj.style.transition = "opacity "+speed/1000+"s ease"; 
+        obj.style.opacity = 0;
+        setTimeout(function() { 
+            obj.parentNode.removeChild(obj);
+        }, speed);
+    },delay);
 }
 var link = function(link){
     try{
