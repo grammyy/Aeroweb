@@ -43,14 +43,26 @@ var cookie = function(func,payload){
     switch(func){
         //d.setTime(d.getTime() + (days*24*60*60*1000));
         //let expires = "expires="+ d.toUTCString();
-        case "set": //No expiring payloads yet
+        case "set": //No expiring payloads yet, needs array setting for advance cookies such as time n stuff with ease
             document.cookie = payload[0]+"="+payload[1];
             break;
-        case "del": //not done such all methods and examples ive seen are really unclean
+        case "del":
+            if(cookie("return",payload[0])){
+                switch(payload[1].typeof){
+                    case string:
+                        cookie("set",[payload[0],""])
+                        break;
+                    case object && payload[1].isArray: //No use until advance cookies
+                        for(let i = 0; i < payload[1].length; i++){
+                            cookie("set",[payload[0],payload[1][i]])
+                        }
+                        break;
+                }
+            }
             break;
         case "get":
             let cookies = decodedCookie.split(';');
-            for(let i = 0; i <decodeURLComponet(document.cookie).split(";").length; i++) {
+            for(let i = 0; i < decodeURLComponet(document.cookie).split(";").length; i++) {
                 while(cookies[i].charAt(0)==' '){
                     cookies[i]=cookies[i].substring(1);
                 }
