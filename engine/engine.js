@@ -19,6 +19,7 @@ const WelMSG = [
     "+Added Cookie Clicker 2.031 (Latest version)"]
 const universes = [["Cloth Sim","cloth.html"],["Encrypted Web Proxy","https://aerophp.000webhostapp.com"],["Cookie Clicker 2.031","CC2031.html"],["Console Emulator","CESTE.html"],["Flex Background","FLPBE.html"]]
 const database = [["Public DOC.1","https://docs.google.com/document/d/1_qpvRk_4rMYjyb9gz8h2HkStVHwUBYWUdFRi_FO-vC8/edit?usp=sharing","Document"],["Public DOC.2","https://docs.google.com/document/d/1gO_NaXDcCk9OZRklirPDxB5kVp1NdOV7quAHqXSVnaE/edit?usp=sharing","Document"],["Public DOC.3","https://docs.google.com/document/d/1WHgwzGz4EVP2nYBiky0ikJohPukdAVOUQYvLOe6A5-E/edit?usp=sharing","Document"],["PAC Module","Python","https://github.com/BartenderWinery/PAC/releases/download/module/pac.py"],["Youtubmp4","Python","https://github.com/BartenderWinery/Youtubmp4/releases/download/release/Youtubmp4.exe"],["Algorithms","Example Package",""]]
+const shelf = [[["Operating Sub-system","onclick=exec('resize',2);link('aeroweb.netlify.com/engine/os.html')"]]]
 
 var analog=document.getElementById("analog")
 var local=document.getElementById("local")
@@ -35,6 +36,7 @@ var toolkit = document.getElementById("toolkit");
 
 var mv=document.getElementById("multiverse");
 var fr=document.getElementById("folder");
+var frs=document.getElementById("frs");
 var ls=document.getElementById("list");
 var exec = function(ex,array){
     switch(ex){
@@ -52,6 +54,12 @@ var exec = function(ex,array){
             document.querySelectorAll('input').forEach(function(node) {
                 color=array; node.style.color = color; node.style.borderColor = color;
             });
+            document.querySelectorAll('li').forEach(function(node) {
+                color=array; node.style.color = color; node.style.borderColor = color;
+            });
+            document.querySelectorAll('a').forEach(function(node) {
+                color=array; node.style.color = color; node.style.borderColor = color;
+            });
             break;
         case "log":
             array.forEach(element => con.insertAdjacentHTML("beforeend","<p style='position: sticky; z-index: 2; color: "+color+"'>"+element+"</p>"))
@@ -59,7 +67,7 @@ var exec = function(ex,array){
         case "inspect":
             array.forEach((element) => { index++
                 inspect.insertAdjacentHTML("beforeend","<p id="+element.toString().replace(/ /g,"-")+index+" style='position: sticky; right: 0; z-index: 3; color: "+color+"'>"+element+"</p>")
-                console.log(element); fade(document.getElementById(element.toString().replace(/ /g,"-")+index), 2000, 2000);
+                fade(document.getElementById(element.toString().replace(/ /g,"-")+index), 2000, 2000);
             }); 
             break;
         case "resize":
@@ -153,16 +161,24 @@ function loop(){
 function tick(){
     now=new Date(); clock.innerHTML=now.getHours()+':'+now.getMinutes()+':'+now.getSeconds()
 }
+var file = function(disk,files){
+    frs.insertAdjacentHTML("beforeend",'<li class="folders" >'+disk+'<ul style="padding-left: 20px" id="'+disk+'ul'+'"></ul></li>')
+    files.forEach((value) => {
+        document.getElementById(disk+'ul').insertAdjacentHTML("beforeend",'<a '+value[1]+' class="folders" >'+value[0]+'</a>')
+    })
+}
 var init = function(){
-    setInterval(loop,100);
-    setInterval(tick,500);
+    setInterval(loop,100)
+    setInterval(tick,500)
+    
+    file("SYSTEM",shelf[0])
     for (let step = 0; step < universes.length; step++) {
         if(universes[step][1].split(":")[0]=="https"){
             mv.insertAdjacentHTML("beforeend",'<div onclick=link('+"'"+universes[step][1]+"'"+') class=verse desktop>'+universes[step][0]+'</div>')
         }else{
             mv.insertAdjacentHTML("beforeend",'<div onclick=link('+step+') class=verse desktop>'+universes[step][0]+'</div>')
         }
-        exec("inspect",[universes[step][0]+" : Verse <<"]);
+        exec("inspect",[universes[step][0]+" : Verse <<"])
     }
     for (let step = 0; step < database.length; step++) {
         if(database[step][1].split(":")[0]=="https"){
@@ -171,9 +187,9 @@ var init = function(){
             ls.insertAdjacentHTML("beforeend",'<div onclick='+"window.open('"+database[step][2]+"')"+' class=database desktop>'+database[step][0]+'<label style="color: grey; margin-left: auto; right: 0">'+database[step][1]+'</label></div>')
         }
         //ls.insertAdjacentHTML("beforeend",'<div href='+"'"+database[step][1]+"'"+' class=database desktop>'+database[step][0]+'</div>')
-        exec("inspect",[database[step][0]+" : List <<"]);
+        exec("inspect",[database[step][0]+" : List <<"])
     }
-    exec("log",WelMSG);
+    exec("log",WelMSG)
 }
 var op=0
-init();
+init()

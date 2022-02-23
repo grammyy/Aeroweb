@@ -39,3 +39,31 @@ AddEvent(window,'keydown',function(e){
             break; 
     }
 });
+var cookie = function(func,payload){
+    switch(func){
+        //d.setTime(d.getTime() + (days*24*60*60*1000));
+        //let expires = "expires="+ d.toUTCString();
+        case "set": //No expiring payloads yet
+            document.cookie = payload[0]+"="+payload[1];
+            break;
+        case "del": //not done such all methods and examples ive seen are really unclean
+            break;
+        case "get":
+            let cookies = decodedCookie.split(';');
+            for(let i = 0; i <decodeURLComponet(document.cookie).split(";").length; i++) {
+                while(cookies[i].charAt(0)==' '){
+                    cookies[i]=cookies[i].substring(1);
+                }
+                if(cookies[i].indexOf(payload[0]+"="==0)){
+                    return cookies[i].substring(payload[0]+"=".length,cookies[i].length)
+                }
+            }
+            break;
+        case "return":
+            if(cookie("get",[payload[0]])!=""){
+                return true 
+            }else{
+                return false
+            }
+    }
+}
