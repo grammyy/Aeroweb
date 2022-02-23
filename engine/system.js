@@ -44,8 +44,8 @@ var cookie = function(func,payload){
         //d.setTime(d.getTime() + (days*24*60*60*1000));
         //let expires = "expires="+ d.toUTCString();
         case "set": //No expiring payloads yet, needs array setting for advance cookies such as time n stuff with ease
-            exec("inspect",["cookie! ",new Date(new Date().getTime()+1000*60*60*24*365)])
-            document.cookie = payload[0]+"="+payload[1]+";"+new Date(new Date().getTime()+1000*60*60*24*365);
+            exec("inspect",["cookie! ",new Date(new Date().getTime()+1000*60*60*24*365).toGMTString()])
+            document.cookie = payload[0]+"="+payload[1]+";"+new Date(new Date().getTime()+1000*60*60*24*365).toGMTString();
             break;
         case "del":
             if(cookie("return",payload[0])){
