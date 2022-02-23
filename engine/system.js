@@ -47,20 +47,20 @@ var cookie = function(func,payload){
             exec("inspect",["cookie! ",new Date(new Date().getTime()+1000*60*60*24*365).toGMTString()])
             document.cookie = payload[0]+"="+payload[1]+";"+new Date(new Date().getTime()+1000*60*60*24*365).toGMTString();
             break;
-        case "del":
-            if(cookie("return",payload[0])){
-                //switch(payload[1].typeof){
-                //    case string:
-                cookie("set",[payload[0],""])}
-                //        break;
-                //    case object && payload[1].isArray: //No use until advance cookies
-                //        for(let i = 0; i < payload[1].length; i++){
-                //            cookie("set",[payload[0],payload[1][i]])
-                //        }
-                //        break;
-                }
-            }
-            break;
+        //case "del":
+        //    if(cookie("return",payload[0])){
+        //        switch(payload[1].typeof){
+        //            case string:
+        //                cookie("set",[payload[0],""])
+        //                break;
+        //            case object && payload[1].isArray: //No use until advance cookies
+        //                for(let i = 0; i < payload[1].length; i++){
+        //                    cookie("set",[payload[0],payload[1][i]])
+        //                }
+        //                break;
+        //        }
+        //    }
+        //    break;
         case "get":
             let cookies = decodeURIComponent(document.cookie).split(';');
             for(let i = 0; i < cookies.length; i++) {
