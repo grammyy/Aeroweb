@@ -68,15 +68,9 @@ var cookie = function(func,payload){
                     cookies[i]=cookies[i].substring(1);
                 }
                 if(cookies[i].indexOf(payload[0]+"="==0)){
-                    return cookies[i].substring(payload[0]+"=".length,cookies[i].length)
+                    return cookies[i].substring(cookies[i].length)
                 }
             }
             break;
-        case "return":
-            if(cookie("get",[payload[0]])!=""){
-                return true 
-            }else{
-                return false
-            }
     }
 }
