@@ -19,7 +19,7 @@ const WelMSG = [
     "+Added Cookie Clicker 2.031 (Latest version)"]
 const universes = [["Cloth Sim","cloth.html"],["Encrypted Web Proxy","https://aerophp.000webhostapp.com"],["Cookie Clicker 2.031","CC2031.html"],["Console Emulator","CESTE.html"],["Flex Background","FLPBE.html"]]
 const database = [["Public DOC.1","https://docs.google.com/document/d/1_qpvRk_4rMYjyb9gz8h2HkStVHwUBYWUdFRi_FO-vC8/edit?usp=sharing","Document"],["Public DOC.2","https://docs.google.com/document/d/1gO_NaXDcCk9OZRklirPDxB5kVp1NdOV7quAHqXSVnaE/edit?usp=sharing","Document"],["Public DOC.3","https://docs.google.com/document/d/1WHgwzGz4EVP2nYBiky0ikJohPukdAVOUQYvLOe6A5-E/edit?usp=sharing","Document"],["PAC Module","Python","https://github.com/BartenderWinery/PAC/releases/download/module/pac.py"],["Youtubmp4","Python","https://github.com/BartenderWinery/Youtubmp4/releases/download/release/Youtubmp4.exe"],["Algorithms","Example Package",""]]
-const shelf = [[["Operating Sub-system","onclick=exec('resize',2);link('aeroweb.netlify.com/engine/os.html')"]]]
+const shelf = [[["Operating Sub-system","onclick=exec('resize',2);link('engine/os.html')"]]]
 
 var analog=document.getElementById("analog")
 var local=document.getElementById("local")

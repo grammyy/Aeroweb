@@ -44,7 +44,8 @@ var cookie = function(func,payload){
         //d.setTime(d.getTime() + (days*24*60*60*1000));
         //let expires = "expires="+ d.toUTCString();
         case "set": //No expiring payloads yet, needs array setting for advance cookies such as time n stuff with ease
-            document.cookie = payload[0]+"="+payload[1];
+            exec("inspect",["cookie! ",new Date(new Date().getTime()+1000*60*60*24*365)])
+            document.cookie = payload[0]+"="+payload[1]+";"+new Date(new Date().getTime()+1000*60*60*24*365);
             break;
         case "del":
             if(cookie("return",payload[0])){
@@ -61,8 +62,8 @@ var cookie = function(func,payload){
             }
             break;
         case "get":
-            let cookies = decodedCookie.split(';');
-            for(let i = 0; i < decodeURLComponet(document.cookie).split(";").length; i++) {
+            let cookies = decodeURIComponent(document.cookie).split(';');
+            for(let i = 0; i < cookies.length; i++) {
                 while(cookies[i].charAt(0)==' '){
                     cookies[i]=cookies[i].substring(1);
                 }
