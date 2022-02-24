@@ -190,9 +190,7 @@ var init = function(){
         //ls.insertAdjacentHTML("beforeend",'<div href='+"'"+database[step][1]+"'"+' class=database desktop>'+database[step][0]+'</div>')
         exec("inspect",[database[step][0]+" : List <<"])
     }
-    if(Cookies.get("color")!=""){
-        exec("color",Cookies.get("color"))
-    }
+    exec("color",Cookies.get("color"))
     exec("log",WelMSG)
 }
 var op=0
