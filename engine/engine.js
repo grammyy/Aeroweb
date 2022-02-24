@@ -60,7 +60,7 @@ var exec = function(ex,array){
             document.querySelectorAll('a').forEach(function(node) {
                 color=array; node.style.color = color; node.style.borderColor = color;
             });
-            Cookies.set("color",[color])
+            Cookies.set("color",color)
             break;
         case "log":
             array.forEach(element => con.insertAdjacentHTML("beforeend","<p style='position: sticky; z-index: 2; color: "+color+"'>"+element+"</p>"))
@@ -190,7 +190,7 @@ var init = function(){
         //ls.insertAdjacentHTML("beforeend",'<div href='+"'"+database[step][1]+"'"+' class=database desktop>'+database[step][0]+'</div>')
         exec("inspect",[database[step][0]+" : List <<"])
     }
-    exec("color",Cookies.get("color"))
+    exec("color",[Cookies.get("color")])
     exec("log",WelMSG)
 }
 var op=0
