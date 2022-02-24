@@ -42,7 +42,7 @@ var exec = function(ex,array){
     switch(ex){
         case "color":
             document.querySelectorAll('div').forEach(function(node) {
-                color[0]=array
+                color=array
                 node.style.color = color; node.style.borderColor = color;
                 if(node.className=="button"){
                     node.style.backgroundColor = color
@@ -60,7 +60,7 @@ var exec = function(ex,array){
             document.querySelectorAll('a').forEach(function(node) {
                 color=array; node.style.color = color; node.style.borderColor = color;
             });
-            Cookies.set("color",color)
+            Cookies.set("color",[color])
             break;
         case "log":
             array.forEach(element => con.insertAdjacentHTML("beforeend","<p style='position: sticky; z-index: 2; color: "+color+"'>"+element+"</p>"))
