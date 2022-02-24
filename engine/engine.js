@@ -191,7 +191,7 @@ var init = function(){
         exec("inspect",[database[step][0]+" : List <<"])
     }
     if(Cookies.get("color")!=""){
-        exec("color",[Cookies.get("color")])
+        exec("color",Cookies.get("color"))
     }
     exec("log",WelMSG)
 }
