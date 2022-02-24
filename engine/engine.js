@@ -70,6 +70,11 @@ var exec = function(ex,array){
                 fade(document.getElementById(element.toString().replace(/ /g,"-")+index), 2000, 2000);
             }); 
             break;
+        case "linebreak":
+            var ran = Math.random()
+            inspect.insertAdjacentHTML("beforeend","<p id='linebreak"+ran+"' style='margin-left: fit-content; height: 11px'></p>")
+            fade(document.getElementById("linebreak"+ran), 2000, 2000);
+            break;
         case "resize":
             switch(array){
                 case 0:
