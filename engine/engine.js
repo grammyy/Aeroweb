@@ -9,10 +9,9 @@ const WelMSG = [
     "══════════════════════════════════════════════════════════════",
     "You can find the credits to all code/media artists in the HTML page source.",
     "-Adding a bunch of HTTP requests functions for dyanmic data along with proper coloring settings.",
-    "-Main website is currently unable to save settings, this doesn't apply to the multiverse.",
     "-Working on neco-arc fighter HTML5 game.",
     "==-----------------------------------------------------------------------------------------------------------------------------==",
-    "+Added Keybinds",
+    "+Added Keybinds and Cookies",
     "+Added multiple public google docs, API controls coming soon",
     "+Added Proxy (miniProxy)",
     "+Added Cloth Sim (@abro_oks)",
@@ -85,7 +84,7 @@ var exec = function(ex,array){
                     win.style.width = "90%"
                     win.style.borderStyle = "groove";
 
-                    size=0
+                    size=0; Cookies.set("size",0)
                     break;
                 case 1:
                     con.style = "height: 100%; width: 100%; position: initial; margin: 0";
@@ -99,7 +98,7 @@ var exec = function(ex,array){
                     win.style.width = "90%"
                     win.style.borderStyle = "groove";
 
-                    size=1
+                    size=1; Cookies.set("size",1)
                     break;
                 case 2: 
                     con.style = "height: 100%; width: 100%; position: initial; margin: 0";
@@ -114,7 +113,7 @@ var exec = function(ex,array){
                     win.style.width = "100%"
                     win.style.borderStyle = "none";
 
-                    size=2
+                    size=2; Cookies.set("size",2)
                     break;
             }
             if(op!=0){con.style.opacity = "100%";}
@@ -171,7 +170,7 @@ var file = function(disk,files){
 var init = function(){
     setInterval(loop,100)
     setInterval(tick,500)
-    
+
     file("SYSTEM",shelf[0])
     for (let step = 0; step < universes.length; step++) {
         if(universes[step][1].split(":")[0]=="https"){
@@ -190,8 +189,12 @@ var init = function(){
         //ls.insertAdjacentHTML("beforeend",'<div href='+"'"+database[step][1]+"'"+' class=database desktop>'+database[step][0]+'</div>')
         exec("inspect",[database[step][0]+" : List <<"])
     }
-    exec("color",[Cookies.get("color")])
+    exec("color",Cookies.get("color"))
+    exec("resize",parseInt(Cookies.get("size")))
+
     exec("log",WelMSG)
+
+    if(size!=0){document.getElementById("score").remove()}
 }
 var op=0
 init()

@@ -15,7 +15,7 @@ AddEvent(window,'keydown',function(e){
     switch(e.keyCode){
         case e.ctrlKey && 70:
             e.preventDefault();
-            exec("resize",size+=1); if(size==2){size=-1}
+            exec("resize",size+=1); if(size==3){exec("resize",0)}
             break; 
         case e.ctrlKey && 88:
             e.preventDefault();
