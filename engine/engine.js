@@ -18,7 +18,8 @@ const WelMSG = [
     "+Added Cookie Clicker 2.031 (Latest version)"]
 const universes = [["Cloth Sim","cloth.html"],["Encrypted Web Proxy","https://aerophp.000webhostapp.com"],["Cookie Clicker 2.031","CC2031.html"],["Console Emulator","CESTE.html"],["Flex Background","FLPBE.html"]]
 const database = [["Public DOC.1","https://docs.google.com/document/d/1_qpvRk_4rMYjyb9gz8h2HkStVHwUBYWUdFRi_FO-vC8/edit?usp=sharing","Document"],["Public DOC.2","https://docs.google.com/document/d/1gO_NaXDcCk9OZRklirPDxB5kVp1NdOV7quAHqXSVnaE/edit?usp=sharing","Document"],["Public DOC.3","https://docs.google.com/document/d/1WHgwzGz4EVP2nYBiky0ikJohPukdAVOUQYvLOe6A5-E/edit?usp=sharing","Document"],["PAC Module","Python","https://github.com/BartenderWinery/PAC/releases/download/module/pac.py"],["Youtubmp4","Python","https://github.com/BartenderWinery/Youtubmp4/releases/download/release/Youtubmp4.exe"],["Algorithms","Example Package",""]]
-const shelf = [[["Operating Sub-system","onclick=exec('resize',2);link('engine/os.html')"]]]
+const shelf = [[["Operating Sub-system: [Unfinished]",""]],[["Cookie Clicker 2.031: [Orteil.dashnet]","onclick=exec('resize',1);link('multiverse/CC2031.html')"],["Neco-Arc Arcade: [Unfinshed]"],["Encrypted Proxy: [MiniProxy]","onclick=exec('resize',1);link('https://aerophp.000webhostapp.com')"]]]
+//onclick=exec('resize',2);link('engine/os.html')
 
 var analog=document.getElementById("analog")
 var local=document.getElementById("local")
@@ -156,10 +157,10 @@ var link = function(link){
         con.insertAdjacentHTML("afterBegin","<iframe id='worker' src="+link+"></iframe>");
     }
     //top.worker.contentWindow.document.body.insertAdjacentHTML("beforeEnd","<script src='engine/system.js'></script>")
-    con.style.opacity = "100%"; op=1
+    con.style.opacity = "100%"; op=1; Cookies.set("program",link)
 }
 function loop(){
-    execute.setAttribute("onclick","exec('inspect',['"+rcon.value+" :<<']); try{"+rcon.value+"}catch(err){exec('inspect',[err]); book(err)}"); rcon.setAttribute("onchange","exec('inspect',['"+rcon.value+" :<<']); try{"+rcon.value+"}catch(err){exec('inspect',[err]); book(err)}")
+    execute.setAttribute("onclick","exec('inspect',['"+rcon.value+" :<<']); try{"+rcon.value+"; Cookies.set('rcon','"+rcon.value+"')}catch(err){exec('inspect',[err]); book(err)}"); rcon.setAttribute("onchange","exec('inspect',['"+rcon.value+" :<<']); try{"+rcon.value+"; Cookies.set('rcon','"+rcon.value+"')}catch(err){exec('inspect',[err]); book(err)}")
     analog.innerHTML=Date.now()
     if(size!=0){con.scrollTop = con.scrollHeight; inspect.scrollTop = inspect.scrollHeight}
 }
@@ -167,9 +168,9 @@ function tick(){
     now=new Date(); clock.innerHTML=now.getHours()+':'+now.getMinutes()+':'+now.getSeconds()
 }
 var file = function(disk,files){
-    frs.insertAdjacentHTML("beforeend",'<li class="folders" >'+disk+'<ul style="padding-left: 20px" id="'+disk+'ul'+'"></ul></li>')
-    files.forEach((value) => {
-        document.getElementById(disk+'ul').insertAdjacentHTML("beforeend",'<a '+value[1]+' class="folders" >'+value[0]+'</a>')
+    frs.insertAdjacentHTML("beforeend",'<li style="padding-bottom: 10px" class="folders" >'+disk+'<ul style="padding-left: 20px; display: flex; flex-direction: column" id="'+disk+'ul'+'"></ul></li>')
+    files.forEach((value) => { value[0]=value[0].split(":");
+        document.getElementById(disk+'ul').insertAdjacentHTML("beforeend",'<a '+value[1]+' class="folders" >'+value[0][0]+'<label style="color: yellow; margin-left: auto; right: 0">'+value[0][1]+'</label></a>')
     })
 }
 var init = function(){
@@ -177,6 +178,7 @@ var init = function(){
     setInterval(tick,500)
 
     file("SYSTEM",shelf[0])
+    file("PROGRAMS",shelf[1])
     for (let step = 0; step < universes.length; step++) {
         if(universes[step][1].split(":")[0]=="https"){
             mv.insertAdjacentHTML("beforeend",'<div onclick=link('+"'"+universes[step][1]+"'"+') class=verse desktop>'+universes[step][0]+'</div>')
@@ -196,9 +198,10 @@ var init = function(){
     }
     exec("color",Cookies.get("color"))
     exec("resize",parseInt(Cookies.get("size")))
-
+    
     exec("log",WelMSG)
-
+    if(Cookies.get("program")!="undefined"){link(Cookies.get("program")); clear()}
+    if(Cookies.get("rcon")!="undefined"){ rcon.value = Cookies.get("rcon")}
     if(size!=0){document.getElementById("score").remove()}
 }
 var op=0
