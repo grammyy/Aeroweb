@@ -63,7 +63,6 @@ AddEvent(window,'keydown',function(e){
         function record() {}
 
         function write(cook, tray, write) { //Writes a cookie
-            console.log(1)
             if ("undefined" != typeof document) {
                 "number" == typeof(write = rcon({
                     path: "/"
@@ -80,7 +79,6 @@ AddEvent(window,'keydown',function(e){
         }
 
         function read(rcon, tray) { //Reads the cookie
-            console.log(2)
             if ("undefined" != typeof document) {
                 for (var record = {}, write = document.cookie ? document.cookie.split("; ") : [], read = 0; read < write.length; read++) {
                     var ID = write[read].split("="),
@@ -100,10 +98,8 @@ AddEvent(window,'keydown',function(e){
         return record.set = write, record.get = function(rcon) { //Returns array and gets cookie from name
             return read(rcon, !1)
         }, record.getJSON = function(rcon) { //Non important
-            console.log(3)
             return read(rcon, !0)
         }, record.remove = function(cook, tray) { //Important for Cookies.get
-            console.log(4)
             write(cook, "", rcon(tray, {
                 expires: -1
             }))

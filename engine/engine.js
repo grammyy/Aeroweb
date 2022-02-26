@@ -34,6 +34,8 @@ var rcon = document.getElementById("rcon");
 var execute = document.getElementById("execute");
 var toolkit = document.getElementById("toolkit");
 
+var overlay = document.getElementById("overlay");
+
 var mv=document.getElementById("multiverse");
 var fr=document.getElementById("folder");
 var frs=document.getElementById("frs");
@@ -63,7 +65,7 @@ var exec = function(ex,array){
             Cookies.set("color",color)
             break;
         case "log":
-            array.forEach(element => con.insertAdjacentHTML("beforeend","<p style='position: sticky; z-index: 2; color: "+color+"'>"+element+"</p>"))
+            array.forEach(element => con.insertAdjacentHTML("beforeend","<p style='position: sticky; z-index: 2; color: "+color+"; opacity: inherit !important'>"+element+"</p>"))
             break;
         case "inspect":
             array.forEach((element) => { index++
@@ -131,7 +133,7 @@ var exec = function(ex,array){
             while(p[0]) { p[0].parentNode.removeChild(p[0]); }
             while(frame[0]) { frame[0].parentNode.removeChild(frame[0]); }
             while(code[0]) { code[0].parentNode.removeChild(code[0]); }
-            con.style.opacity = "60%";
+            con.style.opacity = "80%";
             break;
     }
 }
@@ -167,6 +169,57 @@ function loop(){
 function tick(){
     now=new Date(); clock.innerHTML=now.getHours()+':'+now.getMinutes()+':'+now.getSeconds()
 }
+//var win = function(ID,length,CSS){ this is so bad it hurts
+//    function runtime(){
+//        
+//    }
+//    function init(){
+//        //setInterval(runtime,tps)
+//        exec("inspect",["placeholder"+" : Win <<"])
+//
+//        overlay.insertAdjacentHTML("beforeend","<div id='"+ID+"'></div>"); ID = document.getElementById(ID); dragElement(ID)
+//        ID.style = "position: absolute; background-color: purple"+"; width: "+length[0]+"; height: "+length[1]+"; "+CSS;
+//        function dragElement(elmnt) {
+//            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+//            if (document.getElementById(elmnt.id + "header")) {
+//              // if present, the header is where you move the DIV from:
+//              document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+//            } else {
+//              // otherwise, move the DIV from anywhere inside the DIV:
+//              elmnt.onmousedown = dragMouseDown;
+//            }
+//            function dragMouseDown(e) {
+//                e = e || window.event;
+//                e.preventDefault();
+//                // get the mouse cursor position at startup:
+//                pos3 = e.clientX;
+//                pos4 = e.clientY;
+//                document.onmouseup = closeDragElement;
+//                // call a function whenever the cursor moves:
+//                document.onmousemove = elementDrag;
+//              }
+//            function elementDrag(e) {
+//              e = e || window.event;
+//              e.preventDefault();
+//              // calculate the new cursor position:
+//              pos1 = pos3 - e.clientX;
+//              pos2 = pos4 - e.clientY;
+//              pos3 = e.clientX;
+//              pos4 = e.clientY;
+//              // set the element's new position:
+//              elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+//              elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+//            }
+//        
+//            function closeDragElement() {
+//              // stop moving when mouse button is released:
+//              document.onmouseup = null;
+//              document.onmousemove = null;
+//            }
+//        }
+//    }
+//    init()
+//}
 var file = function(disk,files){
     frs.insertAdjacentHTML("beforeend",'<li style="padding-bottom: 10px" class="folders" >'+disk+'<ul style="padding-left: 20px; display: flex; flex-direction: column" id="'+disk+'ul'+'"></ul></li>')
     files.forEach((value) => { value[0]=value[0].split(":");
@@ -200,8 +253,30 @@ var init = function(){
     exec("resize",parseInt(Cookies.get("size")))
     
     exec("log",WelMSG)
-    if(Cookies.get("program")!="undefined"){link(Cookies.get("program")); clear()}
-    if(Cookies.get("rcon")!="undefined"){ rcon.value = Cookies.get("rcon")}
+
+    var pack=[Cookies.get("program"),Cookies.get("rcon")] //Packages the cookies and creates them for process if none present
+    switch(pack[0]){
+        case null:
+            break;
+        case undefined:
+            break;
+        case "undefined":
+            break;
+        default:
+            link(pack[0]); clear()
+            break;
+    }
+    switch(pack[1]){
+        case null:
+            break;
+        case undefined:
+            break;
+        case "undefined":
+            break;
+        default:
+            rcon.value = pack[1]
+            break;
+    }
     if(size!=0){document.getElementById("score").remove()}
 }
 var op=0
