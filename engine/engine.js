@@ -49,7 +49,7 @@ function exec(func,data){
                 })
             break;
         case "wallpaper":
-            if(data!="rvert"){Cookies.set("wallpaper",data); document.body.style.backgroundImage = "url("+data+")"}else{document.body.style.backgroundImage = "url("+"init.png"+")"}
+            if(data!="rvert"){Cookies.set("wallpaper",data); document.body.style.backgroundImage = "url("+data+")"}else{document.body.style.backgroundImage = "url("+"init.webp"+")"}
             break;
     }
 }

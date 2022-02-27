@@ -39,7 +39,7 @@ const shelf = [
     ["Encrypted Proxy: [MiniProxy]","onclick=exec('resize',1);exec('link',['https://aerophp.000webhostapp.com'])"],
     ["Ported Website: [Developer Branch]","onclick=exec('resize',2);exec('link',['https://aerophp.000webhostapp.com/substage/index.html'])"]]]
     
-    let rgb = "red"; let size = 0; let index=0; var rank = "75 69 100 91"
+    let rgb = "red"; let size = 0; let index=0; var rank = "75 67 100 82"
     const objs = ["p","iframe","code"]
 
     function find(element){ return document.getElementById(element)}
