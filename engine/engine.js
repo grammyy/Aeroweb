@@ -37,7 +37,7 @@ function exec(func,data){
             }catch{
                 clear(); con.style.opacity = "100%"
                 con.insertAdjacentHTML("afterBegin","<iframe id='worker' src="+data[0]+"></iframe>");
-                Cookies.set("program",universes[data[0]][1])
+                Cookies.set("program",data[0])
             }
             //top.worker.contentWindow.document.body.insertAdjacentHTML("beforeEnd","<script src='engine/system.js'></script>")
             con.style.opacity = "100%"
@@ -178,12 +178,15 @@ function clear(){
                 return true,data
         }
     }//{return true,data}else{return false}}//embed into actual script later
-    var pg=Cookies.get("program"); if(bake(pg)){exec("link",[pg]); clear()}
+    var pg=Cookies.get("program"); if(bake(pg)){exec("link",[pg])}
     var rc=Cookies.get("rcon"); if(bake(rc)){rcon.value = rc}
     var wl=Cookies.get("wallpaper"); if(bake(wl)){exec("wallpaper",wl)}
-
     scoreInner.innerHTML=rank
+    
     resize(parseInt(Cookies.get("size"))); size=parseInt(Cookies.get("size"))
-    exec("log",WelMSG)
-    rgb=Cookies.get("color");color(rgb)
+    if(size==0){exec("log",WelMSG)}; rgb=Cookies.get("color");color(rgb)
+    //window.onload=function(){
+    //    document.querySelectorAll('img').forEach(function(node) {
+    //        node.style.width = "40%"
+    //    });}
 })()

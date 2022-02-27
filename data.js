@@ -63,3 +63,11 @@ const shelf = [
     var scoreInner = find("scoreInner")
     var rcon = find("rcon")
     var execute = find("execute")
+
+function book(error){
+    switch(error.toString().split(":")[0]){
+        case "SecurityError":
+            exec("inspect",["Your browser has blocked the editing of a iframe window due to security risks, this shouldn't have happened","/linebreak/","Common causes include: Being offline, browsing the website locally, or your browser may outright block it."])
+            break;
+    }
+}
