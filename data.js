@@ -9,7 +9,7 @@ const WelMSG = [
     "╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚══════╝╚═════╝░",
     "══════════════════════════════════════════════════════════════",
     "You can find the credits to all code/media artists in the HTML page source.",
-    "HTML Developer branch is updated once every major update, it is only used for experimental features for the public and such.",
+    "HTML Developer branch is updated once every major update",
     "-Working on neco-arc fighter HTML5 game.",
     "/linebreak/",
     "Major updates:",
@@ -44,6 +44,7 @@ const contacts = [
     "Contact information",
     ["Discord","Bartender","#0531"],
     ["Steam","Bartender","https://steamcommunity.com/id/WineBartender/"],
+    ["Github","BartenderWinery","https://github.com/BartenderWinery"]
 ]
 
     let rgb = "red"; let size = 0; let index=0; var rank = "75 95 100 82"
