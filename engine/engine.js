@@ -135,9 +135,7 @@ function clear(){
     })
 }
 (function(){
-    //document.addEventListener('readystatechange', function() { console.log("Fiered '" + document.readyState + "' after " + performance.now() + " ms"); });
-    //document.addEventListener('DOMContentLoaded', function() { console.log("Fiered DOMContentLoaded after " + performance.now() + " ms"); }, false);
-    //window.addEventListener('load', function() { console.log("Fiered load after " + performance.now() + " ms"); }, false);
+    console.log(contacts)
     setInterval(function(){
         execute.setAttribute("onclick","exec('inspect',['"+rcon.value+" :<<']); try{"+rcon.value+"; Cookies.set('rcon','"+rcon.value+"')}catch(err){exec('inspect',[err]); book(err)}"); rcon.setAttribute("onchange","exec('inspect',['"+rcon.value+" :<<']); try{"+rcon.value+"; Cookies.set('rcon','"+rcon.value+"')}catch(err){exec('inspect',[err]); book(err)}")
         clock.innerHTML=new Date().toLocaleTimeString()

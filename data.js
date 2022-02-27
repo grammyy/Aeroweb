@@ -39,8 +39,13 @@ const shelf = [
     ["Neco-Arc Arcade: [Unfinshed]"],
     ["Encrypted Proxy: [MiniProxy]","onclick=resize(1);exec('link',['https://aerophp.000webhostapp.com'])"],
     ["Ported Website: [Developer Branch]","onclick=resize(2);exec('link',['https://aerophp.000webhostapp.com/substage/index.html'])"]]]
-    
-    let rgb = "red"; let size = 0; let index=0; var rank = "75 67 100 82"
+const contacts = [
+    "Contact information",
+    ["Discord","Bartender","#0531"],
+    ["Steam","Bartender","https://steamcommunity.com/id/WineBartender/"],
+]
+
+    let rgb = "red"; let size = 0; let index=0; var rank = "75 95 100 82"
     const objs = ["p","iframe","code"]
 
     function find(element){ return document.getElementById(element)}
