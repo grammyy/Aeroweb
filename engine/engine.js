@@ -117,19 +117,13 @@ function color(rgb){
     //; node.style.borderColor = rgb;
     Cookies.set("color",rgb)
 }
-function clear(func){
+function clear(){
     function re(obj){ obj.parentNode.removeChild(obj)}
-    switch(func){
-        case "con":
-            var obj = document.getElementsByTagName("p")
+        objs.forEach((value)=>{
+            var obj = document.getElementsByTagName(value)
             while(obj[0]){re(obj[0])}
-            break;
-        case "global":
-            objs.forEach((value)=>{
-                var obj = document.getElementsByTagName(value)
-                while(obj[0]){re(obj[0])}
-                con.style.opacity = "80%"
-            })}
+            con.style.opacity = "80%"
+        })
 }
 (function(){
     //document.addEventListener('readystatechange', function() { console.log("Fiered '" + document.readyState + "' after " + performance.now() + " ms"); });
