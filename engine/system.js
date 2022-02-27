@@ -8,7 +8,7 @@ AddEvent(window,'keydown',function(e){
     switch(e.keyCode){
         case e.ctrlKey && 70:
             e.preventDefault();
-            exec("resize",size+=1); if(size==3){exec("resize",0)}
+            resize(size+=1); if(size==3){resize(0)}
             break; 
         case e.ctrlKey && 88:
             e.preventDefault();
@@ -20,15 +20,15 @@ AddEvent(window,'keydown',function(e){
             break; 
         case e.shiftKey && 49:
             e.preventDefault();
-            exec("resize",0)
+            resize(0)
             break; 
         case e.shiftKey && 50:
             e.preventDefault();
-            exec("resize",1)
+            resize(1)
             break; 
         case e.shiftKey && 51:
             e.preventDefault();
-            exec("resize",2)
+            resize(2)
             break; 
     }
 });
