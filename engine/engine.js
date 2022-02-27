@@ -1,7 +1,13 @@
 function exec(func,data){
     switch(func){ //Add try developer cons later
         case "log":
-            data.forEach(element => con.insertAdjacentHTML("beforeend","<p style='position: sticky; z-index: 2; color: "+rgb+"; opacity: inherit !important'>"+element+"</p>"))
+            data.forEach((element) => {
+                if(element!="/linebreak/"){
+                    con.insertAdjacentHTML("beforeend","<p style='position: sticky; z-index: 2; color: "+rgb+"; opacity: inherit !important'>"+element+"</p>")
+                }else{
+                    con.insertAdjacentHTML("beforeend","<p style='margin-left: fit-content; height: 11px'></p>")
+                }
+            })
             break;
         case "inspect":
             data.forEach((element) => { index++

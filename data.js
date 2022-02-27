@@ -9,14 +9,17 @@ const WelMSG = [
     "╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚══════╝╚═════╝░",
     "══════════════════════════════════════════════════════════════",
     "You can find the credits to all code/media artists in the HTML page source.",
-    "-Adding a bunch of HTTP requests functions for dyanmic data along with proper coloring settings.",
     "-Working on neco-arc fighter HTML5 game.",
-    "==-----------------------------------------------------------------------------------------------------------------------------==",
+    "/linebreak/",
+    "Major updates:",
     "+Added Keybinds and Cookies",
     "+Added multiple public google docs, API controls coming soon",
     "+Added Proxy (miniProxy)",
     "+Added Cloth Sim (@abro_oks)",
-    "+Added Cookie Clicker 2.031 (Latest version)"]
+    "+Added Cookie Clicker 2.031 (Latest version)",
+    "/linebreak/",
+    "Known Bugs:",
+    "-ChromeOS being unable to save/use cookies 99% of the time; rarely works."]
 const universes = [
     ["Cloth Sim","cloth.html"],["Encrypted Web Proxy","https://aerophp.000webhostapp.com"],
     ["Cookie Clicker 2.031","CC2031.html"],
