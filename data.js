@@ -9,6 +9,7 @@ const WelMSG = [
     "╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚══════╝╚═════╝░",
     "══════════════════════════════════════════════════════════════",
     "You can find the credits to all code/media artists in the HTML page source.",
+    "HTML Developer branch is updated once every major update, it is only used for experimental features for the public and such.",
     "-Working on neco-arc fighter HTML5 game.",
     "/linebreak/",
     "Major updates:",
