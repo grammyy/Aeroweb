@@ -25,11 +25,11 @@ function exec(func,data){
                 break;
         case "link":
             try{
-                clear("global"); con.style.opacity = "100%"
+                clear(); con.style.opacity = "100%"
                 con.insertAdjacentHTML("afterBegin","<iframe id='worker' src=./multiverse/"+universes[data[0]][1]+"></iframe>");
                 Cookies.set("program","./multiverse/"+universes[data[0]][1])
             }catch{
-                clear("global"); con.style.opacity = "100%"
+                clear(); con.style.opacity = "100%"
                 con.insertAdjacentHTML("afterBegin","<iframe id='worker' src="+data[0]+"></iframe>");
                 Cookies.set("program",universes[data[0]][1])
             }
@@ -41,6 +41,9 @@ function exec(func,data){
                 data[1].forEach((value) => { value[0]=value[0].split(":");
                     document.getElementById(data[0]+'ul').insertAdjacentHTML("beforeend",'<a '+value[1]+' class="folders" >'+value[0][0]+'<label style="color: yellow; margin-left: auto; right: 0">'+value[0][1]+'</label></a>')
                 })
+            break;
+        case "wallpaper":
+            if(data!="rvert"){Cookies.set("wallpaper",data); document.body.style.backgroundImage = "url("+data+")"}else{document.body.style.backgroundImage = "url("+"init.png"+")"}
             break;
     }
 }
@@ -119,11 +122,11 @@ function color(rgb){
 }
 function clear(){
     function re(obj){ obj.parentNode.removeChild(obj)}
-        objs.forEach((value)=>{
-            var obj = document.getElementsByTagName(value)
-            while(obj[0]){re(obj[0])}
-            con.style.opacity = "80%"
-        })
+    objs.forEach((value)=>{
+        var obj = document.getElementsByTagName(value)
+        while(obj[0]){re(obj[0])}
+        con.style.opacity = "80%"
+    })
 }
 (function(){
     //document.addEventListener('readystatechange', function() { console.log("Fiered '" + document.readyState + "' after " + performance.now() + " ms"); });
@@ -169,8 +172,9 @@ function clear(){
                 return true,data
         }
     }//{return true,data}else{return false}}//embed into actual script later
-    if(bake(Cookies.get("program"))){exec("link",[Cookies.get("program")]); clear("global")}
-    if(bake(Cookies.get("rcon"))){rcon.value = Cookies.get("rcon")}
+    var pg=Cookies.get("program"); if(bake(pg)){exec("link",[pg]); clear()}
+    var rc=Cookies.get("rcon"); if(bake(rc)){rcon.value = rc}
+    var wl=Cookies.get("wallpaper"); if(bake(wl)){exec("wallpaper",wl)}
 
     scoreInner.innerHTML=rank
     resize(parseInt(Cookies.get("size"))); size=parseInt(Cookies.get("size"))
