@@ -12,6 +12,7 @@ const WelMSG = [
     "-Working on neco-arc fighter HTML5 game.",
     "/linebreak/",
     "Major updates:",
+    "+Added Ported Website (Webhost000, Dev Branch)",
     "+Added Keybinds and Cookies",
     "+Added multiple public google docs, API controls coming soon",
     "+Added Proxy (miniProxy)",
@@ -36,8 +37,8 @@ const shelf = [
     [["Operating Sub-system: [Unfinished]",""]],
     [["Cookie Clicker 2.031: [Orteil.dashnet]","onclick=resize(1);exec('link',['multiverse/CC2031.html'])"],
     ["Neco-Arc Arcade: [Unfinshed]"],
-    ["Encrypted Proxy: [MiniProxy]","onclick=exec('resize',1);exec('link',['https://aerophp.000webhostapp.com'])"],
-    ["Ported Website: [Developer Branch]","onclick=exec('resize',2);exec('link',['https://aerophp.000webhostapp.com/substage/index.html'])"]]]
+    ["Encrypted Proxy: [MiniProxy]","onclick=resize(1);exec('link',['https://aerophp.000webhostapp.com'])"],
+    ["Ported Website: [Developer Branch]","onclick=resize(2);exec('link',['https://aerophp.000webhostapp.com/substage/index.html'])"]]]
     
     let rgb = "red"; let size = 0; let index=0; var rank = "75 67 100 82"
     const objs = ["p","iframe","code"]

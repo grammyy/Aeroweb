@@ -185,5 +185,5 @@ function clear(){
     scoreInner.innerHTML=rank
     resize(parseInt(Cookies.get("size"))); size=parseInt(Cookies.get("size"))
     exec("log",WelMSG)
-    color(Cookies.get("color"))
+    rgb=Cookies.get("color");color(rgb)
 })()
