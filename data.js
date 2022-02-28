@@ -35,11 +35,15 @@ const database = [
     ["Youtubmp4","Python","https://github.com/BartenderWinery/Youtubmp4/releases/download/release/Youtubmp4.exe"],
     ["Algorithms","Example Package",""]]
 const shelf = [
-    [["Operating Sub-system: [Unfinished]",""]],
-    [["Cookie Clicker 2.031: [Orteil.dashnet]","onclick=resize(1);exec('link',['multiverse/CC2031.html'])"],
-    ["Neco-Arc Arcade: [Unfinshed]"],
-    ["Encrypted Proxy: [MiniProxy]","onclick=resize(1);exec('link',['https://aerophp.000webhostapp.com'])"],
-    ["Ported Website: [Developer Branch]","onclick=resize(2);exec('link',['https://aerophp.000webhostapp.com/substage/index.html'])"]]]
+    [
+        ["Operating Sub-system: [Unfinished]",""]],
+    [
+        ["Cookie Clicker 2.031: [Orteil.dashnet]","onclick=resize(1);exec('link',['multiverse/CC2031.html'])"],
+        ["Neco-Arc Arcade: [Unfinshed]"],
+        ["Encrypted Proxy: [MiniProxy]","onclick=resize(1);exec('link',['https://aerophp.000webhostapp.com'])"],
+        ["Ported Website: [Developer Branch]","onclick=resize(2);exec('link',['https://aerophp.000webhostapp.com/substage/index.html'])"]],
+    [
+        ["Python: [Unfinshed]",""]]]
 const contacts = [
     "Contact information",
     ["Discord","Bartender","#0531"],

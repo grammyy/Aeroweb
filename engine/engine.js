@@ -147,6 +147,7 @@ function clear(){
     
     exec("files",["SYSTEMS",shelf[0]])
     exec("files",["PROGRAMS",shelf[1]])
+    exec("files",["COMPILERS",shelf[2]])
     for (let step = 0; step < universes.length; step++) {
         if(universes[step][1].split(":")[0]=="https"){
             multiverse.insertAdjacentHTML("beforeend",'<div onclick=exec("link",'+"['"+universes[step][1]+"']"+') class=verse desktop>'+universes[step][0]+'</div>')
