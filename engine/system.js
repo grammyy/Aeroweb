@@ -10,9 +10,9 @@ AddEvent(window,'keydown',function(e){
             e.preventDefault();
             resize(size+=1); if(size==3){resize(0)}
             break; 
-        case e.ctrlKey && 88:
+        case 13:
             e.preventDefault();
-            execute.click()
+            eval("try{"+rcon.value+"}catch(err){exec('inspect',[err]);book(err)}")
             break;
         case e.ctrlKey && 81:
             e.preventDefault();

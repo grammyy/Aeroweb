@@ -141,7 +141,7 @@ function clear(){
         //add auto scrolling
     },500);
     setInterval(function(){
-        execute.setAttribute("onclick","exec('inspect',['"+rcon.value+" :<<']); try{"+rcon.value+"; Cookies.set('rcon','"+rcon.value+"')}catch(err){exec('inspect',[err]); book(err)}"); rcon.setAttribute("onchange","exec('inspect',['"+rcon.value+" :<<']); try{"+rcon.value+"; Cookies.set('rcon','"+rcon.value+"')}catch(err){exec('inspect',[err]); book(err)}")
+        //execute.setAttribute("onclick","exec('inspect',['"+rcon.value+" :<<']); try{"+rcon.value+"; Cookies.set('rcon','"+rcon.value+"')}catch(err){exec('inspect',[err]); book(err)}"); rcon.setAttribute("onchange","exec('inspect',['"+rcon.value+" :<<']); try{"+rcon.value+"; Cookies.set('rcon','"+rcon.value+"')}catch(err){exec('inspect',[err]); book(err)}")
         analog.innerHTML=Date.now()
     },100);
     
