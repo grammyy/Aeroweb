@@ -21,7 +21,7 @@ const WelMSG = [
     "+Added Cookie Clicker 2.031 (Latest version)",
     "/linebreak/",
     "Known Bugs:",
-    "-ChromeOS being unable to save/use cookies 99% of the time; rarely works."]
+    "-The webhost000 environment handles CSS and HTML differently."]
 const universes = [
     ["Cloth Sim","cloth.html"],["Encrypted Web Proxy","https://aerophp.000webhostapp.com"],
     ["Cookie Clicker 2.031","CC2031.html"],
@@ -52,7 +52,7 @@ const contacts = [
 ]
 
     let rgb = "red"; let size = 0; let index=0; var rank = "75 95 100 82"
-    const objs = ["p","iframe","code"]
+    const objs = ["p","iframe","code","img"]
 
     function find(element){ return document.getElementById(element)}
     var overlay = find("overlay")

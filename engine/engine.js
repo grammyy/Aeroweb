@@ -184,8 +184,8 @@ function clear(){
     scoreInner.innerHTML=rank
     
     resize(parseInt(Cookies.get("size"))); size=parseInt(Cookies.get("size"))
-    //window.onload=function(){
-    //    document.querySelectorAll('img').forEach(function(node) {
-    //        node.style.width = "40%"
-    //    });}
+    window.onload=function(){
+        document.querySelectorAll('img').forEach(function(node) {
+            node.style.width = "40%"
+        });}
 })()
