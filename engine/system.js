@@ -12,7 +12,8 @@ AddEvent(window,'keydown',function(e){
             break; 
         case 13:
             e.preventDefault();
-            eval("try{"+rcon.value+"}catch(err){exec('inspect',[err]);book(err)}")
+            console.log(rcon.value)
+            eval("try{"+rcon.value+"}catch(err){exec('inspect',[err]);book(err)}");Cookies.set('rcon',rcon.value)
             break;
         case e.ctrlKey && 81:
             e.preventDefault();
@@ -32,12 +33,28 @@ AddEvent(window,'keydown',function(e){
             break; 
     }
 });
-//var cookie = function(func,payload){
-//    switch(func){
-//
-//    }
-//}
-
+function shell(data){
+    if(data.length==4){
+        if(data[0]!=0){ //no modules yet lol
+            overlay.insertAdjacentHTML("beforeEnd","<div id='"+data[1]+"' style='"+data[3]+"' class='window'></div>")
+            var pack=data[2].split("/")
+            function processs(string){
+                switch(string){
+                    case "drag":
+                        dragElement(document.getElementById(data[1]));
+                        break;
+                    }
+            }
+            if(pack.length>1){
+                pack.ForEach((mod)=>{
+                    processs(mod)
+                })}else{
+                    processs(data[2])
+                }
+            return data[1]+" : Opened <<"
+        }
+    }
+}
 ! function(rcon) { //Arguments for functions and indexes all cookies
     var cook;
     if ("function" == typeof define && define.amd && (define(rcon), cook = !0), "object" == typeof exports && (module.exports = rcon(), cook = !0), !cook) {

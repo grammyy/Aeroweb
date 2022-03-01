@@ -75,6 +75,10 @@ const contacts = [
     var rcon = find("rcon")
     var execute = find("execute")
 
+const programs = [
+    ["0","Compiler","",""]
+]
+
 function book(error){
     switch(error.toString().split(":")[0]){
         case "SecurityError":
