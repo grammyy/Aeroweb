@@ -23,7 +23,7 @@ const WelMSG = [
     "Known Bugs:",
     "-The webhost000 environment handles CSS and HTML differently."]
 const universes = [
-    ["Cloth Sim","cloth.html"],["Encrypted Web Proxy","https://aerophp.000webhostapp.com"],
+    ["Cloth Sim","cloth.html"],["Encrypted Web Proxy","https://aerophp.000webhostapp.com/proxy/index.php"],
     ["Cookie Clicker 2.031","CC2031.html"],
     ["Console Emulator","CESTE.html"],
     ["Flex Background","FLPBE.html"]]
@@ -40,8 +40,8 @@ const shelf = [
     [
         ["Cookie Clicker 2.031: [Orteil.dashnet]","onclick=resize(1);exec('link',['multiverse/CC2031.html'])"],
         ["Neco-Arc Arcade: [Unfinshed]"],
-        ["Encrypted Proxy: [MiniProxy]","onclick=resize(1);exec('link',['https://aerophp.000webhostapp.com'])"],
-        ["Ported Website: [Developer Branch]","onclick=resize(2);exec('link',['https://aerophp.000webhostapp.com/substage/index.html'])"]],
+        ["Encrypted Proxy: [MiniProxy]","onclick=resize(1);exec('link',['https://aerophp.000webhostapp.com/proxy/index.php'])"],
+        ["Ported Website: [Developer Branch]","onclick=resize(2);exec('link',['https://aerophp.000webhostapp.com/subweb/index.html'])"]],
     [
         ["Python: [Unfinshed]",""]]]
 const contacts = [

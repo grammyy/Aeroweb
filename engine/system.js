@@ -36,12 +36,15 @@ AddEvent(window,'keydown',function(e){
 function shell(data){
     if(data.length==4){
         if(data[0]!=0){ //no modules yet lol
-            overlay.insertAdjacentHTML("beforeEnd","<div id='"+data[1]+"' style='"+data[3]+"' class='window'></div>")
+            index++
+            overlay.insertAdjacentHTML("beforeEnd","<div id='"+data[1]+index+"' style='"+data[3]+";display:flex;flex-direction:column"+"' class='window'></div>")
             var pack=data[2].split("/")
             function processs(string){
                 switch(string){
-                    case "drag":
-                        dragElement(document.getElementById(data[1]));
+                    case "drag": //no taskbar support yet
+                        document.getElementById(data[1]+index).insertAdjacentHTML("beforeEnd","<div id='"+data[1]+index+"toolbar"+"' style='width:-webkit-fill-available;height:15px;z-index:1000'><label style='margin:2.5px'>"+data[1]+"</label></div>")
+                        document.getElementById(data[1]+index).insertAdjacentHTML("beforeEnd","<div id='"+data[1]+index+"canvas"+"' style='width:inherit;height:inherit;position:absolute'></div>")
+                        dragElement(document.getElementById(data[1]+index));
                         break;
                     }
             }
