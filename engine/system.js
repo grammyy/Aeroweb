@@ -1,3 +1,4 @@
+const windows=[]
 function AddEvent(html_element, event_name, event_function)
 {
 	if(html_element.attachEvent) html_element.attachEvent("on" + event_name, function() {event_function.call(html_element);});
@@ -38,7 +39,7 @@ function shell(data){
         if(data[0]!=0){ //no modules yet lol
             index++
             overlay.insertAdjacentHTML("beforeEnd","<div id='"+data[1]+index+"' style='"+data[3]+";display:flex;flex-direction:column"+"' class='window'></div>")
-            var pack=data[2].split("/")
+            var pack=data[2].split("/");windows.push((data[1]+index).replace(" ",""))
             function processs(string){
                 switch(string){
                     case "drag": //no taskbar support yet
@@ -54,6 +55,7 @@ function shell(data){
                 })}else{
                     processs(data[2])
                 }
+            color(rgb)
             return data[1]+" : Opened <<"
         }
     }
