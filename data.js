@@ -42,7 +42,7 @@ const shelf = [
         ["Neco-Arc Arcade: [Unfinshed]"],
         ["Encrypted Proxy: [MiniProxy]","onclick=resize(1);exec('link',['https://aerophp.000webhostapp.com/proxy/index.php'])"],
         ["Ported Website: [Developer Branch]","onclick=resize(2);exec('link',['https://aerophp.000webhostapp.com/subweb/index.html'])"],
-        ["Window Sample: [Quick access]","onclick='shell(["+'"1"'+","+'"Window Sample"'+","+'"drag"'+","+'"height:100px;width:200px;resize:both;overflow:hidden;z-index:1000"'+"])'"]],
+        ["Window Sample: [Quick access]","onclick='shell(["+'"multiverse/CC2031.html"'+","+'""'+","+'"drag/iframe"'+","+'"height:100px;width:200px;resize:both;overflow:hidden;z-index:1000"'+"])'"]],
     [
         ["Python: [Unfinshed]",""]]]
 const contacts = [

@@ -36,21 +36,24 @@ AddEvent(window,'keydown',function(e){
 });
 function shell(data){
     if(data.length==4){
-        if(data[0]!=0){ //no modules yet lol
+        if(data[0]!=null){ //no modules yet lol
             index++
             overlay.insertAdjacentHTML("beforeEnd","<div id='"+data[1]+index+"' style='"+data[3]+";display:flex;flex-direction:column"+"' class='window'></div>")
-            var pack=data[2].split("/");windows.push((data[1]+index).replace(" ",""))
+            const pack=data[2].split("/");windows.push((data[1]+index).replace(" ",""))
             function processs(string){
-                switch(string){
+                switch(string){ 
                     case "drag": //no taskbar support yet
                         document.getElementById(data[1]+index).insertAdjacentHTML("beforeEnd","<div id='"+data[1]+index+"toolbar"+"' style='width:-webkit-fill-available;height:15px;z-index:1000'><label style='margin:2.5px'>"+data[1]+"</label></div>")
                         document.getElementById(data[1]+index).insertAdjacentHTML("beforeEnd","<div id='"+data[1]+index+"canvas"+"' style='width:inherit;height:inherit;position:absolute'></div>")
                         dragElement(document.getElementById(data[1]+index));
                         break;
+                    case "iframe":
+                        document.getElementById(data[1]+index+"canvas").insertAdjacentHTML("beforeEnd","<iframe id='"+data[1]+index+"iframe"+"' src='"+data[0]+"' style='width:inherit;height:inherit;position:absolute'></iframe>")
+                        break;
                     }
             }
             if(pack.length>1){
-                pack.ForEach((mod)=>{
+                pack.forEach((mod)=>{
                     processs(mod)
                 })}else{
                     processs(data[2])
