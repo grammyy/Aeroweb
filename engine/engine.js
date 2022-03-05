@@ -1,3 +1,5 @@
+//REMOVE ALL FOREACH LATER, FUNCTIONS ARE MIXED BETWEEN SCRIPTS FIXXXXX.
+
 const windows=[]
 function exec(func,data){
     switch(func){ //Add try developer cons later

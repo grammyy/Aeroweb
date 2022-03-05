@@ -11,6 +11,7 @@ const WelMSG = [
     "You can find the credits to all code/media artists in the HTML page source.",
     "HTML Developer branch is updated once every major update",
     "-Working on neco-arc fighter HTML5 game.",
+    "-Yet another recode is coming.",
     "/linebreak/",
     "Major updates:",
     "+Added Ported Website (Webhost000, Dev Branch)",
@@ -44,7 +45,7 @@ const shelf = [
         ["Ported Website: [Developer Branch]","onclick=resize(2);exec('link',['https://aerophp.000webhostapp.com/subweb/index.html'])"],
         ["Window Sample: [Quick access]","onclick='shell(["+'"multiverse/CC2031.html"'+","+'""'+","+'"drag/iframe"'+","+'"height:100px;width:200px;resize:both;overflow:hidden;z-index:1000"'+"])'"],
         ["Code Editor: [Local Storage]","onclick='shell(["+'"engine/editor.html"'+","+'"Code Editor"'+","+'"drag/iframe"'+","+'"height:270px;width:600px;resize:both;overflow:hidden;z-index:1000"'+"])'"]],
-    [
+    [ //width: 200%; height: 200%; position: absolute; transform: scale(0.5); -webkit-transform-origin-y: top; -webkit-transform-origin-x: left
         ["Python: [Unfinshed]",""]]]
 const contacts = [
     "Contact information",
