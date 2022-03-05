@@ -1,4 +1,3 @@
-const windows=[]
 function AddEvent(html_element, event_name, event_function)
 {
 	if(html_element.attachEvent) html_element.attachEvent("on" + event_name, function() {event_function.call(html_element);});
@@ -34,21 +33,32 @@ AddEvent(window,'keydown',function(e){
             break; 
     }
 });
+function purge(){
+    windows.forEach((win)=>{
+        try{
+            document.getElementById(win).remove()
+            exec("inspect",[win+" : Removed <<"])
+        }catch(err){
+            exec("inspect",[err])
+        }
+    })
+}
 function shell(data){
     if(data.length==4){
         if(data[0]!=null){ //no modules yet lol
             index++
             overlay.insertAdjacentHTML("beforeEnd","<div id='"+data[1]+index+"' style='"+data[3]+";display:flex;flex-direction:column"+"' class='window'></div>")
-            const pack=data[2].split("/");windows.push((data[1]+index).replace(" ",""))
+            const pack=data[2].split("/");windows.push(data[1]+index)
             function processs(string){
                 switch(string){ 
                     case "drag": //no taskbar support yet
-                        document.getElementById(data[1]+index).insertAdjacentHTML("beforeEnd","<div id='"+data[1]+index+"toolbar"+"' style='width:-webkit-fill-available;height:15px;z-index:1000'><label style='margin:2.5px'>"+data[1]+"</label></div>")
+                        document.getElementById(data[1]+index).insertAdjacentHTML("beforeEnd","<div id='"+data[1]+index+"toolbar"+"' style='width:-webkit-fill-available;height:15px;z-index:1000'><label style='margin:2.5px; display:flex'>"+data[1]+"</label></div>")
                         document.getElementById(data[1]+index).insertAdjacentHTML("beforeEnd","<div id='"+data[1]+index+"canvas"+"' style='width:inherit;height:inherit;position:absolute'></div>")
+                        if(data[1]!=""){document.getElementById(data[1]+index+"toolbar").style.backgroundImage = "url('packages/init.png')"}
                         dragElement(document.getElementById(data[1]+index));
                         break;
-                    case "iframe":
-                        document.getElementById(data[1]+index+"canvas").insertAdjacentHTML("beforeEnd","<iframe id='"+data[1]+index+"iframe"+"' src='"+data[0]+"' style='width:inherit;height:inherit;position:absolute'></iframe>")
+                    case "iframe": //write optional downscale function
+                        document.getElementById(data[1]+index+"canvas").insertAdjacentHTML("beforeEnd","<iframe id='"+data[1]+index+"iframe"+"' src='"+data[0]+"' style='width: 200%; height: 200%; position: absolute; transform: scale(0.5); -webkit-transform-origin-y: top; -webkit-transform-origin-x: left'></iframe>")
                         break;
                     }
             }

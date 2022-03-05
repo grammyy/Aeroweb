@@ -1,3 +1,4 @@
+const windows=[]
 function exec(func,data){
     switch(func){ //Add try developer cons later
         case "log":
@@ -50,6 +51,7 @@ function exec(func,data){
             break;
         case "wallpaper":
             if(data!="rvert"){Cookies.set("wallpaper",data); document.body.style.backgroundImage = "url("+data+")"}else{document.body.style.backgroundImage = "url("+"init.webp"+")"}
+            //create function for windows later as well
             break;
     }
 }
@@ -132,6 +134,10 @@ function clear(){
         var obj = document.getElementsByTagName(value)
         while(obj[0]){re(obj[0])}
         con.style.opacity = "80%"
+    })
+    windows.forEach((win)=>{
+        document.getElementById(win).remove(); windows.shift()
+        exec("inspect",[win+" : Removed <<"]);
     })
 }
 (function(){
