@@ -2,7 +2,7 @@
 #list{ height: -webkit-fill-available; width: 8.5%; display: flex; flex-wrap: wrap; flex-direction: column; align-content: flex-start; padding-top: 12px}
 #con{ width: 73%; height: 66%; left: 9.5%; top: 0; overflow-y: scroll; opacity: 80%}
 #inspect{ width: 20%; height: fit-content; right: 0; overflow-y: scroll; position: absolute; display: flex; flex-wrap: nowrap; align-content: flex-end; justify-content: flex-start; align-items: flex-end; flex-direction: column; max-height: 100%; pointer-events: none}
-#multiverse{ width: 73%; height: 30%; left: 9.5%; bottom: 0; display: flex; flex-wrap: wrap; opacity: 60% !important; overflow-y:scroll}
+#multiverse{ width: 73%; height: 30%; left: 9.5%; bottom: 0; display: flex; flex-wrap: wrap; opacity: 60% !important; overflow-y: scroll}
 #folder{ height: 98%; width: 15.5%; right: 0;}
 
 .window{ border: 1px dotted red; display: flex; color: red; font-size: small; position: absolute; border-style: groove}

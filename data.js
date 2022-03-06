@@ -22,7 +22,8 @@ const WelMSG = [
     "+Added Cookie Clicker 2.031 (Latest version)",
     "/linebreak/",
     "Known Bugs:",
-    "-The webhost000 environment handles CSS and HTML differently."]
+    "-The webhost000 environment handles CSS and HTML differently.",
+    "-Mobile broswers suck and will handle the HTML differently from desktop"]
 const universes = [
     ["Cloth Sim","/multiverse/cloth.html"],["Encrypted Web Proxy","https://aerophp.000webhostapp.com/proxy/index.php"],
     ["Cookie Clicker 2.031","/multiverse/CC2031.html"],
