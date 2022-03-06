@@ -93,6 +93,11 @@ var engine = {
                     con.insertAdjacentHTML("afterBegin","<iframe id='worker' src=./multiverse/"+data+"></iframe>");
                     Cookies.set("program","./multiverse/"+data)
                 }
+                if(innerWidth>innerHeight){
+                    //var worker = document.getElementById("worker")
+                    worker.style.height="120%"; worker.style.width="120%"
+                    worker.style.webkitTransformOriginX="left";worker.style.webkitTransformOriginY="top"
+                    worker.style.transform="scale(0.8)"}
                 break;
         }
     },
@@ -132,7 +137,7 @@ var API = {
             data[0].style.transition = "opacity "+data[2]/1000+"s ease"; 
             data[0].style.opacity = 0;
             setTimeout(function() { 
-                try{data[0].parentNode.removeChild(data[0]);}catch(err){engine.exec("inspect",[err])}
+                try{data[0].parentNode.removeChild(data[0]);}catch(err){}
             }, data[2]);
         },data[1]);
     },

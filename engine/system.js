@@ -51,6 +51,29 @@ window.onload=function(){
     for(var index=0,len=imgs;index<len;index++){
         imgs[index].style.width = "40%"
     }
+   
+    if(innerWidth<innerHeight){engine.clear()
+        folder.style.visibility = "hidden"
+        list.style.visibility = "hidden"
+
+        multiverse.style.left = "unset"
+        multiverse.style.width = "99%"
+        con.style.left = "unset"
+        con.style.width = "99%"
+        
+        const pack=[document.getElementsByClassName("verse"),document.getElementsByClassName("button")]
+        for(var index=0,len=pack[0].length;index<len;index++){
+            pack[0][index].style.width = "200px"
+            pack[0][index].style.height = "30px"
+        }
+        for(var index=0,len=pack[1].length;index<len;index++){
+            pack[1][index].style.height = "25px"
+            pack[1][index].style.width = "25px"
+        }
+        toolkit.style.width = "25px"
+        multiverse.style.height = "15%"
+        con.style.height = "82%"
+    }
     
 }
     //var wl=Cookies.get("wallpaper"); if(bake(wl)){exec("wallpaper",wl)}
