@@ -63,7 +63,7 @@ window.onload=function(){
         
         const pack=[document.getElementsByClassName("verse"),document.getElementsByClassName("button")]
         for(var index=0,len=pack[0].length;index<len;index++){
-            pack[0][index].style.width = "200px"
+            pack[0][index].style.width = "160px"
             pack[0][index].style.height = "30px"
         }
         for(var index=0,len=pack[1].length;index<len;index++){
