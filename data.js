@@ -13,6 +13,7 @@ const WelMSG = [
     "-Working on neco-arc fighter HTML5 game.",
     "/linebreak/",
     "Major updates:",
+    "+Added Mobile support",
     "+Added Ported Website (Webhost000, Dev Branch)",
     "+Added Keybinds and Cookies",
     "+Added multiple public google docs, API controls coming soon",
