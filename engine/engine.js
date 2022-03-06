@@ -95,7 +95,7 @@ var engine = {
                 }
                 if(innerWidth>innerHeight){
                     //var worker = document.getElementById("worker")
-                    worker.style.height="120%"; worker.style.width="120%"
+                    worker.style.height="125%"; worker.style.width="125%"
                     worker.style.webkitTransformOriginX="left";worker.style.webkitTransformOriginY="top"
                     worker.style.transform="scale(0.8)"}
                 break;
