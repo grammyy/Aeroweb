@@ -176,7 +176,6 @@ var API = {
 };
 var str = {
     verse:function(){
-        var step=0
         for (let step = 0; step < universes.length; step++) {
             try{
                 multiverse.insertAdjacentHTML("beforeend",'<div onclick=engine.exec("iframe",'+"'"+universes[step][1]+"'"+') class=verse desktop>'+universes[step][0]+'</div>')
@@ -191,8 +190,8 @@ var str = {
             }else{
                 list.insertAdjacentHTML("beforeend",'<div onclick='+"window.open('"+database[step][2]+"')"+' class=database desktop>'+database[step][0]+'<label style="color: grey; margin-left: auto; right: 0">'+database[step][1]+'</label></div>')
             }
+            engine.exec("inspect",[database[step][0]+" : List <<"])
         }
-        engine.exec("inspect",[database[step][0]+" : List <<"])
     },
     compile:function(data){
         for(var index=0,len=data.length;index<len;index++){
