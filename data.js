@@ -24,10 +24,10 @@ const WelMSG = [
     "Known Bugs:",
     "-The webhost000 environment handles CSS and HTML differently."]
 const universes = [
-    ["Cloth Sim","cloth.html"],["Encrypted Web Proxy","https://aerophp.000webhostapp.com/proxy/index.php"],
-    ["Cookie Clicker 2.031","CC2031.html"],
-    ["Console Emulator","CESTE.html"],
-    ["Flex Background","FLPBE.html"]]
+    ["Cloth Sim","/multiverse/cloth.html"],["Encrypted Web Proxy","https://aerophp.000webhostapp.com/proxy/index.php"],
+    ["Cookie Clicker 2.031","/multiverse/CC2031.html"],
+    ["Console Emulator","/multiverse/CESTE.html"],
+    ["Flex Background","/multiverse/FLPBE.html"]]
 const database = [
     ["Public DOC.1","https://docs.google.com/document/d/1_qpvRk_4rMYjyb9gz8h2HkStVHwUBYWUdFRi_FO-vC8/edit?usp=sharing","Document"],
     ["Public DOC.2","https://docs.google.com/document/d/1gO_NaXDcCk9OZRklirPDxB5kVp1NdOV7quAHqXSVnaE/edit?usp=sharing","Document"],
@@ -36,17 +36,18 @@ const database = [
     ["Youtubmp4","Python","https://github.com/BartenderWinery/Youtubmp4/releases/download/release/Youtubmp4.exe"],
     ["Algorithms","Example Package",""]]
 const shelf = [
-    [
+    ["SYSTEMS",
         ["Operating Sub-system: [Unfinished]",""]],
-    [
-        ["Cookie Clicker 2.031: [Orteil.dashnet]","onclick=resize(1);exec('link',['multiverse/CC2031.html'])"],
-        ["Neco-Arc Arcade: [Unfinshed]"],
-        ["Encrypted Proxy: [MiniProxy]","onclick=resize(1);exec('link',['https://aerophp.000webhostapp.com/proxy/index.php'])"],
-        ["Ported Website: [Developer Branch]","onclick=resize(2);exec('link',['https://aerophp.000webhostapp.com/subweb/index.html'])"],
-        ["Window Sample: [Quick access]","onclick='shell(["+'"multiverse/CC2031.html"'+","+'""'+","+'"drag/iframe"'+","+'"height:100px;width:200px;resize:both;overflow:hidden;z-index:1000"'+"])'"],
-        ["Code Editor: [Local Storage]","onclick='shell(["+'"engine/editor.html"'+","+'"Code Editor"'+","+'"drag/iframe"'+","+'"height:270px;width:600px;resize:both;overflow:hidden;z-index:1000"'+"])'"]],
-    [ //width: 200%; height: 200%; position: absolute; transform: scale(0.5); -webkit-transform-origin-y: top; -webkit-transform-origin-x: left
-        ["Python: [Unfinshed]",""]]]
+    ["PROGRAMS",
+        ["Cookie Clicker 2.031: [Orteil.dashnet]","onclick=engine.resize(1);engine.exec('iframe','multiverse/CC2031.html')"],
+        ["Neco-Arc Arcade: [Unfinished]",""],
+        ["Encrypted Proxy: [MiniProxy]","onclick=engine.resize(1);engine.exec('iframe','https://aerophp.000webhostapp.com/proxy/index.php')"],
+        ["Ported Website: [Developer Branch]","onclick=engine.resize(2);engine.exec('iframe','https://aerophp.000webhostapp.com/subweb/index.html')"],
+        ["Window Sample: [Quick access]","onclick='API.compile(["+'"multiverse/CC2031.html"'+","+'""'+","+'"drag/iframe"'+","+'"height:100px;width:200px;resize:both;overflow:hidden;z-index:1000"'+"])'"],
+        ["Code Editor: [Unfinished]","onclick='API.compile(["+'"engine/editor.html"'+","+'"Code Editor"'+","+'"drag/iframe"'+","+'"height:270px;width:600px;resize:both;overflow:hidden;z-index:1000"'+"])'"]],
+    ["COMPILERS",
+        ["Python: [Unfinshed]",""]],
+    ]
 const contacts = [
     "Contact information",
     ["Discord","Bartender","#0531"],
@@ -54,7 +55,7 @@ const contacts = [
     ["Github","BartenderWinery","https://github.com/BartenderWinery"]
 ]
 
-    let rgb = "red"; let size = 0; let index=0; var rank = "75 95 100 82"
+    let color = "red"; let size = 0; var rank = "75 95 100 82"; const windows = []; var time = ""
     const objs = ["p","iframe","code","img"]
 
     function find(element){ return document.getElementById(element)}
@@ -78,8 +79,8 @@ const contacts = [
     var rcon = find("rcon")
     var execute = find("execute")
 
-const programs = [
-    ["0","Compiler","",""]
+const colorable = [
+    ["div","p","input","li","a"]
 ]
 
 function book(error){
