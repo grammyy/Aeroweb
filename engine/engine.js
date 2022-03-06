@@ -124,7 +124,7 @@ var engine = {
         for(var index=0,len=windows.length;index<len;index++){
             var obj = document.getElementsByTagName(objs[index])
             while(obj[0]){re(obj[0])}; con.style.opacity = "80%"}
-    }
+    },
 };
 var API = {
     fade:function(data){
@@ -132,9 +132,16 @@ var API = {
             data[0].style.transition = "opacity "+data[2]/1000+"s ease"; 
             data[0].style.opacity = 0;
             setTimeout(function() { 
-                data[0].parentNode.removeChild(data[0]);
+                try{data[0].parentNode.removeChild(data[0]);}catch(err){engine.exec("inspect",[err])}
             }, data[2]);
         },data[1]);
+    },
+    fliter:function(data){
+        for(var index=0,len=windows.length;index<len;index++){
+            if (windows[index]==data){
+                windows.splice(index)
+            }
+        }
     },
     compile:function(data){
         function processs(string){
@@ -152,7 +159,7 @@ var API = {
         }
         try{
             overlay.insertAdjacentHTML("beforeEnd","<div id='"+time+"' style='"+data[3]+";display:flex;flex-direction:column"+"' class='window'></div>")
-            document.getElementById(time).insertAdjacentHTML("beforeEnd","<div style='position:absolute;right:0;height:15px;width:15px;z-index:10000' onclick='document.getElementById("+time+").remove();windows.filter(function(e) { return e !== "+time+" })'></div>")
+            document.getElementById(time).insertAdjacentHTML("beforeEnd","<div style='position:absolute;right:0;height:15px;width:15px;z-index:10000' onclick='document.getElementById("+time+").remove();API.fliter("+time+")'></div>")
             const pack=data[2].split("/");windows.push(data[1]+time)
             if(pack.length>1){
                 pack.forEach((mod)=>{
