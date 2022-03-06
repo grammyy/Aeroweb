@@ -154,7 +154,7 @@ var API = {
                 case "drag": //no taskbar support yet
                     document.getElementById(time).insertAdjacentHTML("beforeEnd","<div id='"+data[1]+time+"toolbar"+"' style='width:-webkit-fill-available;height:15px;z-index:1000'><label style='margin:2.5px; display:flex'>"+data[1]+"</label></div>")
                     document.getElementById(time).insertAdjacentHTML("beforeEnd","<div id='"+data[1]+time+"canvas"+"' style='width:inherit;height:inherit;position:absolute'></div>")
-                    if(data[1]!=""){document.getElementById(data[1]+time+"toolbar").style.backgroundImage = "url('packages/init.png')"}
+                    if(data[1]!=""){document.getElementById(data[1]+time+"toolbar").style.backgroundColor = "#545454"}
                     dragElement(document.getElementById(time));
                     break;
                 case "iframe": //write optional downscale function
@@ -163,7 +163,7 @@ var API = {
                 }
         }
         try{
-            overlay.insertAdjacentHTML("beforeEnd","<div id='"+time+"' style='"+data[3]+";display:flex;flex-direction:column"+"' class='window'></div>")
+            overlay.insertAdjacentHTML("beforeEnd","<div id='"+time+"' style='"+data[3]+";display:flex;flex-direction:column;color:#878787;background-color:#363636"+"' class='window'></div>")
             document.getElementById(time).insertAdjacentHTML("beforeEnd","<div style='position:absolute;right:0;height:15px;width:15px;z-index:10000' onclick='document.getElementById("+time+").remove();API.fliter("+time+")'></div>")
             const pack=data[2].split("/");windows.push(data[1]+time)
             if(pack.length>1){
