@@ -11,7 +11,6 @@ const WelMSG = [
     "You can find the credits to all code/media artists in the HTML page source.",
     "HTML Developer branch is updated once every major update",
     "-Working on neco-arc fighter HTML5 game.",
-    "-Yet another recode is coming.",
     "/linebreak/",
     "Major updates:",
     "+Added Ported Website (Webhost000, Dev Branch)",
@@ -55,7 +54,7 @@ const contacts = [
     ["Github","BartenderWinery","https://github.com/BartenderWinery"]
 ]
 
-    let color = "red"; let size = 0; var rank = "75 95 100 82"; const windows = []; var time = ""
+    let color = "red"; let size = 0; var rank = "75 95 100 82"; var windows = []; var time = ""
     const objs = ["p","iframe","code","img"]
 
     function find(element){ return document.getElementById(element)}
