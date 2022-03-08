@@ -93,7 +93,7 @@ var engine = {
                     con.insertAdjacentHTML("afterBegin","<iframe id='worker' src=./multiverse/"+data+"></iframe>");
                     Cookies.set("program","./multiverse/"+data)
                 }
-                if(innerWidth>innerHeight){
+                if(innerWidth<innerHeight){
                     //var worker = document.getElementById("worker")
                     worker.style.height="125%"; worker.style.width="125%"
                     worker.style.webkitTransformOriginX="left";worker.style.webkitTransformOriginY="top"
