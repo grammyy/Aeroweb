@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel=preconnect href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{height:100vh;width: 100vw;overflow:hidden}
+        #editor{height:100%;width: 100%;background: transparent;border:0;margin-top:5px;position:absolute;left:0;font-family: 'Roboto', sans-serif}
+        #editor:focus{outline:none}
+        ::-webkit-scrollbar { width: 6PX}
+        ::-webkit-scrollbar-track { background: transparent}
+        ::-webkit-scrollbar-thumb { background: rgb(135, 135, 135)}
+        ::-webkit-scrollbar-thumb:hover { background: rgb(135, 135, 135)}
+    </style>
     <title>Aeroweb | Code Editor</title>
 </head>
 <body>
-    <script src="edit.js"></script>
+    <textarea id="editor" autocomplete="false" spellcheck="false"></textarea>
+    <script src="engine.js"></script>
+    <script src="/modules/edit.js"></script>
 </body>
 </html>

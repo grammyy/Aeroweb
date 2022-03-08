@@ -35,7 +35,8 @@ const database = [
     ["Public DOC.3","https://docs.google.com/document/d/1WHgwzGz4EVP2nYBiky0ikJohPukdAVOUQYvLOe6A5-E/edit?usp=sharing","Document"],
     ["PAC Module","Python","https://github.com/BartenderWinery/PAC/releases/download/module/pac.py"],
     ["Youtubmp4","Python","https://github.com/BartenderWinery/Youtubmp4/releases/download/release/Youtubmp4.exe"],
-    ["Algorithms","Example Package",""]]
+    ["Algorithms","Example Package",""],
+    ["Miniframe","JS Bookmark Tool","https://github.com/BartenderWinery/Miniframe/releases/download/compiled/compiled.js"]]
 const shelf = [
     ["SYSTEMS",
         ["Operating Sub-system: [Unfinished]",""]],
@@ -44,7 +45,8 @@ const shelf = [
         ["Neco-Arc Arcade: [Unfinished]",""],
         ["Encrypted Proxy: [MiniProxy]","onclick=engine.resize(1);engine.exec('iframe','https://aerophp.000webhostapp.com/proxy/index.php')"],
         ["Ported Website: [Developer Branch]","onclick=engine.resize(2);engine.exec('iframe','https://aerophp.000webhostapp.com/subweb/index.html')"],
-        ["Window Sample: [Quick access]","onclick='API.compile(["+'"multiverse/CC2031.html"'+","+'""'+","+'"drag/iframe"'+","+'"height:100px;width:200px;resize:both;overflow:hidden;z-index:1000"'+"])'"],
+        ["Miniframe: [Bookmark JS Tool]","onclick='API.compile(["+'"packages/box/compiled.js"'+","+'"Miniframe compiled JS code"'+","+'"drag/iframe"'+","+'"height:200px;width:300px;resize:both;overflow:hidden;z-index:1000"'+"])'"],
+        ["Window Sample: [Quick access]","onclick='API.compile(["+'"multiverse/CC2031.html"'+","+'""'+","+'"drag/iframe/downscale"'+","+'"height:100px;width:200px;resize:both;overflow:hidden;z-index:1000"'+"])'"],
         ["Code Editor: [Unfinished]","onclick='API.compile(["+'"engine/editor.html"'+","+'"Code Editor"'+","+'"drag/iframe"'+","+'"height:270px;width:600px;resize:both;overflow:hidden;z-index:1000"'+"])'"]],
     ["COMPILERS",
         ["Python: [Unfinshed]",""]],

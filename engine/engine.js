@@ -149,21 +149,26 @@ var API = {
         }
     },
     compile:function(data){
-        function processs(string){
+        function processs(string){ //PLEASE ASSIGN TO VARIABLES LATER, THIS MAKES MY EYES BLEED
             switch(string){ 
                 case "drag": //no taskbar support yet
                     document.getElementById(time).insertAdjacentHTML("beforeEnd","<div id='"+time+"toolbar"+"' style='width:-webkit-fill-available;height:15px;z-index:1000'><label style='margin:2.5px; display:flex'>"+data[1]+"</label></div>")
                     document.getElementById(time).insertAdjacentHTML("beforeEnd","<div id='"+time+"canvas"+"' style='width:inherit;height:inherit;position:absolute'></div>")
-                    if(data[1]!=""){document.getElementById(time+"toolbar").style.backgroundColor = "#545454"}
+                    if(data[1]!=""){
+                        document.getElementById(time+"toolbar").style.backgroundColor = "#545454"
+                    }
                     dragElement(document.getElementById(time));
                     break;
                 case "iframe": //write optional downscale function
-                    document.getElementById(time+"canvas").insertAdjacentHTML("beforeEnd","<iframe id='"+data[1]+time+"iframe"+"' src='"+data[0]+"' style='width: 200%; height: 200%; position: absolute; transform: scale(0.5); -webkit-transform-origin-y: top; -webkit-transform-origin-x: left'></iframe>")
+                    document.getElementById(time+"canvas").insertAdjacentHTML("beforeEnd","<iframe id='"+time+"iframe"+"' src='"+data[0]+"' style='width:100%;height:100%;position:absolute'></iframe>")
+                    break;
+                case "downscale":
+                    document.getElementById(time+"iframe").style = "width: 200%; height: 200%; position: absolute; transform: scale(0.5); -webkit-transform-origin-y: top; -webkit-transform-origin-x: left"
                     break;
                 }
         }
         try{
-            overlay.insertAdjacentHTML("beforeEnd","<div id='"+time+"' style='"+data[3]+";display:flex;flex-direction:column;color:#878787;background-color:#363636"+"' class='window'></div>")
+            overlay.insertAdjacentHTML("beforeEnd","<div id='"+time+"' style='"+data[3]+";display:flex;flex-direction:column;color:rgb(173,173,173);background-color:#363636"+"' class='window'></div>")
             document.getElementById(time).insertAdjacentHTML("beforeEnd","<div style='position:absolute;right:0;height:15px;width:15px;z-index:10000' onclick='document.getElementById("+time+").remove();API.fliter("+time+")'></div>")
             const pack=data[2].split("/");windows.push(time)
             if(pack.length>1){
