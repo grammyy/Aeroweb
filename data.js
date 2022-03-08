@@ -58,7 +58,7 @@ const contacts = [
     ["Github","BartenderWinery","https://github.com/BartenderWinery"]
 ]
 
-    let color = "red"; let size = 0; var rank = "75 95 100 82"; const windows = []; var time = ""
+    let color = "red"; let size = 0; var rank = "72 100 100 82"; const windows = []; var time = ""
     const objs = ["p","iframe","code","img"]
 
     function find(element){ return document.getElementById(element)}
