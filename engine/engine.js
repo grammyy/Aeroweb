@@ -152,7 +152,7 @@ var API = {
         function processs(string){ //PLEASE ASSIGN TO VARIABLES LATER, THIS MAKES MY EYES BLEED
             switch(string){ 
                 case "drag": //no taskbar support yet
-                    document.getElementById(time).insertAdjacentHTML("beforeEnd","<div id='"+time+"toolbar"+"' style='width:-webkit-fill-available;height:15px;z-index:1000'><label style='margin:2.5px; display:flex'>"+data[1]+"</label></div>")
+                    document.getElementById(time).insertAdjacentHTML("beforeEnd","<div id='"+time+"toolbar"+"' style='width:-webkit-fill-available;height:15px;z-index:1000;cursor:all-scroll'><label id='"+time+"label"+"' style='margin:2.5px;display:flex;width:fit-content;white-space:nowrap'>"+data[1]+"</label></div>")
                     document.getElementById(time).insertAdjacentHTML("beforeEnd","<div id='"+time+"canvas"+"' style='width:inherit;height:inherit;position:absolute'></div>")
                     if(data[1]!=""){
                         document.getElementById(time+"toolbar").style.backgroundColor = "#545454"

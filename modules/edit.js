@@ -1,9 +1,21 @@
 var win = document.getElementById("editor")
 var editor = {
     open:function(data){
-        win.value=data
+        try{
+            win.value=data
+
+            //label.value=label.value+" - Code imported from localStorage" 
+        }catch(err){
+            parent.window.engine.exec("inspect",[err])
+        }
     },
     new:function(){
+
+    },
+    compile:function(){
+        
+    },
+    language:function(data){
 
     }
 }
