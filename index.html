@@ -27,7 +27,7 @@
                 <div id="toolkit">
                     <div id="cc" onclick="engine.resize(2)" class="button"></div>
                     <div id="c" onclick="engine.resize(1)" class="button"></div>
-                    <div id="ccc" onclick="engine.clear(); Cookies.set('program','undefined')" class="button"></div>
+                    <div id="ccc" onclick="engine.clear(); Cookies.set('program','undefined', { expires: 14400 }); API.purge()" class="button"></div>
                 </div>
             </div>
             <div id="folder" class="subwindow desktop">

@@ -185,9 +185,9 @@ var API = {
     },
     purge:function(){
         for(var index=0,len=windows.length;index<len;index++){
-            document.getElementById(win).remove()
-            return win+" : Removed <<"
-
+            document.getElementById(windows[index]).remove()
+            this.fliter(windows[index])
+            return windows[index]+" : Removed <<"
         }
     }
 };
