@@ -14,7 +14,7 @@ window.onload=function(){
                 break; 
             case 13:
                 e.preventDefault(); console.log(rcon.value)
-                eval("try{"+rcon.value+"}catch(err){engine.exec('inspect',[err]);book(err)}");Cookies.set('rcon',rcon.value, { expires: 1000*60*60*60*60*1000 })
+                eval("try{"+rcon.value+"}catch(err){engine.exec('inspect',[err]);book(err)}");Cookies.set('rcon',rcon.value, { expires: 14400 })
                 break;
             case e.ctrlKey && 81:
                 e.preventDefault();
