@@ -18,7 +18,7 @@ var engine = {
                 universal.style.width = "90%"
                 universal.style.borderStyle = "groove"
     
-                size=0;Cookies.set("size",0)
+                size=0;Cookies.set("size",0, { expires: 1000*60*60*60*60*1000 })
                 break;
             case 1:
                 con.style = "height: 100%; width: 100%; position: initial; margin: 0"
@@ -36,7 +36,7 @@ var engine = {
                 universal.style.width = "90%"
                 universal.style.borderStyle = "groove"
     
-                size=1;Cookies.set("size",1)
+                size=1;Cookies.set("size",1, { expires: 1000*60*60*60*60*1000 })
                 break;
             case 2:
                 con.style = "height: 100%; width: 100%; position: initial; margin: 0"
@@ -53,7 +53,7 @@ var engine = {
                 universal.style.width = "100%"
                 universal.style.borderStyle = "none"
     
-                size=2;Cookies.set("size",2)
+                size=2;Cookies.set("size",2, { expires: 1000*60*60*60*60*1000 })
                 break;
         }
         if(size!=0){ 
@@ -88,10 +88,10 @@ var engine = {
                 engine.clear(); con.style.opacity = "100%"
                 try{
                     con.insertAdjacentHTML("afterBegin","<iframe id='worker' src="+data+"></iframe>");
-                    Cookies.set("program",data)
+                    Cookies.set("program",data, { expires: 1000*60*60*60*60*1000 })
                 }catch(err){
                     con.insertAdjacentHTML("afterBegin","<iframe id='worker' src=./multiverse/"+data+"></iframe>");
-                    Cookies.set("program","./multiverse/"+data)
+                    Cookies.set("program","./multiverse/"+data, { expires: 1000*60*60*60*60*1000 })
                 }
                 if(innerWidth<innerHeight){
                     //var worker = document.getElementById("worker")
@@ -119,7 +119,7 @@ var engine = {
                 }
             }
         }
-        Cookies.set("color",color)
+        Cookies.set("color",color, { expires: 1000*60*60*60*60*1000 })
     },
     clear:function(){
         try{function re(obj){ obj.parentNode.removeChild(obj)}}catch(err){engine.exec("inspect",[err])}

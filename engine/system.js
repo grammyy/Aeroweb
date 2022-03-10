@@ -14,7 +14,7 @@ window.onload=function(){
                 break; 
             case 13:
                 e.preventDefault(); console.log(rcon.value)
-                eval("try{"+rcon.value+"}catch(err){engine.exec('inspect',[err]);book(err)}");Cookies.set('rcon',rcon.value)
+                eval("try{"+rcon.value+"}catch(err){engine.exec('inspect',[err]);book(err)}");Cookies.set('rcon',rcon.value, { expires: 1000*60*60*60*60*1000 })
                 break;
             case e.ctrlKey && 81:
                 e.preventDefault();
@@ -42,7 +42,7 @@ window.onload=function(){
     str.verse()
 
     if(size==0){engine.exec("log",WelMSG)}; color=Cookies.get("color");engine.paint(color)
-    var pg=Cookies.get("program"); if(bake(pg)){engine.exec("iframe",[pg])}
+    var pg=Cookies.get("program"); if(bake(pg)){engine.exec("iframe",pg)}
     var rc=Cookies.get("rcon"); if(bake(rc)){rcon.value = rc}
     var rs=parseInt(Cookies.get("size")); engine.resize(rs); size=rs
     if(rs==0){ scoreInner.innerHTML=rank}
