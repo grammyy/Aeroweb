@@ -237,15 +237,6 @@ var str = {
         return data[0][0]+" : Init <<"
     }
 };
-var playlist = {
-    call:function(data){ //random currently
-        songmedia.src="packages/box/"+data[0]+".mp3";song.load()
-        if(song.currentTime>=song.duration){this.init()}
-    },
-    init:function(){
-        this.call(songs[Math.floor(Math.random() * songs.length)])
-    }
-}
 //reprogram later
 ! function(rcon) { //Arguments for functions and indexes all cookies
     var cook;

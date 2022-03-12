@@ -57,9 +57,6 @@ const contacts = [
     ["Steam","Bartender","https://steamcommunity.com/id/WineBartender/"],
     ["Github","BartenderWinery","https://github.com/BartenderWinery"]
 ]
-const songs = [
-    ["Soft Fuzzy Man","Lemon Demon","https://www.youtube.com/watch?v=pjeF8aiQgLU"]
-]
 
     let color = "red"; let size = 0; var rank = "72 100 100 82"; const windows = []; var time = ""
     const objs = ["p","iframe","code","img"]
@@ -84,8 +81,6 @@ const songs = [
     var scoreInner = find("scoreInner")
     var rcon = find("rcon")
     var execute = find("execute")
-    var song = find("song")
-    var songmedia = find("songmedia")
 
 const colorable = [
     ["div","p","input","li","a"]
