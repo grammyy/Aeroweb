@@ -39,13 +39,13 @@ const database = [
     ["Miniframe","JS Bookmark Tool","https://github.com/BartenderWinery/Miniframe/releases/download/compiled/compiled.js"]]
 const shelf = [
     ["SYSTEMS",
-        ["Operating Sub-system: [Unfinished]",""]],
+        ["Operating Sub-system: [Unfinished]","onclick=engine.resize(2);engine.exec('iframe','engine/os.html')"]],
     ["PROGRAMS",
         ["Cookie Clicker 2.031: [Orteil.dashnet]","onclick=engine.resize(1);engine.exec('iframe','multiverse/CC2031.html')"],
         ["Neco-Arc Arcade: [Unfinished]",""],
         ["Encrypted Proxy: [MiniProxy]","onclick=engine.resize(1);engine.exec('iframe','https://aerophp.000webhostapp.com/proxy/index.php')"],
         ["Ported Website: [Developer Branch]","onclick=engine.resize(2);engine.exec('iframe','https://aerophp.000webhostapp.com/subweb/index.html')"],
-        ["Miniframe: [Bookmark JS Tool]","onclick='API.compile(["+'"packages/box/compiled.js"'+","+'"Miniframe compiled JS code"'+","+'"drag/iframe"'+","+'"height:200px;width:300px;resize:both;overflow:hidden;z-index:1000"'+"])'"],
+        ["Miniframe: [Bookmark JS Tool]","onclick='API.compile(["+'"packages/box/miniframe.js"'+","+'"Miniframe compiled JS code"'+","+'"drag/iframe"'+","+'"height:200px;width:300px;resize:both;overflow:hidden;z-index:1000"'+"])'"],
         ["Window Sample: [Quick access]","onclick='API.compile(["+'"multiverse/CC2031.html"'+","+'""'+","+'"drag/iframe/downscale"'+","+'"height:100px;width:200px;resize:both;overflow:hidden;z-index:1000"'+"])'"],
         ["Code Editor: [Unfinished]","onclick='API.compile(["+'"engine/editor.html"'+","+'"Code Editor"'+","+'"drag/iframe"'+","+'"height:270px;width:600px;resize:both;overflow:hidden;z-index:1000"'+"])'"]],
     ["COMPILERS",
@@ -56,6 +56,9 @@ const contacts = [
     ["Discord","Bartender","#0531"],
     ["Steam","Bartender","https://steamcommunity.com/id/WineBartender/"],
     ["Github","BartenderWinery","https://github.com/BartenderWinery"]
+]
+const songs = [
+    ["Soft Fuzzy Man","Lemon Demon","https://www.youtube.com/watch?v=pjeF8aiQgLU"]
 ]
 
     let color = "red"; let size = 0; var rank = "72 100 100 82"; const windows = []; var time = ""
@@ -81,6 +84,8 @@ const contacts = [
     var scoreInner = find("scoreInner")
     var rcon = find("rcon")
     var execute = find("execute")
+    var song = find("song")
+    var songmedia = find("songmedia")
 
 const colorable = [
     ["div","p","input","li","a"]

@@ -1,68 +1,4 @@
 var engine = {
-    resize:function(data){
-        switch(data){
-            case 0:
-                con.style = "height: 66%; width: 73%; position: absolute; margin: 0.5%";
-                c.style = "visibility: visible" 
-                c.style.backgroundColor = color 
-                cc.style = "visibility: visible" 
-                cc.style.backgroundColor = color 
-                c.setAttribute("onclick","engine.resize(1)")
-                cc.setAttribute("onclick","engine.resize(2)")
-
-                toolkit.style = "position: absolute"
-                multiverse.style = "visibility: visible"
-                folder.style = "visibility: visible"
-                list.style = "visibility: visible"
-                universal.style.height = "80%"
-                universal.style.width = "90%"
-                universal.style.borderStyle = "groove"
-    
-                size=0;Cookies.set("size",0, { expires: 14400 })
-                break;
-            case 1:
-                con.style = "height: 100%; width: 100%; position: initial; margin: 0"
-                c.style = "visibility: visible; position: fixed; top: 0" 
-                c.style.backgroundColor = color  
-                cc.style = "visibility: hidden";
-                cc.style.backgroundColor = color
-                c.setAttribute("onclick","engine.resize(0)")
-                
-                toolkit.style = "position: fixed; top:0; right: 0"
-                multiverse.style = "visibility: hidden"
-                folder.style = "visibility: hidden"
-                list.style = "visibility: hidden"
-                universal.style.height = "80%"
-                universal.style.width = "90%"
-                universal.style.borderStyle = "groove"
-    
-                size=1;Cookies.set("size",1, { expires: 14400 })
-                break;
-            case 2:
-                con.style = "height: 100%; width: 100%; position: initial; margin: 0"
-                c.style = "visibility: hidden"; c.style.backgroundColor = color
-                cc.style = "visibility: visible"; cc.style.backgroundColor = color
-                cc.setAttribute("onclick","engine.resize(0)");
-
-                toolkit.style = "position: fixed; top:0; right: 0"
-                multiverse.style = "visibility: hidden"
-                folder.style = "visibility: hidden"
-                list.style = "visibility: hidden"
-    
-                universal.style.height = "100%"
-                universal.style.width = "100%"
-                universal.style.borderStyle = "none"
-    
-                size=2;Cookies.set("size",2, { expires: 14400 })
-                break;
-        }
-        if(size!=0){ 
-            con.style.opacity = "100%"
-            score.remove()
-        }else{ 
-            con.style.opacity = "80%"
-        }
-    },
     exec:function(func,data){
         switch(func){ //Add try developer cons later
             case "log":
@@ -130,6 +66,84 @@ var engine = {
             var obj = document.getElementsByTagName(objs[index])
             while(obj[0]){re(obj[0])}; con.style.opacity = "80%"}
     },
+    resize:function(data){
+        switch(data){
+            case 0:
+                con.style = "height: 66%; width: 73%; position: absolute; margin: 0.5%";
+                c.style = "visibility: visible" 
+                cc.style = "visibility: visible" 
+                c.style.backgroundColor = color 
+                cc.style.backgroundColor = color 
+                c.setAttribute("onclick","engine.resize(1)")
+                cc.setAttribute("onclick","engine.resize(2)")
+
+                toolkit.style = "position: absolute"
+                multiverse.style = "visibility: visible"
+                folder.style = "visibility: visible"
+                list.style = "visibility: visible"
+
+                universal.style.height = "80%"
+                universal.style.width = "90%"
+                universal.style.borderStyle = "groove"
+    
+                size=0;Cookies.set("size",0, { expires: 14400 })
+                break;
+            case 1:
+                con.style = "height: 100%; width: 100%; position: initial; margin: 0"
+                c.style = "visibility: visible; position: fixed; top: 0" 
+                cc.style = "visibility: hidden";
+                cc.style.backgroundColor = color
+                c.style.backgroundColor = color  
+                c.setAttribute("onclick","engine.resize(0)")
+                
+                toolkit.style = "position: fixed; top:0; right: 0"
+                multiverse.style = "visibility: hidden"
+                folder.style = "visibility: hidden"
+                list.style = "visibility: hidden"
+                
+                universal.style.height = "80%"
+                universal.style.width = "90%"
+                universal.style.borderStyle = "groove"
+    
+                size=1;Cookies.set("size",1, { expires: 14400 })
+                break;
+            case 2:
+                con.style = "height: 100%; width: 100%; position: initial; margin: 0"
+                c.style = "visibility: hidden"; c.style.backgroundColor = color
+                cc.style = "visibility: visible"; cc.style.backgroundColor = color
+                cc.setAttribute("onclick","engine.resize(0)");
+
+                toolkit.style = "position: fixed; top:0; right: 0"
+                multiverse.style = "visibility: hidden"
+                folder.style = "visibility: hidden"
+                list.style = "visibility: hidden"
+    
+                universal.style.height = "100%"
+                universal.style.width = "100%"
+                universal.style.borderStyle = "none"
+    
+                size=2;Cookies.set("size",2, { expires: 14400 })
+                break;
+        }
+        if(size!=0){ 
+            con.style.opacity = "100%"
+            score.remove()
+        }else{ 
+            con.style.opacity = "80%"
+        }
+    },
+    bake:function(data){ 
+        switch(data){
+            case null:
+                return false
+            case undefined:
+                return false
+            case "undefined":
+                return false
+            default:
+                return true,data
+        }
+    }
 };
 var API = {
     fade:function(data){
@@ -223,6 +237,15 @@ var str = {
         return data[0][0]+" : Init <<"
     }
 };
+var playlist = {
+    call:function(data){ //random currently
+        songmedia.src="packages/box/"+data[0]+".mp3";song.load()
+        if(song.currentTime>=song.duration){this.init()}
+    },
+    init:function(){
+        this.call(songs[Math.floor(Math.random() * songs.length)])
+    }
+}
 //reprogram later
 ! function(rcon) { //Arguments for functions and indexes all cookies
     var cook;
@@ -291,15 +314,3 @@ var str = {
         }, record.defaults = {}, record.withConverter = tray, record //Important for Cookies.get
     }(function() {})
 });
-function bake(data){ 
-    switch(data){
-        case null:
-            return false
-        case undefined:
-            return false
-        case "undefined":
-            return false
-        default:
-            return true,data
-    }
-}

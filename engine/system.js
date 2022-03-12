@@ -41,9 +41,9 @@ window.onload=function(){
     str.compile(shelf)
     str.verse()
 
-    if(size==0){engine.exec("log",WelMSG)}; color=Cookies.get("color");engine.paint(color)
-    var pg=Cookies.get("program"); if(bake(pg)){engine.exec("iframe",pg)}
-    var rc=Cookies.get("rcon"); if(bake(rc)){rcon.value = rc}
+    if(size==0){engine.exec("log",WelMSG); playlist.init()}; color=Cookies.get("color");engine.paint(color)
+    var pg=Cookies.get("program"); if(engine.bake(pg)){engine.exec("iframe",pg)}
+    var rc=Cookies.get("rcon"); if(engine.bake(rc)){rcon.value = rc}
     var rs=parseInt(Cookies.get("size")); engine.resize(rs); size=rs
     if(rs==0){ scoreInner.innerHTML=rank}
     

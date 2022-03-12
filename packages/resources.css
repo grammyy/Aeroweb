@@ -3,7 +3,7 @@
 #con{ width: 73%; height: 66%; left: 9.5%; top: 0; overflow-y: scroll; opacity: 80%}
 #inspect{ width: 20%; height: fit-content; right: 0; overflow-y: scroll; position: absolute; display: flex; flex-wrap: nowrap; align-content: flex-end; justify-content: flex-start; align-items: flex-end; flex-direction: column; max-height: 100%; pointer-events: none}
 #multiverse{ width: 73%; height: 30%; left: 9.5%; bottom: 0; display: flex; flex-wrap: wrap; opacity: 60% !important; overflow-y: scroll}
-#folder{ height: 98%; width: 15.5%; right: 0;}
+#folder{ height: 98%; width: 15.5%; right: 0; z-index: -1}
 
 .window{ border: 1px dotted red; display: flex; color: red; font-size: small; position: absolute; border-style: groove}
 .subwindow{ background-image: url("init.webp"); background-size: 2000px; opacity: 60%; margin: 0.5%; position: absolute; overflow: hidden;}
@@ -19,6 +19,7 @@
 #rcon{ background-color: transparent; color: red; border: unset !important; letter-spacing: 1px; width: 1710px; margin-left: 1px}
 #rcon:focus{ outline: none;}
 #execute{ margin: 0.5%; z-index: 3; left: 0; position: absolute; opacity: 40%;}
+#song{ position: absolute; left: 0; top: 0;}
 
 .analog{ letter-spacing: 3px; bottom: 0; right: 0; text-align: right; height: fit-content; margin: 0}
 #score{ display: flex; letter-spacing: 1px; opacity: 50%; margin: 10px; pointer-events: none}
