@@ -11,6 +11,7 @@ const WelMSG = [
     "You can find the credits to all code/media artists in the HTML page source.",
     "HTML Developer branch is updated once every major update",
     "-Working on neco-arc fighter HTML5 game.",
+    "-Popout and layout functioning coming to windows soon.",
     "/linebreak/",
     "Major updates:",
     "+Added Mobile support",
@@ -25,7 +26,9 @@ const WelMSG = [
     "-The webhost000 environment handles CSS and HTML differently.",
     "-Mobile broswers suck and will handle the HTML differently from desktop"]
 const universes = [
-    ["Cloth Sim","/multiverse/cloth.html"],["Encrypted Web Proxy","https://aerophp.000webhostapp.com/proxy/index.php"],
+    ["Cloth Sim","/multiverse/cloth.html"],
+    ["Encrypted Web Proxy","https://aerophp.000webhostapp.com/proxy/index.php"],
+    ["Legacy Tetris","/multiverse/tetris.html"],
     ["Cookie Clicker 2.031","/multiverse/CC2031.html"],
     ["Console Emulator","/multiverse/CESTE.html"],
     ["Flex Background","/multiverse/FLPBE.html"]]
@@ -41,12 +44,12 @@ const shelf = [
     ["SYSTEMS",
         ["Operating Sub-system: [Unfinished]","onclick=engine.resize(2);engine.exec('iframe','engine/os.html')"]],
     ["PROGRAMS",
+        ["Legacy Tetris: [alvar91]","onclick=engine.exec('iframe','multiverse/tetris.html')"],
         ["Cookie Clicker 2.031: [Orteil.dashnet]","onclick=engine.resize(1);engine.exec('iframe','multiverse/CC2031.html')"],
         ["Neco-Arc Arcade: [Unfinished]",""],
         ["Encrypted Proxy: [MiniProxy]","onclick=engine.resize(1);engine.exec('iframe','https://aerophp.000webhostapp.com/proxy/index.php')"],
         ["Ported Website: [Developer Branch]","onclick=engine.resize(2);engine.exec('iframe','https://aerophp.000webhostapp.com/subweb/index.html')"],
         ["Miniframe: [Bookmark JS Tool]","onclick='API.compile(["+'"packages/box/miniframe.js"'+","+'"Miniframe compiled JS code"'+","+'"drag/iframe"'+","+'"height:200px;width:300px;resize:both;overflow:hidden;z-index:1000"'+"])'"],
-        ["Window Sample: [Quick access]","onclick='API.compile(["+'"multiverse/CC2031.html"'+","+'""'+","+'"drag/iframe/downscale"'+","+'"height:100px;width:200px;resize:both;overflow:hidden;z-index:1000"'+"])'"],
         ["Code Editor: [Unfinished]","onclick='API.compile(["+'"engine/editor.html"'+","+'"Code Editor"'+","+'"drag/iframe"'+","+'"height:270px;width:600px;resize:both;overflow:hidden;z-index:1000"'+"])'"]],
     ["COMPILERS",
         ["Python: [Unfinshed]",""]],
