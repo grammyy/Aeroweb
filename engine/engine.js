@@ -72,8 +72,8 @@ var engine = {
                 con.style = "height: 66%; width: 73%; position: absolute; margin: 0.5%";
                 c.style = "visibility: visible" 
                 cc.style = "visibility: visible" 
-                c.style.backgroundColor = color 
-                cc.style.backgroundColor = color 
+                c.style.backgroundColor = Cookies.get("color") 
+                cc.style.backgroundColor = Cookies.get("color") 
                 c.setAttribute("onclick","engine.resize(1)")
                 cc.setAttribute("onclick","engine.resize(2)")
 
@@ -92,8 +92,8 @@ var engine = {
                 con.style = "height: 100%; width: 100%; position: initial; margin: 0"
                 c.style = "visibility: visible; position: fixed; top: 0" 
                 cc.style = "visibility: hidden";
-                cc.style.backgroundColor = color
-                c.style.backgroundColor = color  
+                cc.style.backgroundColor = Cookies.get("color") 
+                c.style.backgroundColor = Cookies.get("color")   
                 c.setAttribute("onclick","engine.resize(0)")
                 
                 toolkit.style = "position: fixed; top:0; right: 0"
@@ -109,8 +109,8 @@ var engine = {
                 break;
             case 2:
                 con.style = "height: 100%; width: 100%; position: initial; margin: 0"
-                c.style = "visibility: hidden"; c.style.backgroundColor = color
-                cc.style = "visibility: visible"; cc.style.backgroundColor = color
+                c.style = "visibility: hidden"; c.style.backgroundColor = Cookies.get("color") 
+                cc.style = "visibility: visible"; cc.style.backgroundColor = Cookies.get("color") 
                 cc.setAttribute("onclick","engine.resize(0)");
 
                 toolkit.style = "position: fixed; top:0; right: 0"
