@@ -140,8 +140,10 @@ var engine = {
                 return false
             case "undefined":
                 return false
+            case NaN:
+                return false
             default:
-                return true,data
+                return [true,data]
         }
     }
 };
@@ -191,7 +193,7 @@ var API = {
                 })}else{
                     processs(data[2])
                 }
-            engine.paint(color)
+            engine.paint(Cookies.get("color"))
             return data[1]+" : Opened <<"
         }catch(err){
             return err

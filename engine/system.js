@@ -40,13 +40,11 @@ window.onload=function(){
     
     str.compile(shelf)
     str.verse()
-
-    if(size==0){engine.exec("log",WelMSG); playlist.init()}; color=Cookies.get("color");engine.paint(color)
-    var pg=Cookies.get("program"); if(engine.bake(pg)){engine.exec("iframe",pg)}
+    var size=Cookies.get("size");if(engine.bake(size)){engine.resize(size);if(size!=0){}else{engine.exec("log",WelMSG)}}else{Cookies.set("size",0);size=0;engine.exec("log",WelMSG)}
+    var color=Cookies.get("color");if(engine.bake(color)){engine.paint(color)}else{Cookies.set("color","red")}
+    var pg=Cookies.get("program");if(engine.bake(pg)){{engine.exec("iframe",pg)}}else{Cookies.set("program",undefined)}
     var rc=Cookies.get("rcon"); if(engine.bake(rc)){rcon.value = rc}
-    var rs=parseInt(Cookies.get("size")); engine.resize(rs); size=rs
-    if(rs==0){ scoreInner.innerHTML=rank}
-    
+    if(size==0){ scoreInner.innerHTML=rank}
     imgs=document.querySelectorAll('img')
     for(var index=0,len=imgs;index<len;index++){
         imgs[index].style.width = "40%"
@@ -94,6 +92,7 @@ window.onload=function(){
         toolkit.style.width = "20px"
         multiverse.style.height = "30%"
         con.style.height = "66%"
+    
     }}
     window.onload=function(){port()}
     window.onresize=function(){port()}
