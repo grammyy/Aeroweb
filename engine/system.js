@@ -40,8 +40,8 @@ window.onload=function(){
     
     str.compile(shelf)
     str.verse()
-    var size=Cookies.get("size");if(engine.bake(size)){engine.resize(size);if(size!=0){}else{engine.exec("log",WelMSG)}}else{Cookies.set("size",0);size=0;engine.exec("log",WelMSG)}
-    var color=Cookies.get("color");if(engine.bake(color)){engine.paint(color)}else{Cookies.set("color","red")}
+    size=parseInt(Cookies.get("size"));if(engine.bake(size)){engine.resize(size);if(size!=0){}else{engine.exec("log",WelMSG)}}else{Cookies.set("size",0);size=0;engine.exec("log",WelMSG)}
+    color=Cookies.get("color");if(engine.bake(color)){engine.paint(color)}else{Cookies.set("color","red")}
     var pg=Cookies.get("program");if(engine.bake(pg)){{engine.exec("iframe",pg)}}else{Cookies.set("program",undefined)}
     var rc=Cookies.get("rcon"); if(engine.bake(rc)){rcon.value = rc}
     if(size==0){ scoreInner.innerHTML=rank}
