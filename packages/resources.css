@@ -6,7 +6,7 @@
 #folder{ height: 98%; width: 15.5%; right: 0; z-index: -1}
 
 .window{ border: 1px dotted red; display: flex; color: red; font-size: small; position: absolute; border-style: groove}
-.subwindow{ background-image: url("init.webp"); background-size: 2000px; opacity: 60%; margin: 0.5%; position: absolute; overflow: hidden;}
+.subwindow{ background-image: url("init.webp"); background-size: cover; opacity: 60%; margin: 0.5%; position: absolute; overflow: hidden;}
 .verse{ height: 15px; width: 125px; margin: 5px; border: 1px dotted red; display: flex; cursor: pointer; overflow: hidden; border-style: groove; flex-direction: column; flex-wrap: wrap; align-content: stretch; justify-content: center; align-items: center; white-space: nowrap}
 .button{ height: 10px; width: 10px; margin: 5px; background-color: red; opacity: 60%; z-index: 2; cursor: pointer}
 .database{ width: -webkit-fill-available; padding-left: 5px; padding-right: 5px ; white-space: nowrap; cursor: pointer; display: flex}
