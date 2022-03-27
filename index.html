@@ -1,53 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel=preconnect href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
-        <meta name="keywords" content="html, css, js, games, webgl, code example, code sample, coding, stylish, style, aero, aero designs, engineering"/>
-        <meta name="description" content="Highly stylish website offering different programs and examples."/>
-        <meta name="author" content="Matthew Trent | Bartender #0531"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Aeroweb | Main</title>
-        <meta name="viewport" content="width=1920;height=1080">
-        <link href="packages/stylist.css" rel="stylesheet">
-        <link href="packages/resources.css" rel="stylesheet">
-        <meta charset="UTF-8">
-    </head>
-    <body>
-        <div id="overlay" style="top:0;left:0;position: absolute;margin: 140px;">
+<head>
+    <meta charset="UTF-8">
+    <link rel=preconnect href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+    <meta name="keywords" content="html, css, js, games, webgl, code example, code sample, coding, stylish, style, aero, aero designs, engineering"/>
+    <meta name="description" content="Highly stylish website offering different programs and examples."/>
+    <meta name="author" content="Matthew Trent | Bartender #0531"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Aeroweb | Main</title>
+    <script src="engine/engine.js"></script>
+    <link href="packages/resources.css" rel="stylesheet">
+    <link href="packages/stylist.css" rel="stylesheet">
+</head>
+<body>
+    <div id="webpage" class="window">
+        <div id="drive" class="subwindow"></div>
+        <div id="explorer" class="subwindow">
+            <h1 id="clock"></h1>
+            <h1 id="analog"></h1>
         </div>
-        <div id="universal" class="window">
-            <div id="list" class="subwindow desktop">
-                <label style="position: absolute; top: 0; margin-left: 15px; letter-spacing: 2px; display: flex">Database<p class="mark" style="margin-left: 5px;" onclick="engine.exec('inspect',['Database of all downloads and links to projects/examples.']);">?</p></label>
-            </div>
-            <div id="con" class="subwindow maximize">
-                <div id="inspect" class="maximize">
-                </div>
-            </div>
-            <div id="multiverse" class="subwindow desktop grid">
-                <div id="toolkit">
-                    <div id="cc" onclick="engine.resize(2)" class="button"></div>
-                    <div id="c" onclick="engine.resize(1)" class="button"></div>
-                    <div id="ccc" onclick="engine.clear(); Cookies.set('program','undefined', { expires: 14400 }); API.purge()" class="button"></div>
-                </div>
-            </div>
-            <div id="folder" class="subwindow desktop">
-                <ul id="folders">
-                </ul>
-                <div id="sys" class="analog">
-                    <label id="clock" class="analog desktop"></label>
-                    <label id="analog" class="analog desktop"></label>
-                </div>
-            </div>
-            <code id="score" style="color: lightgreen; position: absolute; top: 0" class="analog desktop"><p class="mark" style="margin-right: 5px;" onclick="engine.exec('inspect',['The Website\'s official reported score by Lighthouse; a tool provided by the Chromium developer toolkit.']); engine.exec('inspect',['/linebreak/']); engine.exec('inspect',['Performance: 72, Accessibility: 100, Best practices: 100, SEO: 82'])">?</p><label id="scoreInner"></label></code>
-            <label for="rcon" id="rconlabel">>>:<input id="rcon" spellcheck="false" autocomplete="off" type="text" name="conc"></label>
-            <div id="execute" class="button"></div>
+        <div id="console" class="subwindow"></div>
+        <div id="controlBar" class="subwindow">
+        <div id="toolkit">
+            <div id="cc" onclick="engine.resize(2)" class="button"></div>
+            <div id="c" onclick="engine.resize(1)" class="button"></div>
+            <div id="ccc" onclick="con.clear(); Cookies.set('program','undefined', { expires: 14400 }); con.log(HTTP()[1]); API.purge()" class="button"></div>
         </div>
-        <script src="data.js"></script>
-        <script src="engine/engine.js"></script>
-        <script src="engine/system.js"></script>
-
-        <script src="modules/drag.js"></script>
-    </body>
+    </div>
+    <div id="inspector"></div>
+    </div>
+    <script src="https://aerophp.000webhostapp.com/subHTTP/aeroweb.js"></script>
+    <script src="engine/system.js"></script>
+</body>
 </html>
 <!--Credits:
     Background image: https://www.peakpx.com/en/hd-wallpaper-desktop-aeabf

@@ -1,138 +1,77 @@
+    var layout = []
+    var line=0
 var engine = {
-    exec:function(func,data){
-        switch(func){ //Add try developer cons later
-            case "log":
-                for(var index=0,len=data.length;index<len;index++){
-                    if(data[index]!="/linebreak/"){
-                        con.insertAdjacentHTML("beforeend","<p style='position: sticky; z-index: 2; color: "+color+"; opacity: inherit !important'>"+data[index]+"</p>")
-                    }else{
-                        con.insertAdjacentHTML("beforeend","<p style='margin-left: fit-content; height: 11px'></p>")
-                    }
-                }
-                break;
-            case "inspect":
-                for(var index=0,len=data.length;index<len;index++){
-                    if(data[index]!="/linebreak/"){
-                        inspect.insertAdjacentHTML("beforeend","<p id="+data[index].toString().replace(/ /g,"-")+time+" style='position: sticky; right: 0; z-index: 3; color: "+color+"'>"+data[index]+"</p>")
-                    }else{
-                        inspect.insertAdjacentHTML("beforeend","<p id="+data[index].toString().replace(/ /g,"-")+time+" style='margin-left: fit-content; height: 11px'></p>")
-                    }
-                    API.fade([document.getElementById(data[index].toString().replace(/ /g,"-")+time), 2000, 2000])
-                }
-                break;
-            case "iframe":
-                engine.clear(); con.style.opacity = "100%"
-                try{
-                    con.insertAdjacentHTML("afterBegin","<iframe id='worker' src="+data+"></iframe>");
-                    Cookies.set("program",data, { expires: 14400 })
-                }catch(err){
-                    con.insertAdjacentHTML("afterBegin","<iframe id='worker' src=./multiverse/"+data+"></iframe>");
-                    Cookies.set("program","./multiverse/"+data, { expires: 14400 })
-                }
-                if(innerWidth<innerHeight){
-                    //var worker = document.getElementById("worker")
-                    worker.style.height="125%"; worker.style.width="125%"
-                    worker.style.webkitTransformOriginX="left";worker.style.webkitTransformOriginY="top"
-                    worker.style.transform="scale(0.8)"}
-                break;
+    resize:function(data){
+        switch(data){
+            case 0:
+                engine.paint(Cookies.get("color"))
+                layout[3].style.height = "82.5%"; layout[3].style.width = "-webkit-fill-available"; layout[3].style.margin = "5px"
+                layout[3].style.marginLeft = "11%"; layout[3].style.marginRight = "16%"
+                layout[0].style.height = "80%"; layout[0].style.width = "90%"
+                
+                layout[1].style.visibility = "visible";
+                layout[2].style.visibility = "visible";
+                layout[4].style.visibility = "visible";
+                layout[0].style.borderColor = Cookies.get("color")
+                Cookies.set("size",0, { expires: 14400 })
+                break
+            case 1:
+                engine.paint(Cookies.get("color"))
+                layout[3].style.height = "-webkit-fill-available"; layout[3].style.width = "-webkit-fill-available" 
+                layout[3].style.margin = "5px"; layout[3].style.margin = "5px"
+                layout[0].style.height = "80%"; layout[0].style.width = "90%"
+
+                layout[1].style.visibility = "hidden";
+                layout[2].style.visibility = "hidden";
+                layout[4].style.visibility = "hidden";
+                layout[0].style.borderColor = Cookies.get("color")
+                Cookies.set("size",1, { expires: 14400 })
+                break
+            case 2:
+                engine.paint(Cookies.get("color"))
+                layout[3].style.height = "-webkit-fill-available"; layout[3].style.width = "-webkit-fill-available"; layout[3].style.margin = "5px"; layout[3].style.margin = "0"
+                layout[0].style.height = "-webkit-fill-available"; layout[0].style.width = "-webkit-fill-available"
+                
+                layout[1].style.visibility = "hidden";
+                layout[2].style.visibility = "hidden";
+                layout[4].style.visibility = "hidden";
+                layout[0].style.borderColor = "transparent"
+                Cookies.set("size",2, { expires: 14400 })
+                break    
         }
     },
-    paint:function(color){
-        for(var index=0,len=colorable.length;index<len;index++){
-            query=document.querySelectorAll(colorable[index])
+    paint:function(data){
+        for(var index=0,len=["div","p","input","li","a"].length;index<len;index++){
+            query=document.querySelectorAll(["div","p","input","li","a"][index])
             for(var subindex=0,len=query.length;subindex<len;subindex++){
-                query[subindex].style.color = color
+                query[subindex].style.color = data
                 switch(query[subindex].className){
                     case "button":
-                        query[subindex].style.backgroundColor = color
+                        query[subindex].style.backgroundColor = data
                         break;
                     case "window":
-                        query[subindex].style.borderColor = color
+                        query[subindex].style.borderColor = data
                         break
                     case "verse":
-                        query[subindex].style.borderColor = color
+                        query[subindex].style.borderColor = data
                         break;
                 }
             }
         }
-        Cookies.set("color",color, { expires: 14400 })
+        Cookies.set("color",data, { expires: 14400 })
+    }
+}
+var API = {
+    fade:function(data){
+        setTimeout(function(){
+            data[0].style.transition = "opacity "+data[2]/1000+"s ease"; 
+            data[0].style.opacity = 0;
+            setTimeout(function() { 
+                try{data[0].parentNode.removeChild(data[0]);}catch(err){}
+            }, data[2]);
+        },data[1]);
     },
-    clear:function(){
-        try{function re(obj){ obj.parentNode.removeChild(obj)}}catch(err){engine.exec("inspect",[err])}
-        for(var index=0,len=objs.length;index<len;index++){
-            var obj = document.getElementsByTagName(objs[index])
-            while(obj[0]){re(obj[0])}; con.style.opacity = "80%"}
-        for(var index=0,len=windows.length;index<len;index++){
-            var obj = document.getElementsByTagName(objs[index])
-            while(obj[0]){re(obj[0])}; con.style.opacity = "80%"}
-    },
-    resize:function(data){
-        switch(data){
-            case 0:
-                con.style = "height: 66%; width: 73%; position: absolute; margin: 0.5%";
-                c.style = "visibility: visible" 
-                cc.style = "visibility: visible" 
-                c.style.backgroundColor = Cookies.get("color") 
-                cc.style.backgroundColor = Cookies.get("color") 
-                c.setAttribute("onclick","engine.resize(1)")
-                cc.setAttribute("onclick","engine.resize(2)")
-
-                toolkit.style = "position: absolute"
-                multiverse.style = "visibility: visible"
-                folder.style = "visibility: visible"
-                list.style = "visibility: visible"
-
-                universal.style.height = "80%"
-                universal.style.width = "90%"
-                universal.style.borderStyle = "groove"
-    
-                size=0;Cookies.set("size",0, { expires: 14400 })
-                break;
-            case 1:
-                con.style = "height: 100%; width: 100%; position: initial; margin: 0"
-                c.style = "visibility: visible; position: fixed; top: 0" 
-                cc.style = "visibility: hidden";
-                cc.style.backgroundColor = Cookies.get("color") 
-                c.style.backgroundColor = Cookies.get("color")   
-                c.setAttribute("onclick","engine.resize(0)")
-                
-                toolkit.style = "position: fixed; top:0; right: 0"
-                multiverse.style = "visibility: hidden"
-                folder.style = "visibility: hidden"
-                list.style = "visibility: hidden"
-                
-                universal.style.height = "80%"
-                universal.style.width = "90%"
-                universal.style.borderStyle = "groove"
-    
-                size=1;Cookies.set("size",1, { expires: 14400 })
-                break;
-            case 2:
-                con.style = "height: 100%; width: 100%; position: initial; margin: 0"
-                c.style = "visibility: hidden"; c.style.backgroundColor = Cookies.get("color") 
-                cc.style = "visibility: visible"; cc.style.backgroundColor = Cookies.get("color") 
-                cc.setAttribute("onclick","engine.resize(0)");
-
-                toolkit.style = "position: fixed; top:0; right: 0"
-                multiverse.style = "visibility: hidden"
-                folder.style = "visibility: hidden"
-                list.style = "visibility: hidden"
-    
-                universal.style.height = "100%"
-                universal.style.width = "100%"
-                universal.style.borderStyle = "none"
-    
-                size=2;Cookies.set("size",2, { expires: 14400 })
-                break;
-        }
-        if(size!=0){ 
-            con.style.opacity = "100%"
-            score.remove()
-        }else{ 
-            con.style.opacity = "80%"
-        }
-    },
-    bake:function(data){ 
+    bake:function(data){
         switch(data){
             case null:
                 return false
@@ -145,101 +84,87 @@ var engine = {
             default:
                 return [true,data]
         }
-    }
-};
-var API = {
-    fade:function(data){
-        setTimeout(function(){
-            data[0].style.transition = "opacity "+data[2]/1000+"s ease"; 
-            data[0].style.opacity = 0;
-            setTimeout(function() { 
-                try{data[0].parentNode.removeChild(data[0]);}catch(err){}
-            }, data[2]);
-        },data[1]);
     },
-    fliter:function(data){
-        for(var index=0,len=windows.length;index<len;index++){
-            if (windows[index]==data){
-                windows.splice(index)
+    mod:function(pid,data){
+        for(var index=0,len=data.length;len>index;index++){
+            switch(data[index]){
+                case "command line":
+                    document.getElementById(pid).insertAdjacentHTML("beforeEnd","<input spellcheck='false' id='"+pid+";cmd"+"' style='color:"+Cookies.get("color")+"'></input>")
+                    break
+                case "drag":
+                    break
+                case "borderless":
+                    break
             }
         }
-    },
-    compile:function(data){
-        function processs(string){ //PLEASE ASSIGN TO VARIABLES LATER, THIS MAKES MY EYES BLEED
-            switch(string){ 
-                case "drag": //no taskbar support yet
-                    document.getElementById(time).insertAdjacentHTML("beforeEnd","<div id='"+time+"toolbar"+"' style='width:-webkit-fill-available;height:15px;z-index:1000;cursor:all-scroll'><label id='"+time+"label"+"' style='margin:2.5px;display:flex;width:fit-content;white-space:nowrap'>"+data[1]+"</label></div>")
-                    document.getElementById(time).insertAdjacentHTML("beforeEnd","<div id='"+time+"canvas"+"' style='width:inherit;height:inherit;position:absolute'></div>")
-                    if(data[1]!=""){
-                        document.getElementById(time+"toolbar").style.backgroundColor = "#545454"
-                    }
-                    dragElement(document.getElementById(time));
-                    break;
-                case "iframe": //write optional downscale function
-                    document.getElementById(time+"canvas").insertAdjacentHTML("beforeEnd","<iframe id='"+time+"iframe"+"' src='"+data[0]+"' style='width:100%;height:100%;position:absolute'></iframe>")
-                    break;
-                case "downscale":
-                    document.getElementById(time+"iframe").style = "width: 200%; height: 200%; position: absolute; transform: scale(0.5); -webkit-transform-origin-y: top; -webkit-transform-origin-x: left"
-                    break;
-                }
-        }
-        try{
-            overlay.insertAdjacentHTML("beforeEnd","<div id='"+time+"' style='"+data[3]+";display:flex;flex-direction:column;color:rgb(173,173,173);background-color:#363636"+"' class='window'></div>")
-            document.getElementById(time).insertAdjacentHTML("beforeEnd","<div style='position:absolute;right:0;height:15px;width:15px;z-index:10000' onclick='document.getElementById("+time+").remove();API.fliter("+time+")'></div>")
-            const pack=data[2].split("/");windows.push(time)
-            if(pack.length>1){
-                pack.forEach((mod)=>{
-                    processs(mod)
-                })}else{
-                    processs(data[2])
-                }
-            engine.paint(Cookies.get("color"))
-            return data[1]+" : Opened <<"
-        }catch(err){
-            return err
-        }
-    },
-    purge:function(){
-        for(var index=0,len=windows.length;index<len;index++){
-            document.getElementById(windows[index]).remove()
-            this.fliter(windows[index])
-            return windows[index]+" : Removed <<"
-        }
     }
-};
+}
+var con = {
+    log:function(data){
+        var time=0
+        for(var index=0,len=data.length;len>index;index++){
+            time++
+            layout[3].insertAdjacentHTML("beforeEnd","<p id="+layout[3].id+time+"></p>")
+            for(var subindex=0,sublen=data[index].length;sublen>subindex;subindex++){
+                document.getElementById(layout[3].id+time).insertAdjacentHTML("beforeEnd",data[index][subindex])
+                document.getElementById(layout[3].id+time).style.marginLeft = "5px"
+                if(subindex==sublen){
+                    line++
+                }
+            }
+        }
+        document.getElementById(layout[3].id+"1").style.marginTop = "5px"
+    },
+    clear:function(){
+        while (layout[3].lastChild) {
+            layout[3].removeChild(layout[3].lastChild);
+        }
+    },
+    exec:function(data){
+        this.clear(); layout[3].style.opacity = "100%"
+        layout[3].insertAdjacentHTML("afterBegin","<iframe id='worker' src="+data+"></iframe>");
+        imgs=worker.contentWindow.document.querySelectorAll('img'); for(var index=0,len=imgs;index<len;index++){imgs[index].remove()}
+        Cookies.set("program",data, { expires: 14400 })
+    }
+}
 var str = {
-    verse:function(){
-        for (let step = 0; step < universes.length; step++) {
+    unpack:function(data){
+        for(var index=0,len=data[0].length;len>index;index++){
+            layout.push(document.getElementById(data[0][index]))
+        }
+        for (let step = 0; step < data[2].length; step++) {
             try{
-                multiverse.insertAdjacentHTML("beforeend",'<div onclick=engine.exec("iframe",'+"'"+universes[step][1]+"'"+') class=verse desktop>'+universes[step][0]+'</div>')
+                layout[4].insertAdjacentHTML("beforeend",'<div onclick=con.exec('+"'"+data[2][step][1]+"'"+') class=verse desktop>'+data[2][step][0]+'</div>')
             }catch(err){
-                multiverse.insertAdjacentHTML("beforeend",'<div onclick=engine.exec("iframe",'+universes[step][1]+') class=verse desktop>'+universes[step][0]+'</div>')
+                layout[4].insertAdjacentHTML("beforeend",'<div onclick=con.exec('+data[2][step][1]+') class=verse desktop>'+data[2][step][0]+'</div>')
             }
-            engine.exec("inspect",[universes[step][0]+" : Verse <<"])
+            //con.exec("inspect",[data[2][step][0]+" : Verse <<"])
         }
-        for (let step = 0; step < database.length; step++) {
-            if(database[step][1].split(":")[0]=="https"){
-                list.insertAdjacentHTML("beforeend",'<div onclick=engine.exec("iframe",'+"'"+database[step][1]+"'"+') class=database desktop>'+database[step][0]+'<label style="color: grey; margin-left: auto; right: 0">'+database[step][2]+'</label></div>')
+        for (let step = 0; step < data[3].length; step++) {
+            if(data[3][step][1].split(":")[0]=="https"){
+                layout[1].insertAdjacentHTML("beforeend",'<div onclick=con.exec('+"'"+data[3][step][1]+"'"+') class=database desktop>'+data[3][step][0]+'<label style="color: grey; margin-left: auto; right: 0">'+data[3][step][2]+'</label></div>')
             }else{
-                list.insertAdjacentHTML("beforeend",'<div onclick='+"window.open('"+database[step][2]+"')"+' class=database desktop>'+database[step][0]+'<label style="color: grey; margin-left: auto; right: 0">'+database[step][1]+'</label></div>')
+                layout[1].insertAdjacentHTML("beforeend",'<div onclick='+"window.open('"+data[3][step][2]+"')"+' class=database desktop>'+data[3][step][0]+'<label style="color: grey; margin-left: auto; right: 0">'+data[3][step][1]+'</label></div>')
             }
-            engine.exec("inspect",[database[step][0]+" : List <<"])
+            //con.exec("inspect",[data[3][step][0]+" : List <<"])
         }
-    },
-    compile:function(data){
-        for(var index=0,len=data.length;index<len;index++){
-            folders.insertAdjacentHTML("beforeEnd",'<li style="padding-bottom: 10px" class="folders" >'+data[index][0]+'<ul style="padding-left: 20px; display: flex; flex-direction: column" id="'+data[index][0]+'ul'+'"></ul></li>')
-            for(var subindex=1,len=data[index].length;subindex<len;subindex++){
-                engine.exec("inspect",[str.insert(data[index][subindex],data[index][0])]) 
+        for(var index=0,len=data[4].length;index<len;index++){ //margin-top: 15px; margin-left: 15px
+            layout[2].insertAdjacentHTML("beforeEnd",'<li id='+'li;'+index+' style="padding-bottom: 10px; margin-left: 15px" class="folders" >'+data[4][index][0]+'<ul style="padding-left: 20px; display: flex; flex-direction: column; margin: 0" id="'+data[4][index][0]+'ul'+'"></ul></li>')
+            for(var subindex=1,len=data[4][index].length;subindex<len;subindex++){
+            //con.exec("inspect",[
+                this.insert(data[4][index][subindex],data[4][index][0])//]) 
             }
         }
+        document.getElementById("li;0").style.marginTop = "20px"
+        var size=parseInt(Cookies.get("size"));if(API.bake(size)){engine.resize(size);if(size!=0){}else{con.log(data[1])}}else{Cookies.set("size",0);size=0;con.log(data[1])}
+        var color=Cookies.get("color");if(API.bake(color)){engine.paint(color)}else{Cookies.set("color","red")}
+        var pg=Cookies.get("program");if(API.bake(pg)){{con.exec(pg)}}else{Cookies.set("program",undefined)}
     },
     insert:function(data,id){ data[0]=data[0].split(":"); //console.log(data[1])
         document.getElementById(id+'ul').insertAdjacentHTML("beforeEnd",'<a '+data[1]+' class="folders" style="white-space: nowrap" >'+data[0][0]+'<label style="color: yellow; margin-left: auto; right: 0; white-space: nowrap">'+data[0][1]+'</label></a>')
         return data[0][0]+" : Init <<"
     }
-};
-//reprogram later
+}
 ! function(rcon) { //Arguments for functions and indexes all cookies
     var cook;
     if ("function" == typeof define && define.amd && (define(rcon), cook = !0), "object" == typeof exports && (module.exports = rcon(), cook = !0), !cook) {

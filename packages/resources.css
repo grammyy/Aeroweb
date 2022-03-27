@@ -1,33 +1,20 @@
-#universal{ height: 80%; width: 90%; backdrop-filter: blur(10px);}
-#list{ height: -webkit-fill-available; width: 8.5%; display: flex; flex-wrap: wrap; flex-direction: column; align-content: flex-start; padding-top: 12px}
-#con{ width: 73%; height: 66%; left: 9.5%; top: 0; overflow-y: scroll; opacity: 80%}
-#inspect{ width: 20%; height: fit-content; right: 0; overflow-y: scroll; position: absolute; display: flex; flex-wrap: nowrap; align-content: flex-end; justify-content: flex-start; align-items: flex-end; flex-direction: column; max-height: 100%; pointer-events: none}
-#multiverse{ width: 73%; height: 30%; left: 9.5%; bottom: 0; display: flex; flex-wrap: wrap; opacity: 60% !important; overflow-y: scroll; align-content: flex-start;}
-#folder{ height: 98%; width: 15.5%; right: 0; z-index: -1}
-
-.window{ border: 1px dotted red; display: flex; color: red; font-size: small; position: absolute; border-style: groove}
-.subwindow{ background-image: url("init.webp"); background-size: cover; opacity: 60%; margin: 0.5%; position: absolute; overflow: hidden;}
-.verse{ height: 15px; width: 125px; margin: 5px; border: 1px dotted red; display: flex; cursor: pointer; overflow: hidden; border-style: groove; flex-direction: column; flex-wrap: wrap; align-content: stretch; justify-content: center; align-items: center; white-space: nowrap}
+.window{ position: absolute; border: 1px groove red; overflow: hidden; resize: both; backdrop-filter: blur(10px)}
+.subwindow{ position: absolute; margin: 5px; background-image: url("init.webp"); background-size: cover; opacity: 80%}
+.verse{ height: 15px; width: 125px; margin: 5px; border: 1px dotted red; display: flex; cursor: pointer; overflow: hidden; border-style: groove; flex-direction: column; flex-wrap: wrap; align-content: stretch; justify-content: center; align-items: center; white-space: nowrap; opacity: 80%;}
+.database{ width: -webkit-fill-available; padding-left: 5px; padding-right: 5px ; white-space: nowrap; cursor: pointer; display: flex; opacity: 80%;}
+.folders{ letter-spacing: 1px; list-style-type: decimal}
 .button{ height: 10px; width: 10px; margin: 5px; background-color: red; opacity: 60%; z-index: 2; cursor: pointer}
-.database{ width: -webkit-fill-available; padding-left: 5px; padding-right: 5px ; white-space: nowrap; cursor: pointer; display: flex}
+
+#webpage{ height: 80%; width: 90%; place-self: center;display: inline}
+#drive{ left:0; height: -webkit-fill-available; width: 10%}
+#explorer{ right:0; height: -webkit-fill-available; width: 15%}
+#console{ height: 82.5%; width: -webkit-fill-available; top: 0; margin-left: 11%; margin-right: 16%; margin-bottom: unset}
+#controlBar{ height: 15%; width: -webkit-fill-available; bottom: 0; margin-left: 11%; margin-right: 16%; display: flex; flex-wrap: wrap; overflow-y: scroll; align-content: flex-start}
 
 #toolkit{ height: 100%; width: 20px; position: absolute; right: 0;}
 #ccc{ cursor: alias;}
 #c{ cursor: ne-resize;}
 #cc{ cursor: ne-resize;}
-#rconlabel{ bottom: 0; position: absolute;}
-#rcon{ background-color: transparent; color: red; border: unset !important; letter-spacing: 1px; width: 1710px; margin-left: 1px}
-#rcon:focus{ outline: none;}
-#execute{ margin: 0.5%; z-index: 3; left: 0; position: absolute; opacity: 40%;}
-#songcontrol{ position: absolute; left: 0; top: 0;}
 
-.analog{ letter-spacing: 3px; bottom: 0; right: 0; text-align: right; height: fit-content; margin: 0}
-#score{ display: flex; letter-spacing: 1px; opacity: 50%; margin: 10px; pointer-events: none}
-#sys{ display: flex; width: -webkit-fill-available; bottom: 0; position: absolute; flex-direction: column; margin: 5px}
-::-webkit-scrollbar { width: 6PX;}
-::-webkit-scrollbar-track { background: transparent;}
-::-webkit-scrollbar-thumb { background: #30003d;}
-::-webkit-scrollbar-thumb:hover { background: transparent;}
-.mark{ color: red; cursor: help; pointer-events: all}
-
-.folders{ letter-spacing: 1px; list-style-type: decimal}
+#clock{ position: absolute; left: 0;}
+#analog{ position: absolute; right: 0;}
