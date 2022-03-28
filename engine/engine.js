@@ -194,7 +194,7 @@ var str = {
             }
         }
         document.getElementById("li;0").style.marginTop = "20px"
-        var size=parseInt(Cookies.get("size"));if(API.bake(size)){engine.resize(size);if(size!=0){}else{con.log(data[1])}}else{Cookies.set("size",0);size=0;con.log(data[1])}
+        var size=parseInt(Cookies.get("size"));if(API.bake(size)){engine.resize(size);if(size==0){con.log(data[1])}}else{Cookies.set("size",0);con.log(data[1])}
         var color=Cookies.get("color");if(API.bake(color)){engine.paint(color)}else{Cookies.set("color","red"); engine.paint("red")}
         var pg=Cookies.get("program");if(API.bake(pg)){{con.exec(pg)}}else{Cookies.set("program",undefined)}
     },
