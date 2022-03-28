@@ -35,7 +35,7 @@ window.onload=function(){
     })
     str.unpack(HTTP())
     //var rc=Cookies.get("rcon"); if(engine.bake(rc)){rcon.value = rc}
-    if(Cookies.get("size")==0){API.mod("console",["command line"])}
+    if(Cookies.get("size")=="0"){API.mod("console",["command line"])}
 
     //Temporary code move to new host
     worker.contentWindow.Game.ImportSaveCode(window.localStorage.getItem("CookieClickerGame"))

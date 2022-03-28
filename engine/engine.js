@@ -9,7 +9,7 @@ var engine = {
                 layout[3].style.height = "82.5%"; layout[3].style.width = "-webkit-fill-available"; layout[3].style.margin = "5px"
                 layout[3].style.marginLeft = "11%"; layout[3].style.marginRight = "16%"
                 layout[0].style.height = "80%"; layout[0].style.width = "90%"
-                layout[9].style.visibility = "visible"; layout[9].style.position = "absolute" 
+                layout[8].style.visibility = "visible"; layout[8].style.position = "absolute" 
                 
                 layout[1].style.visibility = "visible"
                 layout[2].style.visibility = "visible"
@@ -22,7 +22,7 @@ var engine = {
                 layout[3].style.height = "-webkit-fill-available"; layout[3].style.width = "-webkit-fill-available" 
                 layout[3].style.margin = "5px"; layout[3].style.margin = "5px"
                 layout[0].style.height = "80%"; layout[0].style.width = "90%"
-                layout[9].style.visibility = "visible"; layout[9].style.position = "fixed" 
+                layout[8].style.visibility = "visible"; layout[8].style.position = "fixed" 
 
                 layout[1].style.visibility = "hidden"
                 layout[2].style.visibility = "hidden"
@@ -34,7 +34,7 @@ var engine = {
                 engine.paint(Cookies.get("color"))
                 layout[3].style.height = "-webkit-fill-available"; layout[3].style.width = "-webkit-fill-available"; layout[3].style.margin = "5px"; layout[3].style.margin = "0"
                 layout[0].style.height = "-webkit-fill-available"; layout[0].style.width = "-webkit-fill-available"
-                layout[9].style.visibility = "visible"; layout[9].style.position = "fixed" 
+                layout[8].style.visibility = "visible"; layout[8].style.position = "fixed" 
                 
                 layout[1].style.visibility = "hidden"
                 layout[2].style.visibility = "hidden"
