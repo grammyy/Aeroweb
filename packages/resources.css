@@ -11,7 +11,7 @@
 #console{ height: 82.5%; width: -webkit-fill-available; top: 0; margin-left: 11%; margin-right: 16%; margin-bottom: unset}
 #controlBar{ height: 15%; width: -webkit-fill-available; bottom: 0; margin-left: 11%; margin-right: 16%; display: flex; flex-wrap: wrap; overflow-y: scroll; align-content: flex-start}
 
-#toolkit{ height: 100%; width: 20px; position: absolute; right: 0;}
+#toolkit{ height: 100%; width: 20px; position: absolute; right: 0; top: 0}
 #ccc{ cursor: alias;}
 #c{ cursor: ne-resize;}
 #cc{ cursor: ne-resize;}

@@ -36,7 +36,12 @@ window.onload=function(){
     str.unpack(HTTP())
     //var rc=Cookies.get("rcon"); if(engine.bake(rc)){rcon.value = rc}
     if(Cookies.get("size")==0){API.mod("console",["command line"])}
-    setInterval(function(){layout[5].innerHTML=new Date().toLocaleTimeString()},500)
+
+    //Temporary code move to new host
+    worker.contentWindow.Game.ImportSaveCode(window.localStorage.getItem("CookieClickerGame"))
+    //Temporary code move to new host
+
+    setInterval(function(){layout[5].innerHTML=new Date().toLocaleTimeString(); worker=document.getElementById("worker")},500)
     setInterval(function(){layout[6].innerHTML=Date.now()},100)
     API.mod("console",["command line"])
 }
