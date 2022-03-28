@@ -38,7 +38,7 @@ window.onload=function(){
     if(Cookies.get("size")=="0"){API.mod("console",["command line"])}
 
     //Temporary code move to new host
-    worker.contentWindow.Game.ImportSaveCode(window.localStorage.getItem("CookieClickerGame"))
+    con.log(["/linebreak/","If code appears under this line, you have data saved to cookie clicker that is not imported to the new Cookie host. Please copy if it appears and import it to the new host.","small;"+window.localStorage.getItem("CookieClickerGame")])
     //Temporary code move to new host
 
     setInterval(function(){layout[5].innerHTML=new Date().toLocaleTimeString(); worker=document.getElementById("worker")},500)
