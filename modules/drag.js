@@ -1,9 +1,10 @@
 function dragElement(elmnt) {
   const position =[0,0,0,0]
-
+  var frame = document.getElementById(elmnt.id+"iframe")
   document.getElementById(elmnt.id+"toolbar").onmousedown = dragMouseDown;
   function dragMouseDown(e) {
       document.body.insertAdjacentHTML("afterbegin","<div id='mask' style='height:100vh;width:100vw;pointer-events:none;position:fixed;left:0;top:0'></div>")
+      frame.style.pointerEvents = "none"
       try{document.getElementById("worker").style.pointerEvents = "none"}catch(err){}
       e = e || window.event;
       e.preventDefault();
@@ -14,6 +15,7 @@ function dragElement(elmnt) {
           // stop moving when mouse button is released:
           document.onmouseup = null;
           document.onmousemove = null;
+          frame.style.pointerEvents = "all"
           document.getElementById("mask").remove()
           try{document.getElementById("worker").style.pointerEvents = "all"}catch(err){}
       };
