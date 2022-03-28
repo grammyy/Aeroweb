@@ -3,7 +3,7 @@ function dragElement(elmnt) {
 
   document.getElementById(elmnt.id+"toolbar").onmousedown = dragMouseDown;
   function dragMouseDown(e) {
-      overlay.insertAdjacentHTML("afterbegin","<div id='mask' style='height:100vh;width:100vw;pointer-events:none;position:fixed;left:0;top:0'></div>")
+      document.body.insertAdjacentHTML("afterbegin","<div id='mask' style='height:100vh;width:100vw;pointer-events:none;position:fixed;left:0;top:0'></div>")
       try{document.getElementById("worker").style.pointerEvents = "none"}catch(err){}
       e = e || window.event;
       e.preventDefault();

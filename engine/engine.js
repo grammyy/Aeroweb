@@ -1,178 +1,207 @@
-var worker = ""
 var layout = []
-var line=0; var time=0
+var line=0
+const windows = []
 var engine = {
-resize:function(data){
-    switch(data){
-        case 0:
-            engine.paint(Cookies.get("color"))
-            layout[3].style.height = "82.5%"; layout[3].style.width = "-webkit-fill-available"; layout[3].style.margin = "5px"
-            layout[3].style.marginLeft = "11%"; layout[3].style.marginRight = "16%"
-            layout[0].style.height = "80%"; layout[0].style.width = "90%"
-            layout[8].style.visibility = "visible"; layout[8].style.position = "absolute" 
-            
-            layout[1].style.visibility = "visible"
-            layout[2].style.visibility = "visible"
-            layout[4].style.visibility = "visible"
-            layout[0].style.borderColor = Cookies.get("color")
-            Cookies.set("size",0, { expires: 14400 })
-            break
-        case 1:
-            engine.paint(Cookies.get("color"))
-            layout[3].style.height = "-webkit-fill-available"; layout[3].style.width = "-webkit-fill-available" 
-            layout[3].style.margin = "5px"; layout[3].style.margin = "5px"
-            layout[0].style.height = "80%"; layout[0].style.width = "90%"
-            layout[8].style.visibility = "visible"; layout[8].style.position = "fixed" 
+    resize:function(data){
+        switch(data){
+            case 0:
+                engine.paint(Cookies.get("color"))
+                layout[3].style.height = "82.5%"; layout[3].style.width = "-webkit-fill-available"; layout[3].style.margin = "5px"
+                layout[3].style.marginLeft = "11%"; layout[3].style.marginRight = "16%"
+                layout[0].style.height = "80%"; layout[0].style.width = "90%"
+                layout[8].style.visibility = "visible"; layout[8].style.position = "absolute" 
 
-            layout[1].style.visibility = "hidden"
-            layout[2].style.visibility = "hidden"
-            layout[4].style.visibility = "hidden"
-            layout[0].style.borderColor = Cookies.get("color")
-            Cookies.set("size",1, { expires: 14400 })
-            break
-        case 2:
-            engine.paint(Cookies.get("color"))
-            layout[3].style.height = "-webkit-fill-available"; layout[3].style.width = "-webkit-fill-available"; layout[3].style.margin = "5px"; layout[3].style.margin = "0"
-            layout[0].style.height = "-webkit-fill-available"; layout[0].style.width = "-webkit-fill-available"
-            layout[8].style.visibility = "visible"; layout[8].style.position = "fixed" 
-            
-            layout[1].style.visibility = "hidden"
-            layout[2].style.visibility = "hidden"
-            layout[4].style.visibility = "hidden"
-            layout[0].style.borderColor = "transparent"
-            Cookies.set("size",2, { expires: 14400 })
-            break    
-    }
-},
-paint:function(data){
-    for(var index=0,len=["div","p","input","li","a"].length;index<len;index++){
-        query=document.querySelectorAll(["div","p","input","li","a"][index])
-        for(var subindex=0,len=query.length;subindex<len;subindex++){
-            query[subindex].style.color = data
-            switch(query[subindex].className){
-                case "button":
-                    query[subindex].style.backgroundColor = data
-                    break;
-                case "window":
-                    query[subindex].style.borderColor = data
-                    break
-                case "verse":
-                    query[subindex].style.borderColor = data
-                    break;
+                layout[1].style.visibility = "visible"
+                layout[2].style.visibility = "visible"
+                layout[4].style.visibility = "visible"
+                layout[0].style.borderColor = Cookies.get("color")
+                layout[9].setAttribute("onclick","engine.resize(1)");layout[10].setAttribute("onclick","engine.resize(2)")
+                Cookies.set("size",0, { expires: 14400 })
+                break
+            case 1:
+                engine.paint(Cookies.get("color"))
+                layout[3].style.height = "-webkit-fill-available"; layout[3].style.width = "-webkit-fill-available" 
+                layout[3].style.margin = "5px"; layout[3].style.margin = "5px"
+                layout[0].style.height = "80%"; layout[0].style.width = "90%"
+                layout[8].style.visibility = "visible"; layout[8].style.position = "fixed" 
+
+                layout[1].style.visibility = "hidden"
+                layout[2].style.visibility = "hidden"
+                layout[4].style.visibility = "hidden"
+                layout[0].style.borderColor = Cookies.get("color")
+                layout[9].setAttribute("onclick","engine.resize(0)")
+                Cookies.set("size",1, { expires: 14400 })
+                break
+            case 2:
+                engine.paint(Cookies.get("color"))
+                layout[3].style.height = "-webkit-fill-available"; layout[3].style.width = "-webkit-fill-available"; layout[3].style.margin = "5px"; layout[3].style.margin = "0"
+                layout[0].style.height = "-webkit-fill-available"; layout[0].style.width = "-webkit-fill-available"
+                layout[8].style.visibility = "visible"; layout[8].style.position = "fixed" 
+
+                layout[1].style.visibility = "hidden"
+                layout[2].style.visibility = "hidden"
+                layout[4].style.visibility = "hidden"
+                layout[0].style.borderColor = "transparent"
+                layout[10].setAttribute("onclick","engine.resize(0)")
+                Cookies.set("size",2, { expires: 14400 })
+                break    
+        }
+    },
+    paint:function(data){
+        for(var index=0,len=["div","p","input","li","a"].length;index<len;index++){
+            query=document.querySelectorAll(["div","p","input","li","a"][index])
+            for(var subindex=0,len=query.length;subindex<len;subindex++){
+                query[subindex].style.color = data
+                switch(query[subindex].className){
+                    case "button":
+                        query[subindex].style.backgroundColor = data
+                        break;
+                    case "window":
+                        query[subindex].style.borderColor = data
+                        break
+                    case "verse":
+                        query[subindex].style.borderColor = data
+                        break;
+                }
             }
         }
+        Cookies.set("color",data, { expires: 14400 })
     }
-    Cookies.set("color",data, { expires: 14400 })
-}
 }
 var API = {
-fade:function(data){
-    setTimeout(function(){
-        data[0].style.transition = "opacity "+data[2]/1000+"s ease"; 
-        data[0].style.opacity = 0;
-        setTimeout(function() { 
-            try{data[0].parentNode.removeChild(data[0]);}catch(err){}
-        }, data[2]);
-    },data[1]);
-},
-bake:function(data){
-    switch(data){
-        case null:
-            return false
-        case undefined:
-            return false
-        case "undefined":
-            return false
-        case NaN:
-            return false
-        default:
-            return [true,data]
-    }
-},
-mod:function(pid,data){
-    for(var index=0,len=data.length;len>index;index++){
-        switch(data[index]){
-            case "command line":
-                document.getElementById(pid).insertAdjacentHTML("beforeEnd","<input spellcheck='false' id='"+pid+";cmd"+"' style='color:"+Cookies.get("color")+"'></input>")
-                break
-            case "drag":
-                break
-            case "borderless":
-                break
+    fade:function(data){
+        setTimeout(function(){
+            data[0].style.transition = "opacity "+data[2]/1000+"s ease"; 
+            data[0].style.opacity = 0;
+            setTimeout(function() { 
+                try{data[0].parentNode.removeChild(data[0]);}catch(err){}
+            }, data[2]);
+        },data[1]);
+    },
+    fliter:function(array,data){
+        for(var index=0,len=array.length;index<len;index++){
+            if (array[index]==data){
+                array.splice(index)
+            }
         }
-    }
-}
-}
-var con = {
-log:function(data){
-    for(var index=0,len=data.length;len>index;index++){
-        line++
-        if(data[index]=="/linebreak/"||data[index]=="\\linebreak\\"){
-            layout[3].insertAdjacentHTML("beforeEnd","<p id="+layout[3].id+line+" style='margin-left: fit-content; height: 11px'></p>")
-        }else{ 
-            var payload = ""; var cache = data[index].split(";")
-            switch(cache[0]){
-                case "small":
-                    payload="style='font-size:4px; overflow-wrap: break-word; width: 300px'"
+    },
+    bake:function(data){
+        switch(data){
+            case null:
+                return false
+            case undefined:
+                return false
+            case "undefined":
+                return false
+            case NaN:
+                return false
+            default:
+                return [true,data]
+        }
+    },
+    mod:function(pid,data){
+        for(var index=0,len=data.length;len>index;index++){
+            switch(data[index]){
+                case "command line":
+                    document.getElementById(pid).insertAdjacentHTML("beforeEnd","<input spellcheck='false' id='"+pid+";cmd"+"' style='color:"+Cookies.get("color")+"'></input>")
                     break
-                default:
-                    cache[1]=cache[0]
+                case "drag":
+                    break
+                case "borderless":
                     break
             }
-        layout[3].insertAdjacentHTML("beforeEnd","<p id="+layout[3].id+line+" "+payload+">"+cache[1]+"</p>")
-        document.getElementById(layout[3].id+line).style.marginLeft = "5px"
+        }
+    },
+    compile:function(data){ time=Date.now()
+        document.body.insertAdjacentHTML("beforeEnd","<div id='"+time+"' style='"+data[3]+";display:flex;flex-direction:column;color:rgb(173,173,173);background-color:#363636;transition-duration:unset"+"' class='window'></div>")
+        //var self=windows.push(document.getElementById(time))[windows.length]
+        windows.push(document.getElementById(time)); var self=windows[windows.length-1]
+        self.insertAdjacentHTML("beforeEnd","<div style='position:absolute;right:0;height:15px;width:15px;z-index:10000' onclick='document.getElementById("+self.id+").remove();API.fliter(windows,"+time+")'></div>")
+        self.insertAdjacentHTML("beforeEnd","<div id='"+time+"toolbar"+"' style='width:-webkit-fill-available;height:15px;z-index:1000;cursor:all-scroll'><label id='"+time+"label"+"' style='margin:2.5px;display:flex;width:fit-content;white-space:nowrap'>"+data[1]+"</label></div>")
+        self.insertAdjacentHTML("beforeEnd","<div id='"+time+"canvas"+"' style='width:inherit;height:inherit;position:absolute'></div>")
+        document.getElementById(time+"canvas").insertAdjacentHTML("beforeEnd","<iframe id='"+time+"iframe"+"' src='"+data[0]+"' style='width:100%;height:100%;position:absolute'></iframe>")
+        dragElement(self)
+        if(data[1]!=""){
+            document.getElementById(time+"toolbar").style.backgroundColor = "#545454"}
+        //document.getElementById(time+"iframe").style = "width: 200%; height: 200%; position: absolute; transform: scale(0.5); -webkit-transform-origin-y: top; -webkit-transform-origin-x: left"
+    },
+    purge:function(){
+        for(var index=0,len=windows.length;index<len;index++){
+            windows[index].remove(); this.fliter(windows,index)
+            //return windows[index]+" : Removed <<"
         }
     }
-    document.getElementById(layout[3].id+"1").style.marginTop = "5px"
-},
-clear:function(){
-    while (layout[3].lastChild) {
-        layout[3].removeChild(layout[3].lastChild);
-    }
-},
-exec:function(data){
-    this.clear(); layout[3].style.opacity = "100%"
-    layout[3].insertAdjacentHTML("afterBegin","<iframe id='worker' src="+data+"></iframe>");
-    Cookies.set("program",data, { expires: 14400 })
 }
+var con = {
+    log:function(data){
+        for(var index=0,len=data.length;len>index;index++){
+            line++
+            if(data[index]=="/linebreak/"||data[index]=="\\linebreak\\"){
+                layout[3].insertAdjacentHTML("beforeEnd","<p id="+layout[3].id+line+" style='margin-left: fit-content; height: 11px'></p>")
+            }else{ 
+                var payload = ""; var cache = data[index].split(";")
+                switch(cache[0]){
+                    case "small":
+                        payload="style='font-size:4px; overflow-wrap: break-word; width: 63.5%'"
+                        break
+                    default:
+                        cache[1]=cache[0]
+                        break
+                }
+            layout[3].insertAdjacentHTML("beforeEnd","<p id="+layout[3].id+line+" "+payload+">"+cache[1]+"</p>")
+            document.getElementById(layout[3].id+line).style.marginLeft = "5px"
+            }
+        }
+        document.getElementById(layout[3].id+"1").style.marginTop = "5px"
+    },
+    clear:function(){
+        while (layout[3].lastChild) {
+            layout[3].removeChild(layout[3].lastChild);
+        }
+    },
+    exec:function(data){
+        this.clear(); layout[3].style.opacity = "100%"
+        layout[3].insertAdjacentHTML("afterBegin","<iframe id='worker' src="+data+"></iframe>");
+        Cookies.set("program",data, { expires: 14400 })
+    }
 }
 var str = {
-unpack:function(data){
-    for(var index=0,len=data[0].length;len>index;index++){
-        layout.push(document.getElementById(data[0][index]))
-    }
-    for (let step = 0; step < data[2].length; step++) {
-        try{
-            layout[4].insertAdjacentHTML("beforeend",'<div onclick=con.exec('+"'"+data[2][step][1]+"'"+') class=verse desktop>'+data[2][step][0]+'</div>')
-        }catch(err){
-            layout[4].insertAdjacentHTML("beforeend",'<div onclick=con.exec('+data[2][step][1]+') class=verse desktop>'+data[2][step][0]+'</div>')
+    unpack:function(data){
+        for(var index=0,len=data[0].length;len>index;index++){
+            layout.push(document.getElementById(data[0][index]))
         }
-        //con.exec("inspect",[data[2][step][0]+" : Verse <<"])
-    }
-    for (let step = 0; step < data[3].length; step++) {
-        if(data[3][step][1].split(":")[0]=="https"){
-            layout[1].insertAdjacentHTML("beforeend",'<div onclick=con.exec('+"'"+data[3][step][1]+"'"+') class=database desktop>'+data[3][step][0]+'<label style="color: grey; margin-left: auto; right: 0">'+data[3][step][2]+'</label></div>')
-        }else{
-            layout[1].insertAdjacentHTML("beforeend",'<div onclick='+"window.open('"+data[3][step][2]+"')"+' class=database desktop>'+data[3][step][0]+'<label style="color: grey; margin-left: auto; right: 0">'+data[3][step][1]+'</label></div>')
+        for (let step = 0; step < data[2].length; step++) {
+            try{
+                layout[4].insertAdjacentHTML("beforeend",'<div onclick=con.exec('+"'"+data[2][step][1]+"'"+') class=verse desktop>'+data[2][step][0]+'</div>')
+            }catch(err){
+                layout[4].insertAdjacentHTML("beforeend",'<div onclick=con.exec('+data[2][step][1]+') class=verse desktop>'+data[2][step][0]+'</div>')
+            }
+            //con.exec("inspect",[data[2][step][0]+" : Verse <<"])
         }
-        //con.exec("inspect",[data[3][step][0]+" : List <<"])
-    }
-    for(var index=0,len=data[4].length;index<len;index++){ //margin-top: 15px; margin-left: 15px
-        layout[2].insertAdjacentHTML("beforeEnd",'<li id='+'li;'+index+' style="padding-bottom: 10px; margin-left: 15px" class="folders" >'+data[4][index][0]+'<ul style="padding-left: 20px; display: flex; flex-direction: column; margin: 0" id="'+data[4][index][0]+'ul'+'"></ul></li>')
-        for(var subindex=1,len=data[4][index].length;subindex<len;subindex++){
-        //con.exec("inspect",[
-            this.insert(data[4][index][subindex],data[4][index][0])//]) 
+        for (let step = 0; step < data[3].length; step++) {
+            if(data[3][step][1].split(":")[0]=="https"){
+                layout[1].insertAdjacentHTML("beforeend",'<div onclick=con.exec('+"'"+data[3][step][1]+"'"+') class=database desktop>'+data[3][step][0]+'<label style="color: grey; margin-left: auto; right: 0">'+data[3][step][2]+'</label></div>')
+            }else{
+                layout[1].insertAdjacentHTML("beforeend",'<div onclick='+"window.open('"+data[3][step][2]+"')"+' class=database desktop>'+data[3][step][0]+'<label style="color: grey; margin-left: auto; right: 0">'+data[3][step][1]+'</label></div>')
+            }
+            //con.exec("inspect",[data[3][step][0]+" : List <<"])
         }
+        for(var index=0,len=data[4].length;index<len;index++){ //margin-top: 15px; margin-left: 15px
+            layout[2].insertAdjacentHTML("beforeEnd",'<li id='+'li;'+index+' style="padding-bottom: 10px; margin-left: 15px" class="folders" >'+data[4][index][0]+'<ul style="padding-left: 20px; display: flex; flex-direction: column; margin: 0" id="'+data[4][index][0]+'ul'+'"></ul></li>')
+            for(var subindex=1,len=data[4][index].length;subindex<len;subindex++){
+            //con.exec("inspect",[
+                this.insert(data[4][index][subindex],data[4][index][0])//]) 
+            }
+        }
+        document.getElementById("li;0").style.marginTop = "20px"
+        var size=parseInt(Cookies.get("size"));if(API.bake(size)){engine.resize(size);if(size!=0){}else{con.log(data[1])}}else{Cookies.set("size",0);size=0;con.log(data[1])}
+        var color=Cookies.get("color");if(API.bake(color)){engine.paint(color)}else{Cookies.set("color","red"); engine.paint("red")}
+        var pg=Cookies.get("program");if(API.bake(pg)){{con.exec(pg)}}else{Cookies.set("program",undefined)}
+    },
+    insert:function(data,id){ data[0]=data[0].split(":"); //console.log(data[1])
+        document.getElementById(id+'ul').insertAdjacentHTML("beforeEnd",'<a '+data[1]+' class="folders" style="white-space: nowrap" >'+data[0][0]+'<label style="color: yellow; margin-left: auto; right: 0; white-space: nowrap">'+data[0][1]+'</label></a>')
+        return data[0][0]+" : Init <<"
     }
-    document.getElementById("li;0").style.marginTop = "20px"
-    var size=parseInt(Cookies.get("size"));if(API.bake(size)){engine.resize(size);if(size!=0){}else{con.log(data[1])}}else{Cookies.set("size",0);size=0;con.log(data[1])}
-    var color=Cookies.get("color");if(API.bake(color)){engine.paint(color)}else{Cookies.set("color","red"); engine.paint("red")}
-    var pg=Cookies.get("program");if(API.bake(pg)){{con.exec(pg)}}else{Cookies.set("program",undefined)}
-},
-insert:function(data,id){ data[0]=data[0].split(":"); //console.log(data[1])
-    document.getElementById(id+'ul').insertAdjacentHTML("beforeEnd",'<a '+data[1]+' class="folders" style="white-space: nowrap" >'+data[0][0]+'<label style="color: yellow; margin-left: auto; right: 0; white-space: nowrap">'+data[0][1]+'</label></a>')
-    return data[0][0]+" : Init <<"
-}
 }
 ! function(rcon) { //Arguments for functions and indexes all cookies
 var cook;
