@@ -127,7 +127,6 @@ var con = {
     exec:function(data){
         this.clear(); layout[3].style.opacity = "100%"
         layout[3].insertAdjacentHTML("afterBegin","<iframe id='worker' src="+data+"></iframe>");
-        imgs=worker.contentWindow.document.querySelectorAll('img'); for(var index=0,len=imgs;index<len;index++){imgs[index].remove()}
         Cookies.set("program",data, { expires: 14400 })
     }
 }

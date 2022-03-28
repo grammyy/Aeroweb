@@ -43,5 +43,4 @@ window.onload=function(){
 
     setInterval(function(){layout[5].innerHTML=new Date().toLocaleTimeString(); worker=document.getElementById("worker")},500)
     setInterval(function(){layout[6].innerHTML=Date.now()},100)
-    API.mod("console",["command line"])
 }
