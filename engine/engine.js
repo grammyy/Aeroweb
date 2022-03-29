@@ -202,7 +202,7 @@ var str = {
         }
         for(var index=0,len=data[4].length;index<len;index++){ //margin-top: 15px; margin-left: 15px
             layout[2].insertAdjacentHTML("beforeEnd",'<li id='+'li;'+index+' style="padding-bottom: 10px; margin-left: 15px" class="folders" >'+data[4][index][0]+'<ul style="padding-left: 20px; display: flex; flex-direction: column; margin: 0" id="'+data[4][index][0]+'ul'+'"></ul></li>')
-            for(var subindex=1,len=data[4][index].length;subindex<len;subindex++){
+            for(var subindex=1,sublen=data[4][index].length;subindex<sublen;subindex++){
             con.inspect([this.insert(data[4][index][subindex],data[4][index][0])])}
         }
         document.getElementById("li;0").style.marginTop = "20px"
@@ -210,7 +210,7 @@ var str = {
         var color=Cookies.get("color");if(API.bake(color)){engine.paint(color)}else{Cookies.set("color","red"); engine.paint("red")}
         var pg=Cookies.get("program");if(API.bake(pg)){{con.exec(pg)}}else{Cookies.set("program",undefined)}
     },
-    insert:function(data,id){ data[0]=data[0].split(":"); //console.log(data[1])
+    insert:function(data,id){ data[0]=data[0].split(":")
         document.getElementById(id+'ul').insertAdjacentHTML("beforeEnd",'<a '+data[1]+' class="folders" style="white-space: nowrap" >'+data[0][0]+'<label style="color: yellow; margin-left: auto; right: 0; white-space: nowrap">'+data[0][1]+'</label></a>')
         return data[0][0]+" : Init <<"
     }
