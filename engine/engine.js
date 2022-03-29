@@ -117,7 +117,7 @@ var API = {
         }
     },
     compile:function(data){ time=Date.now()
-        document.body.insertAdjacentHTML("beforeEnd","<div id='"+time+"' style='"+data[3]+";display:flex;flex-direction:column;color:rgb(173,173,173);background-color:#363636;transition-duration:unset"+"' class='window'></div>")
+        document.body.insertAdjacentHTML("beforeEnd","<div id='"+time+"' style='"+data[3]+";display:flex;flex-direction:column;color:rgb(173,173,173);background-color:#363636;transition-duration:unset;top:200px;left:1080px"+"' class='window'></div>")
         //var self=windows.push(document.getElementById(time))[windows.length]
         windows.push(document.getElementById(time)); var self=windows[windows.length-1]
         self.insertAdjacentHTML("beforeEnd","<div style='position:absolute;right:0;height:15px;width:15px;z-index:10000' onclick='document.getElementById("+self.id+").remove();API.fliter(windows,"+time+")'></div>")
@@ -132,16 +132,17 @@ var API = {
     purge:function(){
         for(var index=0,len=windows.length;index<len;index++){
             windows[index].remove(); this.fliter(windows,index)
-            //return windows[index]+" : Removed <<"
+            con.inspect(["small;"+windows[index].id+":[Window Object] : Removed <<"])
         }
     }
 }
 var con = {
-    log:function(data){
+    compile:function(obj,data,preload){
+        var first=obj.id+(line+1)
         for(var index=0,len=data.length;len>index;index++){
             line++
             if(data[index]=="/linebreak/"||data[index]=="\\linebreak\\"){
-                layout[3].insertAdjacentHTML("beforeEnd","<p id="+layout[3].id+line+" style='margin-left: fit-content; height: 11px'></p>")
+                obj.insertAdjacentHTML("beforeEnd","<p id="+obj.id+line+" style='margin-left: fit-content; height: 11px'></p>")
             }else{ 
                 var payload = ""; var cache = data[index].split(";")
                 switch(cache[0]){
@@ -152,11 +153,19 @@ var con = {
                         cache[1]=cache[0]
                         break
                 }
-            layout[3].insertAdjacentHTML("beforeEnd","<p id="+layout[3].id+line+" "+payload+">"+cache[1]+"</p>")
-            document.getElementById(layout[3].id+line).style.marginLeft = "5px"
+            obj.insertAdjacentHTML("beforeEnd","<p id="+obj.id+line+" "+payload+preload+">"+cache[1]+"</p>")
+            document.getElementById(obj.id+line).style.marginLeft = "5px"
             }
         }
-        document.getElementById(layout[3].id+"1").style.marginTop = "5px"
+        if(obj==layout[3]){document.getElementById(first).style.marginTop = "5px"}
+    },
+    log:function(data){
+        this.compile(layout[3],data,"")
+    },
+    inspect:function(data){
+        this.compile(layout[7],data,"style='text-align:end;width:unset;font-size:8px'")
+        Array.prototype.slice.call( layout[7].children ).forEach((element) => {
+            API.fade([element,2000, 2000])});
     },
     clear:function(){
         while (layout[3].lastChild) {
@@ -180,7 +189,7 @@ var str = {
             }catch(err){
                 layout[4].insertAdjacentHTML("beforeend",'<div onclick=con.exec('+data[2][step][1]+') class=verse desktop>'+data[2][step][0]+'</div>')
             }
-            //con.exec("inspect",[data[2][step][0]+" : Verse <<"])
+            con.inspect([data[2][step][0]+" : Verse <<"])
         }
         for (let step = 0; step < data[3].length; step++) {
             if(data[3][step][1].split(":")[0]=="https"){
@@ -188,14 +197,12 @@ var str = {
             }else{
                 layout[1].insertAdjacentHTML("beforeend",'<div onclick='+"window.open('"+data[3][step][2]+"')"+' class=database desktop>'+data[3][step][0]+'<label style="color: grey; margin-left: auto; right: 0">'+data[3][step][1]+'</label></div>')
             }
-            //con.exec("inspect",[data[3][step][0]+" : List <<"])
+            con.inspect([data[3][step][0]+" : List <<"])
         }
         for(var index=0,len=data[4].length;index<len;index++){ //margin-top: 15px; margin-left: 15px
             layout[2].insertAdjacentHTML("beforeEnd",'<li id='+'li;'+index+' style="padding-bottom: 10px; margin-left: 15px" class="folders" >'+data[4][index][0]+'<ul style="padding-left: 20px; display: flex; flex-direction: column; margin: 0" id="'+data[4][index][0]+'ul'+'"></ul></li>')
             for(var subindex=1,len=data[4][index].length;subindex<len;subindex++){
-            //con.exec("inspect",[
-                this.insert(data[4][index][subindex],data[4][index][0])//]) 
-            }
+            con.inspect([this.insert(data[4][index][subindex],data[4][index][0])])}
         }
         document.getElementById("li;0").style.marginTop = "20px"
         var size=parseInt(Cookies.get("size"));if(API.bake(size)){engine.resize(size);if(size==0){con.log(data[1])}}else{Cookies.set("size",0);con.log(data[1])}
