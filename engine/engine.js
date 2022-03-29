@@ -208,7 +208,7 @@ var str = {
         document.getElementById("li;0").style.marginTop = "20px"
         var size=parseInt(Cookies.get("size"));if(API.bake(size)){engine.resize(size);if(size==0){con.log(data[1])}}else{Cookies.set("size",0);con.log(data[1])}
         var color=Cookies.get("color");if(API.bake(color)){engine.paint(color)}else{Cookies.set("color","red"); engine.paint("red")}
-        var pg=Cookies.get("program");if(API.bake(pg)){{con.exec(pg)}}else{Cookies.set("program",undefined)}
+        var pg=Cookies.get("program");if(API.bake(pg)){{con.exec(pg)}}else{Cookies.set("program",undefined),con.log(data[1])}
     },
     insert:function(data,id){ data[0]=data[0].split(":"); //console.log(data[1])
         document.getElementById(id+'ul').insertAdjacentHTML("beforeEnd",'<a '+data[1]+' class="folders" style="white-space: nowrap" >'+data[0][0]+'<label style="color: yellow; margin-left: auto; right: 0; white-space: nowrap">'+data[0][1]+'</label></a>')
