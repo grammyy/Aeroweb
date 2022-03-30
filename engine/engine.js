@@ -82,6 +82,9 @@ var API = {
             }, data[2]);
         },data[1]);
     },
+    redirect:function(){
+        return [Cookies.get("color"),Cookies.get("program")]
+    },
     fliter:function(array,data){
         for(var index=0,len=array.length;index<len;index++){
             if (index==data){
@@ -117,24 +120,33 @@ var API = {
         }
     },
     compile:function(data){ time=Date.now()
-        document.body.insertAdjacentHTML("beforeEnd","<div id='"+time+"' style='"+data[3]+";display:flex;flex-direction:column;color:rgb(173,173,173);background-color:#363636;transition-duration:unset"+"' class='window'></div>")
+        document.body.insertAdjacentHTML("beforeEnd","<div id='"+time+"' style='"+data[2]+";display:flex;flex-direction:column;color:rgb(173,173,173);background-color:#363636;transition-duration:unset"+"' class='window'></div>")
         //var self=windows.push(document.getElementById(time))[windows.length]
         windows.push(document.getElementById(time)); var self=windows[windows.length-1]
         self.insertAdjacentHTML("beforeEnd","<div style='position:absolute;right:0;height:15px;width:15px;z-index:10000' onclick='document.getElementById("+self.id+").remove();API.fliter(windows,"+(windows.length-1)+")'></div>")
         self.insertAdjacentHTML("beforeEnd","<div id='"+time+"toolbar"+"' style='width:-webkit-fill-available;height:15px;z-index:1000;cursor:all-scroll'><label id='"+time+"label"+"' style='margin:2.5px;display:flex;width:fit-content;white-space:nowrap'>"+data[1]+"</label></div>")
-        self.insertAdjacentHTML("beforeEnd","<div id='"+time+"canvas"+"' style='width:inherit;height:inherit;position:absolute'></div>")
-        document.getElementById(time+"canvas").insertAdjacentHTML("beforeEnd","<iframe id='"+time+"iframe"+"' src='"+data[0]+"' style='width:100%;height:100%;position:absolute'></iframe>")
+        self.insertAdjacentHTML("beforeEnd","<div id='"+time+"canvas"+"' style='width:inherit;height:inherit;position:relative'></div>")
+        var canvas=document.getElementById(time+"canvas");var toolbar=document.getElementById(time+"toolbar")
+        canvas.insertAdjacentHTML("beforeEnd","<iframe id='"+time+"iframe"+"' src='"+data[0]+"' style='width:100%;height:100%;position:absolute'></iframe>")
         dragElement(self)
+        console.log(data[1]);
         if(data[1]!=""){
-            document.getElementById(time+"toolbar").style.backgroundColor = "#545454"}
+            toolbar.style.backgroundColor = "#545454"
+        }else{
+            toolbar.style.opacity="0%"
+            canvas.style.position="absolute"}
         self.style.top="200px";self.style.left="200px";self.style.borderColor=Cookies.get("color")
-            //document.getElementById(time+"iframe").style = "width: 200%; height: 200%; position: absolute; transform: scale(0.5); -webkit-transform-origin-y: top; -webkit-transform-origin-x: left"
     },
     purge:function(){
         for(var index=0,len=windows.length;index<len;index++){
             windows[index].remove(); this.fliter(windows,index)
             con.inspect(["small;"+windows[index]+":[Window Object] : Removed <<"])
         }
+    }
+}
+var settings = {
+    unpack:function(data){
+        console.log(data);
     }
 }
 var con = {
