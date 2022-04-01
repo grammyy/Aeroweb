@@ -17,6 +17,29 @@
             background-position: 0% 50%;
         }
     }
+#toolkit{	
+    position: absolute;
+    height: 20px;
+    width: 100vw;
+    top: 0;
+    display: flex;
+    align-items: center;
+    border-bottom: solid gray 1px;
+    background-color: #333436;} 
+#select{ }
+#viewport{ }
+#settings{ }
+#utilities{ }
+.icon{
+    height: 15px;
+    width: 15px;}
+.app{   
+    margin: 0;
+    padding: 2.5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #61676c;
+    text-align: center;}
 div{ 
     margin: 0;}
 body{ 
@@ -25,4 +48,5 @@ body{
     width: 100vw;
     overflow: hidden;
     margin: 0;
-    display: flex;}
+    display: flex;
+    font-family: system-ui;}

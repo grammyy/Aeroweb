@@ -223,7 +223,7 @@ var str = {
         var pg=Cookies.get("program");if(API.bake(pg)){{con.exec(pg)}}else{Cookies.set("program",undefined)}
     },
     insert:function(data,id){ data[0]=data[0].split(":")
-        document.getElementById(id+'ul').insertAdjacentHTML("beforeEnd",'<a '+data[1]+' class="folders" style="white-space: nowrap" >'+data[0][0]+'<label style="color: yellow; margin-left: auto; right: 0; white-space: nowrap">'+data[0][1]+'</label></a>')
+        document.getElementById(id+'ul').insertAdjacentHTML("beforeEnd",'<a '+data[1]+' class="folders">'+data[0][0]+'<label style="color: yellow; margin-left: auto; right: 0; white-space: nowrap">'+data[0][1]+'</label></a>')
         return data[0][0]+" : Init <<"
     }
 }
