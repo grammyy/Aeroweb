@@ -144,6 +144,18 @@ var API = {
         }
     }
 }
+var cluster = {
+    create:function(data){ time=Date.now()
+        document.body.insertAdjacentHTML("beforeEnd","<div id='"+time+"' style='transition-duration:0.8s;color:white;position:absolute;z-index:1000;"+data[data.length-1]+"'></div>")
+        windows.push(document.getElementById(time)); var self=windows[windows.length-1]
+        console.log(data,self);
+        switch(data.length){
+            case 4:
+                
+                break
+        }
+    }
+}
 var settings = {
     unpack:function(data){
         console.log(data);
