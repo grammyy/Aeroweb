@@ -15,12 +15,19 @@
             background-position: 0% 50%;
         }
     }
-#body{ height: 50%; width: 100%}
-#panels{ height: 50%; width: 100%; display: flex}
-
-.subpanel{ margin: 5px;}
-#dock{ height: initial; width: 21.31%; display: flex; flex-wrap: wrap; align-items: flex-end;}
-.dock{ height: 27%; width: 27%; margin: 2.5px;}
+#cluster{ height: 100%; margin: 5px; width: 35%; color: white;}
+.line{ height: 1px; width: 100%; background-color: white;}
+.subpanel{ width: fit-content; display: flex; border-left: 1px white solid; border-right: 1px white solid; padding: 5px; flex-wrap: wrap; flex-direction: column}
+input{ 
+    background-color: transparent; 
+    border: unset;
+    color: red;
+    margin-left: 5px;
+    font-size: unset;}
+input:focus{
+    outline:none;}
+label{ 
+    width: 50px}
 
 #toolkit{	
     position: absolute;
@@ -45,6 +52,10 @@
     padding-right: 5px;
     color: #61676c;
     text-align: center;}
+h1{ 
+    font-size: small; margin: 0;}
+p{ 
+    font-size: 7px; margin: 0; white-space: nowrap;}
 div{ 
     margin: 0;}
 body{ 

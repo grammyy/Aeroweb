@@ -12,23 +12,22 @@
 </head>
 <body>
     <div id="gradient"></div>
-    <div id="body"></div>
-    <div id="panels">
-        <div id="dock" class="subpanel">
-            <div class="dock"></div>
-            <div class="dock"></div>
-            <div class="dock"></div>
-            <div class="dock"></div>
-            <div class="dock"></div>
-            <div class="dock"></div>
-            <div class="dock"></div>
-            <div class="dock"></div>
-            <div class="dock"></div>
+        <div id="cluster">
+            <h1>SETTINGS</h1>
+            <div class="line"></div>
+            <p>Profiling for Aeroweb in progress...</p>
+            <h1 style="position: absolute; margin-left: 5px">STYLIST</h1>
+            <div style="margin-top: 8px" class="subpanel">
+                <p style="display: flex; align-items: center"><label>Wallpaper</label><input id="Wallpaper"></input></p>
+                <p style="display: flex; align-items: center"><label>Program</label><input id="Program"></input></p>
+                <p style="display: flex; align-items: center"><label>Color</label><input id="Color"></input></p>
+            </div>
         </div>
-    </div>
     <script src="engine.js"></script>
     <script>
-        settings.unpack(API.redirect())
+        var Program=document.getElementById("Program")
+        var Color=document.getElementById("Color")
+        try{settings.unpack(API.redirect())}catch(err){console.log(err)}
     </script>
 </body>
 </html>

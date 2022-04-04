@@ -83,7 +83,7 @@ var API = {
         },data[1]);
     },
     redirect:function(){
-        return [Cookies.get("color"),Cookies.get("program")]
+        return [Cookies.get("wallpaper"),Cookies.get("program"),Cookies.get("color")]
     },
     fliter:function(array,data){
         for(var index=0,len=array.length;index<len;index++){
@@ -158,7 +158,15 @@ var cluster = {
 }
 var settings = {
     unpack:function(data){
+        Program.value=data[1]
+        Color.value=data[2]
         console.log(data);
+    },
+    pack:function(){
+        for(var index=0,len=["program","color"].length;len>index;index++){
+            parent.window.Cookies.set(["program","color"][index],([Program,Color][index]).value)
+            parent.window.engine.paint(Color.value)
+        }
     }
 }
 var con = {
