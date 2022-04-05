@@ -15,6 +15,20 @@
             background-position: 0% 50%;
         }
     }
+#canvas{ height: initial; width: 100%; margin-top: 21px; display: flex;}
+#listener{ width: 70%; height: 100%; overflow: hidden; resize: horizontal}
+#events{ width: 30%; height: 100%; overflow: hidden}
+.icon{
+    height: 15px;
+    width: 15px;}
+.app{   
+    margin: 0;
+    padding: 2.5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #61676c;
+    text-align: center;}
+    
 #cluster{ height: 100%; margin: 5px; width: 35%; color: white;}
 .line{ height: 1px; width: 100%; background-color: white;}
 .subpanel{ width: fit-content; display: flex; border-left: 1px white solid; border-right: 1px white solid; padding: 5px; flex-wrap: wrap; flex-direction: column}
@@ -38,20 +52,6 @@ label{
     align-items: center;
     border-bottom: solid gray 1px;
     background-color: #333436;} 
-#select{ }
-#viewport{ }
-#settings{ }
-#utilities{ }
-.icon{
-    height: 15px;
-    width: 15px;}
-.app{   
-    margin: 0;
-    padding: 2.5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    color: #61676c;
-    text-align: center;}
 h1{ 
     font-size: small; margin: 0;}
 p{ 
