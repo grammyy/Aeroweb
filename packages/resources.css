@@ -5,7 +5,7 @@
 .folders{ letter-spacing: 0.8px; list-style-type: decimal}
 .button{ height: 10px; width: 10px; margin: 5px; background-color: red; opacity: 60%; z-index: 2; cursor: pointer}
 
-#webpage{ height: 80%; width: 90%; place-self: center;display: inline}
+#webpage{ place-self: center;display: inline}
 #drive{ left: 0; height: -webkit-fill-available; width: 10%;}
 #explorer{ right:0; height: -webkit-fill-available; width: 15%;}
 #console{ transition-duration: 0.5s; height: 82.5%; width: -webkit-fill-available; top: 0; margin-left: 11%; margin-right: 16%; margin-bottom: unset}
