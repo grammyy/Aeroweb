@@ -238,7 +238,7 @@ var str = {
             con.inspect([this.insert(data[4][index][subindex],data[4][index][0])])}
         }
         document.getElementById("li;0").style.marginTop = "20px"
-        var inital=Cookies.get("inital");if(API.bake(inital)[0]==true){layout[0].style="place-self: center;display: inline;"+inital}else{Cookies.set("inital","height: 80%; width: 90%")}
+        var inital=Cookies.get("inital");if(API.bake(inital)[0]==true){layout[0].style="place-self: center;display: inline;"+inital}else{Cookies.set("inital","height: 80%; width: 90%");layout[0].style="place-self: center;display: inline;height: 80%;width: 90%;"}
         var size=parseInt(Cookies.get("size"));if(API.bake(size)[0]==true){engine.resize(size)}else{Cookies.set("size",0)}
         var color=Cookies.get("color");if(API.bake(color)[0]==true){engine.paint(color)}else{Cookies.set("color","red"); engine.paint("red")}
         var pg=Cookies.get("program");if(API.bake(pg)[0]==true){{con.exec(pg)}}else{Cookies.set("program",undefined);con.log(data[1])}
