@@ -15,7 +15,6 @@ var engine = {
                 layout[1].style.visibility = "visible"
                 layout[2].style.visibility = "visible"
                 layout[4].style.visibility = "visible"
-                //layout[0].style.borderColor = Cookies.get("color")
                 layout[9].setAttribute("onclick","engine.resize(1)");layout[10].setAttribute("onclick","engine.resize(2)")
                 engine.paint(Cookies.get("color"))
                 Cookies.set("size",0, { expires: 14400 })
@@ -99,17 +98,15 @@ var API = {
                 return false
             case "undefined":
                 return false
-            case NaN:
-                return false
             default:
-                return [true,data]
+                if(isNaN(data)!=true){return [true,data]}else{return false}
         }
     },
     mod:function(pid,data){
         for(var index=0,len=data.length;len>index;index++){
             switch(data[index]){
                 case "command line":
-                    document.getElementById(pid).insertAdjacentHTML("beforeEnd","<input spellcheck='false' id='"+pid+";cmd"+"' style='color:"+Cookies.get("color")+"'></input>")
+                    pid.insertAdjacentHTML("beforeEnd","<input spellcheck='false' id='"+pid+";cmd"+"' style='color:"+Cookies.get("color")+"'></input>")
                     break
                 case "drag":
                     break
@@ -238,7 +235,7 @@ var str = {
             con.inspect([this.insert(data[4][index][subindex],data[4][index][0])])}
         }
         document.getElementById("li;0").style.marginTop = "20px"
-        var inital=Cookies.get("inital");if(API.bake(inital)[0]==true){layout[0].style="place-self: center;display: inline;"+inital}else{Cookies.set("inital","height: 80%; width: 90%");layout[0].style="place-self: center;display: inline;height: 80%;width: 90%;"}
+        var inital=Cookies.get("inital");if(API.bake(inital)[0]==true){layout[0].style="place-self: center;display: inline;"+inital}else{if(screen.width<1600){Cookies.set("inital","height: 100%; width: 100%");layout[0].style="place-self: center;display: inline;height: 100%;width: 100%;"}else{Cookies.set("inital","height: 80%; width: 90%");layout[0].style="place-self: center;display: inline;height: 80%;width: 90%;"}}
         var size=parseInt(Cookies.get("size"));if(API.bake(size)[0]==true){engine.resize(size)}else{Cookies.set("size",0)}
         var color=Cookies.get("color");if(API.bake(color)[0]==true){engine.paint(color)}else{Cookies.set("color","red"); engine.paint("red")}
         var pg=Cookies.get("program");if(API.bake(pg)[0]==true){{con.exec(pg)}}else{Cookies.set("program",undefined);con.log(data[1])}
