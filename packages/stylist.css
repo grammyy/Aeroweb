@@ -27,7 +27,9 @@ input{
     border: unset; 
     letter-spacing: 1px; 
     margin-left: 1px;
-    color:red;}
+    color:red;
+    font-size: x-small;
+    font-family: sans-serif;}
 h1{
     letter-spacing: 1px;
     font-size: small;
