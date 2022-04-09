@@ -35,7 +35,6 @@ window.onload=function(){
     })
     str.unpack(HTTP())
     //var rc=Cookies.get("rcon"); if(engine.bake(rc)){rcon.value = rc}
-    if(Cookies.get("size")=="0"){API.mod(layout[3],["command line"]);con.log(["/linebreak/","If code appears under this line, you have data saved to cookie clicker that is not imported to the new Cookie host. Please copy if it appears and import it to the new host.","small;"+window.localStorage.getItem("CookieClickerGame")])}
     setInterval(function(){layout[5].innerHTML=new Date().toLocaleTimeString();if(layout[2].clientWidth<170){layout[6].style.visibility="hidden"}else{layout[6].style.visibility="visible"}},500)
     setInterval(function(){layout[6].innerHTML=Date.now()},100)
 }

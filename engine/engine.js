@@ -99,7 +99,7 @@ var API = {
             case "undefined":
                 return false
             default:
-                if(isNaN(data)!=true){return [true,data]}else{return false}
+                if(typeof(Cookies.get("inital"))=="string"){return [true,data]}else{if(isNaN(data)==true){return false}else{return [true,data]}}
         }
     },
     mod:function(pid,data){
