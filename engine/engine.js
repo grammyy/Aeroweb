@@ -9,7 +9,7 @@ var engine = {
                 layout[3].style.marginLeft = "11%"; layout[3].style.marginRight = "16%"
                 if(screen.width<1600){
                     layout[0].style.height="100%";layout[0].style.width="100%"}else{
-                    layout[0].style="place-self: center;display: inline;"+Cookies.get("inital")}
+                    layout[0].style="place-self: center;display: inline;"+Cookies.get("initial")}
                 layout[8].style.visibility = "visible"; layout[8].style.position = "absolute" 
                 
                 layout[1].style.visibility = "visible"
@@ -24,7 +24,7 @@ var engine = {
                 layout[3].style.margin = "5px"; layout[3].style.margin = "5px"
                 if(screen.width<1600){
                     layout[0].style.height="100%";layout[0].style.width="100%"}else{
-                    layout[0].style="place-self: center;display: inline;"+Cookies.get("inital")}
+                    layout[0].style="place-self: center;display: inline;"+Cookies.get("initial")}
                 layout[8].style.visibility = "visible"; layout[8].style.position = "fixed" 
 
                 layout[1].style.visibility = "hidden"
@@ -68,7 +68,25 @@ var engine = {
             }
         }
         Cookies.set("color",data, { expires: 14400 })
-    }
+    },
+    wrap:function(data){
+        if(API.bake(data)[0]==true){
+            for(var index=0,len=["div"].length;index<len;index++){
+                query=document.querySelectorAll(["div"][index])
+                for(var subindex=0,len=query.length;subindex<len;subindex++){
+                    document.body.style.backgroundImage="url('"+data+"')"
+                    switch(query[subindex].className){
+                        case "subwindow":
+                            query[subindex].style.backgroundImage="url('"+data+"')"
+                            break;
+                        case "window":
+                            query[subindex].style.backgroundImage="url('"+data+"')"
+                            break
+                    }
+                }
+            }
+            Cookies.set("wallpaper",data, { expires: 14400 })}
+    }   
 }
 var API = {
     fade:function(data){
@@ -81,7 +99,7 @@ var API = {
         },data[1]);
     },
     redirect:function(){
-        return [Cookies.get("wallpaper"),Cookies.get("inital"),Cookies.get("program"),Cookies.get("color")]
+        return [Cookies.get("wallpaper"),Cookies.get("initial"),Cookies.get("program"),Cookies.get("color")]
     },
     fliter:function(array,data){
         for(var index=0,len=array.length;index<len;index++){
@@ -92,6 +110,8 @@ var API = {
     },
     bake:function(data){
         switch(data){
+            case "":
+                return false
             case null:
                 return false
             case undefined:
@@ -99,7 +119,7 @@ var API = {
             case "undefined":
                 return false
             default:
-                if(typeof(Cookies.get("inital"))=="string"){return [true,data]}else{if(isNaN(data)==true){return false}else{return [true,data]}}
+                if(typeof(Cookies.get("initial"))=="string"){return [true,data]}else{if(isNaN(data)==true){return false}else{return [true,data]}}
         }
     },
     mod:function(pid,data){
@@ -125,7 +145,6 @@ var API = {
         var canvas=document.getElementById(time+"canvas");var toolbar=document.getElementById(time+"toolbar")
         canvas.insertAdjacentHTML("beforeEnd","<iframe id='"+time+"iframe"+"' src='"+data[0]+"' style='width:100%;height:100%;position:absolute'></iframe>")
         dragElement(self)
-        console.log(data[1]);
         if(data[1]!=""){
             toolbar.style.backgroundColor = "#545454"
         }else{
@@ -144,7 +163,6 @@ var cluster = {
     create:function(data){ time=Date.now()
         document.body.insertAdjacentHTML("beforeEnd","<div id='"+time+"' style='transition-duration:0.8s;color:white;position:absolute;z-index:1000;"+data[data.length-1]+"'></div>")
         windows.push(document.getElementById(time)); var self=windows[windows.length-1]
-        console.log(data,self);
         switch(data.length){
             case 4:
                 
@@ -154,15 +172,27 @@ var cluster = {
 }
 var settings = {
     unpack:function(data){
-        Inital.value=data[1]
+        Wallpaper.value=data[0]
+        Initial.value=data[1]
         Program.value=data[2]
         Color.value=data[3]
-        console.log(data);
     },
-    pack:function(){
-        for(var index=0,len=["inital","program","color"].length;len>index;index++){
-            parent.window.Cookies.set(["inital","program","color"][index],([Inital,Program,Color][index]).value)
-            parent.layout[0].style="place-self: center;display: inline;"+Inital.value; parent.window.engine.paint(Color.value)
+    pack:function(data){
+        switch(data.id){
+            case "Wallpaper":
+                parent.window.Cookies.set("wallpaper",data.value)
+                parent.window.engine.wrap(data.value)
+            break
+            case "Initial":
+                parent.window.Cookies.set("initial",data.value)
+            break
+            case "Program":
+                parent.window.Cookies.set("program",data.value)
+            break
+            case "Color":
+                parent.window.Cookies.set("color",data.value)
+                parent.window.engine.paint(data.value)
+            break
         }
     }
 }
@@ -235,7 +265,8 @@ var str = {
             con.inspect([this.insert(data[4][index][subindex],data[4][index][0])])}
         }
         document.getElementById("li;0").style.marginTop = "20px"
-        var inital=Cookies.get("inital");if(API.bake(inital)[0]==true){layout[0].style="place-self: center;display: inline;"+inital}else{if(screen.width<1600){Cookies.set("inital","height: 100%; width: 100%");layout[0].style="place-self: center;display: inline;height: 100%;width: 100%;"}else{Cookies.set("inital","height: 80%; width: 90%");layout[0].style="place-self: center;display: inline;height: 80%;width: 90%;"}}
+        var wallpaper=Cookies.get("wallpaper");if(API.bake(wallpaper)[0]==true){engine.wrap(wallpaper)}else{Cookies.set("wallpaper","packages/init.webp");engine.wrap("packages/init.webp")}
+        var initial=Cookies.get("initial");if(API.bake(initial)[0]==true){layout[0].style="place-self: center;display: inline;"+initial}else{if(screen.width<1600){Cookies.set("initial","height: 100%; width: 100%");layout[0].style="place-self: center;display: inline;height: 100%;width: 100%;"}else{Cookies.set("initial","height: 80%; width: 90%");layout[0].style="place-self: center;display: inline;height: 80%;width: 90%;"}}
         var size=parseInt(Cookies.get("size"));if(API.bake(size)[0]==true){engine.resize(size);API.mod(layout[3],["command line"])}else{Cookies.set("size",0)}
         var color=Cookies.get("color");if(API.bake(color)[0]==true){engine.paint(color)}else{Cookies.set("color","red"); engine.paint("red")}
         var pg=Cookies.get("program");if(API.bake(pg)[0]==true){{con.exec(pg)}}else{Cookies.set("program",undefined);con.log(data[1])}
