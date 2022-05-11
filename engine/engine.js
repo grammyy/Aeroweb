@@ -46,6 +46,21 @@ var engine = {
                 layout[0].style.borderColor = "transparent"
                 layout[10].setAttribute("onclick","engine.resize(0)")
                 Cookies.set("size",2, { expires: 14400 })
+                break
+            case 3:
+                layout[3].style.height = "100%"; layout[3].style.width = "-webkit-fill-available"; layout[3].style.margin = "5px"
+                layout[3].style.marginLeft = "11%"; layout[3].style.marginRight = "5px"
+                if(screen.width<1600){
+                    layout[0].style.height="100%";layout[0].style.width="100%"}else{
+                    layout[0].style="place-self: center;display: inline;"+Cookies.get("initial")}
+                layout[8].style.visibility = "visible"; layout[8].style.position = "fixed" 
+                
+                layout[1].style.visibility = "visible"
+                layout[2].style.visibility = "hidden"
+                layout[4].style.visibility = "hidden"
+                layout[9].setAttribute("onclick","engine.resize(1)");layout[10].setAttribute("onclick","engine.resize(2)")
+                engine.paint(Cookies.get("color"))
+                Cookies.set("size",3, { expires: 14400 })
                 break    
         }
     },
