@@ -3,6 +3,7 @@ var line=0
 const windows = []
 var engine = {
     resize:function(data){
+        if(data!=3){layout[12].style.visibility="hidden"}
         switch(data){
             case 0:
                 layout[3].style.height = "82.5%"; layout[3].style.width = "-webkit-fill-available"; layout[3].style.margin = "5px"
@@ -18,6 +19,7 @@ var engine = {
                 layout[9].setAttribute("onclick","engine.resize(1)");layout[10].setAttribute("onclick","engine.resize(2)")
                 engine.paint(Cookies.get("color"))
                 Cookies.set("size",0, { expires: 14400 })
+                API.mod(layout[3],["command line"])
                 break
             case 1:
                 layout[3].style.height = "-webkit-fill-available"; layout[3].style.width = "-webkit-fill-available" 
@@ -33,6 +35,7 @@ var engine = {
                 engine.paint(Cookies.get("color"))
                 layout[9].setAttribute("onclick","engine.resize(0)")
                 Cookies.set("size",1, { expires: 14400 })
+                API.mod(layout[3],["command line"])
                 break
             case 2:
                 layout[3].style.height = "-webkit-fill-available"; layout[3].style.width = "-webkit-fill-available"; layout[3].style.margin = "5px"; layout[3].style.margin = "0"
@@ -48,18 +51,19 @@ var engine = {
                 Cookies.set("size",2, { expires: 14400 })
                 break
             case 3:
-                layout[3].style.height = "100%"; layout[3].style.width = "-webkit-fill-available"; layout[3].style.margin = "5px"
+                layout[3].style.height = "-webkit-fill-available"; layout[3].style.width = "-webkit-fill-available"; layout[3].style.margin = "5px"
                 layout[3].style.marginLeft = "11%"; layout[3].style.marginRight = "5px"
                 if(screen.width<1600){
                     layout[0].style.height="100%";layout[0].style.width="100%"}else{
                     layout[0].style="place-self: center;display: inline;"+Cookies.get("initial")}
                 layout[8].style.visibility = "visible"; layout[8].style.position = "fixed" 
                 
-                layout[1].style.visibility = "visible"
+                layout[1].style.visibility = "hidden"
                 layout[2].style.visibility = "hidden"
                 layout[4].style.visibility = "hidden"
+                layout[12].style.visibility = "visible"
                 layout[9].setAttribute("onclick","engine.resize(1)");layout[10].setAttribute("onclick","engine.resize(2)")
-                engine.paint(Cookies.get("color"))
+                engine.paint(Cookies.get("color")); con.clear()
                 Cookies.set("size",3, { expires: 14400 })
                 break    
         }
@@ -274,6 +278,10 @@ var str = {
             }
             con.inspect([data[3][step][0]+" : List <<"])
         }
+        for (let step = 0; step < data[5].length; step++) {
+            layout[12].insertAdjacentHTML("beforeend",'<div onclick='+"eval("+data[5][step][2]+") class=database desktop>"+data[5][step][0]+'<label style="color: grey; margin-left: auto; right: 0">'+data[5][step][1]+'</label></div>')
+            con.inspect([data[5][step][0]+" : List <<"])
+        }
         for(var index=0,len=data[4].length;index<len;index++){ //margin-top: 15px; margin-left: 15px
             layout[2].insertAdjacentHTML("beforeEnd",'<li id='+'li;'+index+' style="padding-bottom: 10px; margin-left: 15px" class="folders" >'+data[4][index][0]+'<ul style="padding-left: 20px; display: flex; flex-direction: column; margin: 0" id="'+data[4][index][0]+'ul'+'"></ul></li>')
             for(var subindex=1,sublen=data[4][index].length;subindex<sublen;subindex++){
@@ -284,7 +292,7 @@ var str = {
         var initial=Cookies.get("initial");if(API.bake(initial)[0]==true){layout[0].style="place-self: center;display: inline;"+initial}else{if(screen.width<1600){Cookies.set("initial","height: 100%; width: 100%");layout[0].style="place-self: center;display: inline;height: 100%;width: 100%;"}else{Cookies.set("initial","height: 80%; width: 90%");layout[0].style="place-self: center;display: inline;height: 80%;width: 90%;"}}
         var size=parseInt(Cookies.get("size"));if(API.bake(size)[0]==true){engine.resize(size);API.mod(layout[3],["command line"])}else{Cookies.set("size",0)}
         var color=Cookies.get("color");if(API.bake(color)[0]==true){engine.paint(color)}else{Cookies.set("color","red"); engine.paint("red")}
-        var pg=Cookies.get("program");if(API.bake(pg)[0]==true){{con.exec(pg)}}else{Cookies.set("program",undefined);con.log(data[1])}
+        var pg=Cookies.get("program");if(API.bake(pg)[0]==true){{con.exec(pg)}}else{Cookies.set("program",undefined);if(size!=3){con.log(data[1])}}
     },
     insert:function(data,id){ data[0]=data[0].split(":")
         document.getElementById(id+'ul').insertAdjacentHTML("beforeEnd",'<a '+data[1]+' class="folders">'+data[0][0]+'<label style="color: yellow; margin-left: auto; right: 0; white-space: nowrap">'+data[0][1]+'</label></a>')
