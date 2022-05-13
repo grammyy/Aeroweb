@@ -90,20 +90,18 @@ var engine = {
     },
     wrap:function(data){
         if(API.bake(data)[0]==true){
-            for(var index=0,len=["div"].length;index<len;index++){
-                query=document.querySelectorAll(["div"][index])
-                for(var subindex=0,len=query.length;subindex<len;subindex++){
+                query=document.querySelectorAll("div")
+                for(var index=0,len=query.length;index<len;index++){
                     document.body.style.backgroundImage="url('"+data+"')"
-                    switch(query[subindex].className){
+                    switch(query[index].className.split(" ")[0]){
                         case "subwindow":
-                            query[subindex].style.backgroundImage="url('"+data+"')"
+                            query[index].style.backgroundImage="url('"+data+"')"
                             break;
                         case "window":
-                            query[subindex].style.backgroundImage="url('"+data+"')"
+                            query[index].style.backgroundImage="url('"+data+"')"
                             break
                     }
                 }
-            }
             Cookies.set("wallpaper",data, { expires: 14400 })}
     }   
 }
