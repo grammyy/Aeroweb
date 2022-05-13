@@ -293,7 +293,7 @@ var str = {
         var initial=Cookies.get("initial");if(API.bake(initial)[0]==true){layout[0].style="place-self: center;display: inline;"+initial}else{if(screen.width<1600){Cookies.set("initial","height: 100%; width: 100%");layout[0].style="place-self: center;display: inline;height: 100%;width: 100%;"}else{Cookies.set("initial","height: 80%; width: 90%");layout[0].style="place-self: center;display: inline;height: 80%;width: 90%;"}}
         var size=parseInt(Cookies.get("size"));if(API.bake(size)[0]==true){engine.resize(size);API.mod(layout[3],["command line"])}else{Cookies.set("size",0)}
         var color=Cookies.get("color");if(API.bake(color)[0]==true){engine.paint(color)}else{Cookies.set("color","red"); engine.paint("red")}
-        var pg=Cookies.get("program");if(API.bake(pg)[0]==true){{con.exec(pg)}}else{Cookies.set("program",undefined);if(size!=3){con.log(data[1])}}
+        var pg=Cookies.get("program");if(API.bake(pg)[0]==true){{con.exec(pg)}}else{Cookies.set("program","");if(size!=3){con.log(data[1])}}
     },
     insert:function(data,id){ data[0]=data[0].split(":")
         document.getElementById(id+'ul').insertAdjacentHTML("beforeEnd",'<a '+data[1]+' class="folders">'+data[0][0]+'<label style="color: yellow; margin-left: auto; right: 0; white-space: nowrap">'+data[0][1]+'</label></a>')
