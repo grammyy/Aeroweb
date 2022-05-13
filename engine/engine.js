@@ -204,6 +204,7 @@ var settings = {
             break
             case "Initial":
                 parent.window.Cookies.set("initial",data.value)
+                parent.window.layout[0].style="place-self: center;display: inline;"+data.value+";border-color:"+Cookies.get("color")
             break
             case "Program":
                 parent.window.Cookies.set("program",data.value)
