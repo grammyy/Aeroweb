@@ -3,7 +3,6 @@ var line=0
 const windows = []
 var engine = {
     resize:function(data){
-        if(data!=3){layout[12].style.visibility="hidden"}
         switch(data){
             case 0:
                 layout[3].style.height = "82.5%"; layout[3].style.width = "-webkit-fill-available"; layout[3].style.margin = "5px"
@@ -52,7 +51,6 @@ var engine = {
                 break
             case 3:
                 layout[3].style.height = "-webkit-fill-available"; layout[3].style.width = "-webkit-fill-available"; layout[3].style.margin = "5px"
-                layout[3].style.marginLeft = "11%"; layout[3].style.marginRight = "5px"
                 if(screen.width<1600){
                     layout[0].style.height="100%";layout[0].style.width="100%"}else{
                     layout[0].style="place-self: center;display: inline;"+Cookies.get("initial")}
@@ -61,7 +59,6 @@ var engine = {
                 layout[1].style.visibility = "hidden"
                 layout[2].style.visibility = "hidden"
                 layout[4].style.visibility = "hidden"
-                layout[12].style.visibility = "visible"
                 layout[9].setAttribute("onclick","engine.resize(1)");layout[10].setAttribute("onclick","engine.resize(2)")
                 engine.paint(Cookies.get("color")); con.clear()
                 Cookies.set("size",3, { expires: 14400 })
@@ -276,10 +273,6 @@ var str = {
                 layout[1].insertAdjacentHTML("beforeend",'<div onclick='+"window.open('"+data[3][step][2]+"')"+' class=database desktop>'+data[3][step][0]+'<label style="color: grey; margin-left: auto; right: 0">'+data[3][step][1]+'</label></div>')
             }
             con.inspect([data[3][step][0]+" : List <<"])
-        }
-        for (let step = 0; step < data[5].length; step++) {
-            layout[12].insertAdjacentHTML("beforeend",'<div onclick='+"eval("+data[5][step][2]+") class=database desktop>"+data[5][step][0]+'<label style="color: grey; margin-left: auto; right: 0">'+data[5][step][1]+'</label></div>')
-            con.inspect([data[5][step][0]+" : List <<"])
         }
         for(var index=0,len=data[4].length;index<len;index++){ //margin-top: 15px; margin-left: 15px
             layout[2].insertAdjacentHTML("beforeEnd",'<li id='+'li;'+index+' style="padding-bottom: 10px; margin-left: 15px" class="folders" >'+data[4][index][0]+'<ul style="padding-left: 20px; display: flex; flex-direction: column; margin: 0" id="'+data[4][index][0]+'ul'+'"></ul></li>')

@@ -10,7 +10,7 @@
 #explorer{ right:0; height: -webkit-fill-available; width: 15%;}
 #console{ transition-duration: 0.5s; height: 82.5%; width: -webkit-fill-available; top: 0; margin-left: 11%; margin-right: 16%; margin-bottom: unset}
 #controlBar{ height: 15%; width: -webkit-fill-available; bottom: 0; margin-left: 11%; margin-right: 16%; display: flex; flex-wrap: wrap; align-content: flex-start}
-#inspector{ position: absolute; height: -webkit-fill-available; right: 0}
+#inspector{ position: absolute; height: -webkit-fill-available; right: 0; font-family: sans-serif;}
 
 #toolkit{ height: 100%; width: 20px; position: absolute; right: 0; top: 0}
 #ccc{ cursor: alias;}
