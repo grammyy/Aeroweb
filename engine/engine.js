@@ -48,6 +48,7 @@ var engine = {
                 layout[0].style.borderColor = "transparent"
                 layout[10].setAttribute("onclick","engine.resize(0)")
                 Cookies.set("size",2, { expires: 14400 })
+                API.mod(layout[3],["command line"])
                 break
             case 3:
                 layout[3].style.height = "-webkit-fill-available"; layout[3].style.width = "-webkit-fill-available"; layout[3].style.margin = "5px"
@@ -173,6 +174,16 @@ var API = {
         }
     }
 }
+function trace(obj){
+    return new Proxy(obj, {
+        get(target, methodName, receiver) {
+            const originMethod = target[methodName];
+            return function(...args) {
+                con.compile(layout[7],args,"style='pointer-events:none;text-align:end;font-size:12px'")
+                Array.prototype.slice.call( layout[7].children ).forEach((element) => {
+                    API.fade([element,4000, 4000])});
+                return originMethod.apply(this, args);
+            };}});} console = trace(console);
 var cluster = {
     create:function(data){ time=Date.now()
         document.body.insertAdjacentHTML("beforeEnd","<div id='"+time+"' style='transition-duration:0.8s;color:white;position:absolute;z-index:1000;"+data[data.length-1]+"'></div>")
@@ -246,6 +257,7 @@ var con = {
         while (layout[3].lastChild) {
             layout[3].removeChild(layout[3].lastChild);
         }
+        API.mod(layout[3],["command line"])
     },
     exec:function(data){
         this.clear(); layout[3].style.opacity = "100%"
