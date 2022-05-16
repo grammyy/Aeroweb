@@ -238,7 +238,7 @@ var con = {
         this.compile(layout[3],data,"")
     },
     inspect:function(data){
-        this.compile(layout[7],data,"style='text-align:end;width:unset;font-size:8px'")
+        this.compile(layout[7],data,"style='pointer-events:none;text-align:end;font-size:8px'")
         Array.prototype.slice.call( layout[7].children ).forEach((element) => {
             API.fade([element,2000, 2000])});
     },
