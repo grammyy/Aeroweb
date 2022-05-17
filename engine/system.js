@@ -37,4 +37,9 @@ window.onload=function(){
     //var rc=Cookies.get("rcon"); if(engine.bake(rc)){rcon.value = rc}
     setInterval(function(){layout[5].innerHTML=new Date().toLocaleTimeString();if(layout[2].clientWidth<170){layout[6].style.visibility="hidden"}else{layout[6].style.visibility="visible"}},500)
     setInterval(function(){layout[6].innerHTML=Date.now()},100)
+    switch(window.location.href.split("/").last()){
+        case "#business":
+            con.inspect("Business presentation started <<")
+            break
+    }
 }

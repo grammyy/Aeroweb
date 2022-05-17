@@ -170,6 +170,9 @@ function trace(obj){
                     API.fade([element,4000, 4000])});
                 return originMethod.apply(this, args);
             };}});} console = trace(console);
+Array.prototype.last = function(){
+    return this[this.length - 1];
+};
 var cluster = {
     create:function(data){ time=Date.now()
         document.body.insertAdjacentHTML("beforeEnd","<div id='"+time+"' style='transition-duration:0.8s;color:white;position:absolute;z-index:1000;"+data[data.length-1]+"'></div>")
