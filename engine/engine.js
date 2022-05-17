@@ -50,20 +50,6 @@ var engine = {
                 Cookies.set("size",2, { expires: 14400 })
                 API.mod(layout[3],["command line"])
                 break
-            case 3:
-                layout[3].style.height = "-webkit-fill-available"; layout[3].style.width = "-webkit-fill-available"; layout[3].style.margin = "5px"
-                if(screen.width<1600){
-                    layout[0].style.height="100%";layout[0].style.width="100%"}else{
-                    layout[0].style="place-self: center;display: inline;"+Cookies.get("initial")}
-                layout[8].style.visibility = "visible"; layout[8].style.position = "fixed" 
-                
-                layout[1].style.visibility = "hidden"
-                layout[2].style.visibility = "hidden"
-                layout[4].style.visibility = "hidden"
-                layout[9].setAttribute("onclick","engine.resize(1)");layout[10].setAttribute("onclick","engine.resize(2)")
-                engine.paint(Cookies.get("color")); con.clear()
-                Cookies.set("size",3, { expires: 14400 })
-                break    
         }
     },
     paint:function(data){
