@@ -39,7 +39,8 @@ window.onload=function(){
     setInterval(function(){layout[6].innerHTML=Date.now()},100)
     switch(window.location.href.split("/").last()){
         case "#business":
-            con.inspect("Business presentation started <<")
+            con.inspect("Business presentation started <<"); con.resize(2)
+            con.exec("https://aerophp.000webhostapp.com/query/business.html")
             break
     }
 }
