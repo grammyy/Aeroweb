@@ -137,7 +137,7 @@ var API = {
         }
     },
     compile:function(data){ time=Date.now()
-        document.body.insertAdjacentHTML("beforeEnd","<div id='"+time+"' style='"+data[2]+";display:flex;flex-direction:column;color:rgb(173,173,173);background-color:#363636;transition-duration:unset"+"' class='window'></div>")
+        document.body.insertAdjacentHTML("beforeEnd","<div id='"+time+"' style='"+data[2]+";display:flex;flex-direction:column;color:rgb(173,173,173);transition-duration:unset"+"' class='window'></div>")
         //var self=windows.push(document.getElementById(time))[windows.length]
         windows.push(document.getElementById(time)); var self=windows[windows.length-1]
         self.insertAdjacentHTML("beforeEnd","<div style='position:absolute;right:0;height:15px;width:15px;z-index:10000' onclick='document.getElementById("+self.id+").remove();API.fliter(windows,"+(windows.length-1)+")'></div>")
