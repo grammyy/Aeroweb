@@ -55,17 +55,17 @@ var engine = {
     paint:function(data){
         for(var index=0,len=["div","p","input","li","a"].length;index<len;index++){
             query=document.querySelectorAll(["div","p","input","li","a"][index])
-            for(var subindex=0,len=query.length;subindex<len;subindex++){
-                query[subindex].style.color = data
-                switch(query[subindex].className){
+            for(var _index=0,_len=query.length;_index<_len;_index++){
+                query[_index].style.color = data
+                switch(query[_index].className){
                     case "button":
-                        query[subindex].style.backgroundColor = data
+                        query[_index].style.backgroundColor = data
                         break;
                     case "window":
-                        query[subindex].style.borderColor = data
+                        query[_index].style.borderColor = data
                         break
                     case "verse":
-                        query[subindex].style.borderColor = data
+                        query[_index].style.borderColor = data
                         break;
                 }
             }
@@ -78,7 +78,7 @@ var engine = {
                 for(var index=0,len=query.length;index<len;index++){
                     document.body.style.backgroundImage="url('"+data+"')"
                     switch(query[index].className.split(" ")[0]){
-                        case "subwindow":
+                        case "_window":
                             query[index].style.backgroundImage="url('"+data+"')"
                             break;
                         case "window":
@@ -164,9 +164,9 @@ function trace(obj){
     return new Proxy(obj, {
         get(target, methodName, receiver) {
             const originMethod = target[methodName];
-            return function(...args) {
+            return function(...args) { //only ES6 supported
                 con.compile(layout[7],args,"style='pointer-events:none;text-align:end;font-size:12px'")
-                Array.prototype.slice.call( layout[7].children ).forEach((element) => {
+                Array.prototype.slice.call( layout[7].children ).forEach((element) => { //only ES6 supported
                     API.fade([element,4000, 4000])});
                 return originMethod.apply(this, args);
             };}});} console = trace(console);
@@ -239,7 +239,7 @@ var con = {
     },
     inspect:function(data){
         this.compile(layout[7],data,"style='pointer-events:none;text-align:end;font-size:8px'")
-        Array.prototype.slice.call( layout[7].children ).forEach((element) => {
+        Array.prototype.slice.call( layout[7].children ).forEach((element) => { //only ES6 supported
             API.fade([element,2000, 2000])});
     },
     clear:function(){
@@ -277,8 +277,8 @@ var str = {
         }
         for(var index=0,len=data[4].length;index<len;index++){ //margin-top: 15px; margin-left: 15px
             layout[2].insertAdjacentHTML("beforeEnd",'<li id='+'li;'+index+' style="padding-bottom: 10px; margin-left: 15px" class="folders" >'+data[4][index][0]+'<ul style="padding-left: 20px; display: flex; flex-direction: column; margin: 0" id="'+data[4][index][0]+'ul'+'"></ul></li>')
-            for(var subindex=1,sublen=data[4][index].length;subindex<sublen;subindex++){
-            con.inspect([this.insert(data[4][index][subindex],data[4][index][0])])}
+            for(var _index=1,_len=data[4][index].length;_index<_len;_index++){
+                con.inspect([this.insert(data[4][index][_index],data[4][index][0])])}
         }
         document.getElementById("li;0").style.marginTop = "20px"
         var wallpaper=Cookies.get("wallpaper");if(API.bake(wallpaper)[0]==true){engine.wrap(wallpaper)}else{Cookies.set("wallpaper","packages/init.webp");engine.wrap("packages/init.webp")}
