@@ -1,28 +1,22 @@
 function paint(c){
-    encode("app","color",c)
-    o=document.body.getElementsByTagName("*")
-    a=["button","window","verse"]
-    for(var i=0;i<o.length;i++){ //make into api function
-        o[i].style.color=c
-        for(var _i=0;_i<a.length;_i++){
-            switch(o[i].split(";").indexOf(a[_i])){
-                case "button":
-                    o[i].style.backgroundColor = c
-                    break
-                case "window":
-                    o[i].style.borderColor = c
-                    break
-                case "verse":
-                    o[i].style.borderColor = c
-                    break}}}}
-        
+    packaging.encode("app","style","color",c)
+    o=["div","p"]
+    for(var i=0;i<o.length;i++){
+        _o=document.getElementsByTagName(o[i])
+        for(var _i=0;_i<_o.length;_i++){
+            _o[_i].style.color=c
+            if(_o[_i].className.includes("button")){_o[_i].style.backgroundColor=c}
+            if(_o[_i].className.includes("window")){_o[_i].style.borderColor=c}
+            if(_o[_i].className.includes("verse")){_o[_i].style.borderColor=c}}}}
 function wrap(w){
-    encode(app,"wallpaper",w)
-    o=document.body.getElementsByTagName("*")
-    for(var i=0;i<o.length;i++){ //see above
-        }}
+    packaging.encode("app","style","wallpaper",w)
+    o=document.getElementsByTagName("div")
+    if(w=="revert"){w="url('packages/init.webp')"}
+    for(var i=0;i<o.length;i++){
+        document.body.style.backgroundImage=w
+        if(o[i].className.includes("window")){o[i].style.backgroundImage=w}}}
 function theme(t){
-    encode(app,"theme",t)
+    packaging.encode("app","style","theme",t)
     switch(t){
         case "default":
             break

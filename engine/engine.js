@@ -12,7 +12,7 @@ var compilers={
     write:function(o,d,c){
         for(var i=0,len=d.length;len>i;i++){
             if(d[i]=="/linebreak/"){
-                o.insertAdjacentHTML("beforeEnd","<p id="+o.id+i+" style='margin-left: fit-content; height: 11px'></p>")
+                o.insertAdjacentHTML("beforeEnd","<p id="+o.id+i+" style='height: 11px'></p>")
             }else{
                 o.insertAdjacentHTML("beforeEnd","<p id="+o.id+i+" "+c+">"+d[i]+"</p>")}}}}
 var GUI={
@@ -49,8 +49,10 @@ var GUI={
             }}}}
 var packaging={
     port:function(){},
-    encode:function(d,p,r){
-        Cookies.set(d,Cookies.get(d).replace(p,r))}}
+    encode:function(d,s,p,r){
+        a=JSON.parse(Cookies.get(d))
+        a[s][p]=r
+        Cookies.set(d,a)}}
 ! function(rcon) {
     var cook;
     if ("function" == typeof define && define.amd && (define(rcon), cook = !0), "object" == typeof exports && (module.exports = rcon(), cook = !0), !cook) {
