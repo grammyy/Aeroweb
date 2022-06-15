@@ -19,8 +19,14 @@ var GUI={
     fade:function(){},
     warn:function(){},
     log:function(){},
-    open:function(){},
-    clear:function(){},
+    open:function(s){
+        packaging.encode("app","program","page",s)
+        this.clear(webpage.children[1])
+        webpage.children[1].insertAdjacentHTML("afterBegin","<iframe id='worker' src="+s+"></iframe>")},
+    clear:function(o,t){
+        r=o.getElementsByTagName(t)
+        for(var i=0,len=r.length;i<len;i++){
+            r[i].remove()}},
     insert:function(d,i){
         document.getElementById(i+'ul').insertAdjacentHTML("beforeEnd",'<a '+d[1]+' class="folders">'+data[0][0]+'<label style="color: yellow; margin-left: auto; right: 0; white-space: nowrap">'+d[0][1]+'</label></a>')},
     drag:function(s){

@@ -4,8 +4,16 @@ for(var i=0,len=system["modules"].length;i<len;i++){
         document.head.appendChild(d)}
 window.onload=function(){
     var webpage=document.body.children[0]
+    if(!Cookies.get("app")){
+        Cookies.set("app",{
+            "style":{"webpage":"height:90%;width:95%","color":"red","wallpaper":"url('packages/init.webp')"},
+            "program":{"page":""}})
+            compilers.write(webpage.children[2],aeroweb[0],"")
+        }else{
+            paint(JSON.parse(Cookies.get("app"))["style"]["color"])
+            wrap(JSON.parse(Cookies.get("app"))["style"]["wallpaper"])
+            t=JSON.parse(Cookies.get("app"))["program"]["page"];if(t){GUI.open(t)}else{compilers.write(webpage.children[2],aeroweb[0],"")}}
     webpage.style=JSON.parse(Cookies.get("app"))["style"]["webpage"]
-    compilers.write(webpage.children[2],aeroweb[0],"")
     for(let c=0;c<aeroweb[1].length;c++){
         webpage.children[3].insertAdjacentHTML("beforeend",'<div onclick=con.exec('+"'"+aeroweb[1][c][1]+"'"+') class=verse desktop>'+aeroweb[1][c][0]+'</div>')
         GUI.warn([aeroweb[1][c][0]+" : Verse <<"])}
@@ -23,12 +31,7 @@ window.onload=function(){
         GUI.warn([aeroweb[3][e][0]+" : Folder <<"])}
     webpage.children[1].children[2].style.marginTop="20px"
     setInterval(function(){webpage.children[1].children[0].innerText=new Date().toLocaleTimeString();if(webpage.children[1].clientWidth<170){webpage.children[1].children[0].style.visibility="hidden"}else{webpage.children[1].children[0].style.visibility="visible"}},500) 
-    setInterval(function(){webpage.children[1].children[1].innerText=Date.now()},100)
-    if(!Cookies.get("app")){
-        Cookies.set("app",{"style":{"webpage":"height:90%;width:95%","color":"red","wallpaper":"url('init.webp')"}})
-        }else{
-            paint(JSON.parse(Cookies.get("app"))["style"]["color"])
-            wrap(JSON.parse(Cookies.get("app"))["style"]["wallpaper"])}}
+    setInterval(function(){webpage.children[1].children[1].innerText=Date.now()},100)}
 function AddEvent(object, id, func){
 	if(object.attachEvent) object.attachEvent("on" + id, function(){func.call(object)});
 	else if(object.addEventListener) object.addEventListener(id, func, false)}
