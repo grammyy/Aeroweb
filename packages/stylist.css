@@ -1,51 +1,13 @@
-body{ 
-    height: 100vh;
-    width: 100vw;
-    background-image: url("init.webp");
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    margin: 0;
-    background-color: #38003f;
-    overflow: hidden;
-    display: grid;
-    background-repeat: no-repeat;}
-iframe{ 
-    position: absolute;
-    height: -webkit-fill-available;
-    width: 100%;
-    border: unset;
-    backdrop-filter: blur(10px);}
-p{
-    margin: 0;
-    height: fit-content;
-    opacity: 80%;}
-input{ 
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    background-color: transparent; 
-    border: unset; 
-    letter-spacing: 1px; 
-    margin-left: 1px;
-    color:red;
-    font-size: x-small;
-    font-family: sans-serif;}
-h1{
-    letter-spacing: 1px;
-    font-size: small;
-    margin: 5px;
-    opacity: 80%;}
-li{
-    opacity: 80%;}
-a{
-    cursor: pointer;}
-input:focus{
-    outline:none;}
-label{ 
-    font-size: x-small;
-    font-family: sans-serif;}
-::-webkit-scrollbar { width: 6PX;}
-::-webkit-scrollbar-track { background: transparent;}
-::-webkit-scrollbar-thumb { background: #30003d;}
-::-webkit-scrollbar-thumb:hover { background: transparent;}
+body{height:100vh;width:100vw;background-image:url("init.webp");background-attachment:fixed;background-position:center;background-size:cover;margin:0;background-color:#38003f;overflow:hidden;display:grid;background-repeat:no-repeat;color:red}
+iframe{position:absolute;height:-webkit-fill-available;width:100%;border:unset;backdrop-filter:blur(10px)}
+p{margin:0;height:fit-content;opacity:80%}
+input{width:100%;position:absolute;bottom:0;background-color:transparent;border:unset;letter-spacing:1px;margin-left:1px;color:red;font-size:x-small;font-family:sans-serif}
+h1{letter-spacing:1px;font-size:small;margin:5px;opacity:80%}
+li{opacity:80%;white-space:nowrap}
+a{cursor:pointer}
+input:focus{outline:none}
+label{font-size:x-small;font-family:sans-serif}
+::-webkit-scrollbar{width:6PX}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#30003d}
+::-webkit-scrollbar-thumb:hover{background:transparent}

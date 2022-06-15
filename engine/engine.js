@@ -1,337 +1,86 @@
-var layout = []
-var line=0
-const windows = []
-var engine = {
-    resize:function(data){
-        switch(data){
-            case 0:
-                layout[3].style.height = "82.5%"; layout[3].style.width = "-webkit-fill-available"; layout[3].style.margin = "5px"
-                layout[3].style.marginLeft = "11%"; layout[3].style.marginRight = "16%"
-                if(screen.width<1600){
-                    layout[0].style.height="100%";layout[0].style.width="100%"}else{
-                    layout[0].style="place-self: center;display: inline;"+Cookies.get("initial")}
-                layout[8].style.visibility = "visible"; layout[8].style.position = "absolute" 
-                
-                layout[1].style.visibility = "visible"
-                layout[2].style.visibility = "visible"
-                layout[4].style.visibility = "visible"
-                layout[9].setAttribute("onclick","engine.resize(1)");layout[10].setAttribute("onclick","engine.resize(2)")
-                engine.paint(Cookies.get("color"))
-                Cookies.set("size",0, { expires: 14400 })
-                API.mod(layout[3],["command line"])
-                break
-            case 1:
-                layout[3].style.height = "-webkit-fill-available"; layout[3].style.width = "-webkit-fill-available" 
-                layout[3].style.margin = "5px"; layout[3].style.margin = "5px"
-                if(screen.width<1600){
-                    layout[0].style.height="100%";layout[0].style.width="100%"}else{
-                    layout[0].style="place-self: center;display: inline;"+Cookies.get("initial")}
-                layout[8].style.visibility = "visible"; layout[8].style.position = "fixed" 
-
-                layout[1].style.visibility = "hidden"
-                layout[2].style.visibility = "hidden"
-                layout[4].style.visibility = "hidden"
-                engine.paint(Cookies.get("color"))
-                layout[9].setAttribute("onclick","engine.resize(0)")
-                Cookies.set("size",1, { expires: 14400 })
-                API.mod(layout[3],["command line"])
-                break
-            case 2:
-                layout[3].style.height = "-webkit-fill-available"; layout[3].style.width = "-webkit-fill-available"; layout[3].style.margin = "5px"; layout[3].style.margin = "0"
-                layout[0].style.height = "-webkit-fill-available"; layout[0].style.width = "-webkit-fill-available"
-                layout[8].style.visibility = "visible"; layout[8].style.position = "fixed" 
-
-                layout[1].style.visibility = "hidden"
-                layout[2].style.visibility = "hidden"
-                layout[4].style.visibility = "hidden"
-                engine.paint(Cookies.get("color"))
-                layout[0].style.borderColor = "transparent"
-                layout[10].setAttribute("onclick","engine.resize(0)")
-                Cookies.set("size",2, { expires: 14400 })
-                API.mod(layout[3],["command line"])
-                break
-        }
-    },
-    paint:function(data){
-        for(var index=0,len=["div","p","input","li","a"].length;index<len;index++){
-            query=document.querySelectorAll(["div","p","input","li","a"][index])
-            for(var _index=0,_len=query.length;_index<_len;_index++){
-                query[_index].style.color = data
-                switch(query[_index].className){
-                    case "button":
-                        query[_index].style.backgroundColor = data
-                        break;
-                    case "window":
-                        query[_index].style.borderColor = data
-                        break
-                    case "verse":
-                        query[_index].style.borderColor = data
-                        break;
-                }
-            }
-        }
-        Cookies.set("color",data, { expires: 14400 })
-    },
-    wrap:function(data){
-        if(API.bake(data)[0]==true){
-                query=document.querySelectorAll("div")
-                for(var index=0,len=query.length;index<len;index++){
-                    document.body.style.backgroundImage="url('"+data+"')"
-                    switch(query[index].className.split(" ")[0]){
-                        case "_window":
-                            query[index].style.backgroundImage="url('"+data+"')"
-                            break;
-                        case "window":
-                            query[index].style.backgroundImage="url('"+data+"')"
-                            break
-                    }
-                }
-            Cookies.set("wallpaper",data, { expires: 14400 })}
-    }   
-}
-var API = {
-    fade:function(data){
-        setTimeout(function(){
-            data[0].style.transition = "opacity "+data[2]/1000+"s ease"; 
-            data[0].style.opacity = 0;
-            setTimeout(function() { 
-                try{data[0].parentNode.removeChild(data[0]);}catch(err){}
-            }, data[2]);
-        },data[1]);
-    },
-    redirect:function(){
-        return [Cookies.get("wallpaper"),Cookies.get("initial"),Cookies.get("program"),Cookies.get("color")]
-    },
-    fliter:function(array,data){
-        for(var index=0,len=array.length;index<len;index++){
-            if (index==data){
-                array.splice(index)
-            }
-        }
-    },
-    bake:function(data){
-        switch(data){
-            case "":
-                return false
-            case null:
-                return false
-            case undefined:
-                return false
-            case "undefined":
-                return false
-            default:
-                if(typeof(Cookies.get("initial"))=="string"){return [true,data]}else{if(isNaN(data)==true){return false}else{return [true,data]}}
-        }
-    },
-    mod:function(pid,data){
-        for(var index=0,len=data.length;len>index;index++){
-            switch(data[index]){
-                case "command line":
-                    pid.insertAdjacentHTML("beforeEnd","<input spellcheck='false' id='"+pid+";cmd"+"' style='color:"+Cookies.get("color")+"'></input>")
-                    break
-                case "drag":
-                    break
-                case "borderless":
-                    break
-            }
-        }
-    },
-    compile:function(data){ time=Date.now()
-        document.body.insertAdjacentHTML("beforeEnd","<div id='"+time+"' style='"+data[2]+";display:flex;flex-direction:column;color:rgb(173,173,173);transition-duration:unset"+"' class='window'></div>")
-        //var self=windows.push(document.getElementById(time))[windows.length]
-        windows.push(document.getElementById(time)); var self=windows[windows.length-1]
-        self.insertAdjacentHTML("beforeEnd","<div style='position:absolute;right:0;height:15px;width:15px;z-index:10000' onclick='document.getElementById("+self.id+").remove();API.fliter(windows,"+(windows.length-1)+")'></div>")
-        self.insertAdjacentHTML("beforeEnd","<div id='"+time+"toolbar"+"' style='width:-webkit-fill-available;height:15px;z-index:1000;cursor:all-scroll'><label id='"+time+"label"+"' style='margin:2.5px;display:flex;width:fit-content;white-space:nowrap'>"+data[1]+"</label></div>")
-        self.insertAdjacentHTML("beforeEnd","<div id='"+time+"canvas"+"' style='width:inherit;height:inherit;position:relative'></div>")
-        var canvas=document.getElementById(time+"canvas");var toolbar=document.getElementById(time+"toolbar")
-        canvas.insertAdjacentHTML("beforeEnd","<iframe id='"+time+"iframe"+"' src='"+data[0]+"' style='width:100%;height:100%;position:absolute'></iframe>")
-        dragElement(self)
-        if(data[1]!=""){
-            toolbar.style.backgroundColor = "#545454"
-        }else{
-            toolbar.style.opacity="0%"
-            canvas.style.position="absolute"}
-        self.style.top="200px";self.style.left="200px";self.style.borderColor=Cookies.get("color")
-    },
-    purge:function(){
-        for(var index=0,len=windows.length;index<len;index++){
-            windows[index].remove(); this.fliter(windows,index)
-            con.inspect(["small;"+windows[index]+":[Window Object] : Removed <<"])
-        }
-    }
-}
-function trace(obj){
-    return new Proxy(obj, {
-        get(target, methodName, receiver) {
-            const originMethod = target[methodName];
-            return function(...args) { //only ES6 supported
-                con.compile(layout[7],args,"style='pointer-events:none;text-align:end;font-size:12px'")
-                Array.prototype.slice.call( layout[7].children ).forEach((element) => { //only ES6 supported
-                    API.fade([element,4000, 4000])});
-                return originMethod.apply(this, args);
-            };}});} console = trace(console);
-Array.prototype.last = function(){
-    return this[this.length - 1];
-};
-var cluster = {
-    create:function(data){ time=Date.now()
-        document.body.insertAdjacentHTML("beforeEnd","<div id='"+time+"' style='transition-duration:0.8s;color:white;position:absolute;z-index:1000;"+data[data.length-1]+"'></div>")
-        windows.push(document.getElementById(time)); var self=windows[windows.length-1]
-        switch(data.length){
-            case 4:
-                
-                break
-        }
-    }
-}
-var settings = {
-    unpack:function(data){
-        Wallpaper.value=data[0]
-        Initial.value=data[1]
-        Program.value=data[2]
-        Color.value=data[3]
-    },
-    pack:function(data){
-        switch(data.id){
-            case "Wallpaper":
-                parent.window.Cookies.set("wallpaper",data.value)
-                parent.window.engine.wrap(data.value)
-            break
-            case "Initial":
-                parent.window.Cookies.set("initial",data.value)
-                parent.window.layout[0].style="place-self: center;display: inline;"+data.value+";border-color:"+Cookies.get("color")
-            break
-            case "Program":
-                parent.window.Cookies.set("program",data.value)
-            break
-            case "Color":
-                parent.window.Cookies.set("color",data.value)
-                parent.window.engine.paint(data.value)
-            break
-        }
-    }
-}
-var con = {
-    compile:function(obj,data,preload){
-        var first=obj.id+(line+1)
-        for(var index=0,len=data.length;len>index;index++){
-            line++
-            if(data[index]=="/linebreak/"||data[index]=="\\linebreak\\"){
-                obj.insertAdjacentHTML("beforeEnd","<p id="+obj.id+line+" style='margin-left: fit-content; height: 11px'></p>")
-            }else{ 
-                var payload = ""; var cache = data[index].split(";")
-                switch(cache[0]){
-                    case "small":
-                        payload="style='font-size:4px; overflow-wrap: break-word; width: 63.5%'"
-                        break
-                    default:
-                        cache[1]=cache[0]
-                        break
-                }
-            obj.insertAdjacentHTML("beforeEnd","<p id="+obj.id+line+" "+payload+preload+">"+cache[1]+"</p>")
-            document.getElementById(obj.id+line).style.marginLeft = "5px"
-            }
-        }
-        if(obj==layout[3]){document.getElementById(first).style.marginTop = "5px"}
-    },
-    log:function(data){
-        this.compile(layout[3],data,"")
-    },
-    inspect:function(data){
-        this.compile(layout[7],data,"style='pointer-events:none;text-align:end;font-size:8px'")
-        Array.prototype.slice.call( layout[7].children ).forEach((element) => { //only ES6 supported
-            API.fade([element,2000, 2000])});
-    },
-    clear:function(){
-        while (layout[3].lastChild) {
-            layout[3].removeChild(layout[3].lastChild);
-        }
-        API.mod(layout[3],["command line"])
-    },
-    exec:function(data){
-        this.clear(); layout[3].style.opacity = "100%"
-        layout[3].insertAdjacentHTML("afterBegin","<iframe id='worker' src="+data+"></iframe>");
-        Cookies.set("program",data, { expires: 14400 })
-    }
-}
-var str = {
-    unpack:function(data){
-        for(var index=0,len=data[0].length;len>index;index++){
-            layout.push(document.getElementById(data[0][index]))
-        }
-        for (let step = 0; step < data[2].length; step++) {
-            try{
-                layout[4].insertAdjacentHTML("beforeend",'<div onclick=con.exec('+"'"+data[2][step][1]+"'"+') class=verse desktop>'+data[2][step][0]+'</div>')
-            }catch(err){
-                layout[4].insertAdjacentHTML("beforeend",'<div onclick=con.exec('+data[2][step][1]+') class=verse desktop>'+data[2][step][0]+'</div>')
-            }
-            con.inspect([data[2][step][0]+" : Verse <<"])
-        }
-        for (let step = 0; step < data[3].length; step++) {
-            if(data[3][step][1].split(":")[0]=="https"){
-                layout[1].insertAdjacentHTML("beforeend",'<div onclick=con.exec('+"'"+data[3][step][1]+"'"+') class=database desktop>'+data[3][step][0]+'<label style="color: grey; margin-left: auto; right: 0">'+data[3][step][2]+'</label></div>')
+var compilers={
+    program:function(n,p,s){
+        document.body.children[1].insertAdjacentHTML("beforeEnd","<div style='display:flex;flex-direction:column;color:rgb(173,173,173);transition-duration:unset;"+s+"' class='window'></div>")
+        self=document.body.children[1].children[document.body.children[1].children.length-1]
+        self.insertAdjacentHTML("beforeEnd","<div style='position:absolute;right:0;height:15px;width:15px;z-index:10000' onclick='document.getElementById("+self.id+").remove()'></div>")
+        self.insertAdjacentHTML("beforeEnd","<div style='width:-webkit-fill-available;height:15px;z-index:1000;cursor:all-scroll'><label style='margin:2.5px;display:flex;width:fit-content;white-space:nowrap'>"+n+"</label></div>")
+        self.insertAdjacentHTML("beforeEnd","<div style='width:inherit;height:inherit;position:relative'></div>")
+        self.children[2].insertAdjacentHTML("beforeEnd","<div src='"+p+"' style='width:100%;height:100%;position:absolute'></div>")
+        GUI.drag(self)
+        if(n)self.children[1].style.backgroundColor = "#545454"},
+    cluster:function(){},
+    write:function(o,d,c){
+        for(var i=0,len=d.length;len>i;i++){
+            if(d[i]=="/linebreak/"){
+                o.insertAdjacentHTML("beforeEnd","<p id="+o.id+i+" style='margin-left: fit-content; height: 11px'></p>")
             }else{
-                layout[1].insertAdjacentHTML("beforeend",'<div onclick='+"window.open('"+data[3][step][2]+"')"+' class=database desktop>'+data[3][step][0]+'<label style="color: grey; margin-left: auto; right: 0">'+data[3][step][1]+'</label></div>')
-            }
-            con.inspect([data[3][step][0]+" : List <<"])
-        }
-        for(var index=0,len=data[4].length;index<len;index++){ //margin-top: 15px; margin-left: 15px
-            layout[2].insertAdjacentHTML("beforeEnd",'<li id='+'li;'+index+' style="padding-bottom: 10px; margin-left: 15px" class="folders" >'+data[4][index][0]+'<ul style="padding-left: 20px; display: flex; flex-direction: column; margin: 0" id="'+data[4][index][0]+'ul'+'"></ul></li>')
-            for(var _index=1,_len=data[4][index].length;_index<_len;_index++){
-                con.inspect([this.insert(data[4][index][_index],data[4][index][0])])}
-        }
-        document.getElementById("li;0").style.marginTop = "20px"
-        var wallpaper=Cookies.get("wallpaper");if(API.bake(wallpaper)[0]==true){engine.wrap(wallpaper)}else{Cookies.set("wallpaper","packages/init.webp");engine.wrap("packages/init.webp")}
-        var initial=Cookies.get("initial");if(API.bake(initial)[0]==true){layout[0].style="place-self: center;display: inline;"+initial}else{if(screen.width<1600){Cookies.set("initial","height: 100%; width: 100%");layout[0].style="place-self: center;display: inline;height: 100%;width: 100%;"}else{Cookies.set("initial","height: 80%; width: 90%");layout[0].style="place-self: center;display: inline;height: 80%;width: 90%;"}}
-        var size=parseInt(Cookies.get("size"));if(API.bake(size)[0]==true){engine.resize(size);API.mod(layout[3],["command line"])}else{Cookies.set("size",0)}
-        var color=Cookies.get("color");if(API.bake(color)[0]==true){engine.paint(color)}else{Cookies.set("color","red"); engine.paint("red")}
-        var pg=Cookies.get("program");if(API.bake(pg)[0]==true){{con.exec(pg)}}else{Cookies.set("program","");if(size!=3){con.log(data[1])}}
-    },
-    insert:function(data,id){ data[0]=data[0].split(":")
-        document.getElementById(id+'ul').insertAdjacentHTML("beforeEnd",'<a '+data[1]+' class="folders">'+data[0][0]+'<label style="color: yellow; margin-left: auto; right: 0; white-space: nowrap">'+data[0][1]+'</label></a>')
-        return data[0][0]+" : Init <<"
-    }
-}
-! function(rcon) { //Arguments for functions and indexes all cookies
-var cook;
-if ("function" == typeof define && define.amd && (define(rcon), cook = !0), "object" == typeof exports && (module.exports = rcon(), cook = !0), !cook) {
-    var tray = window.Cookies,
-        oven = window.Cookies = rcon();
-        oven.noConflict = function() {
-        return window.Cookies = tray, oven
-    }
-}
-}(function() { //Main wrapper for functions
-function rcon() { //Main caller for functions, uses arguments
-    for (var cook = 0, cook = {}; rcon < arguments.length; rcon++) {
-        var tray = arguments[rcon];
-        for (var oven in tray) cook[oven] = tray[oven]
-    }
-    return cook
-}
-function cook(rcon) { //Main init componet
-    return rcon.replace(/(%[0-9A-Z]{2})+/g, decodeURIComponent)
-}
-return function tray(oven) { //Read, write, and record
+                o.insertAdjacentHTML("beforeEnd","<p id="+o.id+i+" "+c+">"+d[i]+"</p>")}}}}
+var GUI={
+    fade:function(){},
+    warn:function(){},
+    log:function(){},
+    open:function(){},
+    clear:function(){},
+    insert:function(d,i){
+        document.getElementById(i+'ul').insertAdjacentHTML("beforeEnd",'<a '+d[1]+' class="folders">'+data[0][0]+'<label style="color: yellow; margin-left: auto; right: 0; white-space: nowrap">'+d[0][1]+'</label></a>')},
+    drag:function(s){
+        const position =[0,0,0,0]
+        s.children[1].onmousedown = dragMouseDown;
+        function dragMouseDown(e){
+            s.children[2].children[0].style.pointerEvents = "none"
+            e = e || window.event;
+            e.preventDefault();
+            // get the mouse cursor position at startup:
+            position[2] = e.clientX;
+            position[3] = e.clientY;
+            document.onmouseup = function(){
+                document.onmouseup = null;
+                document.onmousemove = null;
+                s.children[2].children[0].style.pointerEvents = "all"}
+        document.onmousemove = function(e){      
+            e = e || window.event;
+            e.preventDefault();
+            position[0] = position[2] - e.clientX
+            position[1] = position[3] - e.clientY
+            position[2] = e.clientX
+            position[3] = e.clientY
+            s.style.top = (s.offsetTop - position[1]) + "px"
+            s.style.left = (s.offsetLeft - position[0]) + "px"
+            }}}}
+var packaging={
+    port:function(){},
+    encode:function(d,p,r){
+        Cookies.set(d,Cookies.get(d).replace(p,r))}}
+! function(rcon) {
+    var cook;
+    if ("function" == typeof define && define.amd && (define(rcon), cook = !0), "object" == typeof exports && (module.exports = rcon(), cook = !0), !cook) {
+       var tray = window.Cookies,
+          oven = window.Cookies = rcon();
+       oven.noConflict = function() {
+          return window.Cookies = tray, oven}}}
+(function() {
+    function rcon() {
+        for (var cook = 0, cook = {}; rcon < arguments.length; rcon++) {
+           var tray = arguments[rcon];
+           for (var oven in tray) cook[oven] = tray[oven]}
+        return cook}
+    function cook(rcon) {
+        return rcon.replace(/(%[0-9A-Z]{2})+/g, decodeURIComponent)}
+    return function tray(oven) {
     function record() {}
-
-    function write(cook, tray, write) { //Writes a cookie
+    function write(cook, tray, write) {
         if ("undefined" != typeof document) {
             "number" == typeof(write = rcon({
-                path: "/"
-            }, record.defaults, write)).expires && (write.expires = new Date(1 * new Date + 864e5 * write.expires)), write.expires = write.expires ? write.expires.toUTCString() : "";
+                path: "/"},
+            record.defaults, write)).expires && (write.expires = new Date(1 * new Date + 864e5 * write.expires)), write.expires = write.expires ? write.expires.toUTCString() : "";
             try {
                 var read = JSON.stringify(tray);
-                /^[\{\[]/.test(read) && (tray = read)
-            } catch (rcon) {}
+                /^[\{\[]/.test(read) && (tray = read)} catch (rcon) {}
             tray = oven.write ? oven.write(tray, cook) : encodeURIComponent(String(tray)).replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g, decodeURIComponent), cook = encodeURIComponent(String(cook)).replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent).replace(/[\(\)]/g, escape);
             var ID = "";
             for (var strings in write) write[strings] && (ID += "; " + strings, !0 !== write[strings] && (ID += "=" + write[strings].split(";")[0]));
-            return document.cookie = cook + "=" + tray + ID
-        }
-    }
-
-    function read(rcon, tray) { //Reads the cookie
+            return document.cookie = cook + "=" + tray + ID}}
+    function read(rcon, tray) {
         if ("undefined" != typeof document) {
             for (var record = {}, write = document.cookie ? document.cookie.split("; ") : [], read = 0; read < write.length; read++) {
                 var ID = write[read].split("="),
@@ -339,23 +88,13 @@ return function tray(oven) { //Read, write, and record
                 tray || '"' !== strings.charAt(0) || (strings = strings.slice(1, -1));
                 try {
                     var baked = cook(ID[0]);
-                    if (strings = (oven.read || oven)(strings, baked) || cook(strings), tray) try {
-                        strings = JSON.parse(strings)
-                    } catch (rcon) {}
-                    if (record[baked] = strings, rcon === baked) break
-                } catch (rcon) {}
-            }
-            return rcon ? record[rcon] : record
-        }
-    }
-    return record.set = write, record.get = function(rcon) { //Returns array and gets cookie from name
-        return read(rcon, !1)
-    }, record.getJSON = function(rcon) { //Non important
-        return read(rcon, !0)
-    }, record.remove = function(cook, tray) { //Important for Cookies.get
+                    if (strings = (oven.read || oven)(strings, baked) || cook(strings), tray) 
+                    try {
+                        strings = JSON.parse(strings)} catch (rcon) {}
+                    if (record[baked] = strings, rcon === baked) break} catch (rcon) {}}
+          return rcon ? record[rcon] : record}}
+    return record.set = write, record.get = function(rcon) {
+        return read(rcon, !1)}, record.getJSON = function(rcon) {
+        return read(rcon, !0)}, record.remove = function(cook, tray) {
         write(cook, "", rcon(tray, {
-            expires: -1
-        }))
-    }, record.defaults = {}, record.withConverter = tray, record //Important for Cookies.get
-}(function() {})
-});
+            expires: -1}))}, record.defaults = {}, record.withConverter = tray, record}(function() {})})

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel=preconnect href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://github.com/js-cookie/js-cookie/releases/download/v3.0.1/js.cookie.js"></script>
+    <link href="https://aeroweb.netlify.com/packages/settings.css" rel="stylesheet">
+    <title>Aeroweb | Business</title>
+    <style>
+        p{color:white;font-size:25px} label{color:red;white-space: nowrap;font-size:10px}
+        #divider{transition-duration: 1s;background-color: white;height:1px;width:0px;margin:10px}
+        #projects{transition-duration: 1s;height: -webkit-fill-available;width: 0%;position: absolute;margin:20px;margin-bottom:10px;border-right: 1px white solid;display: flex}
+            #projects:hover{width: 20% !important;}
+            .project{transition-duration: 0.8s;height:50px;width:100%;margin-right:20px;background-size: 600px;background-position: center;overflow:hidden}
+            .project:hover{height:200px}
+        </style>
+</head>
+<body>
+    <div id="divider"></div>
+    <div id="projects"></div>
+    <script src="https://aerophp.000webhostapp.com/subHTTP/business.js"></script>
+    <script>
+        const pack=HTTP();layout=[]
+        for (var index=0;index<pack[0].length;index++){layout.push(document.getElementById(pack[0][index]))}
+        window.onload=function(){
+            if(parent!=self){document.body.style.backgroundColor="transparent"}
+            setTimeout(function(){
+                layout[0].style.width="100%"
+                layout[1].style.width="10%"},500)
+            bin.unpack(pack[1])
+        }
+        var bin = {
+            unpack:function(data){
+                for (let index = 0; index < pack[1].length; index++) {
+                    layout[1].insertAdjacentHTML("beforeEnd","<div onclick="+pack[1][index][3]+" class='project' id="+pack[1][index][0]+" style="+"background-image:url(\""+pack[1][index][2]+"\")><p>"+pack[1][index][0]+"</p><label>"+pack[1][index][1]+"</label></div>")
+                }
+            },
+            disable:function(data){
+                for (let index = 0; index < pack[0].length; index++) {
+                    if(pack[0][index]==="projects"){document.getElementById(pack[0][index]).remove();Cookies.set("disabled",Cookies.get("disable")+";"+pack[0][index])}
+                }
+                //document.findElementById(pack.find(data)).remove()
+            }
+        }
+    </script>
+    <script defer type="module">document.getElementsByClassName("disclaimer")[0].remove()</script>
+</body>
+</html>
