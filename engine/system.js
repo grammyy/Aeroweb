@@ -22,7 +22,7 @@ window.onload=function(){
     webpage.children[1].children[2].style.marginTop="20px"
     if(!Cookies.get("app")){
         Cookies.set("app",{
-            "style":{"webpage":"height:90%;width:95%","color":"red","wallpaper":"url('packages/init.webp')"},
+            "style":{"webpage":"height:90%;width:95%","color":"#fc3232","wallpaper":"url('packages/init.webp')"},
             "programs":{"page":""}})
             webpage.style=JSON.parse(Cookies.get("app"))["style"]["webpage"]
             compilers.write(webpage.children[2],aeroweb[0],"")
