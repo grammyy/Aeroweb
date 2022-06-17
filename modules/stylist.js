@@ -11,7 +11,7 @@ function paint(c){
 function wrap(w){
     packaging.encode("app","style","wallpaper",w)
     o=document.getElementsByTagName("div")
-    if(w=="revert"||!w){w="url('https://aeroweb.netlify.com/packages/init.webp')"}
+    if(w=="revert"||!w){w="url('packages/init.webp')"}
     if(w.includes("/"))document.body.style.backgroundImage=w
     else document.body.style.background=w
     for(var i=0;i<o.length;i++){
