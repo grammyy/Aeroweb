@@ -2,10 +2,10 @@ var compilers={
     program:function(n,p,s){
         document.body.children[1].insertAdjacentHTML("beforeEnd","<div style='display:flex;flex-direction:column;color:rgb(173,173,173);transition-duration:unset;"+s+"' class='window'></div>")
         self=document.body.children[1].children[document.body.children[1].children.length-1]
-        self.insertAdjacentHTML("beforeEnd","<div style='position:absolute;right:0;height:15px;width:15px;z-index:10000' onclick='document.getElementById("+self.id+").remove()'></div>")
+        self.insertAdjacentHTML("beforeEnd","<div style='position:absolute;right:0;height:15px;width:15px;z-index:10000' onclick='document.body.children[1].children[document.body.children[1].children.length-1].remove()'></div>")
         self.insertAdjacentHTML("beforeEnd","<div style='width:-webkit-fill-available;height:15px;z-index:1000;cursor:all-scroll'><label style='margin:2.5px;display:flex;width:fit-content;white-space:nowrap'>"+n+"</label></div>")
-        self.insertAdjacentHTML("beforeEnd","<div style='width:inherit;height:inherit;position:relative'></div>")
-        self.children[2].insertAdjacentHTML("beforeEnd","<div src='"+p+"' style='width:100%;height:100%;position:absolute'></div>")
+        self.insertAdjacentHTML("beforeEnd","<div style='width:inherit;height:inherit;position:absolute'></div>")
+        self.children[2].insertAdjacentHTML("beforeEnd","<iframe src='"+p+"' style='width:100%;height:100%;position:absolute'></iframe>")
         GUI.drag(self)
         if(n)self.children[1].style.backgroundColor = "#545454"},
     cluster:function(){},
