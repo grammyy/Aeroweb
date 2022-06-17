@@ -24,13 +24,29 @@
                 <p style="display: flex; align-items: center"><label>Color</label><input id="Color"></input></p>
             </div>
         </div>
-    <script src="engine.js"></script>
     <script>
-        if(parent.window.Cookies.get("app")){
-            document.body.children["cluster"].children[4].children[0].children[1].value=JSON.parse(parent.window.Cookies.get("app"))["style"]["wallpaper"]
-            document.body.children["cluster"].children[4].children[1].children[1].value=JSON.parse(parent.window.Cookies.get("app"))["style"]["webpage"]
-            document.body.children["cluster"].children[4].children[2].children[1].value=JSON.parse(parent.window.Cookies.get("app"))["style"]["color"]
-            document.body.children["cluster"].children[4].children[3].children[1].value=JSON.parse(parent.window.Cookies.get("app"))["style"]["color"]}
+        pack=JSON.parse(parent.window.Cookies.get("app"));options=document.body.children["cluster"].children[4]
+        if(parent.window.Cookies.get("app")&&window.parent!=self){
+            options.children[0].children[1].value=pack["style"]["wallpaper"]
+            options.children[1].children[1].value=pack["style"]["webpage"]
+            options.children[2].children[1].value=pack["programs"]["page"]
+            options.children[3].children[1].value=pack["style"]["color"]}
+        function AddEvent(object, id, func) {
+            if(object.attachEvent) object.attachEvent("on" + id, function() {func.call(object);});
+            else if(object.addEventListener) object.addEventListener(id, func, false);}
+            AddEvent(window,'keydown',function(e){
+                switch(e.keyCode){
+                    case 13:
+                        e.preventDefault()
+                        if(pack["style"]["wallpaper"]!=options.children[0].children[1].value){window.parent.wrap(options.children[0].children[1].value)}
+                        if(pack["style"]["webpage"]!=options.children[1].children[1].value){window.parent.webpage=options.children[1].children[1].value}
+                        if(pack["programs"]["page"]!=options.children[2].children[1].value){window.parent.GUI.open(options.children[2].children[1].value)}
+                        if(pack["style"]["color"]!=options.children[3].children[1].value){window.parent.paint(options.children[3].children[1].value)}
+                        window.parent.packaging.encode("app","style","wallpaper",options.children[0].children[1].value)
+                        window.parent.packaging.encode("app","style","webpage",options.children[1].children[1].value)
+                        window.parent.packaging.encode("app","programs","page",options.children[2].children[1].value)
+                        window.parent.packaging.encode("app","style","color",options.children[3].children[1].value)
+                        break}})
     </script>
 </body>
 </html>

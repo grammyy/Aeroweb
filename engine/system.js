@@ -4,15 +4,6 @@ for(var i=0,len=system["modules"].length;i<len;i++){
         document.head.appendChild(d)}
 window.onload=function(){
     var webpage=document.body.children[0]
-    if(!Cookies.get("app")){
-        Cookies.set("app",{
-            "style":{"webpage":"height:90%;width:95%","color":"red","wallpaper":"url('packages/init.webp')"},
-            "program":{"page":""}})
-            compilers.write(webpage.children[2],aeroweb[0],"")
-        }else{
-            paint(JSON.parse(Cookies.get("app"))["style"]["color"])
-            wrap(JSON.parse(Cookies.get("app"))["style"]["wallpaper"])
-            t=JSON.parse(Cookies.get("app"))["program"]["page"];if(t){GUI.open(t)}else{compilers.write(webpage.children[2],aeroweb[0],"")}}
     webpage.style=JSON.parse(Cookies.get("app"))["style"]["webpage"]
     for(let c=0;c<aeroweb[1].length;c++){
         webpage.children[3].insertAdjacentHTML("beforeend",'<div onclick=con.exec('+"'"+aeroweb[1][c][1]+"'"+') class=verse desktop>'+aeroweb[1][c][0]+'</div>')
@@ -30,6 +21,15 @@ window.onload=function(){
             webpage.children[1].children[e+2].children[0].insertAdjacentHTML("beforeEnd",'<a '+d[1]+' class="folders">'+d[0].split(":")[0]+'<label style="color:yellow;margin-left:auto;right:0;white-space:nowrap">'+d[0].split(":")[1]+'</label></a>')}
         GUI.warn([aeroweb[3][e][0]+" : Folder <<"])}
     webpage.children[1].children[2].style.marginTop="20px"
+    if(!Cookies.get("app")){
+        Cookies.set("app",{
+            "style":{"webpage":"height:90%;width:95%","color":"red","wallpaper":"url('packages/init.webp')"},
+            "programs":{"page":""}})
+            compilers.write(webpage.children[2],aeroweb[0],"")
+        }else{
+            paint(JSON.parse(Cookies.get("app"))["style"]["color"])
+            wrap(JSON.parse(Cookies.get("app"))["style"]["wallpaper"])
+            t=JSON.parse(Cookies.get("app"))["programs"]["page"];if(t){GUI.open(t)}else{compilers.write(webpage.children[2],aeroweb[0],"")}}
     setInterval(function(){webpage.children[1].children[0].innerText=new Date().toLocaleTimeString();if(webpage.children[1].clientWidth<170){webpage.children[1].children[0].style.visibility="hidden"}else{webpage.children[1].children[0].style.visibility="visible"}},500) 
     setInterval(function(){webpage.children[1].children[1].innerText=Date.now()},100)}
 function AddEvent(object, id, func){

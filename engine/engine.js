@@ -20,9 +20,11 @@ var GUI={
     warn:function(){},
     log:function(){},
     open:function(s){
-        packaging.encode("app","program","page",s)
+        packaging.encode("app","programs","page",s)
         this.clear(webpage.children[1])
         webpage.children[1].insertAdjacentHTML("afterBegin","<iframe id='worker' src="+s+"></iframe>")},
+    exit:function(){
+        document.children[1].children["worker"].remove()},
     clear:function(o,t){
         r=o.getElementsByTagName(t)
         for(var i=0,len=r.length;i<len;i++){

@@ -11,10 +11,13 @@ function paint(c){
 function wrap(w){
     packaging.encode("app","style","wallpaper",w)
     o=document.getElementsByTagName("div")
-    if(w=="revert"){w="url('packages/init.webp')"}
+    if(w=="revert"||!w){w="url('https://aeroweb.netlify.com/packages/init.webp')"}
+    if(w.includes("/"))document.body.style.backgroundImage=w
+    else document.body.style.background=w
     for(var i=0;i<o.length;i++){
-        document.body.style.backgroundImage=w
-        if(o[i].className.includes("window")){o[i].style.backgroundImage=w}}}
+        if(o[i].className.includes("window")){
+            if(w.includes("/"))o[i].style.backgroundImage=w
+            else o[i].style.background=w}}}
 function theme(t){
     packaging.encode("app","style","theme",t)
     switch(t){
