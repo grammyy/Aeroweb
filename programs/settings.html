@@ -26,7 +26,11 @@
         </div>
     <script src="engine.js"></script>
     <script>
-
+        if(parent.window.Cookies.get("app")){
+            document.body.children["cluster"].children[4].children[0].children[1].value=JSON.parse(parent.window.Cookies.get("app"))["style"]["wallpaper"]
+            document.body.children["cluster"].children[4].children[1].children[1].value=JSON.parse(parent.window.Cookies.get("app"))["style"]["webpage"]
+            document.body.children["cluster"].children[4].children[2].children[1].value=JSON.parse(parent.window.Cookies.get("app"))["style"]["color"]
+            document.body.children["cluster"].children[4].children[3].children[1].value=JSON.parse(parent.window.Cookies.get("app"))["style"]["color"]}
     </script>
 </body>
 </html>
