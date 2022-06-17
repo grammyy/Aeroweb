@@ -4,7 +4,6 @@ for(var i=0,len=system["modules"].length;i<len;i++){
         document.head.appendChild(d)}
 window.onload=function(){
     var webpage=document.body.children[0]
-    webpage.style=JSON.parse(Cookies.get("app"))["style"]["webpage"]
     for(let c=0;c<aeroweb[1].length;c++){
         webpage.children[3].insertAdjacentHTML("beforeend",'<div onclick=con.exec('+"'"+aeroweb[1][c][1]+"'"+') class=verse desktop>'+aeroweb[1][c][0]+'</div>')
         GUI.warn([aeroweb[1][c][0]+" : Verse <<"])}
@@ -25,8 +24,10 @@ window.onload=function(){
         Cookies.set("app",{
             "style":{"webpage":"height:90%;width:95%","color":"red","wallpaper":"url('packages/init.webp')"},
             "programs":{"page":""}})
+            webpage.style=JSON.parse(Cookies.get("app"))["style"]["webpage"]
             compilers.write(webpage.children[2],aeroweb[0],"")
         }else{
+            webpage.style=JSON.parse(Cookies.get("app"))["style"]["webpage"]
             paint(JSON.parse(Cookies.get("app"))["style"]["color"])
             wrap(JSON.parse(Cookies.get("app"))["style"]["wallpaper"])
             t=JSON.parse(Cookies.get("app"))["programs"]["page"];if(t){GUI.open(t)}else{compilers.write(webpage.children[2],aeroweb[0],"")}}
