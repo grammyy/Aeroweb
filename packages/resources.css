@@ -1,9 +1,9 @@
-.window{background-repeat:no-repeat;position:absolute;border:1px groove red;overflow:hidden;resize:both;backdrop-filter:blur(10px);font-size:small;transition-duration:1s}
+.window{background-repeat:no-repeat;position:absolute;border:1px groove #ff4e4e;overflow:hidden;resize:both;backdrop-filter:blur(10px);font-size:small;transition-duration:1s}
 .subwindow{background-repeat:no-repeat;position:absolute;margin:5px;background-image:url("init.webp");background-size:cover;opacity:80%;overflow-y:visible;overflow-x:hidden}
-.verse{height:15px;width:125px;margin:5px;border:1px dotted red;display:flex;cursor:pointer;overflow:hidden;border-style:groove;flex-direction:column;flex-wrap:wrap;align-content:stretch;justify-content:center;align-items:center;white-space:nowrap;opacity:80%}
+.verse{height:15px;width:125px;margin:5px;border:1px dotted #ff4e4e;display:flex;cursor:pointer;overflow:hidden;border-style:groove;flex-direction:column;flex-wrap:wrap;align-content:stretch;justify-content:center;align-items:center;white-space:nowrap;opacity:80%}
 .database{width:-webkit-fill-available;padding-left:5px;padding-right:5px;white-space:nowrap;cursor:pointer;display:flex;opacity:80%}
 .folders{letter-spacing:0.8px;list-style-type:decimal}
-.button{height:10px;width:10px;margin:5px;background-color:red;opacity:60%;z-index:2;cursor:pointer}
+.button{height:10px;width:10px;margin:5px;background-color:#ff4e4e;opacity:60%;z-index:2;cursor:pointer}
 .panel{left:0;height:-webkit-fill-available;width:10%}
 
 #webpage{height:0%;width:0%;place-self:center;display:inline;font-family:sans-serif;font-weight:bold;font-size:x-small}
