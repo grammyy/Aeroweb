@@ -1,0 +1,12 @@
+x=webpage.getBoundingClientRect()
+setInterval(function(){
+    if(x!=webpage.getBoundingClientRect().width){
+        x=webpage.getBoundingClientRect()
+        if(webpage.getBoundingClientRect().width<710){
+            webpage.children[0].style.display=webpage.children[1].style.display="none"
+            webpage.children[2].style.marginLeft=webpage.children[3].style.marginLeft="0px"
+            webpage.children[2].style.marginRight=webpage.children[3].style.marginRight="0px"
+        }else{
+            webpage.children[0].style.display=webpage.children[1].style.display="block"
+            webpage.children[2].style.marginLeft=webpage.children[3].style.marginLeft="11%"
+            webpage.children[2].style.marginRight=webpage.children[3].style.marginRight="16%"}}},250)
