@@ -1,6 +1,6 @@
 var compilers={
     program:function(n,p,s){
-        document.body.children[1].insertAdjacentHTML("beforeEnd","<div style='display:flex;flex-direction:column;color:rgb(173,173,173);transition-duration:unset;"+s+"' class='window'></div>")
+        document.body.children[1].insertAdjacentHTML("beforeEnd","<div style='display:flex;flex-direction:column;color:rgb(173,173,173);transition-duration:unset;border-color:"+JSON.parse(Cookies.get("app"))["style"]["color"]+"!important;"+s+"' class='window'></div>")
         self=document.body.children[1].children[document.body.children[1].children.length-1]
         self.insertAdjacentHTML("beforeEnd","<div style='position:absolute;right:0;height:15px;width:15px;z-index:10000' onclick='document.body.children[1].children[document.body.children[1].children.length-1].remove()'></div>")
         self.insertAdjacentHTML("beforeEnd","<div style='width:-webkit-fill-available;height:15px;z-index:1000;cursor:all-scroll'><label style='margin:2.5px;display:flex;width:fit-content;white-space:nowrap'>"+n+"</label></div>")
