@@ -5,7 +5,7 @@ for(var i=0,len=system["modules"].length;i<len;i++){
 window.onload=function(){
     var webpage=document.body.children[0]
     for(let c=0;c<aeroweb[1].length;c++){
-        webpage.children[3].insertAdjacentHTML("beforeend",'<div onclick=con.exec('+"'"+aeroweb[1][c][1]+"'"+') class="verse '+aeroweb[1][0][2]+'">'+aeroweb[1][c][0]+'</div>')
+        webpage.children[3].insertAdjacentHTML("beforeend",'<div onclick=con.exec('+"'"+aeroweb[1][c][1]+"'"+') class="verse '+aeroweb[1][c][2]+'">'+aeroweb[1][c][0]+'</div>')
         GUI.warn([aeroweb[1][c][0]+" : Verse <<"])}
     for(let d=0;d<aeroweb[2].length;d++){
         if(aeroweb[2][d][1].split(":")[0]=="https"){
