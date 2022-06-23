@@ -11,3 +11,5 @@ label{font-size:x-small;font-family:sans-serif}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:#30003d}
 ::-webkit-scrollbar-thumb:hover{background:transparent}
+textarea{background-color:transparent;border:none;color:rgb(204,204,204);padding:0px;font-family:consolas;width:-webkit-fill-available;height:-webkit-fill-available;font-size:11px;position:absolute;resize:none}
+textarea:focus{outline:none}

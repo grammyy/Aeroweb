@@ -31,6 +31,11 @@ window.onload=function(){
             paint(JSON.parse(Cookies.get("app"))["style"]["color"])
             wrap(JSON.parse(Cookies.get("app"))["style"]["wallpaper"])
             t=JSON.parse(Cookies.get("app"))["programs"]["page"];if(t){GUI.open(t)}else{compilers.write(webpage.children[2],aeroweb[0],"")}}
+    app={
+        terminal:webpage.children[2].children["terminal"],
+        cmd:webpage.children[2].children["terminal"].children[0].children[0],
+        color:JSON.parse(Cookies.get("app"))["style"]["color"],
+        buffer:120}
     setInterval(function(){webpage.children[1].children[0].innerText=new Date().toLocaleTimeString();if(webpage.children[1].clientWidth<170){webpage.children[1].children[0].style.visibility="hidden"}else{webpage.children[1].children[0].style.visibility="visible"}},500) 
     setInterval(function(){webpage.children[1].children[1].innerText=Date.now()},100)}
 function AddEvent(object, id, func){
@@ -44,11 +49,6 @@ AddEvent(window,'keydown',function(e){
             engine.resize(size+=1)
             if(size==3);engine.resize(0)
             break
-        case 13:
-            e.preventDefault() //console.log(rcon.value)
-            //eval("try{"+document.activeElement.value+"}catch(err){engine.exec('inspect',[err]);book(err)}");Cookies.set('rcon',rcon.value,{ expires: 14400 })
-            eval(document.activeElement.value)
-            break;
         case e.shiftKey && 49:
             e.preventDefault();
             engine.resize(0)

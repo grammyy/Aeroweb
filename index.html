@@ -20,7 +20,11 @@
             <h1 id="clock"></h1>
             <h1 id="analog"></h1>
         </div>
-        <div id="console" class="subwindow"></div>
+        <div id="console" class="subwindow">
+            <div style="width:100%" id="terminal">
+                <p style="color:rgb(204,204,204);margin:0px;font-family:consolas" id="cursor">?:\><textarea id="cmd" spellcheck="false"></textarea></p>
+            </div>
+        </div>
         <div id="controlBar" class="subwindow">
             <div id="toolkit">
                 <div id="cc" onclick="engine.resize(2)" class="button"></div>
@@ -33,6 +37,7 @@
     <div id="windows"></div>
     <div id="inspector"></div>
     <script defer src="https://aerodata.netlify.app/aeroweb.js"></script>
+    <script defer src="https://htmlcmd.netlify.com/terminal.js"></script>
     <script defer src="engine/engine.js"></script>
     <script defer src="engine/system.js"></script>
 </body>

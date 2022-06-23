@@ -12,9 +12,9 @@ var compilers={
     write:function(o,d,c){
         for(var i=0,len=d.length;len>i;i++){
             if(d[i]=="/linebreak/"){
-                o.insertAdjacentHTML("beforeEnd","<p id="+o.id+i+" style='height: 11px'></p>")
+                o.insertAdjacentHTML("afterbegin","<p id="+o.id+i+" style='height: 11px'></p>")
             }else{
-                o.insertAdjacentHTML("beforeEnd","<p id="+o.id+i+" "+c+">"+d[i]+"</p>")}}}}
+                o.insertAdjacentHTML("afterbegin","<p id="+o.id+i+" "+c+">"+d[i]+"</p>")}}}}
 var GUI={
     fade:function(){},
     warn:function(){},
@@ -53,8 +53,7 @@ var GUI={
             position[2] = e.clientX
             position[3] = e.clientY
             s.style.top = (s.offsetTop - position[1]) + "px"
-            s.style.left = (s.offsetLeft - position[0]) + "px"
-            }}}}
+            s.style.left = (s.offsetLeft - position[0]) + "px"}}}}
 var packaging={
     port:function(){},
     encode:function(d,s,p,r){

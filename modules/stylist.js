@@ -1,5 +1,6 @@
 function paint(c){
     packaging.encode("app","style","color",c)
+    try{app["color"]=c}catch(err){}
     o=["div","p"]
     for(var i=0;i<o.length;i++){
         _o=document.getElementsByTagName(o[i])
