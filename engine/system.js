@@ -1,6 +1,6 @@
 for(var i=0,len=system["modules"].length;i<len;i++){
         d=document.createElement("script")
-        d.src="modules/"+system["modules"][i]
+        d.src=system["modules"][i]
         document.head.appendChild(d)}
 window.onload=function(){
     var webpage=document.body.children[0]
