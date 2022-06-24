@@ -21,15 +21,15 @@ var GUI={
     log:function(){},
     open:function(s){
         packaging.encode("app","programs","page",s)
-        this.clear(webpage.children[2],"p")
         webpage.children[2].style.opacity="100%"
         webpage.children[2].insertAdjacentHTML("afterBegin","<iframe id='worker' src="+s+"></iframe>")},
     exit:function(){
-        document.children[1].children["worker"].remove()},
+        try{webpage.children[2].children["worker"].remove()}catch(e){}},
     clear:function(o,t){
         r=o.getElementsByTagName(t)
         for(var i=0,len=r.length;i<len;i++){
-            r[i].remove()}},
+            r[i].remove()}
+        compilers.write(webpage.children[2],aeroweb[0],"")},
     insert:function(d,i){
         document.getElementById(i+'ul').insertAdjacentHTML("beforeEnd",'<a '+d[1]+' class="folders">'+data[0][0]+'<label style="color: yellow; margin-left: auto; right: 0; white-space: nowrap">'+d[0][1]+'</label></a>')},
     drag:function(s){

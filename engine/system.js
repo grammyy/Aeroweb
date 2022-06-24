@@ -37,29 +37,10 @@ window.onload=function(){
         cmd:webpage.children[2].children["terminal"].children[0].children[0],
         color:JSON.parse(Cookies.get("app"))["style"]["color"],
         buffer:120}
+    SYS.clear=function(e,i){
+        while(e.children.length-i){e.children[0].remove()}
+        e.children[0].value=""}
+    CMD.set("cls",["SYS.clear(webpage.children[2],1);"])
     setInterval(function(){webpage.children[1].children[0].innerText=new Date().toLocaleTimeString();if(webpage.children[1].clientWidth<170){webpage.children[1].children[0].style.visibility="hidden"}else{webpage.children[1].children[0].style.visibility="visible"}},500) 
     setInterval(function(){webpage.children[1].children[1].innerText=Date.now()},100)}
-function AddEvent(object, id, func){
-	if(object.attachEvent) object.attachEvent("on" + id, function(){func.call(object)});
-	else if(object.addEventListener) object.addEventListener(id, func, false)}
-AddEvent(window,'keydown',function(e){
-    console.info(e.ctrlKey+" "+e.keyCode)
-    switch(e.keyCode){
-        case e.ctrlKey && 70:
-            e.preventDefault();
-            engine.resize(size+=1)
-            if(size==3);engine.resize(0)
-            break
-        case e.shiftKey && 49:
-            e.preventDefault();
-            engine.resize(0)
-            break
-        case e.shiftKey && 50:
-            e.preventDefault();
-            engine.resize(1)
-            break
-        case e.shiftKey && 51:
-            e.preventDefault();
-            engine.resize(2)
-            break}})
 //window.performance.timing.domContentLoadedEventEnd-window.performance.timing.navigationStart

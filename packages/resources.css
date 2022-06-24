@@ -1,5 +1,5 @@
 .window{background-repeat:no-repeat;position:absolute;border:1px groove #ff4e4e;overflow:hidden;resize:both;backdrop-filter:blur(10px);font-size:small;transition-duration:1s}
-.subwindow{background-repeat:no-repeat;position:absolute;margin:5px;background-image:url("init.webp");background-size:cover;opacity:80%;overflow-y:visible;overflow-x:hidden}
+.subwindow{background-repeat:no-repeat;position:absolute;margin:3px;background-image:url("init.webp");background-size:cover;opacity:80%;overflow-y:visible;overflow-x:hidden}
 .verse{height:15px;width:125px;margin:5px;border:1px dotted #ff4e4e;display:flex;cursor:pointer;overflow:hidden;border-style:groove;flex-direction:column;flex-wrap:wrap;align-content:stretch;justify-content:center;align-items:center;white-space:nowrap;opacity:80%}
 .database{width:-webkit-fill-available;padding-left:5px;padding-right:5px;white-space:nowrap;cursor:pointer;display:flex;opacity:80%}
 .folders{letter-spacing:0.8px;list-style-type:decimal}
@@ -12,6 +12,8 @@
 #controlBar{height:15%;width:-webkit-fill-available;bottom:0;margin-left:11%;margin-right:16%;display:flex;flex-wrap:wrap;align-content:flex-start}
 #inspector{position:absolute;height:-webkit-fill-available;right:0;font-family:sans-serif}
 
+#worker{position:absolute;height:100%;width:100%}
+
 #toolkit{width:20px;position:absolute;right:0;bottom:0;margin:5px;margin-right:16%}
 #ccc{cursor:alias}
 #c{cursor:ne-resize}
@@ -20,16 +22,16 @@
 #clock{position:absolute;left:0;font-size:x-small}
 #analog{position:absolute;right:0;width:84px;font-size:x-small}
 
-.minimal div#drive{display:none}
-.minimal div#console{height:100%;margin-left:5px;margin-right:11%}
-.minimal div#explorer{width:10%}
-.minimal div#controlBar{display:none}
-.minimal div#toolkit{margin-right:5px}
-.fullscreen div#drive{display:none}
-.fullscreen div#console{margin:5px;height:100%}
-.fullscreen div#explorer{display:none}
-.fullscreen div#controlBar{display:none}
-.fullscreen div#toolkit{margin-right:5px;top:0;bottom:revert}
+.minimal div#drive{display:none !important}
+.minimal div#console{height:100% !important;margin-left:5px !important;margin-right:11% !important}
+.minimal div#explorer{width:10% !important}
+.minimal div#controlBar{display:none !important}
+.minimal div#toolkit{margin-right:5px !important}
+.fullscreen div#drive{display:none !important}
+.fullscreen div#console{margin:5px !important;height:100% !important}
+.fullscreen div#explorer{display:none !important}
+.fullscreen div#controlBar{display:none !important}
+.fullscreen div#toolkit{margin-right:5px !important;top:0 !important;bottom:revert !important}
 
 .mobile div.verse{width:40%}
 .mobile#toolkit{width:20px;margin-right:4.15%}

@@ -1,7 +1,7 @@
 function paint(c){
     packaging.encode("app","style","color",c)
     try{app["color"]=c}catch(err){}
-    o=["div","p"]
+    o=["div","p","textarea"]
     for(var i=0;i<o.length;i++){
         _o=document.getElementsByTagName(o[i])
         for(var _i=0;_i<_o.length;_i++){
