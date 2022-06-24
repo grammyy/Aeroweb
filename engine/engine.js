@@ -23,7 +23,8 @@ var GUI={
         packaging.encode("app","programs","page",s)
         webpage.children[2].style.opacity="100%"
         if(webpage.children[2].children["worker"])webpage.children[2].children["worker"].src=s
-        else webpage.children[2].insertAdjacentHTML("afterBegin","<iframe id='worker' src="+s+"></iframe>")},
+        else webpage.children[2].insertAdjacentHTML("afterBegin","<iframe id='worker' src="+s+"></iframe>")
+        webpage.children[2].children["worker"].contentWindow.document.body.style.backgroundColor="#00000080"},
     exit:function(){
         try{webpage.children[2].children["worker"].remove()}catch(e){}},
     clear:function(o,t){
