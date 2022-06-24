@@ -41,7 +41,7 @@ window.onload=function(){
         while(e.children.length-i){e.children[0].remove()}
         e.children[0].value=""}
     CMD.set("cls",["SYS.clear(webpage.children[2],1);"])
-    switch(window.location.href.split("/").last()){
+    switch(window.location.href.split("/").at(-1)){
         case "#business":
             GUI.inspect(["Business presentation started <<"]); theme("fullscreen")
             GUI.open("https://aerophp.000webhostapp.com/query/business.html")
