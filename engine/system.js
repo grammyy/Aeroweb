@@ -41,6 +41,11 @@ window.onload=function(){
         while(e.children.length-i){e.children[0].remove()}
         e.children[0].value=""}
     CMD.set("cls",["SYS.clear(webpage.children[2],1);"])
+    switch(window.location.href.split("/").last()){
+        case "#business":
+            GUI.inspect(["Business presentation started <<"]); theme("fullscreen")
+            GUI.open("https://aerophp.000webhostapp.com/query/business.html")
+            break}
     setInterval(function(){webpage.children[1].children[0].innerText=new Date().toLocaleTimeString();if(webpage.children[1].clientWidth<170){webpage.children[1].children[0].style.visibility="hidden"}else{webpage.children[1].children[0].style.visibility="visible"}},500) 
     setInterval(function(){webpage.children[1].children[1].innerText=Date.now()},100)}
 //window.performance.timing.domContentLoadedEventEnd-window.performance.timing.navigationStart
