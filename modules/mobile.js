@@ -10,6 +10,6 @@ setInterval(function(){
         webpage.children[0].style.display=webpage.children[1].style.display="block"
         webpage.children[2].style.marginLeft=webpage.children[3].style.marginLeft="11%"
         webpage.children[2].style.marginRight=webpage.children[3].style.marginRight="16%"
-        if(webpage.children[4].tagName0="IFRAME")webpage.children[4].remove()
+        if(webpage.children[4].tagName="IFRAME")webpage.children[4].remove()
         webpage.children[3].className="subwindow"
         webpage.children[3].children["toolkit"].className=""}},250)
