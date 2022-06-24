@@ -15,7 +15,7 @@
 </head>
 <body>
     <div id="webpage" class="window">
-        <div id="drive" class="subwindow panel"></div>
+        <div id="drive" class="subwindow"></div>
         <div id="explorer" class="subwindow">
             <h1 id="clock"></h1>
             <h1 id="analog"></h1>
@@ -26,13 +26,12 @@
             </div>
         </div>
         <div id="controlBar" class="subwindow">
-            <div id="toolkit">
-                <div id="cc" onclick="engine.resize(2)" class="button"></div>
-                <div id="c" onclick="engine.resize(1)" class="button"></div>
-                <div id="ccc" onclick="con.clear(); Cookies.set('program','undefined', { expires: 14400 }); con.log(HTTP()[1]); API.purge()" class="button"></div>
-            </div>
         </div>
-        <p id="system"></p>
+        <div id="toolkit">
+            <div id="ccc" onclick="theme('default');GUI.clear(webpage.children[2],'p');packaging.encode('app','programs','page','')" class="button"></div>
+            <div id="cc" onclick="theme('minimal')" class="button"></div>
+            <div id="c" onclick="theme('fullscreen')" class="button"></div>
+        </div>
     </div>
     <div id="windows"></div>
     <div id="inspector"></div>

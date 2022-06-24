@@ -21,13 +21,4 @@ function wrap(w){
             else o[i].style.background=w}}}
 function theme(t){
     packaging.encode("app","style","theme",t)
-    switch(t){
-        case "default":
-            break
-        case "minimal":
-            break
-        case "fullscreen":
-            break
-        default:
-            //unpackage and apply style to custom css
-            break}}
+    webpage.className="window "+t}
