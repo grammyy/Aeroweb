@@ -6,8 +6,8 @@ var compilers={
         self.insertAdjacentHTML("beforeEnd","<div style='width:-webkit-fill-available;height:15px;z-index:1000;cursor:all-scroll'><label style='margin:2.5px;display:flex;width:fit-content;white-space:nowrap'>"+n+"</label></div>")
         self.insertAdjacentHTML("beforeEnd","<div style='width:inherit;height:inherit;position:absolute'></div>")
         self.children[2].insertAdjacentHTML("beforeEnd","<iframe src='"+p+"' style='width:100%;height:100%;position:absolute'></iframe>")
-        GUI.drag(self)
-        if(n)self.children[1].style.backgroundColor = "#545454"},
+        if(n)self.children[1].style.backgroundColor = "#545454"
+        GUI.drag(self)},
     cluster:function(){},
     write:function(o,d,c){
         for(var i=0,len=d.length;len>i;i++){
@@ -21,8 +21,9 @@ var GUI={
     log:function(){},
     open:function(s){
         packaging.encode("app","programs","page",s)
-        this.clear(webpage.children[1])
-        webpage.children[1].insertAdjacentHTML("afterBegin","<iframe id='worker' src="+s+"></iframe>")},
+        this.clear(webpage.children[2],"p")
+        webpage.children[2].style.opacity="100%"
+        webpage.children[2].insertAdjacentHTML("afterBegin","<iframe id='worker' src="+s+"></iframe>")},
     exit:function(){
         document.children[1].children["worker"].remove()},
     clear:function(o,t){
