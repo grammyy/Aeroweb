@@ -12,9 +12,9 @@
 #controlBar{height:15%;width:-webkit-fill-available;bottom:0;margin-left:11%;margin-right:16%;display:flex;flex-wrap:wrap;align-content:flex-start}
 #inspector{position:absolute;height:-webkit-fill-available;right:0;font-family:sans-serif}
 
-#worker{position:absolute;height:100%;width:100%}
+#worker{position:absolute;height:100%;width:100%;z-index:2}
 
-#toolkit{width:20px;position:absolute;right:0;bottom:0;margin:5px;margin-right:16%}
+#toolkit{width:20px;position:absolute;right:0;bottom:0;margin:5px;margin-right:16%;z-index:3}
 #ccc{cursor:alias}
 #c{cursor:ne-resize}
 #cc{cursor:ne-resize}
