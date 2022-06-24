@@ -25,6 +25,7 @@ window.onload=function(){
             "style":{"webpage":"height:90%;width:95%","color":"#ff4e4e","wallpaper":"url('packages/init.webp')"},
             "programs":{"page":""}})
             webpage.style=JSON.parse(Cookies.get("app"))["style"]["webpage"]
+            paint("#ff4e4e")
             compilers.write(webpage.children[2],aeroweb[0],"")
         }else{
             webpage.style=JSON.parse(Cookies.get("app"))["style"]["webpage"]
