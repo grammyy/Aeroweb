@@ -22,7 +22,7 @@ window.onload=function(){
     webpage.children[1].children[2].style.marginTop="20px"
     if(!Cookies.get("app")){
         Cookies.set("app",{
-            "style":{"webpage":"height:90%;width:95%","color":"#ff4e4e","wallpaper":"url('packages/init.webp')"},
+            "style":{"webpage":(window.innerWidth>700?"height:90%;width:95%":"height:100%;width:100%"),"color":"#ff4e4e","wallpaper":"url('packages/init.webp')"},
             "programs":{"page":""}})
             webpage.style=JSON.parse(Cookies.get("app"))["style"]["webpage"]
             paint("#ff4e4e")

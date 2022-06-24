@@ -1,8 +1,8 @@
 var compilers={
     program:function(n,p,s){
-        document.body.children[1].insertAdjacentHTML("beforeEnd","<div style='display:flex;flex-direction:column;color:rgb(173,173,173);transition-duration:unset;border-color:"+JSON.parse(Cookies.get("app"))["style"]["color"]+"!important;"+s+"' class='window'></div>")
+        document.body.children[1].insertAdjacentHTML("beforeEnd","<div style='display:flex;flex-direction:column;color:rgb(173,173,173);transition-duration:unset;top:50px;left:430px;border-color:"+JSON.parse(Cookies.get("app"))["style"]["color"]+"!important;"+s+"' class='window'></div>")
         self=document.body.children[1].children[document.body.children[1].children.length-1]
-        self.insertAdjacentHTML("beforeEnd","<div style='position:absolute;right:0;height:15px;width:15px;z-index:10000' onclick='document.body.children[1].children[document.body.children[1].children.length-1].remove()'></div>")
+        self.insertAdjacentHTML("beforeEnd","<div style='position:absolute;right:0;height:10px;width:10px;z-index:10000' onclick='document.body.children[1].children[document.body.children[1].children.length-1].remove()'><svg aria-hidden='false' width='10' height='10' style='display:flex' viewBox='0 0 12 12'><polygon fill='currentColor' fill-rule='evenodd' points='11 1.576 6.583 6 11 10.424 10.424 11 6 6.583 1.576 11 1 10.424 5.417 6 1 1.576 1.576 1 6 5.417 10.424 1'></polygon></svg></div>")
         self.insertAdjacentHTML("beforeEnd","<div style='width:-webkit-fill-available;height:15px;z-index:1000;cursor:all-scroll'><label style='margin:2.5px;display:flex;width:fit-content;white-space:nowrap'>"+n+"</label></div>")
         self.insertAdjacentHTML("beforeEnd","<div style='width:inherit;height:inherit;position:absolute'></div>")
         self.children[2].insertAdjacentHTML("beforeEnd","<iframe src='"+p+"' style='width:100%;height:100%;position:absolute'></iframe>")

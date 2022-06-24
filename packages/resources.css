@@ -20,11 +20,6 @@
 #clock{position:absolute;left:0;font-size:x-small}
 #analog{position:absolute;right:0;width:84px;font-size:x-small}
 
-.mobile div.verse{width:40%}
-.mobile div#toolkit{width:30px}
-.mobile div.button{height:20px;width:20px}
-.mobile div.desktop{display:none}
-
 .minimal div#drive{display:none}
 .minimal div#console{height:100%;margin-left:5px;margin-right:11%}
 .minimal div#explorer{width:10%}
@@ -35,3 +30,8 @@
 .fullscreen div#explorer{display:none}
 .fullscreen div#controlBar{display:none}
 .fullscreen div#toolkit{margin-right:5px;top:0;bottom:revert}
+
+.mobile div.verse{width:40%}
+.mobile#toolkit{width:20px;margin-right:4.15%}
+.mobile div.button{height:20px;width:20px}
+.mobile div.desktop{display:none}
