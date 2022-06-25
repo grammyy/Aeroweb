@@ -17,7 +17,7 @@ window.onload=function(){
         webpage.children[1].insertAdjacentHTML("beforeEnd",'<li id='+'li;'+e+' style="padding-bottom: 10px;margin-left: 15px" class="folders" >'+aeroweb[3][e][0]+'<ul style="padding-left: 20px;display: flex;flex-direction: column;margin: 0" id="'+aeroweb[3][e][0]+'ul'+'"></ul></li>')
         for(var _e=1,_len=aeroweb[3][e].length;_e<_len;_e++){
             d=aeroweb[3][e][_e]
-            webpage.children[1].children[e+2].children[0].insertAdjacentHTML("beforeEnd",'<a '+d[1]+' class="folders">'+d[0].split(":")[0]+'<label style="color:yellow;margin-left:auto;right:0;white-space:nowrap">'+d[0].split(":")[1]+'</label></a>')}
+            webpage.children[1].children[e+2].children[0].insertAdjacentHTML("beforeEnd","<a "+d[1]+" class='folders'>"+d[0].split(":")[0]+"<label style='color:yellow;margin-left:auto;right:0;white-space:nowrap'>"+d[0].split(":")[1]+"</label></a>")}
         GUI.warn([aeroweb[3][e][0]+" : Folder <<"])}
     webpage.children[1].children[2].style.marginTop="20px"
     if(!Cookies.get("app")){
