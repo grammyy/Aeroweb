@@ -1,5 +1,5 @@
 setInterval(function(){
-    if(!JSON.parse(Cookies.get("app"))["style"]["theme"]||["undefined","default"].some(a=>JSON.parse(Cookies.get("app"))["style"]["theme"].includes(a))){
+    if(!Cookies.get("app")["style"]["theme"]||["undefined","default"].some(a=>appdata.get("app")["style"]["theme"].includes(a))){
         if(webpage.getBoundingClientRect().width<710||window.innerWidth<710){
             webpage.children[0].style.display=webpage.children[1].style.display="none"
             webpage.children[2].style.marginLeft=webpage.children[3].style.marginLeft="0px"

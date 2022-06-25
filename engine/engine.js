@@ -1,6 +1,6 @@
 var compilers={
     program:function(n,p,s){
-        document.body.children[1].insertAdjacentHTML("beforeEnd","<div style='display:flex;flex-direction:column;color:rgb(173,173,173);transition-duration:unset;top:50px;left:430px;border-color:"+JSON.parse(Cookies.get("app"))["style"]["color"]+"!important;"+s+"' class='window'></div>")
+        document.body.children[1].insertAdjacentHTML("beforeEnd","<div style='display:flex;flex-direction:column;color:rgb(173,173,173);transition-duration:unset;top:50px;left:430px;border-color:"+Cookies.get("app")["style"]["color"]+"!important;"+s+"' class='window'></div>")
         var self=Array.from(document.body.children[1].children).at(-1)
         self.insertAdjacentHTML("beforeEnd","<div style='position:absolute;right:0;height:10px;width:10px;z-index:10000' onclick='Array.from(document.body.children[1].children).at(-1).remove()'><svg aria-hidden='false' width='10' height='10' style='display:flex' viewBox='0 0 12 12'><polygon fill='currentColor' fill-rule='evenodd' points='11 1.576 6.583 6 11 10.424 10.424 11 6 6.583 1.576 11 1 10.424 5.417 6 1 1.576 1.576 1 6 5.417 10.424 1'></polygon></svg></div>")
         self.insertAdjacentHTML("beforeEnd","<div style='width:-webkit-fill-available;height:10px;z-index:1000;cursor:all-scroll'><label style='width:fit-content;white-space:nowrap;position:absolute'>"+n+"</label></div>")
@@ -20,7 +20,7 @@ var GUI={
     warn:function(){},
     log:function(){},
     open:function(s){
-        packaging.encode("app","programs","page",s)
+        packaging.encode("app",["programs","page"],s)
         webpage.children[2].style.opacity="100%"
         if(webpage.children[2].children["worker"])webpage.children[2].children["worker"].src=s
         else webpage.children[2].insertAdjacentHTML("afterBegin","<iframe id='worker' src="+s+"></iframe>")
@@ -57,56 +57,18 @@ var GUI={
             position[3] = e.clientY
             s.style.top = (s.offsetTop - position[1]) + "px"
             s.style.left = (s.offsetLeft - position[0]) + "px"}}}}
-var packaging={
-    port:function(){},
-    encode:function(d,s,p,r){
-        a=JSON.parse(Cookies.get(d))
-        a[s][p]=r
-        Cookies.set(d,a)}}
-! function(rcon) {
-    var cook;
-    if ("function" == typeof define && define.amd && (define(rcon), cook = !0), "object" == typeof exports && (module.exports = rcon(), cook = !0), !cook) {
-       var tray = window.Cookies,
-          oven = window.Cookies = rcon();
-       oven.noConflict = function() {
-          return window.Cookies = tray, oven}}}
-(function() {
-    function rcon() {
-        for (var cook = 0, cook = {}; rcon < arguments.length; rcon++) {
-           var tray = arguments[rcon];
-           for (var oven in tray) cook[oven] = tray[oven]}
-        return cook}
-    function cook(rcon) {
-        return rcon.replace(/(%[0-9A-Z]{2})+/g, decodeURIComponent)}
-    return function tray(oven) {
-    function record() {}
-    function write(cook, tray, write) {
-        if ("undefined" != typeof document) {
-            "number" == typeof(write = rcon({
-                path: "/"},
-            record.defaults, write)).expires && (write.expires = new Date(1 * new Date + 864e5 * write.expires)), write.expires = write.expires ? write.expires.toUTCString() : "";
-            try {
-                var read = JSON.stringify(tray);
-                /^[\{\[]/.test(read) && (tray = read)} catch (rcon) {}
-            tray = oven.write ? oven.write(tray, cook) : encodeURIComponent(String(tray)).replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g, decodeURIComponent), cook = encodeURIComponent(String(cook)).replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent).replace(/[\(\)]/g, escape);
-            var ID = "";
-            for (var strings in write) write[strings] && (ID += "; " + strings, !0 !== write[strings] && (ID += "=" + write[strings].split(";")[0]));
-            return document.cookie = cook + "=" + tray + ID}}
-    function read(rcon, tray) {
-        if ("undefined" != typeof document) {
-            for (var record = {}, write = document.cookie ? document.cookie.split("; ") : [], read = 0; read < write.length; read++) {
-                var ID = write[read].split("="),
-                strings = ID.slice(1).join("=");
-                tray || '"' !== strings.charAt(0) || (strings = strings.slice(1, -1));
-                try {
-                    var baked = cook(ID[0]);
-                    if (strings = (oven.read || oven)(strings, baked) || cook(strings), tray) 
-                    try {
-                        strings = JSON.parse(strings)} catch (rcon) {}
-                    if (record[baked] = strings, rcon === baked) break} catch (rcon) {}}
-          return rcon ? record[rcon] : record}}
-    return record.set = write, record.get = function(rcon) {
-        return read(rcon, !1)}, record.getJSON = function(rcon) {
-        return read(rcon, !0)}, record.remove = function(cook, tray) {
-        write(cook, "", rcon(tray, {
-            expires: -1}))}, record.defaults = {}, record.withConverter = tray, record}(function() {})})
+var appdata={
+    set:function(n){
+        if(!document.cookie)document.cookie=n+"={}"
+        else document.cookie=document.cookie+"; "+String(n)},
+    encode:function(n,d,v){
+        if(!document.cookie.includes(n+"="))document.cookie=n+"={"+d.replaceAll("]","").replaceAll("[","").split(",").join(":{},")+":{}}"
+        var t=decodeURIComponent(document.cookie).replaceAll("};","}||").split("||")
+        var p=t.findIndex((e)=>e.includes(n+"="))
+        var m=t[p].replaceAll(n+"=","")
+        console.log(JSON.parse(m)[d[0]][d[1]])
+        return JSON.parse(m.replace(JSON.parse(m)[d[0]][d[1]],v))},
+    get:function(n){
+        var t=decodeURIComponent(document.cookie).replaceAll("};","}||").split("||")
+        var p=t.findIndex((e)=>e.includes(n+"="))
+        return p==-1?undefined:JSON.parse(t[p].replaceAll(n+"=",""))}}
