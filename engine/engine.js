@@ -1,7 +1,7 @@
 var compilers={
     program:function(n,p,s){
         document.body.children[1].insertAdjacentHTML("beforeEnd","<div style='display:flex;flex-direction:column;color:rgb(173,173,173);transition-duration:unset;top:50px;left:430px;border-color:"+JSON.parse(Cookies.get("app"))["style"]["color"]+"!important;"+s+"' class='window'></div>")
-        self=Array.from(document.body.children[1].children).at(-1)
+        var self=Array.from(document.body.children[1].children).at(-1)
         self.insertAdjacentHTML("beforeEnd","<div style='position:absolute;right:0;height:10px;width:10px;z-index:10000' onclick='Array.from(document.body.children[1].children).at(-1).remove()'><svg aria-hidden='false' width='10' height='10' style='display:flex' viewBox='0 0 12 12'><polygon fill='currentColor' fill-rule='evenodd' points='11 1.576 6.583 6 11 10.424 10.424 11 6 6.583 1.576 11 1 10.424 5.417 6 1 1.576 1.576 1 6 5.417 10.424 1'></polygon></svg></div>")
         self.insertAdjacentHTML("beforeEnd","<div style='width:-webkit-fill-available;height:10px;z-index:1000;cursor:all-scroll'><label style='width:fit-content;white-space:nowrap;position:absolute'>"+n+"</label></div>")
         self.insertAdjacentHTML("beforeEnd","<div style='width:inherit;height:inherit;position:absolute'></div>")
