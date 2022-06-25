@@ -10,4 +10,5 @@ var controls={
                 break
             case "download":
                 break}},
-    load:function(d){}}
+    load:function(d){
+        console.log(d)}}
