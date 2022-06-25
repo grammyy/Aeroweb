@@ -1,1 +1,1 @@
-[![CodeFactor](https://www.codefactor.io/repository/github/bartenderwinery/aeroweb/badge)](https://www.codefactor.io/repository/github/bartenderwinery/aeroweb)
+[![CodeFactor](https://www.codefactor.io/repository/github/bartenderwinery/aeroweb/badge)](https://www.codefactor.io/repository/github/bartenderwinery/aeroweb) - Score deducted from A+ due to the nature of how I use my API; I doesn't use my API controls directly in the code, but rather in generated HTML code. The score cannot detect this.
