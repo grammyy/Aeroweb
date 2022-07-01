@@ -26,11 +26,11 @@
         </div>
     <script>
         options=document.body.children["cluster"].children[4]
-        if(parent.window.Cookies.get("app")){
-            options.children[0].children[1].value=JSON.parse(parent.window.Cookies.get("app"))["style"]["wallpaper"]
-            options.children[1].children[1].value=JSON.parse(parent.window.Cookies.get("app"))["style"]["webpage"]
-            options.children[2].children[1].value=JSON.parse(parent.window.Cookies.get("app"))["programs"]["page"]
-            options.children[3].children[1].value=JSON.parse(parent.window.Cookies.get("app"))["style"]["color"]}
+        if(parent.window.appdata.get("app")){
+            options.children[0].children[1].value=parent.window.appdata.get("app")["style"]["wallpaper"]
+            options.children[1].children[1].value=parent.window.appdata.get("app")["style"]["webpage"]
+            options.children[2].children[1].value=parent.window.appdata.get("app")["programs"]["page"]
+            options.children[3].children[1].value=parent.window.appdata.get("app")["style"]["color"]}
         function AddEvent(object, id, func) {
             if(object.attachEvent) object.attachEvent("on" + id, function() {func.call(object);});
             else if(object.addEventListener) object.addEventListener(id, func, false);}
@@ -38,14 +38,14 @@
                 switch(e.keyCode){
                     case 13:
                         e.preventDefault()
-                        if(JSON.parse(parent.window.Cookies.get("app"))["style"]["wallpaper"]!=options.children[0].children[1].value){window.parent.wrap(options.children[0].children[1].value)}
-                        if(JSON.parse(parent.window.Cookies.get("app"))["style"]["webpage"]!=options.children[1].children[1].value){window.parent.webpage.style=options.children[1].children[1].value}
-                        if(JSON.parse(parent.window.Cookies.get("app"))["programs"]["page"]!=options.children[2].children[1].value){window.parent.GUI.open(options.children[2].children[1].value)}
-                        if(JSON.parse(parent.window.Cookies.get("app"))["style"]["color"]!=options.children[3].children[1].value){window.parent.paint(options.children[3].children[1].value)}
-                        window.parent.packaging.encode("app","style","wallpaper",options.children[0].children[1].value)
-                        window.parent.packaging.encode("app","style","webpage",options.children[1].children[1].value)
-                        window.parent.packaging.encode("app","programs","page",options.children[2].children[1].value)
-                        window.parent.packaging.encode("app","style","color",options.children[3].children[1].value)
+                        if(parent.window.appdata.get("app")["style"]["wallpaper"]!=options.children[0].children[1].value){window.parent.wrap(options.children[0].children[1].value)}
+                        if(parent.window.appdata.get("app")["style"]["webpage"]!=options.children[1].children[1].value){window.parent.webpage.style=options.children[1].children[1].value}
+                        if(parent.window.appdata.get("app")["programs"]["page"]!=options.children[2].children[1].value){window.parent.GUI.open(options.children[2].children[1].value)}
+                        if(parent.window.appdata.get("app")["style"]["color"]!=options.children[3].children[1].value){window.parent.paint(options.children[3].children[1].value)}
+                        window.parent.appdata.encode("app",["style","wallpaper"],options.children[0].children[1].value)
+                        window.parent.appdata.encode("app",["style","webpage"],options.children[1].children[1].value)
+                        window.parent.appdata.encode("app",["programs","page"],options.children[2].children[1].value)
+                        window.parent.appdata.encode("app",["style","color"],options.children[3].children[1].value)
                         break}})
     </script>
 </body>

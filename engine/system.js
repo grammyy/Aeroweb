@@ -21,14 +21,12 @@ window.onload=function(){
         GUI.warn([aeroweb[3][e][0]+" : Folder <<"])}
     webpage.children[1].children[2].style.marginTop="20px"
     if(!appdata.get("app")){
-        appdata.set("app",{
-            "style":{"webpage":(window.innerWidth>700?"height:90%;width:95%":"height:100%;width:100%"),"color":"#ff4e4e","wallpaper":"url('packages/init.webp')"},
-            "programs":{"page":""}})
-            webpage.style=appdata.get("app")["style"]["webpage"]
-            paint("#ff4e4e")
-            compilers.write(webpage.children[2],aeroweb[0],"")
+        document.cookie="app={\"style\":{\"webpage\":\""+(window.innerWidth>700?"height:90%,width:95%":"height:100%,width:100%")+"\",\"color\":\"#ff4e4e\",\"wallpaper\":\"url('packages/init.webp')\",\"theme\":\"default\"},\"programs\":{\"page\":\"\"}}"
+        webpage.style=appdata.get("app")["style"]["webpage"].replace(",",";")
+        paint("#ff4e4e")
+        compilers.write(webpage.children[2],aeroweb[0],"")
         }else{
-            webpage.style=appdata.get("app")["style"]["webpage"]
+            webpage.style=appdata.get("app")["style"]["webpage"].replace(",",";")
             paint(appdata.get("app")["style"]["color"])
             wrap(appdata.get("app")["style"]["wallpaper"])
             t=appdata.get("app")["programs"]["page"];if(t){GUI.open(t)}else{compilers.write(webpage.children[2],aeroweb[0],"")}}

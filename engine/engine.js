@@ -1,6 +1,6 @@
 var compilers={
     program:function(n,p,s){
-        document.body.children[1].insertAdjacentHTML("beforeEnd","<div style='display:flex;flex-direction:column;color:rgb(173,173,173);transition-duration:unset;top:50px;left:430px;border-color:"+Cookies.get("app")["style"]["color"]+"!important;"+s+"' class='window'></div>")
+        document.body.children[1].insertAdjacentHTML("beforeEnd","<div style='display:flex;flex-direction:column;color:rgb(173,173,173);transition-duration:unset;top:50px;left:430px;border-color:"+appdata.get("app")["style"]["color"]+"!important;"+s+"' class='window'></div>")
         var self=Array.from(document.body.children[1].children).at(-1)
         self.insertAdjacentHTML("beforeEnd","<div style='position:absolute;right:0;height:10px;width:10px;z-index:10000' onclick='Array.from(document.body.children[1].children).at(-1).remove()'><svg aria-hidden='false' width='10' height='10' style='display:flex' viewBox='0 0 12 12'><polygon fill='currentColor' fill-rule='evenodd' points='11 1.576 6.583 6 11 10.424 10.424 11 6 6.583 1.576 11 1 10.424 5.417 6 1 1.576 1.576 1 6 5.417 10.424 1'></polygon></svg></div>")
         self.insertAdjacentHTML("beforeEnd","<div style='width:-webkit-fill-available;height:10px;z-index:1000;cursor:all-scroll'><label style='width:fit-content;white-space:nowrap;position:absolute'>"+n+"</label></div>")
@@ -58,17 +58,17 @@ var GUI={
             s.style.top = (s.offsetTop - position[1]) + "px"
             s.style.left = (s.offsetLeft - position[0]) + "px"}}}}
 var appdata={
-    set:function(n){
+    set:function(n,v){
         if(!document.cookie)document.cookie=n+"={}"
         else document.cookie=document.cookie+"; "+String(n)},
     encode:function(n,d,v){
         if(!document.cookie.includes(n+"="))document.cookie=n+"={"+d.replaceAll("]","").replaceAll("[","").split(",").join(":{},")+":{}}"
-        var t=decodeURIComponent(document.cookie).replaceAll("};","}||").split("||")
+        var t=document.cookie.replaceAll("};","}||").split("||")
         var p=t.findIndex((e)=>e.includes(n+"="))
         var m=t[p].replaceAll(n+"=","")
         console.log(JSON.parse(m)[d[0]][d[1]])
-        return JSON.parse(m.replace(JSON.parse(m)[d[0]][d[1]],v))},
+        document.cookie=n+"="+m.replace(JSON.parse(m)[d[0]][d[1]],v)},
     get:function(n){
-        var t=decodeURIComponent(document.cookie).replaceAll("};","}||").split("||")
+        var t=document.cookie.replaceAll("};","}||").split("||")
         var p=t.findIndex((e)=>e.includes(n+"="))
         return p==-1?undefined:JSON.parse(t[p].replaceAll(n+"=",""))}}
