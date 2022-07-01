@@ -1,5 +1,5 @@
 setInterval(function(){
-    if(!appdata.get("app")["style"]["theme"]||["undefined","default"].some(a=>appdata.get("app")["style"]["theme"].includes(a))){
+    if(!JSON.parse(Cookies.get("app"))["style"]["theme"]||["undefined","default"].some(a=>JSON.parse(Cookies.get("app"))["style"]["theme"].includes(a))){
         if(webpage.getBoundingClientRect().width<710||window.innerWidth<710){
             webpage.children[0].style.display=webpage.children[1].style.display="none"
             webpage.children[2].style.marginLeft=webpage.children[3].style.marginLeft="0px"
@@ -11,6 +11,6 @@ setInterval(function(){
             webpage.children[0].style.display=webpage.children[1].style.display="block"
             webpage.children[2].style.marginLeft=webpage.children[3].style.marginLeft="11%"
             webpage.children[2].style.marginRight=webpage.children[3].style.marginRight="16%"
-            try{if(webpage.children["dock"].tagName=="IFRAME")webpage.children["dock"].remove()}catch(e){}
+            try{if(webpage.children["dock"].tagName="IFRAME")webpage.children["dock"].remove()}catch(e){}
             webpage.children[3].className="subwindow"
             webpage.children["toolkit"].className=""}}},250)
