@@ -9,9 +9,9 @@ window.onload=function(){
         GUI.warn([aeroweb[1][c][0]+" : Verse <<"])}
     for(let d=0;d<aeroweb[2].length;d++){
         if(aeroweb[2][d][1].split(":")[0]=="https"){
-            webpage.children[0].insertAdjacentHTML("beforeend",'<div onclick=GUI.open('+"'"+aeroweb[2][d][1]+"'"+') class=database desktop>'+aeroweb[2][d][0]+'<label style="color: grey;margin-left: auto;right: 0">'+aeroweb[2][d][2]+'</label></div>')
+            webpage.children[0].insertAdjacentHTML("beforeend",'<div onclick=GUI.open('+"'"+aeroweb[2][d][1]+"'"+') class="database desktop">'+aeroweb[2][d][0]+'<label style="color:grey;margin-left:auto;right:0;font-size:8px">'+aeroweb[2][d][2]+'</label></div>')
             }else{
-                webpage.children[0].insertAdjacentHTML("beforeend",'<div onclick='+"window.open('"+aeroweb[2][d][2]+"')"+' class=database desktop>'+aeroweb[2][d][0]+'<label style="color: grey;margin-left: auto;right: 0">'+aeroweb[2][d][1]+'</label></div>')}
+                webpage.children[0].insertAdjacentHTML("beforeend",'<div onclick='+"window.open('"+aeroweb[2][d][2]+"')"+' class="database desktop">'+aeroweb[2][d][0]+'<label style=color:grey;margin-left:auto;right:0;font-size:8px>'+aeroweb[2][d][1]+'</label></div>')}
         GUI.warn([aeroweb[2][d][0]+" : List <<"])}
     for(var e=0,len=aeroweb[3].length;e<len;e++){ //margin-top: 15px;margin-left: 15px
         webpage.children[1].insertAdjacentHTML("beforeEnd",'<li id='+'li;'+e+' style="padding-bottom: 10px;margin-left: 15px" class="folders" >'+aeroweb[3][e][0]+'<ul style="padding-left: 20px;display: flex;flex-direction: column;margin: 0" id="'+aeroweb[3][e][0]+'ul'+'"></ul></li>')
