@@ -7,16 +7,21 @@ var Cookies={
     remove:function(k){
         delete _cookies[k]
         this.update()},
+    encode:function(a,b,r){
+        var g=JSON.parse(this.get("app"))
+        g[a][b]=r
+        this.set("app",JSON.stringify(g))},    
     update:function(){
-        //document.cookie.split(";").forEach(function(c){document.cookie=c.replace(/^ +/,"").replace(/=.*/,"=;expires="+new Date().toUTCString()+";path=/")});
+        document.cookie.split(";").forEach(function(c){document.cookie=c.replace(/^ +/,"").replace(/=.*/,"=;expires="+new Date().toUTCString()+";path=/")});
         for(var i=0;i<keys(_cookies).length;i++){document.cookie+=keys(_cookies)[i]+"="+_cookies[keys(_cookies)[i]]+"; "}}}
-if(!Cookies.get("app")){
-    document.cookie="app="+encodeURIComponent("{\"style\":{\"webpage\":"+(window.innerWidth>700?"\"height:90%;width:95%\"":"\"height:100%;width:100%\"")+",\"color\":\"#ff4e4e\",\"wallpaper\":\"url('packages/init.webp')\"},\"programs\":{\"page\":\"\"}}")}
 app={
     terminal:webpage.children[2].children["terminal"],
     cmd:webpage.children[2].children["terminal"].children[0].children[0],
     color:JSON.parse(Cookies.get("app"))["style"]["color"],
     buffer:120}
+if(!Cookies.get("app")){
+    document.cookie="app="+encodeURIComponent("{\"style\":{\"webpage\":"+(window.innerWidth>700?"\"height:90%;width:95%\"":"\"height:100%;width:100%\"")+",\"color\":\"#ff4e4e\",\"wallpaper\":\"url('packages/init.webp')\"},\"programs\":{\"page\":\"\"}}")
+    _cookies=document.cookie?Object.fromEntries(decodeURIComponent(document.cookie).split("; ").map((m)=>{m=m.split("=");return[m[0],m[1]]})):{}}
 for(var i=0,len=system["modules"].length;i<len;i++){
         d=document.createElement("script")
         d.src=system["modules"][i]
@@ -40,8 +45,8 @@ window.onload=function(){
         GUI.warn([aeroweb[3][e][0]+" : Folder <<"])}
     webpage.children[1].children[2].style.marginTop="20px"
     webpage.style=JSON.parse(Cookies.get("app"))["style"]["webpage"]
-    paint(JSON.parse(Cookies.get("app"))["style"]["color"])
-    wrap(JSON.parse(Cookies.get("app"))["style"]["wallpaper"])
+    //paint(JSON.parse(Cookies.get("app"))["style"]["color"])
+    //wrap(JSON.parse(Cookies.get("app"))["style"]["wallpaper"])
     t=JSON.parse(Cookies.get("app"))["programs"]["page"];if(t){GUI.open(t)}else{compilers.write(webpage.children[2],aeroweb[0],"")}
     SYS.clear=function(e,i){
         while(e.children.length-i){e.children[0].remove()}
