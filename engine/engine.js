@@ -60,18 +60,6 @@ var GUI={
 var packaging={
     port:function(){},
     encode:function(d,s,p,r){
-        a=Cookies.get(d)
+        var a=JSON.parse(Cookies.get(d))
         a[s][p]=r
-        Cookies.set(d,a)}}
-var _cookies=document.cookie?Object.fromEntries(decodeURIComponent(document.cookie).split("; ").map((m)=>{m=m.split("=");return[m[0],m[1]]})):{}
-var Cookies={
-    set:function(k,v){
-        _cookies[k]=v
-        this.update()},
-    get:function(k){return _cookies[k]},
-    remove:function(k){
-        delete _cookies[k]
-        this.update()},
-    update:function(){
-        document.cookie.split(";").forEach(function(c){document.cookie=c.replace(/^ +/,"").replace(/=.*/,"=;expires="+new Date().toUTCString()+";path=/")});
-        for(var i=0;i<keys(_cookies).length;i++){document.cookie+=keys(_cookies)[i]+"="+_cookies[keys(_cookies)[i]]+"; "}}}
+        document.cookie=a+"="+JSON.stringify(a)}}

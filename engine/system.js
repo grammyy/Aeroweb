@@ -1,3 +1,22 @@
+var _cookies=document.cookie?Object.fromEntries(decodeURIComponent(document.cookie).split("; ").map((m)=>{m=m.split("=");return[m[0],m[1]]})):{}
+var Cookies={
+    set:function(k,v){
+        _cookies[k]=v
+        this.update()},
+    get:function(k){return _cookies[k]},
+    remove:function(k){
+        delete _cookies[k]
+        this.update()},
+    update:function(){
+        //document.cookie.split(";").forEach(function(c){document.cookie=c.replace(/^ +/,"").replace(/=.*/,"=;expires="+new Date().toUTCString()+";path=/")});
+        for(var i=0;i<keys(_cookies).length;i++){document.cookie+=keys(_cookies)[i]+"="+_cookies[keys(_cookies)[i]]+"; "}}}
+if(!Cookies.get("app")){
+    document.cookie="app="+encodeURIComponent("{\"style\":{\"webpage\":"+(window.innerWidth>700?"\"height:90%;width:95%\"":"\"height:100%;width:100%\"")+",\"color\":\"#ff4e4e\",\"wallpaper\":\"url('packages/init.webp')\"},\"programs\":{\"page\":\"\"}}")}
+app={
+    terminal:webpage.children[2].children["terminal"],
+    cmd:webpage.children[2].children["terminal"].children[0].children[0],
+    color:JSON.parse(Cookies.get("app"))["style"]["color"],
+    buffer:120}
 for(var i=0,len=system["modules"].length;i<len;i++){
         d=document.createElement("script")
         d.src=system["modules"][i]
@@ -20,23 +39,10 @@ window.onload=function(){
             webpage.children[1].children[e+2].children[0].insertAdjacentHTML("beforeEnd","<a "+d[1]+" class='folders'>"+d[0].split(":")[0]+"<label style='color:yellow;margin-left:auto;right:0;white-space:nowrap'>"+d[0].split(":")[1]+"</label></a>")}
         GUI.warn([aeroweb[3][e][0]+" : Folder <<"])}
     webpage.children[1].children[2].style.marginTop="20px"
-    if(!Cookies.get("app")){
-        Cookies.set("app",{
-            "style":{"webpage":(window.innerWidth>700?"height:90%;width:95%":"height:100%;width:100%"),"color":"#ff4e4e","wallpaper":"url('packages/init.webp')"},
-            "programs":{"page":""}})
-            webpage.style=Cookies.get("app")["style"]["webpage"]
-            paint("#ff4e4e")
-            compilers.write(webpage.children[2],aeroweb[0],"")
-        }else{
-            webpage.style=Cookies.get("app")["style"]["webpage"]
-            paint(Cookies.get("app")["style"]["color"])
-            wrap(Cookies.get("app")["style"]["wallpaper"])
-            t=Cookies.get("app")["programs"]["page"];if(t){GUI.open(t)}else{compilers.write(webpage.children[2],aeroweb[0],"")}}
-    app={
-        terminal:webpage.children[2].children["terminal"],
-        cmd:webpage.children[2].children["terminal"].children[0].children[0],
-        color:Cookies.get("app")["style"]["color"],
-        buffer:120}
+    webpage.style=JSON.parse(Cookies.get("app"))["style"]["webpage"]
+    paint(JSON.parse(Cookies.get("app"))["style"]["color"])
+    wrap(JSON.parse(Cookies.get("app"))["style"]["wallpaper"])
+    t=JSON.parse(Cookies.get("app"))["programs"]["page"];if(t){GUI.open(t)}else{compilers.write(webpage.children[2],aeroweb[0],"")}
     SYS.clear=function(e,i){
         while(e.children.length-i){e.children[0].remove()}
         e.children[0].value=""}
