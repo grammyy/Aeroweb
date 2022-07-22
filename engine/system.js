@@ -24,18 +24,18 @@ window.onload=function(){
         Cookies.set("app",{
             "style":{"webpage":(window.innerWidth>700?"height:90%;width:95%":"height:100%;width:100%"),"color":"#ff4e4e","wallpaper":"url('packages/init.webp')"},
             "programs":{"page":""}})
-            webpage.style=JSON.parse(Cookies.get("app"))["style"]["webpage"]
+            webpage.style=Cookies.get("app")["style"]["webpage"]
             paint("#ff4e4e")
             compilers.write(webpage.children[2],aeroweb[0],"")
         }else{
-            webpage.style=JSON.parse(Cookies.get("app"))["style"]["webpage"]
-            paint(JSON.parse(Cookies.get("app"))["style"]["color"])
-            wrap(JSON.parse(Cookies.get("app"))["style"]["wallpaper"])
-            t=JSON.parse(Cookies.get("app"))["programs"]["page"];if(t){GUI.open(t)}else{compilers.write(webpage.children[2],aeroweb[0],"")}}
+            webpage.style=Cookies.get("app")["style"]["webpage"]
+            paint(Cookies.get("app")["style"]["color"])
+            wrap(Cookies.get("app")["style"]["wallpaper"])
+            t=Cookies.get("app")["programs"]["page"];if(t){GUI.open(t)}else{compilers.write(webpage.children[2],aeroweb[0],"")}}
     app={
         terminal:webpage.children[2].children["terminal"],
         cmd:webpage.children[2].children["terminal"].children[0].children[0],
-        color:JSON.parse(Cookies.get("app"))["style"]["color"],
+        color:Cookies.get("app")["style"]["color"],
         buffer:120}
     SYS.clear=function(e,i){
         while(e.children.length-i){e.children[0].remove()}
