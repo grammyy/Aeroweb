@@ -57,3 +57,9 @@ var GUI={
             position[3] = e.clientY
             s.style.top = (s.offsetTop - position[1]) + "px"
             s.style.left = (s.offsetLeft - position[0]) + "px"}}}}
+var packaging={
+    port:function(){},
+    encode:function(d,s,p,r){ //incorporate into native cookie system later
+        var a=Cookies.parse(d)
+        a[s][p]=r
+        Cookies.set(d,typeof(a)!="object"?a:JSON.stringify(a))}}
