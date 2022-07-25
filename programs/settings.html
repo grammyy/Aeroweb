@@ -42,10 +42,10 @@
                         if(parent.Cookies.parse("app")["style"]["webpage"]!=options.children[1].children[1].value){parent.webpage.style=options.children[1].children[1].value}
                         if(parent.Cookies.parse("app")["programs"]["page"]!=options.children[2].children[1].value){parent.GUI.open(options.children[2].children[1].value)}
                         if(parent.Cookies.parse("app")["style"]["color"]!=options.children[3].children[1].value){parent.paint(options.children[3].children[1].value)}
-                        parent.packaging.encode("app",["style","wallpaper"],options.children[0].children[1].value)
-                        parent.packaging.encode("app",["style","webpage"],options.children[1].children[1].value)
-                        parent.packaging.encode("app",["programs","page"],options.children[2].children[1].value)
-                        parent.packaging.encode("app",["style","color"],options.children[3].children[1].value)
+                        parent.packaging.encode("app","style","wallpaper",options.children[0].children[1].value)
+                        parent.packaging.encode("app","style","webpage",options.children[1].children[1].value)
+                        parent.packaging.encode("app","programs","page",options.children[2].children[1].value)
+                        parent.packaging.encode("app","style","color",options.children[3].children[1].value)
                         break}})
     </script>
 </body>
