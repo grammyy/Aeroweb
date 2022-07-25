@@ -61,5 +61,6 @@ var packaging={
     port:function(){},
     encode:function(d,s,p,r){ //incorporate into native cookie system later
         var a=Cookies.parse(d)
+        console.log(d,a,s,p,r)
         a[s][p]=r
         Cookies.set(d,typeof(a)!="object"?a:JSON.stringify(a))}}

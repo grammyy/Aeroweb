@@ -1,5 +1,4 @@
 function paint(c){
-    if(!arguments)return
     packaging.encode("app","style","color",c)
     try{app["color"]=c}catch(err){}
     o=["div","p","textarea"]
@@ -7,11 +6,15 @@ function paint(c){
         _o=document.getElementsByTagName(o[i])
         for(var _i=0;_i<_o.length;_i++){
             _o[_i].style.color=c
-            if(_o[_i].className.includes("button")){_o[_i].style.backgroundColor=c}
-            if(_o[_i].className.includes("window")){_o[_i].style.borderColor=c}
-            if(_o[_i].className.includes("verse")){_o[_i].style.borderColor=c}}}}
+            if(_o[_i].className.includes("button")){
+                _o[_i].style.backgroundColor=c}
+            if(_o[_i].className.includes("window")){
+                _o[_i].style.borderColor=c
+                _o[_i].style.boxShadow="0 0 4px "+c}
+            if(_o[_i].className.includes("verse")){
+                _o[_i].style.borderColor=c
+                _o[_i].style.boxShadow="0 0 4px "+c}}}}
 function wrap(w){
-    if(!arguments)return
     packaging.encode("app","style","wallpaper",w)
     o=document.getElementsByTagName("div")
     if(w=="revert"||!w){w="url('packages/init.webp')"}
@@ -22,9 +25,5 @@ function wrap(w){
             if(w.includes("/"))o[i].style.backgroundImage=w
             else o[i].style.background=w}}}
 function theme(t){
-    if(!arguments)return
     packaging.encode("app","style","theme",t)
     webpage.className="window "+t}
-paint()
-wrap()
-theme()
