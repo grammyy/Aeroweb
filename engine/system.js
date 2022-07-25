@@ -6,7 +6,6 @@ var Cookies={
     get:function(k){
         return _cookies[k]},
     parse:function(k){
-        console.log(k)
         return JSON.parse(this.get(k))},
     remove:function(k){
         document.cookie=k+"=; expires=Thu, 18 Dec 2013 12:00:00 UTC"
