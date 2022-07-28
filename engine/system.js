@@ -10,8 +10,9 @@ var Cookies={
     remove:function(k){
         document.cookie=k+"=; expires=Thu, 18 Dec 2013 12:00:00 UTC"
         delete _cookies[k]}}
-if(!document.cookies)
-    document.cookie="app="+encodeURIComponent("{\"style\":{\"webpage\":"+(window.innerWidth>700?"\"height:90%;width:95%\"":"\"height:100%;width:100%\"")+",\"color\":\"#ff4e4e\",\"wallpaper\":\"url('packages/init.webp')\"},\"programs\":{\"page\":\"\"}}")
+addEventListener("DOMContentLoaded",()=>{
+    if(!document.cookie)
+        document.cookie="app="+encodeURIComponent("{\"style\":{\"webpage\":"+(window.innerWidth>700?"\"height:90%;width:95%\"":"\"height:100%;width:100%\"")+",\"bloom\":\"false\",\"color\":\"#ff4e4e\",\"wallpaper\":\"url('packages/init.webp')\"},\"programs\":{\"page\":\"\"}}")})
 var _cookies=document.cookie?Object.fromEntries(decodeURIComponent(document.cookie).split("; ").map((m)=>{m=m.split("=");return[m[0],m[1]]})):{}
 app={
     terminal:webpage.children[2].children["terminal"],

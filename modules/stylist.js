@@ -9,11 +9,13 @@ function paint(c){
             if(_o[_i].className.includes("button")){
                 _o[_i].style.backgroundColor=c}
             if(_o[_i].className.includes("window")){
-                _o[_i].style.borderColor=c
-                _o[_i].style.boxShadow="0 0 4px "+c}
+                if(Cookies.parse("app")["style"]["bloom"]!="false")_o[_i].style.boxShadow="0 0 4px "+c
+                else _o[_i].style.boxShadow="revert"
+                _o[_i].style.borderColor=c}
             if(_o[_i].className.includes("verse")){
-                _o[_i].style.borderColor=c
-                _o[_i].style.boxShadow="0 0 4px "+c}}}}
+                if(Cookies.parse("app")["style"]["bloom"]!="false")_o[_i].style.boxShadow="0 0 4px "+c
+                else _o[_i].style.boxShadow="revert"
+                _o[_i].style.borderColor=c}}}}
 function wrap(w){
     packaging.encode("app","style","wallpaper",w)
     o=document.getElementsByTagName("div")
