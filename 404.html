@@ -1,1 +1,22 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aeroweb | 404</title>
+    <style>
+        body{display:flex;height:100vh;width:100vw;align-items:center;justify-content:center;background:transparent}
+        #prompt{height:40%;width:60%}
+    </style>
+</head>
+    <body>
+        <div id="prompt"></div>
+    </body>
+    <script>
+        document.body.children[0].style.borderColor=document.body.children[0].style.color=parent.Cookies.parse("app")["style"]["color"]
+        document.body.children[0].style.backgroundImage=parent.Cookies.parse("app")["style"]["wallpaper"]
+        //parent.Cookies.parse("app")["style"]["wallpaper"]}
+        //parent.Cookies.parse("app")["style"]["color"]}
+    </script>
+</html>

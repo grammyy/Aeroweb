@@ -27,12 +27,11 @@
         </div>
     <script>
         options=document.body.children["cluster"].children[4]
-        if(parent.Cookies.get("app")){
-            options.children[0].children[1].value=parent.Cookies.parse("app")["style"]["wallpaper"]
-            options.children[1].children[1].value=parent.Cookies.parse("app")["style"]["webpage"]
-            options.children[2].children[1].value=parent.Cookies.parse("app")["programs"]["page"]
-            options.children[3].children[1].value=parent.Cookies.parse("app")["style"]["color"]
-            options.children[4].children[1].value=parent.Cookies.parse("app")["style"]["bloom"]}
+        options.children[0].children[1].value=parent.Cookies.parse("app")["style"]["wallpaper"]
+        options.children[1].children[1].value=parent.Cookies.parse("app")["style"]["webpage"]
+        options.children[2].children[1].value=parent.Cookies.parse("app")["programs"]["page"]
+        options.children[3].children[1].value=parent.Cookies.parse("app")["style"]["color"]
+        options.children[4].children[1].value=parent.Cookies.parse("app")["style"]["bloom"]
         function AddEvent(object, id, func) {
             if(object.attachEvent) object.attachEvent("on" + id, function() {func.call(object);});
             else if(object.addEventListener) object.addEventListener(id, func, false);}
