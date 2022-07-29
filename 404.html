@@ -7,11 +7,13 @@
     <title>Aeroweb | 404</title>
     <style>
         body{display:flex;height:100vh;width:100vw;align-items:center;justify-content:center;background:transparent;overflow:hidden}
-        #prompt{height:40%;width:60%;border:1px solid}
+        #prompt{height:40%;width:60%;border:1px solid;display:flex;align-items:center;justify-content:center}
     </style>
 </head>
     <body>
-        <div id="prompt"></div>
+        <div id="prompt">
+            <p>Page not responsive</p>
+        </div>
     </body>
     <script>
         document.body.children[0].style.borderColor=document.body.children[0].style.color=parent.Cookies.parse("app")["style"]["color"]
