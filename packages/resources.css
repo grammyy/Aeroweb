@@ -22,16 +22,16 @@
 #clock{position:absolute;left:0;font-size:x-small}
 #analog{position:absolute;right:0;width:84px;font-size:x-small}
 
-.minimal div#drive{display:none !important}
-.minimal div#console{height:100% !important;margin-left:5px !important;margin-right:11% !important}
-.minimal div#explorer{width:10% !important}
-.minimal div#controlBar{display:none !important}
-.minimal div#toolkit{margin-right:5px !important}
-.fullscreen div#drive{display:none !important}
-.fullscreen div#console{margin:5px !important;height:100% !important}
-.fullscreen div#explorer{display:none !important}
-.fullscreen div#controlBar{display:none !important}
-.fullscreen div#toolkit{margin-right:5px !important;top:0 !important;bottom:revert !important}
+.minimal div#drive{display:none!important}
+.minimal div#console{height:-webkit-fill-available!important;margin-left:3px!important;margin-bottom:3px!important;margin-right:10.8%!important}
+.minimal div#explorer{width:10%!important}
+.minimal div#controlBar{display:none!important}
+.minimal div#toolkit{margin-right:5px!important}
+.fullscreen div#drive{display:none!important}
+.fullscreen div#console{margin:5px!important;height:-webkit-fill-available!important}
+.fullscreen div#explorer{display:none!important}
+.fullscreen div#controlBar{display:none!important}
+.fullscreen div#toolkit{margin-right:5px!important;top:0!important;bottom:revert!important}
 
 .mobile div.verse{width:40%}
 .mobile#toolkit{width:20px;margin-right:4.15%}
