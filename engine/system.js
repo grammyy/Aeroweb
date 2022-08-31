@@ -35,8 +35,8 @@ window.onload=function(){
             }else{
                 webpage.children[0].insertAdjacentHTML("beforeend",'<div onclick='+"window.open('"+aeroweb[2][d][2]+"')"+' class="database desktop">'+aeroweb[2][d][0]+'<label style=color:grey;margin-left:auto;right:0;font-size:8px>'+aeroweb[2][d][1]+'</label></div>')}
         GUI.warn([aeroweb[2][d][0]+" : List <<"])}
-    for(var e=0,len=aeroweb[3].length;e<len;e++){ //margin-top: 15px;margin-left: 15px
-        webpage.children[1].insertAdjacentHTML("beforeEnd",'<li id='+'li;'+e+' style="padding-bottom: 10px;margin-left: 15px" class="folders" >'+aeroweb[3][e][0]+'<ul style="padding-left: 20px;display: flex;flex-direction: column;margin: 0" id="'+aeroweb[3][e][0]+'ul'+'"></ul></li>')
+    for(var e=0,len=aeroweb[3].length;e<len;e++){
+        webpage.children[1].insertAdjacentHTML("beforeEnd",'<li id='+'li;'+e+' style="padding-bottom:10px;margin-left:30px" class="folders" >'+aeroweb[3][e][0]+'<ul style="padding-left:20px;display:flex;flex-direction:column;margin:0" id="'+aeroweb[3][e][0]+'ul'+'"></ul></li>')
         for(var _e=1,_len=aeroweb[3][e].length;_e<_len;_e++){
             d=aeroweb[3][e][_e]
             webpage.children[1].children[e+2].children[0].insertAdjacentHTML("beforeEnd","<a "+d[1]+" class='folders'>"+d[0].split(":")[0]+"<label style='color:yellow;margin-left:auto;right:0;white-space:nowrap'>"+d[0].split(":")[1]+"</label></a>")}
